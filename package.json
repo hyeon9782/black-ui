@@ -1,8 +1,21 @@
 {
-  "name": "black-ui",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@black-ui/react",
+  "version": "0.0.1",
   "type": "module",
+  "author": "hyeon9782",
+  "description": "A presonalised UI Library.",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/black-ui.umd.cjs",
+  "module": "./dist/black-ui.js",
+  "exports": {
+    ".": {
+      "import": "./dist/black-ui.js",
+      "require": "./dist/black-ui.umd.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -19,6 +32,11 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
+  "keywords": [
+    "design system",
+    "button",
+    "input"
+  ],
   "devDependencies": {
     "@storybook/addon-essentials": "^7.6.6",
     "@storybook/addon-interactions": "^7.6.6",
@@ -41,5 +59,9 @@
     "storybook": "^7.6.6",
     "typescript": "^5.2.2",
     "vite": "^5.0.8"
+  },
+  "peerDependencies": {
+    "react": "^18.0",
+    "react-dom": "^18.0"
   }
 }
