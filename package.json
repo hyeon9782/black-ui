@@ -1,19 +1,25 @@
 {
   "name": "@black-ui/react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
-  "author": "hyeon9782",
+  "author": {
+    "name": "hyeon9782"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hyeon9782/black-ui.git"
+  },
   "description": "A presonalised UI Library.",
   "license": "MIT",
   "files": [
     "dist"
   ],
-  "main": "./dist/black-ui.umd.cjs",
-  "module": "./dist/black-ui.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "exports": {
     ".": {
-      "import": "./dist/black-ui.js",
-      "require": "./dist/black-ui.umd.cjs"
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
     }
   },
   "scripts": {
@@ -22,7 +28,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepare": "rm -rf dist && mkdir dist && tsc"
   },
   "dependencies": {
     "@vanilla-extract/css": "^1.14.0",
