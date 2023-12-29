@@ -1,27 +1,44 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    // JavaScript 코드의 ECMAScript 버전을 설정하는 옵션 (가장 최신)
+    "target": "ESNext",
+    // TypeScript가 어떤 내장 API(예: Array.map, Promise 등)와 전역 객체(예: document, console 등)를 인식해야 하는지를 결정
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    //JavaScript 모듈을 생성
     "module": "ESNext",
-    "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    // "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
+    // Node.js의 모듈 해석 알고리즘 사용
+    "moduleResolution": "node",
+    // 컴파일된 JavaScript 파일들이 저장될 디렉토리를 설정
+    "outDir": "dist",
+    // 모든 파일을 분리된 모듈로서 처리하게 함
     "isolatedModules": true,
-    "noEmit": false,
+    // 컴파일을 실행하지만 JavaScript 출력을 제거함
+    "noEmit": true,
+    // : JSX 코드의 컴파일 방식을 설정합니다
     "jsx": "react-jsx",
-    "declaration": true,
-    "outDir": "./dist",
-
-    /* Linting */
+    //  모든 엄격한 타입 검사 옵션을 활성화함
     "strict": true,
+    // 사용되지 않는 변수에 대해 에러를 발생 시킴
     "noUnusedLocals": true,
+    // 사용되지 않는 함수 매개변수에 대해 에러를 발생
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    // switch 문의 case가 break나 return 등으로 종료되지 않으면 에러를 발생 시킴
+    "noFallthroughCasesInSwitch": true,
+    // TypeScript가 .d.ts 타입 선언 파일을 생성하도록 함
+    "declaration": true,
+    //  .d.ts 파일에 대한 소스 맵을 생성하도록 함
+    "declarationMap": true,
+    // 컴파일된 JavaScript 파일에 대한 소스 맵을 생성하도록 함
+    "sourceMap": true,
+    // CommonJS와 ES 모듈 사이의 상호 운용성을 위한 코드를 생성하도록 함
+    "esModuleInterop": true,
+    // 대소문자가 다르게 사용된 파일 이름에 대해 에러를 발생 시킴
+    "forceConsistentCasingInFileNames": true,
+    "allowImportingTsExtensions": true,
+    "skipLibCheck": true
   },
-  "include": ["./src/components"],
+  // 컴파일 대상 파일들을 설정함
+  "include": ["src/components"],
+  //  프로젝트 참조 설정을 위한 경로를 설정함
   "references": [{ "path": "./tsconfig.node.json" }]
 }

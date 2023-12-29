@@ -2,21 +2,33 @@ import { defineConfig } from "vite";
 import { resolve } from "path";
 import react from "@vitejs/plugin-react-swc";
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+import libCss from "vite-plugin-libcss";
+import dts from "vite-plugin-dts";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vanillaExtractPlugin(), react()],
+  plugins: [
+    vanillaExtractPlugin(),
+    react(),
+    dts({
+      insertTypesEntry: true, // 컴포넌트 타입 생성
+    }),
+    libCss(),
+  ],
   build: {
     lib: {
       entry: resolve(__dirname, "src/components/index.ts"),
       name: "@black-ui/react",
-      fileName: "black-ui",
+      fileName: "index",
+      // 어떤 모듈형태로 빌드할건지 : es, umd, cjs
+      formats: ["es", "umd", "cjs"],
     },
     rollupOptions: {
-      external: ["react"],
+      external: ["react", "react-dom"],
       output: {
         globals: {
           react: "React",
+          "react-dom": "ReactDOM",
         },
       },
     },

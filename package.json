@@ -1,6 +1,6 @@
 {
   "name": "@black-ui/react",
-  "version": "0.0.2",
+  "version": "0.0.10",
   "type": "module",
   "author": {
     "name": "hyeon9782"
@@ -15,29 +15,25 @@
     "dist"
   ],
   "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.js"
-    }
-  },
+  "types": "./dist/index.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build --base=./",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "prepare": "rm -rf dist && mkdir dist && tsc"
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@vanilla-extract/css": "^1.14.0",
     "@vanilla-extract/dynamic": "^2.1.0",
     "@vanilla-extract/recipes": "^0.5.1",
     "@vanilla-extract/sprinkles": "^1.6.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.0",
+    "react-dom": "^18.0",
+    "vite-plugin-commonjs": "^0.10.1",
+    "vite-plugin-dts": "^3.7.0",
+    "vite-plugin-libcss": "^1.1.1"
   },
   "keywords": [
     "design system",
