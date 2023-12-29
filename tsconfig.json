@@ -35,7 +35,8 @@
     // 대소문자가 다르게 사용된 파일 이름에 대해 에러를 발생 시킴
     "forceConsistentCasingInFileNames": true,
     "allowImportingTsExtensions": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": ["@testing-library/jest-dom", "jest"]
   },
   // 컴파일 대상 파일들을 설정함
   "include": ["src/components"],

@@ -11,22 +11,22 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
-  args: { variant: "primary", children: "Click Me" },
+export const Small: Story = {
+  args: { size: "sm", children: "Click Me" },
 };
 
-export const Secondary: Story = {
-  args: { variant: "secondary", children: "Click Me" },
+export const Medium: Story = {
+  args: { size: "md", children: "Click Me" },
 };
 
-export const WithOnClick: Story = {
+export const LargeOnClick: Story = {
   args: {
-    variant: "primary",
+    size: "lg",
     children: "Click Me",
     onClick: () => alert("Clicked!"),
   },
 };
 
 export const Disabled: Story = {
-  args: { variant: "primary", children: "Click Me", disabled: true },
+  args: { size: "lg", children: "Click Me", disabled: true },
 };

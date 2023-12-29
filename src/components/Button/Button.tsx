@@ -3,10 +3,9 @@ import { button } from "./Button.css";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary";
   size?: "sm" | "md" | "lg";
 }
-const Button: React.FC<ButtonProps> = ({ variant, size, ...props }) => {
+const Button: React.FC<ButtonProps> = ({ size, ...props }) => {
   return (
     <button
       {...props}
