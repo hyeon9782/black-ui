@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Switch from "./Switch";
+import Radio from "./Radio";
 
 const meta = {
-  title: "UI/Select",
-  component: Switch,
+  title: "UI/Radio",
+  component: Radio,
   tags: ["autodocs"],
   parameters: { layout: "centered" },
-} satisfies Meta<typeof Switch>;
+} satisfies Meta<typeof Radio>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
