@@ -13,7 +13,7 @@
     // 모든 파일을 분리된 모듈로서 처리하게 함
     "isolatedModules": true,
     // 컴파일을 실행하지만 JavaScript 출력을 제거함
-    "noEmit": true,
+    "noEmit": true, // 빌드할 때 true로 변경
     // : JSX 코드의 컴파일 방식을 설정합니다
     "jsx": "react-jsx",
     //  모든 엄격한 타입 검사 옵션을 활성화함

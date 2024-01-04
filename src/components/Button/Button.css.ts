@@ -6,18 +6,21 @@ export const button = recipe({
   base: {
     border: "none",
     fontWeight: "bold",
+    fontSize: vars.fonts.label,
     cursor: "pointer",
+    borderRadius: vars.radii.lg,
   },
   variants: {
     size: {
-      sm: sprinkles({ paddingX: "4px", paddingY: "8px" }),
-      md: sprinkles({ paddingX: "6px", paddingY: "12px" }),
-      lg: sprinkles({ paddingX: "8px", paddingY: "16px" }),
+      sm: sprinkles({ paddingX: "1", paddingY: "2" }),
+      md: sprinkles({ paddingX: "2", paddingY: "3" }),
+      lg: sprinkles({ paddingX: "3", paddingY: "4" }),
     },
     variant: {
       solid: {},
       outline: {
-        borderColor: vars.colors.white,
+        borderStyle: "solid",
+        borderWidth: "1px",
       },
     },
     color: {
@@ -28,19 +31,19 @@ export const button = recipe({
   compoundVariants: [
     {
       variants: { variant: "solid", color: "black" },
-      style: sprinkles({}),
+      style: sprinkles({ backgroundColor: "black", color: "white" }),
     },
     {
       variants: { variant: "solid", color: "red" },
-      style: sprinkles({}),
+      style: sprinkles({ backgroundColor: "red", color: "white" }),
     },
     {
       variants: { variant: "outline", color: "black" },
-      style: sprinkles({}),
+      style: sprinkles({ backgroundColor: "white", color: "black" }),
     },
     {
       variants: { variant: "outline", color: "red" },
-      style: sprinkles({}),
+      style: sprinkles({ backgroundColor: "white", color: "red" }),
     },
   ],
 });
