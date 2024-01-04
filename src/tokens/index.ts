@@ -1,4 +1,3 @@
-import { borderStyles, borderWidths } from "./border";
 import { colors } from "./color";
 import { radii } from "./radii";
 import { shadows } from "./shadows";
@@ -7,8 +6,6 @@ import { fonts } from "./fonts";
 import { media } from "./media";
 
 export const tokens = {
-  borderStyles,
-  borderWidths,
   colors,
   radii,
   shadows,
@@ -17,5 +14,4 @@ export const tokens = {
   media,
 };
 
-export type { Mode } from "./color";
 export type Tokens = typeof tokens;

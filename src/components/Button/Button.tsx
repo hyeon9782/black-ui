@@ -1,16 +1,24 @@
-import React from "react";
-import { button } from "./Button.css";
+import { ButtonHTMLAttributes, PropsWithChildren } from "react";
+import { ButtonVariants, button } from "./Button.css";
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  size?: "sm" | "md" | "lg";
-}
-const Button: React.FC<ButtonProps> = ({ size, ...props }) => {
+export type ButtonProps = ButtonVariants &
+  ButtonHTMLAttributes<HTMLButtonElement>;
+
+const Button = ({
+  variant = "solid",
+  size = "md",
+  color = "black",
+  onClick,
+  ...props
+}: PropsWithChildren<ButtonProps>) => {
   return (
     <button
+      onClick={onClick}
       {...props}
       className={button({
         size,
+        variant,
+        color,
       })}
     >
       {props.children}
