@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, PropsWithChildren } from "react";
+import { ButtonHTMLAttributes } from "react";
 import { ButtonVariants, button } from "./Button.css";
 
 export type ButtonProps = ButtonVariants &
@@ -9,16 +9,19 @@ const Button = ({
   size = "md",
   color = "black",
   onClick,
+  disabled,
   ...props
-}: PropsWithChildren<ButtonProps>) => {
+}: ButtonProps) => {
   return (
     <button
       onClick={onClick}
+      disabled={disabled}
       {...props}
       className={button({
         size,
         variant,
         color,
+        disabled,
       })}
     >
       {props.children}

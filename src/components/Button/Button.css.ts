@@ -27,6 +27,13 @@ export const button = recipe({
       black: {},
       red: {},
     },
+    disabled: {
+      true: {
+        cursor: "not-allowed",
+        opacity: "0.5",
+      },
+      false: {},
+    },
   },
   compoundVariants: [
     {
