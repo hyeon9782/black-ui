@@ -1,9 +1,15 @@
 import Button from "./components/Button";
 import Input from "./components/Input";
 import Checkbox from "./components/Checkbox";
-import React from "react";
+import { Radio, RadioGroup } from "./components/Radio";
+import React, { useState } from "react";
 
 function App() {
+  const [radioValue, setRadioValue] = useState("");
+
+  const changeRadio = (value: string) => {
+    setRadioValue(value);
+  };
   return (
     <div>
       <div>
@@ -45,7 +51,21 @@ function App() {
           LG Checkbox
         </Checkbox>
       </div>
-      <div></div>
+      <RadioGroup onChange={changeRadio}>
+        <Radio color="black" size="xs" value={1}>
+          XS Radio
+        </Radio>
+        <Radio color="black" size="sm" value={2}>
+          SM Radio
+        </Radio>
+        <Radio color="black" size="md" value={3}>
+          MD Radio
+        </Radio>
+        <Radio color="red" size="lg">
+          LG Radio
+        </Radio>
+      </RadioGroup>
+      <div>{radioValue}</div>
     </div>
   );
 }

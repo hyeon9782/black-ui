@@ -11,6 +11,7 @@ const Checkbox = ({
   ...props
 }: CheckboxProps) => {
   const id = useId();
+
   return (
     <div
       className={checkbox({
