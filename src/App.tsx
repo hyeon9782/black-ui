@@ -1,5 +1,6 @@
 import Button from "./components/Button";
 import Input from "./components/Input";
+import Checkbox from "./components/Checkbox";
 import React from "react";
 
 function App() {
@@ -30,6 +31,21 @@ function App() {
         <Input placeholder="아이디를 입력해라" size="md" />
         <Input placeholder="아이디를 입력해라" size="lg" />
       </div>
+      <div>
+        <Checkbox color="black" size="xs">
+          XS Checkbox
+        </Checkbox>
+        <Checkbox color="red" size="sm" disabled>
+          SM Checkbox
+        </Checkbox>
+        <Checkbox color="red" size="md">
+          MD Checkbox
+        </Checkbox>
+        <Checkbox color="red" size="lg">
+          LG Checkbox
+        </Checkbox>
+      </div>
+      <div></div>
     </div>
   );
 }
