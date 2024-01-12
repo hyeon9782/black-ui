@@ -2,6 +2,7 @@ import Button from "./components/Button";
 import Input from "./components/Input";
 import Checkbox from "./components/Checkbox";
 import { Radio, RadioGroup } from "./components/Radio";
+import Textarea from "./components/Textarea";
 import React, { useState } from "react";
 
 function App() {
@@ -61,11 +62,21 @@ function App() {
         <Radio color="black" size="md" value={3}>
           MD Radio
         </Radio>
-        <Radio color="red" size="lg">
+        <Radio color="red" size="lg" value={4}>
           LG Radio
         </Radio>
       </RadioGroup>
       <div>{radioValue}</div>
+      <div>
+        <Textarea placeholder="Here is a sample placeholder" size="xs" />
+        <Textarea placeholder="Here is a sample placeholder" size="sm" />
+        <Textarea
+          placeholder="Here is a sample placeholder"
+          disabled
+          size="md"
+        />
+        <Textarea placeholder="Here is a sample placeholder" size="lg" />
+      </div>
     </div>
   );
 }

@@ -1,9 +1,9 @@
-import React, { cloneElement, Children, ReactNode, useId } from "react";
+import { ReactNode, useId } from "react";
 import { RadioContext } from "./RadioContext";
 
 type RadioGroupProps = {
-  value: string;
-  onChange: any;
+  value?: string;
+  onChange?: any;
   children: ReactNode;
 };
 
