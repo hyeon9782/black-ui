@@ -1,9 +1,10 @@
 import { MouseEvent, useState } from "react";
-import { select } from "./Select.css";
-type SelectProps = {
+import { SelectVariants, select } from "./Select.css";
+type SelectProps = SelectVariants & {
   options: string[];
+  label: string;
 };
-const Select = ({ options }: SelectProps) => {
+const Select = ({ options, label, size, variant }: SelectProps) => {
   const [open, setOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
 
@@ -19,19 +20,16 @@ const Select = ({ options }: SelectProps) => {
   };
 
   return (
-    <section className={select({})}>
-      <button onClick={toggleOpen}>{selectedItem ?? "open Me!"}</button>
+    <section>
+      <button className={select({ size, variant })} onClick={toggleOpen}>
+        {selectedItem ?? label}
+      </button>
       {open && (
         <section>
+          <div onClick={selectItem}>{label}</div>
           {options.map((option, idx) => {
             return (
-              <div
-                key={idx}
-                onClick={selectItem}
-                className={`optionItem ${
-                  selectedItem === option && "selected"
-                }`}
-              >
+              <div key={idx} onClick={selectItem}>
                 {option}
               </div>
             );

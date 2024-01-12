@@ -81,7 +81,30 @@ function App() {
         <Textarea placeholder="Here is a sample placeholder" size="lg" />
       </div>
       <div>
-        <Select options={options} />
+        <Select
+          options={options}
+          label="과일을 선택해주세요!"
+          size="xs"
+          variant="outline"
+        />
+        <Select
+          options={options}
+          label="과일을 선택해주세요!"
+          size="sm"
+          variant="unstyled"
+        />
+        <Select
+          options={options}
+          label="과일을 선택해주세요!"
+          size="md"
+          variant="flushed"
+        />
+        <Select
+          options={options}
+          label="과일을 선택해주세요!"
+          size="lg"
+          variant="filled"
+        />
       </div>
     </div>
   );
