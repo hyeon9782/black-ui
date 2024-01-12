@@ -1,9 +1,12 @@
 import Button from "./components/Button";
 import Input from "./components/Input";
+import Select from "./components/Select";
 import Checkbox from "./components/Checkbox";
 import { Radio, RadioGroup } from "./components/Radio";
 import Textarea from "./components/Textarea";
 import React, { useState } from "react";
+
+const options = ["딸기", "사과", "포도"];
 
 function App() {
   const [radioValue, setRadioValue] = useState("");
@@ -76,6 +79,9 @@ function App() {
           size="md"
         />
         <Textarea placeholder="Here is a sample placeholder" size="lg" />
+      </div>
+      <div>
+        <Select options={options} />
       </div>
     </div>
   );

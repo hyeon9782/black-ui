@@ -10,3 +10,5 @@ export const select = recipe({
     },
   },
 });
+
+export const option = recipe({});
