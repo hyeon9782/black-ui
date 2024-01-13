@@ -2,6 +2,7 @@ import Button from "./components/Button";
 import Input from "./components/Input";
 import Select from "./components/Select";
 import Checkbox from "./components/Checkbox";
+import Switch from "./components/Switch";
 import { Radio, RadioGroup } from "./components/Radio";
 import Textarea from "./components/Textarea";
 import React, { useState } from "react";
@@ -114,6 +115,21 @@ function App() {
           size="lg"
           variant="filled"
         />
+      </fieldset>
+      <fieldset className={container}>
+        <legend>Switch</legend>
+        <Switch size="xs" color="green">
+          빨강
+        </Switch>
+        <Switch size="sm" color="blue">
+          파랑
+        </Switch>
+        <Switch size="md" color="green">
+          빨강
+        </Switch>
+        <Switch size="lg" color="blue">
+          파랑
+        </Switch>
       </fieldset>
     </div>
   );
