@@ -2,6 +2,7 @@ import { ReactNode, createContext, useId } from "react";
 import FormLabel from "./FormLabel";
 import FormErrorMessage from "./FormErrorMessage";
 import FormHelperText from "./FormHelperText";
+import "@/css/global.css";
 
 type FormContextProps = {
   id?: string;
@@ -11,7 +12,7 @@ export const FormContext = createContext<FormContextProps>({});
 
 type FormControlProps = {
   children: ReactNode;
-  isInvalid: boolean;
+  isInvalid?: boolean;
 };
 
 const FormControl = ({ children, ...props }: FormControlProps) => {
