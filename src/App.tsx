@@ -5,6 +5,7 @@ import Checkbox from "./components/Checkbox";
 import { Radio, RadioGroup } from "./components/Radio";
 import Textarea from "./components/Textarea";
 import React, { useState } from "react";
+import { container, formBox } from "./app.css";
 
 const options = ["딸기", "사과", "포도"];
 
@@ -15,8 +16,9 @@ function App() {
     setRadioValue(value);
   };
   return (
-    <div>
-      <div>
+    <div className={formBox}>
+      <fieldset className={container}>
+        <legend>Button</legend>
         <Button
           size="lg"
           variant="solid"
@@ -34,14 +36,16 @@ function App() {
         >
           레드 버튼
         </Button>
-      </div>
-      <div>
+      </fieldset>
+      <fieldset className={container}>
+        <legend>Input</legend>
         <Input placeholder="아이디를 입력해라" size="xs" />
         <Input placeholder="아이디를 입력해라" size="sm" />
         <Input placeholder="아이디를 입력해라" size="md" />
         <Input placeholder="아이디를 입력해라" size="lg" />
-      </div>
-      <div>
+      </fieldset>
+      <fieldset className={container}>
+        <legend>Checkbox</legend>
         <Checkbox color="black" size="xs">
           XS Checkbox
         </Checkbox>
@@ -54,23 +58,27 @@ function App() {
         <Checkbox color="red" size="lg">
           LG Checkbox
         </Checkbox>
-      </div>
-      <RadioGroup onChange={changeRadio}>
-        <Radio color="black" size="xs" value={1}>
-          XS Radio
-        </Radio>
-        <Radio color="black" size="sm" value={2}>
-          SM Radio
-        </Radio>
-        <Radio color="black" size="md" value={3}>
-          MD Radio
-        </Radio>
-        <Radio color="red" size="lg" value={4}>
-          LG Radio
-        </Radio>
-      </RadioGroup>
-      <div>{radioValue}</div>
-      <div>
+      </fieldset>
+      <fieldset className={container}>
+        <legend>Radio</legend>
+        <RadioGroup onChange={changeRadio}>
+          <Radio color="black" size="xs" value={1}>
+            XS Radio
+          </Radio>
+          <Radio color="black" size="sm" value={2}>
+            SM Radio
+          </Radio>
+          <Radio color="black" size="md" value={3}>
+            MD Radio
+          </Radio>
+          <Radio color="red" size="lg" value={4}>
+            LG Radio
+          </Radio>
+        </RadioGroup>
+        <div>{radioValue}</div>
+      </fieldset>
+      <fieldset className={container}>
+        <legend>Textarea</legend>
         <Textarea placeholder="Here is a sample placeholder" size="xs" />
         <Textarea placeholder="Here is a sample placeholder" size="sm" />
         <Textarea
@@ -79,8 +87,9 @@ function App() {
           size="md"
         />
         <Textarea placeholder="Here is a sample placeholder" size="lg" />
-      </div>
-      <div>
+      </fieldset>
+      <fieldset className={container}>
+        <legend>Select</legend>
         <Select
           options={options}
           label="과일을 선택해주세요!"
@@ -105,7 +114,7 @@ function App() {
           size="lg"
           variant="filled"
         />
-      </div>
+      </fieldset>
     </div>
   );
 }
