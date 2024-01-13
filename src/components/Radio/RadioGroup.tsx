@@ -1,20 +1,26 @@
 import { ReactNode, useId } from "react";
 import { RadioContext } from "./RadioContext";
+import { radio } from "./Radio.css";
 
 type RadioGroupProps = {
   value?: string;
   onChange?: any;
+  direction?: "row" | "colunm";
   children: ReactNode;
 };
 
-const RadioGroup = ({ children, ...props }: RadioGroupProps) => {
+const RadioGroup = ({
+  children,
+  direction = "colunm",
+  ...props
+}: RadioGroupProps) => {
   const id = useId();
   const prop = {
     ...props,
     name: id,
   };
   return (
-    <div>
+    <div className={radio({ direction })}>
       <RadioContext.Provider value={prop}>{children}</RadioContext.Provider>
     </div>
   );

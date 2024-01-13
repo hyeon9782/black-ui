@@ -61,7 +61,7 @@ function App() {
       </fieldset>
       <fieldset className={container}>
         <legend>Radio</legend>
-        <RadioGroup onChange={changeRadio}>
+        <RadioGroup onChange={changeRadio} direction="row">
           <Radio color="black" size="xs" value={1}>
             XS Radio
           </Radio>

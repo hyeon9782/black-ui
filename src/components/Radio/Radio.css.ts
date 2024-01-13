@@ -22,6 +22,12 @@ export const radio = recipe({
         zoom: 3,
       },
     },
+    direction: {
+      row: {
+        display: "flex",
+      },
+      colunm: {},
+    },
     color: {
       black: {
         accentColor: vars.colors.black,
