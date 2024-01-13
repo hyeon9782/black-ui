@@ -4,17 +4,18 @@ import { vars } from "@/css/vars.css";
 
 export const button = recipe({
   base: {
+    alignSelf: "flex-start",
     border: "none",
     fontWeight: "bold",
-    fontSize: vars.fonts.label,
     cursor: "pointer",
     borderRadius: vars.radii.lg,
   },
   variants: {
     size: {
-      sm: sprinkles({ paddingX: "1", paddingY: "2" }),
-      md: sprinkles({ paddingX: "2", paddingY: "3" }),
-      lg: sprinkles({ paddingX: "3", paddingY: "4" }),
+      xs: sprinkles({ paddingX: "1", paddingY: "2" }),
+      sm: sprinkles({ paddingX: "2", paddingY: "3" }),
+      md: sprinkles({ paddingX: "4", paddingY: "5" }),
+      lg: sprinkles({ paddingX: "5", paddingY: "6" }),
     },
     variant: {
       solid: {},

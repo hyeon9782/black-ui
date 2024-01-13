@@ -8,6 +8,12 @@ export const iconButton = recipe({
       black: sprinkles({ color: "black" }),
       red: sprinkles({ color: "red" }),
     },
+    disabled: {
+      true: {
+        opacity: 0.5,
+      },
+      false: {},
+    },
   },
 });
 

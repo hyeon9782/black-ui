@@ -24,13 +24,29 @@ function App() {
       <fieldset className={container}>
         <legend>Button</legend>
         <Button
-          size="lg"
+          size="xs"
           variant="solid"
           color="black"
           onClick={() => alert("블랙 클릭")}
           disabled
         >
           블랙 버튼
+        </Button>
+        <Button
+          size="sm"
+          variant="outline"
+          color="red"
+          onClick={() => alert("레드 클릭")}
+        >
+          레드 버튼
+        </Button>
+        <Button
+          size="md"
+          variant="outline"
+          color="red"
+          onClick={() => alert("레드 클릭")}
+        >
+          레드 버튼
         </Button>
         <Button
           size="lg"
