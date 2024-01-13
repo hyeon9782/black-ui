@@ -1,4 +1,5 @@
 import Button from "./components/Form/Button";
+import IconButton from "./components/Form/IconButton";
 import Input from "./components/Form/Input";
 import Select from "./components/Form/Select";
 import Checkbox from "./components/Form/Checkbox";
@@ -8,6 +9,7 @@ import { Radio, RadioGroup } from "./components/Form/Radio";
 import Textarea from "./components/Form/Textarea";
 import React, { useState } from "react";
 import { container, formBox } from "./app.css";
+import { IoMdStar } from "react-icons/io";
 
 const options = ["딸기", "사과", "포도"];
 
@@ -38,6 +40,7 @@ function App() {
         >
           레드 버튼
         </Button>
+        <IconButton icon={<IoMdStar />} aria-label="Star" isLoading />
       </fieldset>
       <fieldset className={container}>
         <legend>Input</legend>

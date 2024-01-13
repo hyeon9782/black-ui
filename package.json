@@ -33,6 +33,7 @@
     "@vanilla-extract/sprinkles": "^1.6.1",
     "react": "^18.0",
     "react-dom": "^18.0",
+    "react-icons": "^5.0.1",
     "vite-plugin-commonjs": "^0.10.1",
     "vite-plugin-dts": "^3.7.0",
     "vite-plugin-libcss": "^1.1.1"

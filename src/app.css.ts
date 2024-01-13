@@ -5,6 +5,7 @@ export const formBox = style({
   flexDirection: "column",
   gap: 10,
   flexWrap: "wrap",
+  padding: 10,
 });
 
 export const container = style({
