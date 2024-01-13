@@ -3,6 +3,7 @@ import Input from "./components/Form/Input";
 import Select from "./components/Form/Select";
 import Checkbox from "./components/Form/Checkbox";
 import Switch from "./components/Form/Switch";
+import FormControl from "./components/Form/FormControl";
 import { Radio, RadioGroup } from "./components/Form/Radio";
 import Textarea from "./components/Form/Textarea";
 import React, { useState } from "react";
@@ -130,6 +131,19 @@ function App() {
         <Switch size="lg" color="blue">
           파랑
         </Switch>
+      </fieldset>
+      <fieldset className={container}>
+        <legend>Form Control</legend>
+        <FormControl>
+          <FormControl.Label>Email</FormControl.Label>
+          <Input />
+          <FormControl.HelperText>
+            Enter the email you'd like to receive the newsletter on.
+          </FormControl.HelperText>
+          <FormControl.ErrorMessage>
+            Email is required.
+          </FormControl.ErrorMessage>
+        </FormControl>
       </fieldset>
     </div>
   );

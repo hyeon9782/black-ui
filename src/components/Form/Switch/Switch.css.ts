@@ -26,6 +26,9 @@ export const customSwitch = recipe({
       transition: "0.25s linear transform",
       transform: "translateX(0rem)",
     },
+    ":focus": {
+      outlineColor: "transparent",
+    },
     selectors: {
       "&:checked::before": {
         transform: "translateX(1rem)",

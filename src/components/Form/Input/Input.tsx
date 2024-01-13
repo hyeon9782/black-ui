@@ -1,5 +1,6 @@
-import { InputHTMLAttributes } from "react";
+import { InputHTMLAttributes, useContext } from "react";
 import { InputVariants, input } from "./Input.css";
+import { FormContext } from "../FormControl/FormControl";
 
 export type InputProps = InputVariants &
   Omit<InputHTMLAttributes<HTMLInputElement>, "size">;
@@ -10,9 +11,14 @@ const Input = ({
   readOnly,
   ...props
 }: InputProps) => {
+  const { id } = useContext(FormContext);
+
+  console.log(id);
+
   return (
     <input
       {...props}
+      id={id}
       readOnly={readOnly}
       className={input({
         size,
