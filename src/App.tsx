@@ -7,6 +7,7 @@ import Switch from "./components/Form/Switch";
 import FormControl from "./components/Form/FormControl";
 import { Radio, RadioGroup } from "./components/Form/Radio";
 import Textarea from "./components/Form/Textarea";
+import Card from "./components/DataDisplay/Card";
 import React, { useState } from "react";
 import { container, formBox } from "./app.css";
 import { IoMdStar } from "react-icons/io";
@@ -163,6 +164,10 @@ function App() {
             Email is required.
           </FormControl.ErrorMessage>
         </FormControl>
+      </fieldset>
+      <fieldset>
+        <legend>Card</legend>
+        <Card>Card</Card>
       </fieldset>
     </div>
   );
