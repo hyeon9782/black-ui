@@ -1,7 +1,7 @@
 import React from "react";
 
 const Modal = () => {
-  return <div>Modal</div>;
+  return <dialog>Modal</dialog>;
 };
 
 export default Modal;

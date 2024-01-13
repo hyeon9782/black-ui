@@ -15,6 +15,9 @@ export default defineConfig({
     }),
     libCss(),
   ],
+  resolve: {
+    alias: [{ find: "@", replacement: "/src" }],
+  },
   build: {
     lib: {
       entry: resolve(__dirname, "src/components/index.ts"),

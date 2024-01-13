@@ -1,6 +1,6 @@
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
-import { sprinkles } from "../../css/sprinkles.css";
-import { vars } from "../../css/vars.css";
+import { sprinkles } from "@/css/sprinkles.css";
+import { vars } from "@/css/vars.css";
 
 export const button = recipe({
   base: {

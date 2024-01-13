@@ -1,5 +1,5 @@
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
-import { vars } from "../../css/vars.css";
+import { vars } from "@/css/vars.css";
 
 export const input = recipe({
   base: {

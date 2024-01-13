@@ -1,10 +1,10 @@
-import Button from "./components/Button";
-import Input from "./components/Input";
-import Select from "./components/Select";
-import Checkbox from "./components/Checkbox";
-import Switch from "./components/Switch";
-import { Radio, RadioGroup } from "./components/Radio";
-import Textarea from "./components/Textarea";
+import Button from "./components/Form/Button";
+import Input from "./components/Form/Input";
+import Select from "./components/Form/Select";
+import Checkbox from "./components/Form/Checkbox";
+import Switch from "./components/Form/Switch";
+import { Radio, RadioGroup } from "./components/Form/Radio";
+import Textarea from "./components/Form/Textarea";
 import React, { useState } from "react";
 import { container, formBox } from "./app.css";
 
