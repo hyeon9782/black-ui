@@ -14,6 +14,13 @@ import {
   TabPanel,
   TabPanels,
 } from "./components/Disclosure/Tabs";
+
+import {
+  Accordion,
+  AccordionButton,
+  AccordionPanel,
+  AccordionItem,
+} from "./components/Disclosure/Accordion";
 import Card from "./components/DataDisplay/Card";
 import React, { useState } from "react";
 import { container, formBox } from "./app.css";
@@ -190,10 +197,16 @@ function App() {
           </TabPanel>
           <TabPanel index={3}>
             <div>
-              <fieldset>
-                <legend>Card</legend>
-                <Card>Card</Card>
-              </fieldset>
+              <Accordion>
+                <AccordionItem>
+                  <AccordionButton>1번 제목</AccordionButton>
+                  <AccordionPanel>1번 내용</AccordionPanel>
+                </AccordionItem>
+                <AccordionItem>
+                  <AccordionButton>2번 제목</AccordionButton>
+                  <AccordionPanel>2번 내용</AccordionPanel>
+                </AccordionItem>
+              </Accordion>
             </div>
           </TabPanel>
         </TabPanels>

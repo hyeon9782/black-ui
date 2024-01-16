@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import { tabList } from "./Tabs.css";
 
 type TabListProps = {
