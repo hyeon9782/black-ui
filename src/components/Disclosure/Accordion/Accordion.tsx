@@ -21,7 +21,11 @@ const Accordion = ({ children, ...props }: Props) => {
   return (
     <div className={accordion({})}>
       <AccordionContext.Provider value={prop}>
-        {children}
+        {React.Children.map(children, (child, index) =>
+          React.isValidElement(child)
+            ? React.cloneElement(child, { index })
+            : child
+        )}
       </AccordionContext.Provider>
     </div>
   );
