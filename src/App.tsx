@@ -38,13 +38,13 @@ function App() {
     <div className={formBox}>
       <Tabs>
         <TabList>
-          <Tab index={0}>Form</Tab>
-          <Tab index={1}>Overlay</Tab>
-          <Tab index={2}>Feedback</Tab>
-          <Tab index={3}>DataDisplay</Tab>
+          <Tab>Form</Tab>
+          <Tab>Overlay</Tab>
+          <Tab>Feedback</Tab>
+          <Tab>DataDisplay</Tab>
         </TabList>
         <TabPanels>
-          <TabPanel index={0}>
+          <TabPanel>
             <fieldset className={container}>
               <legend>Button</legend>
               <Button
@@ -189,13 +189,13 @@ function App() {
               </FormControl>
             </fieldset>
           </TabPanel>
-          <TabPanel index={1}>
+          <TabPanel>
             <div></div>
           </TabPanel>
-          <TabPanel index={2}>
+          <TabPanel>
             <div></div>
           </TabPanel>
-          <TabPanel index={3}>
+          <TabPanel>
             <div>
               <Accordion>
                 <AccordionItem>

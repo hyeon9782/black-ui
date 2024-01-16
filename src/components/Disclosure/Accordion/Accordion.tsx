@@ -1,7 +1,15 @@
 import React, { ReactNode, createContext, useState } from "react";
 import { accordion } from "./Accordion.css";
 
-export const AccordionContext = createContext({});
+type AccordionContextProps = {
+  currentIndex: number;
+  changeIndex: (index: number) => void;
+};
+
+export const AccordionContext = createContext<AccordionContextProps>({
+  currentIndex: 0,
+  changeIndex: () => {},
+});
 
 type Props = {
   children: ReactNode;

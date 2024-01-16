@@ -1,7 +1,10 @@
-import React, { useContext } from "react";
+import { ReactNode, useContext } from "react";
 import { TabsContext } from "./Tabs";
-
-const TabPanel = ({ children, index }) => {
+type Props = {
+  children: ReactNode;
+  index?: number;
+};
+const TabPanel = ({ children, index }: Props) => {
   const { currentTab } = useContext(TabsContext);
   return (
     <div

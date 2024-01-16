@@ -1,6 +1,14 @@
 import { ReactNode, createContext, useState } from "react";
 
-export const TabsContext = createContext({});
+type TabsContextProps = {
+  currentTab: number;
+  changeTab: (index: number) => void;
+};
+
+export const TabsContext = createContext<TabsContextProps>({
+  currentTab: 0,
+  changeTab: () => {},
+});
 
 type TabsProps = {
   children: ReactNode;
