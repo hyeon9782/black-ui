@@ -2,7 +2,7 @@ import React, { ReactNode, useContext } from "react";
 import { AccordionContext } from "./Accordion";
 type Props = {
   children: ReactNode;
-  index: number;
+  index?: number;
 };
 const AccordionButton = ({ children, index }: Props) => {
   const { changeIndex } = useContext(AccordionContext);

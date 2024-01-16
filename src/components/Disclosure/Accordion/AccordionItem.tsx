@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 type Props = {
   children: ReactNode;
-  index: number;
+  index?: number;
 };
 const AccordionItem = ({ children, index }: Props) => {
   return React.Children.map(children, (child) => {

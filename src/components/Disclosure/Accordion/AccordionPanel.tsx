@@ -2,7 +2,7 @@ import React, { ReactNode, useContext } from "react";
 import { AccordionContext } from "./Accordion";
 type Props = {
   children: ReactNode;
-  index: number;
+  index?: number;
 };
 const AccordionPanel = ({ children, index }: Props) => {
   const { currentIndex } = useContext(AccordionContext);
