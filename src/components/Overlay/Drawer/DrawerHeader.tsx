@@ -1,7 +1,9 @@
-import React from "react";
-
-const DrawerHeader = () => {
-  return <div>DrawerHeader</div>;
+import { ReactNode } from "react";
+type Props = {
+  children: ReactNode;
+};
+const DrawerHeader = ({ children }: Props) => {
+  return <div>{children}</div>;
 };
 
 export default DrawerHeader;

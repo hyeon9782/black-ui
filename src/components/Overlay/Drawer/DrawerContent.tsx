@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext } from "react";
+import { ReactNode, useContext } from "react";
 import { drawerContent } from "./Drawer.css";
 import { DrawerContext } from "./Drawer";
 type Props = {
