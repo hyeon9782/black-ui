@@ -9,6 +9,7 @@ import { Radio, RadioGroup } from "@/components/Form/Radio";
 import Textarea from "@/components/Form/Textarea";
 import { IoMdStar } from "react-icons/io";
 import { container } from "@/app.css";
+import { useState } from "react";
 const options = ["딸기", "사과", "포도"];
 
 const FormArea = () => {
