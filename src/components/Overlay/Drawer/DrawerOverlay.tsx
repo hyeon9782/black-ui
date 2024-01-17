@@ -1,7 +1,8 @@
 import React from "react";
+import { drawerOverlay } from "./Drawer.css";
 
 const DrawerOverlay = () => {
-  return <div>DrawerOverlay</div>;
+  return <div className={drawerOverlay}>DrawerOverlay</div>;
 };
 
 export default DrawerOverlay;
