@@ -32,12 +32,7 @@ export const drawer = recipe({
 export const drawerContent = recipe({
   base: {
     position: "fixed",
-    top: 0,
-    left: "-250px",
-    width: 250,
-    height: "100%",
     backgroundColor: "white",
-    transition: "left 0.3s",
     zIndex: 101,
   },
   variants: {
@@ -56,18 +51,42 @@ export const drawerContent = recipe({
       left: {},
     },
     isOpen: {
-      true: {
-        left: 0,
-      },
-      false: {
-        left: "-250px",
-      },
+      true: {},
+      false: {},
     },
   },
   compoundVariants: [
     {
-      variants: { placement: "bottom", size: "lg" },
-      style: {},
+      variants: { placement: "left", isOpen: true },
+      style: { left: 0, width: 250, height: "100%", top: 0 },
+    },
+    {
+      variants: { placement: "left", isOpen: false },
+      style: { left: "-250px" },
+    },
+    {
+      variants: { placement: "right", isOpen: true },
+      style: { right: 0, width: 250, height: "100%", top: 0 },
+    },
+    {
+      variants: { placement: "right", isOpen: false },
+      style: { right: "-250px" },
+    },
+    {
+      variants: { placement: "bottom", isOpen: true },
+      style: { bottom: 0, width: "100%", height: 250, left: 0 },
+    },
+    {
+      variants: { placement: "bottom", isOpen: false },
+      style: { bottom: "-250px", left: 0 },
+    },
+    {
+      variants: { placement: "top", isOpen: true },
+      style: { top: 0, width: "100%", height: 250 },
+    },
+    {
+      variants: { placement: "top", isOpen: false },
+      style: { top: "-250px" },
     },
   ],
 });
