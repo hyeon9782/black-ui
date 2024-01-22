@@ -8,6 +8,12 @@ export const checkbox = recipe({
     alignItems: "center",
     fontSize: "11px",
     gap: vars.space["1"],
+    selectors: {
+      "&:disabled": {
+        cursor: "not-allowed",
+        opacity: "0.5",
+      },
+    },
   },
   variants: {
     size: {
@@ -31,12 +37,6 @@ export const checkbox = recipe({
       red: {
         accentColor: vars.colors.red,
       },
-    },
-    disabled: {
-      true: {
-        opacity: "0.5",
-      },
-      false: {},
     },
   },
 });

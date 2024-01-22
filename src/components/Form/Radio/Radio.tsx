@@ -5,14 +5,7 @@ import { RadioContext } from "./RadioContext";
 type RadioProps = RadioVariants &
   Omit<InputHTMLAttributes<HTMLInputElement>, "size">;
 
-const Radio = ({
-  children,
-  size,
-  color,
-  disabled,
-
-  ...props
-}: RadioProps) => {
+const Radio = ({ children, size, color, ...props }: RadioProps) => {
   const id = useId();
   const { name, onChange } = useContext(RadioContext);
 
@@ -30,13 +23,11 @@ const Radio = ({
       className={radio({
         size,
         color,
-        disabled,
       })}
     >
       <input
         type="radio"
         id={id}
-        disabled={disabled}
         {...props}
         name={name}
         onChange={handleChange}

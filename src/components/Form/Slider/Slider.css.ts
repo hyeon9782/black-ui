@@ -10,6 +10,12 @@ export const slider = recipe({
       backgroundColor: "red",
       color: "red",
     },
+    selectors: {
+      "&:disabled": {
+        cursor: "not-allowed",
+        opacity: "0.5",
+      },
+    },
   },
   variants: {},
 });

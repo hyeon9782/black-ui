@@ -6,6 +6,12 @@ export const textarea = recipe({
     border: "1px solid lightgray",
     borderRadius: vars.radii.md,
     padding: vars.space["2"],
+    selectors: {
+      "&:disabled": {
+        cursor: "not-allowed",
+        opacity: "0.5",
+      },
+    },
   },
   variants: {
     size: {
@@ -21,12 +27,6 @@ export const textarea = recipe({
       lg: {
         fontSize: vars.fonts.h3,
       },
-    },
-    disabled: {
-      true: {
-        opacity: 0.5,
-      },
-      false: {},
     },
   },
 });

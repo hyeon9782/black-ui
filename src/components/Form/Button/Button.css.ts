@@ -9,6 +9,12 @@ export const button = recipe({
     fontWeight: "bold",
     cursor: "pointer",
     borderRadius: vars.radii.lg,
+    selectors: {
+      "&:disabled": {
+        cursor: "not-allowed",
+        opacity: "0.5",
+      },
+    },
   },
   variants: {
     size: {
@@ -27,13 +33,6 @@ export const button = recipe({
     color: {
       black: {},
       red: {},
-    },
-    disabled: {
-      true: {
-        cursor: "not-allowed",
-        opacity: "0.5",
-      },
-      false: {},
     },
   },
   compoundVariants: [

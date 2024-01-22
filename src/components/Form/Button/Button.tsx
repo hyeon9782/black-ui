@@ -9,19 +9,16 @@ const Button = ({
   size = "md",
   color = "black",
   onClick,
-  disabled,
   ...props
 }: ButtonProps) => {
   return (
     <button
       onClick={onClick}
-      disabled={disabled}
       {...props}
       className={button({
         size,
         variant,
         color,
-        disabled,
       })}
     >
       {props.children}

@@ -6,6 +6,12 @@ export const input = recipe({
     backgroundColor: vars.colors.white,
     border: "none",
     outline: "none",
+    selectors: {
+      "&:disabled": {
+        cursor: "not-allowed",
+        opacity: "0.5",
+      },
+    },
   },
   variants: {
     size: {

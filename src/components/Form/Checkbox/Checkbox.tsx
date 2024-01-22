@@ -3,13 +3,7 @@ import { CheckboxVariants, checkbox, input } from "./Checkbox.css";
 type CheckboxProps = CheckboxVariants &
   Omit<InputHTMLAttributes<HTMLInputElement>, "size">;
 
-const Checkbox = ({
-  children,
-  color,
-  size,
-  disabled,
-  ...props
-}: CheckboxProps) => {
+const Checkbox = ({ children, color, size, ...props }: CheckboxProps) => {
   const id = useId();
 
   return (
@@ -17,13 +11,11 @@ const Checkbox = ({
       className={checkbox({
         color,
         size,
-        disabled,
       })}
     >
       <input
         type="checkbox"
         className={input()}
-        disabled={disabled}
         {...props}
         id={id}
         style={{ backgroundColor: "red" }}

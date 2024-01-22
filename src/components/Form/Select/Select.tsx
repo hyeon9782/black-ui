@@ -4,7 +4,7 @@ type SelectProps = SelectVariants & {
   options: string[];
   label: string;
 };
-const Select = ({ options, label, size, variant }: SelectProps) => {
+const Select = ({ options, label, size, variant, ...props }: SelectProps) => {
   const [open, setOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
 
@@ -21,7 +21,11 @@ const Select = ({ options, label, size, variant }: SelectProps) => {
 
   return (
     <section>
-      <button className={select({ size, variant })} onClick={toggleOpen}>
+      <button
+        className={select({ size, variant })}
+        onClick={toggleOpen}
+        {...props}
+      >
         {selectedItem ?? label}
       </button>
       {open && (

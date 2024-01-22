@@ -13,6 +13,12 @@ export const field = recipe({
     border: "1px solid lightgray",
     borderRadius: vars.radii.lg,
     textAlign: "center",
+    selectors: {
+      "&:disabled": {
+        cursor: "not-allowed",
+        opacity: "0.5",
+      },
+    },
   },
   variants: {
     size: {

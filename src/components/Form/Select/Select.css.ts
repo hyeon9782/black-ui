@@ -8,6 +8,12 @@ export const select = recipe({
     backgroundColor: "white",
     color: "gray",
     textAlign: "start",
+    selectors: {
+      "&:disabled": {
+        cursor: "not-allowed",
+        opacity: "0.5",
+      },
+    },
   },
   variants: {
     size: {

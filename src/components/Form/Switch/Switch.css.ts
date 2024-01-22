@@ -33,6 +33,10 @@ export const customSwitch = recipe({
       "&:checked::before": {
         transform: "translateX(1rem)",
       },
+      "&:disabled": {
+        cursor: "not-allowed",
+        opacity: "0.5",
+      },
     },
   },
   variants: {

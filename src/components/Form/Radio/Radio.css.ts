@@ -6,6 +6,12 @@ export const radio = recipe({
     display: "flex",
     alignItems: "center",
     fontSize: "11px",
+    selectors: {
+      "&:disabled": {
+        cursor: "not-allowed",
+        opacity: "0.5",
+      },
+    },
   },
   variants: {
     size: {
@@ -35,12 +41,6 @@ export const radio = recipe({
       red: {
         accentColor: vars.colors.red,
       },
-    },
-    disabled: {
-      true: {
-        opacity: "0.5",
-      },
-      false: {},
     },
   },
 });
