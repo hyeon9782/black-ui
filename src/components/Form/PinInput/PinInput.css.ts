@@ -19,18 +19,22 @@ export const field = recipe({
       xs: {
         width: 24,
         height: 24,
+        fontSize: 12,
       },
       sm: {
         width: 32,
         height: 32,
+        fontSize: 16,
       },
       md: {
         width: 40,
         height: 40,
+        fontSize: 20,
       },
       lg: {
         width: 48,
         height: 48,
+        fontSize: 24,
       },
     },
   },

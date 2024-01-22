@@ -11,6 +11,12 @@ import { IoMdStar } from "react-icons/io";
 import { container, formBox } from "@/app.css";
 import { useState } from "react";
 import { PinInput, PinInputField } from "./Form/PinInput";
+import {
+  Slider,
+  SliderFilledTrack,
+  SliderThumb,
+  SliderTrack,
+} from "./Form/Slider";
 const options = ["딸기", "사과", "포도"];
 
 const FormArea = () => {
@@ -166,19 +172,63 @@ const FormArea = () => {
       </fieldset>
       <fieldset className={container}>
         <legend>PinInput</legend>
-        <PinInput mask>
+        <PinInput size="xs">
           <PinInputField />
           <PinInputField />
           <PinInputField />
           <PinInputField />
         </PinInput>
 
-        <PinInput>
-          <PinInputField name="1" />
-          <PinInputField name="2" />
-          <PinInputField name="3" />
-          <PinInputField name="4" />
+        <PinInput size="sm">
+          <PinInputField />
+          <PinInputField />
+          <PinInputField />
+          <PinInputField />
         </PinInput>
+
+        <PinInput size="md">
+          <PinInputField />
+          <PinInputField />
+          <PinInputField />
+          <PinInputField />
+        </PinInput>
+
+        <PinInput size="lg">
+          <PinInputField />
+          <PinInputField />
+          <PinInputField />
+          <PinInputField />
+        </PinInput>
+      </fieldset>
+      <fieldset className={container}>
+        <legend>Slider</legend>
+        <Slider size="xs" color="red">
+          <SliderTrack>
+            <SliderFilledTrack />
+          </SliderTrack>
+          <SliderThumb />
+        </Slider>
+
+        <Slider size="sm" color="black">
+          <SliderTrack>
+            <SliderFilledTrack />
+          </SliderTrack>
+          <SliderThumb />
+        </Slider>
+
+        <Slider size="md" color="blue">
+          <SliderTrack>
+            <SliderFilledTrack />
+          </SliderTrack>
+          <SliderThumb />
+        </Slider>
+
+        <Slider size="lg" color="green">
+          <SliderTrack>
+            <SliderFilledTrack />
+          </SliderTrack>
+          <SliderThumb />
+        </Slider>
       </fieldset>
     </div>
   );

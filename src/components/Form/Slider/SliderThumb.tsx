@@ -1,7 +1,7 @@
 import React from "react";
 
 const SliderThumb = () => {
-  return <div>SliderThumb</div>;
+  return <div></div>;
 };
 
 export default SliderThumb;
