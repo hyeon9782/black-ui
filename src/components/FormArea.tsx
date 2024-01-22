@@ -8,8 +8,9 @@ import FormControl from "@/components/Form/FormControl";
 import { Radio, RadioGroup } from "@/components/Form/Radio";
 import Textarea from "@/components/Form/Textarea";
 import { IoMdStar } from "react-icons/io";
-import { container } from "@/app.css";
+import { container, formBox } from "@/app.css";
 import { useState } from "react";
+import { PinInput, PinInputField } from "./Form/PinInput";
 const options = ["딸기", "사과", "포도"];
 
 const FormArea = () => {
@@ -19,7 +20,7 @@ const FormArea = () => {
     setRadioValue(value);
   };
   return (
-    <div>
+    <div className={formBox}>
       <fieldset className={container}>
         <legend>Button</legend>
         <Button
@@ -162,6 +163,22 @@ const FormArea = () => {
             Email is required.
           </FormControl.ErrorMessage>
         </FormControl>
+      </fieldset>
+      <fieldset className={container}>
+        <legend>PinInput</legend>
+        <PinInput mask>
+          <PinInputField />
+          <PinInputField />
+          <PinInputField />
+          <PinInputField />
+        </PinInput>
+
+        <PinInput>
+          <PinInputField />
+          <PinInputField />
+          <PinInputField />
+          <PinInputField />
+        </PinInput>
       </fieldset>
     </div>
   );
