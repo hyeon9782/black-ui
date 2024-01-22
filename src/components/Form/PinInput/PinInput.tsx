@@ -29,6 +29,15 @@ const PinInput = ({ children, size = "md", ...props }: PinInputProps) => {
 
   // 포커스 이동 함수
   const handleFocus = (index, value) => {
+    if (
+      !value &&
+      index === inputRefs.current.length - 1 &&
+      inputRefs.current[index].value
+    ) {
+      inputRefs.current[index].focus();
+      return;
+    }
+
     if (value && index < inputRefs.current.length - 1) {
       inputRefs.current[index + 1].focus();
     }

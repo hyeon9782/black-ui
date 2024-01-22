@@ -174,10 +174,10 @@ const FormArea = () => {
         </PinInput>
 
         <PinInput>
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
-          <PinInputField />
+          <PinInputField name="1" />
+          <PinInputField name="2" />
+          <PinInputField name="3" />
+          <PinInputField name="4" />
         </PinInput>
       </fieldset>
     </div>
