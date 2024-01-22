@@ -1,5 +1,6 @@
 import React, { ReactNode, createContext } from "react";
 import { DrawerVariants, drawer } from "./Drawer.css";
+import Portal from "../Portal/Portal";
 
 type DrawerContextProps = DrawerVariants & {
   onClose: () => void;
@@ -22,11 +23,13 @@ const Drawer = ({
   onClose,
 }: DrawerProps) => {
   return (
-    <div className={drawer({ isOpen })}>
-      <DrawerContext.Provider value={{ onClose, size, placement, isOpen }}>
-        {children}
-      </DrawerContext.Provider>
-    </div>
+    <Portal>
+      <div className={drawer({ isOpen })}>
+        <DrawerContext.Provider value={{ onClose, size, placement, isOpen }}>
+          {children}
+        </DrawerContext.Provider>
+      </div>
+    </Portal>
   );
 };
 

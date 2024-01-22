@@ -15,7 +15,7 @@ const OverlayArea = () => {
   return (
     <div>
       <Button onClick={onOpen}>Drawer 나와라!</Button>
-      <Drawer isOpen={isOpen} onClose={onClose} placement="bottom">
+      <Drawer isOpen={isOpen} onClose={onClose} placement="left">
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />

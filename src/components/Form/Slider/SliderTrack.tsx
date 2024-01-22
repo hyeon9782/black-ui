@@ -5,14 +5,13 @@ type SliderTrackProps = {
   children: ReactNode;
 };
 const SliderTrack = ({ children }: SliderTrackProps) => {
-  const { handleChange, currentValue } = useContext(SliderContext);
+  const { handleChange, currentValue, ...rest } = useContext(SliderContext);
 
   return (
     <div className={track({})}>
       <input
         type="range"
-        min={0}
-        max={100}
+        {...rest}
         value={currentValue}
         onChange={handleChange}
       />

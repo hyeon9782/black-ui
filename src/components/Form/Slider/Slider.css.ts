@@ -6,6 +6,10 @@ export const slider = recipe({
     // position: "relative",
     // top: 0,
     appearance: "none",
+    "::-webkit-slider-thumb": {
+      backgroundColor: "red",
+      color: "red",
+    },
   },
   variants: {},
 });

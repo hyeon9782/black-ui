@@ -33,7 +33,7 @@ export const drawerContent = recipe({
   base: {
     position: "fixed",
     backgroundColor: "white",
-    zIndex: 101,
+    transition: "transform 400ms ease-in-out",
   },
   variants: {
     size: {
@@ -98,7 +98,6 @@ export const drawerOverlay = style({
   width: "100%",
   height: "100%",
   backgroundColor: "rgba(0, 0, 0, 0.5)",
-  zIndex: 100,
 });
 
 export type DrawerVariants = RecipeVariants<typeof drawer>;
