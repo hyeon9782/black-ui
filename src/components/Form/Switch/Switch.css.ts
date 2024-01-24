@@ -65,6 +65,11 @@ export const customSwitch = recipe({
           background: "blue",
         },
       },
+      red: {
+        ":checked": {
+          background: "red",
+        },
+      },
     },
   },
 });

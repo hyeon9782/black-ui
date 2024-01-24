@@ -1,13 +1,22 @@
-import { ButtonHTMLAttributes } from "react";
+import {
+  ButtonHTMLAttributes,
+  JSXElementConstructor,
+  ReactElement,
+} from "react";
 import { ButtonVariants, button } from "./Button.css";
 
 export type ButtonProps = ButtonVariants &
-  ButtonHTMLAttributes<HTMLButtonElement>;
+  ButtonHTMLAttributes<HTMLButtonElement> & {
+    leftIcon?: ReactElement<any, string | JSXElementConstructor<any>>;
+    rightIcon?: ReactElement<any, string | JSXElementConstructor<any>>;
+  };
 
 const Button = ({
   variant = "solid",
   size = "md",
   color = "black",
+  leftIcon,
+  rightIcon,
   onClick,
   ...props
 }: ButtonProps) => {
@@ -21,7 +30,9 @@ const Button = ({
         color,
       })}
     >
+      {leftIcon}
       {props.children}
+      {rightIcon}
     </button>
   );
 };

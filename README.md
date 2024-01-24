@@ -26,10 +26,6 @@
 
 ```
 npm i @black-ui/react
-
-yarn add @black-ui/react
-
-pnpm add @black-ui/react
 ```
 
 ## Components

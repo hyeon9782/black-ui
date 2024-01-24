@@ -17,6 +17,7 @@ import {
   SliderThumb,
   SliderTrack,
 } from "./Form/Slider";
+import { IoMdClose } from "react-icons/io";
 const options = ["딸기", "사과", "포도"];
 
 const FormArea = () => {
@@ -34,6 +35,7 @@ const FormArea = () => {
           variant="solid"
           color="black"
           onClick={() => alert("블랙 클릭")}
+          leftIcon={<IoMdClose />}
           disabled
         >
           블랙 버튼
@@ -42,6 +44,7 @@ const FormArea = () => {
           size="sm"
           variant="outline"
           color="red"
+          rightIcon={<IoMdClose />}
           onClick={() => alert("레드 클릭")}
         >
           레드 버튼
@@ -52,6 +55,7 @@ const FormArea = () => {
           color="red"
           onClick={() => alert("레드 클릭")}
         >
+          <IoMdClose />
           레드 버튼
         </Button>
         <Button
@@ -144,17 +148,17 @@ const FormArea = () => {
       </fieldset>
       <fieldset className={container}>
         <legend>Switch</legend>
-        <Switch size="xs" color="green">
+        <Switch size="xs" color="red">
           빨강
         </Switch>
         <Switch size="sm" color="blue">
           파랑
         </Switch>
         <Switch size="md" color="green">
-          빨강
+          초록
         </Switch>
-        <Switch size="lg" color="blue">
-          파랑
+        <Switch size="lg" color="red">
+          빨강
         </Switch>
       </fieldset>
       <fieldset className={container}>
