@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from "react";
+import { ReactNode, useState } from "react";
 import { TooltipVariants, tooltip, wrap } from "./Tooltip.css";
 type TooltipProps = TooltipVariants & {
   children: ReactNode;
@@ -18,3 +18,11 @@ const Tooltip = ({ children, label, placement, bg }: TooltipProps) => {
 };
 
 export default Tooltip;
+
+/*
+
+1. animation 추가
+2. placement 추가 및 수정
+3. css 속성 vars & sprinkles로 수정
+
+*/

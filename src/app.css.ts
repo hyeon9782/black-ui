@@ -16,3 +16,12 @@ export const container = style({
   padding: 15,
   color: "gray",
 });
+
+export const overlayContainer = style({
+  padding: 10,
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  gap: 10,
+});
