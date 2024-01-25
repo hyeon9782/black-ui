@@ -42,4 +42,7 @@ export default Menu;
 1. animation 추가
 2. placement 추가 및 수정
 3. css 속성 vars & sprinkles로 수정
+4. MenuButton 스타일링
+5. MenuItem 스타일링
+
 */

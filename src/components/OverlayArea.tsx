@@ -18,16 +18,45 @@ import {
 } from "./Overlay/Popover";
 import { overlayContainer } from "@/app.css";
 import { Menu, MenuButton, MenuItem, MenuList } from "./Overlay/Menu";
+import {
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+} from "./Overlay/Modal";
 const OverlayArea = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const {
+    isOpen: isModalOpen,
+    onOpen: onModalOpen,
+    onClose: onModalClose,
+  } = useDisclosure();
 
   return (
     <div className={overlayContainer}>
       <Button onClick={onOpen}>Drawer 나와라!</Button>
 
-      <Button>Menu 나와라!</Button>
+      <Button onClick={onModalOpen}>Modal 나와라!</Button>
+      <Modal isOpen={isModalOpen} onClose={onModalClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Modal Title</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <div>Modal 입니다!</div>
+          </ModalBody>
+          <ModalFooter>
+            <Button>취소</Button>
+            <Button>확인</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
       <Menu>
-        <MenuButton>Actions</MenuButton>
+        <MenuButton>Menu 나와라!</MenuButton>
         <MenuList>
           <MenuItem
             onClick={() => {

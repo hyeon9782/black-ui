@@ -1,7 +1,9 @@
-import React from "react";
-
-const ModalFooter = () => {
-  return <div>ModalFooter</div>;
+import { ReactNode } from "react";
+type Props = {
+  children: ReactNode;
+};
+const ModalFooter = ({ children }: Props) => {
+  return <div>{children}</div>;
 };
 
 export default ModalFooter;
