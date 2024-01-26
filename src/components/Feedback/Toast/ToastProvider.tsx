@@ -7,7 +7,7 @@ type Props = {
 };
 
 type ToastDispatchContextProps = {
-  open: () => void;
+  open: (toast: Toast) => void;
   close: (id: number) => void;
 };
 
@@ -22,12 +22,15 @@ const ToastProvider = ({ children }: Props) => {
   const [toasts, setToasts] = useState<Toast[]>([]);
   const memoizedToasts = useMemo(() => toasts, [toasts]);
 
-  const open = () => {
+  const open = ({ title, description, duration, status }: Toast) => {
     setToasts((prevToasts) => [
       ...prevToasts,
       {
         id: prevToasts.length,
-        title: `${prevToasts.length} 번째 메시지`,
+        title,
+        description,
+        duration,
+        status,
       },
     ]);
   };

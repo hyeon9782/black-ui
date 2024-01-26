@@ -75,7 +75,17 @@ const FeedbackArea = () => {
       </fieldset>
       <fieldset className={container}>
         <legend>Toast</legend>
-        <Button onClick={() => openToast()}>Toast 나와라!</Button>
+        <Button
+          onClick={() =>
+            openToast({
+              title: "Success",
+              description: "설명입니다.",
+              status: "success",
+            })
+          }
+        >
+          Toast 나와라!
+        </Button>
       </fieldset>
       <fieldset className={container}>
         <legend>Spinner</legend>

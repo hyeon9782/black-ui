@@ -34,14 +34,14 @@ export const toast = recipe({
     padding: "10px 20px",
   },
   variants: {
-    color: {
-      green: {
-        background: "green",
+    status: {
+      success: {
+        background: "lightgreen",
       },
     },
   },
   compoundVariants: [],
   defaultVariants: {
-    color: "green",
+    status: "success",
   },
 });
