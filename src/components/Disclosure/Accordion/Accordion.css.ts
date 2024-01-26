@@ -7,4 +7,17 @@ export const accordion = recipe({
   compoundVariants: [],
 });
 
+export const button = style({
+  padding: "10px 15px",
+  selectors: {
+    "&:hover": {
+      backgroundColor: "lightgray",
+    },
+  },
+});
+
+export const panel = style({
+  padding: "10px 15px",
+});
+
 export type AccordionVariants = RecipeVariants<typeof accordion>;
