@@ -5,6 +5,7 @@ import {
   TabPanel,
   TabPanels,
 } from "./components/Disclosure/Tabs";
+import { ToastProvider } from "./components/Feedback/Toast";
 
 import FormArea from "./components/FormArea";
 import OverlayArea from "./components/OverlayArea";
@@ -15,7 +16,7 @@ import React from "react";
 
 function App() {
   return (
-    <>
+    <ToastProvider>
       <Tabs>
         <TabList>
           <Tab>Form</Tab>
@@ -38,7 +39,7 @@ function App() {
           </TabPanel>
         </TabPanels>
       </Tabs>
-    </>
+    </ToastProvider>
   );
 }
 

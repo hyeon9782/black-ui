@@ -5,10 +5,12 @@ import {
   AccordionItem,
 } from "@/components/Disclosure/Accordion";
 import Card from "@/components/DataDisplay/Card";
+import { Avatar } from "./DataDisplay/Avatar";
+import { container, overlayContainer } from "@/app.css";
 
 const DataDisplayArea = () => {
   return (
-    <div>
+    <div className={overlayContainer}>
       <div>
         <Accordion>
           <AccordionItem>
@@ -21,9 +23,31 @@ const DataDisplayArea = () => {
           </AccordionItem>
         </Accordion>
       </div>
-      <div>
+      <fieldset className={container}>
+        <legend>Avatar</legend>
+        <Avatar name="jeongho" src="/이력서 사진.jpg" size="xs" />
+        <Avatar name="jeongho" src="/이력서 사진.jpg" size="sm" />
+        <Avatar name="jeongho" src="/이력서 사진.jpg" size="md" />
+        <Avatar name="jeongho" src="/이력서 사진.jpg" size="lg" />
+        <Avatar name="jeongho" src="/이력서 사진.jpg" size="xl" />
+        <Avatar name="jeongho" src="/이력서 사진!!.jpg" size="2xl" />
+      </fieldset>
+      <fieldset className={container}>
+        <legend>Card</legend>
         <Card>Card</Card>
-      </div>
+      </fieldset>
+      <fieldset className={container}>
+        <legend>List</legend>
+      </fieldset>
+      <fieldset className={container}>
+        <legend>Badge</legend>
+      </fieldset>
+      <fieldset className={container}>
+        <legend>Tag</legend>
+      </fieldset>
+      <fieldset className={container}>
+        <legend>Table</legend>
+      </fieldset>
     </div>
   );
 };
