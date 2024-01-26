@@ -11,6 +11,7 @@ import FormArea from "./components/FormArea";
 import OverlayArea from "./components/OverlayArea";
 import FeedbackArea from "./components/FeedbackArea";
 import DataDisplayArea from "./components/DataDisplayArea";
+import DisclosureArea from "./components/DisclosureArea";
 
 import React from "react";
 
@@ -23,6 +24,7 @@ function App() {
           <Tab>Overlay</Tab>
           <Tab>Feedback</Tab>
           <Tab>DataDisplay</Tab>
+          <Tab>Disclosure</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>
@@ -36,6 +38,9 @@ function App() {
           </TabPanel>
           <TabPanel>
             <DataDisplayArea />
+          </TabPanel>
+          <TabPanel>
+            <DisclosureArea />
           </TabPanel>
         </TabPanels>
       </Tabs>

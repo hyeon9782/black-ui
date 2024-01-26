@@ -7,22 +7,11 @@ import {
 import Card from "@/components/DataDisplay/Card";
 import { Avatar } from "./DataDisplay/Avatar";
 import { container, overlayContainer } from "@/app.css";
+import { Badge } from "./DataDisplay/Badge";
 
 const DataDisplayArea = () => {
   return (
     <div className={overlayContainer}>
-      <div>
-        <Accordion>
-          <AccordionItem>
-            <AccordionButton>1번 제목</AccordionButton>
-            <AccordionPanel>1번 내용</AccordionPanel>
-          </AccordionItem>
-          <AccordionItem>
-            <AccordionButton>2번 제목</AccordionButton>
-            <AccordionPanel>2번 내용</AccordionPanel>
-          </AccordionItem>
-        </Accordion>
-      </div>
       <fieldset className={container}>
         <legend>Avatar</legend>
         <Avatar name="jeongho" src="/이력서 사진.jpg" size="xs" />
@@ -41,6 +30,15 @@ const DataDisplayArea = () => {
       </fieldset>
       <fieldset className={container}>
         <legend>Badge</legend>
+        <Badge variant="outline" color="green">
+          Green Outline
+        </Badge>
+        <Badge variant="solid" color="red">
+          Red Solid
+        </Badge>
+        <Badge variant="subtle" color="blue">
+          Blue Subtle
+        </Badge>
       </fieldset>
       <fieldset className={container}>
         <legend>Tag</legend>
