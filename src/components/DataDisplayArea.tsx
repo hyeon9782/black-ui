@@ -4,8 +4,20 @@ import { Avatar } from "./DataDisplay/Avatar";
 import { container, overlayContainer } from "@/app.css";
 import { Badge } from "./DataDisplay/Badge";
 import { Tag, TagCloseButton, TagIcon, TagLabel } from "./DataDisplay/Tag";
+import List from "./DataDisplay/List";
+import ProductBox, { ProductItem } from "./ProductBox";
 
 const DataDisplayArea = () => {
+  const productData: ProductItem[] = [
+    { id: 1, name: "Product A", price: 10 },
+    { id: 2, name: "Product B", price: 20 },
+    // ...
+  ];
+
+  const mapProductComponentProps = (product: ProductItem) => ({
+    product,
+    onClick: () => console.log(`Clicked on ${product.name}`),
+  });
   return (
     <div className={overlayContainer}>
       <fieldset className={container}>
@@ -23,6 +35,20 @@ const DataDisplayArea = () => {
       </fieldset>
       <fieldset className={container}>
         <legend>List</legend>
+        <List
+          component={ProductBox}
+          listData={productData}
+          space="md"
+          direction="column"
+          mapComponentProps={mapProductComponentProps}
+        />
+        <List
+          component={ProductBox}
+          listData={productData}
+          space="md"
+          direction="row"
+          mapComponentProps={mapProductComponentProps}
+        />
       </fieldset>
       <fieldset className={container}>
         <legend>Badge</legend>
