@@ -42,7 +42,10 @@ const DataDisplayArea = () => {
       </fieldset>
       <fieldset className={container}>
         <legend>Card</legend>
-        <Card>Card</Card>
+        <Card variant="elevated">Card</Card>
+        <Card variant="filled">Card</Card>
+        <Card variant="unstyled">Card</Card>
+        <Card variant="outline">Card</Card>
       </fieldset>
       <fieldset className={container}>
         <legend>List</legend>

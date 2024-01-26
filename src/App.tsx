@@ -8,7 +8,7 @@ import DisclosureArea from "./components/DisclosureArea";
 
 import React from "react";
 
-import { Button, Tab, TabList, TabPanel, TabPanels, Tabs } from "./components";
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from "./components";
 
 function App() {
   return (

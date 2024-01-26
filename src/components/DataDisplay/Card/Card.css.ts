@@ -3,7 +3,8 @@ import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
 export const card = recipe({
   base: {
-    boxShadow: vars.shadows["xs"],
+    padding: 10,
+    borderRadius: vars.radii.md,
   },
   variants: {
     color: {
@@ -20,11 +21,20 @@ export const card = recipe({
       lg: {},
     },
     variant: {
-      elevated: {},
-      outline: {},
-      filled: {},
+      elevated: {
+        boxShadow: vars.shadows["xs"],
+      },
+      outline: {
+        border: "1px solid lightgray",
+      },
+      filled: {
+        backgroundColor: "lightgray",
+      },
       unstyled: {},
     },
+  },
+  defaultVariants: {
+    variant: "outline",
   },
 });
 

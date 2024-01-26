@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, ReactElement } from "react";
 import { IconButtonVariants, iconButton } from "./IconButton.css";
-import Spinner from "@/components/Feedback/Spinner";
+import { Spinner } from "@/components/Feedback/Spinner";
 type IconButtonProps = IconButtonVariants &
   ButtonHTMLAttributes<HTMLButtonElement> & {
     icon: ReactElement;
