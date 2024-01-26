@@ -1,7 +1,7 @@
-import React from "react";
+import { ChildrenProps } from "@/types";
 
-const Tbody = () => {
-  return <div>Tbody</div>;
+const Tbody = ({ children }: ChildrenProps) => {
+  return <tbody>{children}</tbody>;
 };
 
 export default Tbody;

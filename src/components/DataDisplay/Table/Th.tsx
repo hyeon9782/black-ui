@@ -1,7 +1,8 @@
-import React from "react";
+import { ChildrenProps } from "@/types";
+import { th } from "./Table.css";
 
-const Th = () => {
-  return <div>Th</div>;
+const Th = ({ children }: ChildrenProps) => {
+  return <th className={th}>{children}</th>;
 };
 
 export default Th;

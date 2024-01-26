@@ -13,8 +13,6 @@ const Input = ({
 }: InputProps) => {
   const { id } = useContext(FormContext);
 
-  console.log(id);
-
   return (
     <input
       {...props}

@@ -1,7 +1,11 @@
-import React from "react";
+import { ReactNode } from "react";
 
-const TableContainer = () => {
-  return <div>TableContainer</div>;
+type Props = {
+  children: ReactNode;
+};
+
+const TableContainer = ({ children }: Props) => {
+  return <div>{children}</div>;
 };
 
 export default TableContainer;

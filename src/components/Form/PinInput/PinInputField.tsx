@@ -5,8 +5,6 @@ import { field } from "./PinInput.css";
 const PinInputField = forwardRef(({ onInputChange, ...restProps }, ref) => {
   const { mask, size, ...rest } = useContext(PinInputContext);
 
-  console.log("리렌더링");
-
   const handleChange = (e) => {
     const value = e.target.value;
     if (value === "") {

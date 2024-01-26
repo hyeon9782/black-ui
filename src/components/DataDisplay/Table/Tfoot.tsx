@@ -1,7 +1,7 @@
-import React from "react";
+import { ChildrenProps } from "@/types";
 
-const Tfoot = () => {
-  return <div>Tfoot</div>;
+const Tfoot = ({ children }: ChildrenProps) => {
+  return <tfoot>{children}</tfoot>;
 };
 
 export default Tfoot;

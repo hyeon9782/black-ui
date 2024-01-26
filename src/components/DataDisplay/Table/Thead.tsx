@@ -1,7 +1,7 @@
-import React from "react";
+import { ChildrenProps } from "@/types";
 
-const Thead = () => {
-  return <div>Thead</div>;
+const Thead = ({ children }: ChildrenProps) => {
+  return <thead>{children}</thead>;
 };
 
 export default Thead;
