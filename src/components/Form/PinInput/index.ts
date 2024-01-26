@@ -1,4 +1,2 @@
-import PinInput from "./PinInput";
-import PinInputField from "./PinInputField";
-
-export { PinInput, PinInputField };
+export { default as PinInput } from "./PinInput";
+export { default as PinInputField } from "./PinInputField";

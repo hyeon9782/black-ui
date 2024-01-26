@@ -1,6 +1,4 @@
-import Menu from "./Menu";
-import MenuButton from "./MenuButton";
-import MenuList from "./MenuList";
-import MenuItem from "./MenuItem";
-
-export { Menu, MenuButton, MenuList, MenuItem };
+export { default as Menu } from "./Menu";
+export { default as MenuButton } from "./MenuButton";
+export { default as MenuList } from "./MenuList";
+export { default as MenuItem } from "./MenuItem";

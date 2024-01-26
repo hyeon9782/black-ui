@@ -1,17 +1,7 @@
-import Modal from "./Modal";
-import ModalBody from "./ModalBody";
-import ModalContent from "./ModalContent";
-import ModalCloseButton from "./ModalCloseButton";
-import ModalFooter from "./ModalFooter";
-import ModalHeader from "./ModalHeader";
-import ModalOverlay from "./ModalOverlay";
-
-export {
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalCloseButton,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-};
+export { default as Modal } from "./Modal";
+export { default as ModalBody } from "./ModalBody";
+export { default as ModalContent } from "./ModalContent";
+export { default as ModalCloseButton } from "./ModalCloseButton";
+export { default as ModalFooter } from "./ModalFooter";
+export { default as ModalHeader } from "./ModalHeader";
+export { default as ModalOverlay } from "./ModalOverlay";

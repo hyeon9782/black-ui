@@ -1,11 +1,11 @@
 import { IoMdSettings } from "react-icons/io";
-import Card from "@/components/DataDisplay/Card";
-import { Avatar } from "./DataDisplay/Avatar";
 import { container, overlayContainer } from "@/app.css";
+import ProductBox, { ProductItem } from "./ProductBox";
+import { Avatar } from "./DataDisplay/Avatar";
+import { Card } from "./DataDisplay/Card";
+import { List } from "./DataDisplay/List";
 import { Badge } from "./DataDisplay/Badge";
 import { Tag, TagCloseButton, TagIcon, TagLabel } from "./DataDisplay/Tag";
-import List from "./DataDisplay/List";
-import ProductBox, { ProductItem } from "./ProductBox";
 import {
   Table,
   TableCaption,

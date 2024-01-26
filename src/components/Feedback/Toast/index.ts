@@ -1,5 +1,3 @@
-import Toast from "./Toast";
-import ToastList from "./ToastList";
-import ToastProvider from "./ToastProvider";
-
-export { Toast, ToastList, ToastProvider };
+export { default as Toast } from "./Toast";
+export { default as ToastList } from "./ToastList";
+export { default as ToastProvider } from "./ToastProvider";

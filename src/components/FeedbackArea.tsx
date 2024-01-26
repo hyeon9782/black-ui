@@ -1,8 +1,10 @@
 import { container, overlayContainer } from "@/app.css";
-import Button from "./Form/Button";
+
 import useToast from "@/hooks/useToast";
 import Skeleton from "./Feedback/Skeleton/Skeleton";
-import Spinner from "./Feedback/Spinner";
+import { Button } from "./Form";
+import { Spinner } from "./Feedback/Spinner";
+
 const FeedbackArea = () => {
   const { openToast } = useToast();
   return (

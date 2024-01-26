@@ -1,6 +1,4 @@
-import Tag from "./Tag";
-import TagCloseButton from "./TagCloseButton";
-import TagIcon from "./TagIcon";
-import TagLabel from "./TagLabel";
-
-export { Tag, TagCloseButton, TagIcon, TagLabel };
+export { default as Tag } from "./Tag";
+export { default as TagCloseButton } from "./TagCloseButton";
+export { default as TagIcon } from "./TagIcon";
+export { default as TagLabel } from "./TagLabel";

@@ -1,17 +1,7 @@
-import Drawer from "./Drawer";
-import DrawerOverlay from "./DrawerOverlay";
-import DrawerContent from "./DrawerContent";
-import DrawerHeader from "./DrawerHeader";
-import DrawerBody from "./DrawerBody";
-import DrawerFooter from "./DrawerFooter";
-import DrawerCloseButton from "./DrawerCloseButton";
-
-export {
-  Drawer,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerHeader,
-  DrawerBody,
-  DrawerFooter,
-  DrawerCloseButton,
-};
+export { default as Drawer } from "./Drawer";
+export { default as DrawerOverlay } from "./DrawerOverlay";
+export { default as DrawerContent } from "./DrawerContent";
+export { default as DrawerHeader } from "./DrawerHeader";
+export { default as DrawerBody } from "./DrawerBody";
+export { default as DrawerFooter } from "./DrawerFooter";
+export { default as DrawerCloseButton } from "./DrawerCloseButton";

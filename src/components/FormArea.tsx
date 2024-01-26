@@ -1,12 +1,5 @@
-import Button from "@/components/Form/Button";
-import IconButton from "@/components/Form/IconButton";
-import Input from "@/components/Form/Input";
-import Select from "@/components/Form/Select";
-import Checkbox from "@/components/Form/Checkbox";
-import Switch from "@/components/Form/Switch";
-import FormControl from "@/components/Form/FormControl";
 import { Radio, RadioGroup } from "@/components/Form/Radio";
-import Textarea from "@/components/Form/Textarea";
+
 import { IoMdStar } from "react-icons/io";
 import { container, formBox } from "@/app.css";
 import { useState } from "react";
@@ -18,6 +11,14 @@ import {
   SliderTrack,
 } from "./Form/Slider";
 import { IoMdClose } from "react-icons/io";
+import { Button } from "./Form/Button";
+import { IconButton } from "./Form/IconButton";
+import { Input } from "./Form/Input";
+import { Checkbox } from "./Form/Checkbox";
+import { Textarea } from "./Form/Textarea";
+import { Select } from "./Form/Select";
+import { Switch } from "./Form/Switch";
+import { FormControl } from "./Form/FormControl";
 const options = ["딸기", "사과", "포도"];
 
 const FormArea = () => {

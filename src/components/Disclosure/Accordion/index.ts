@@ -1,6 +1,4 @@
-import Accordion from "./Accordion";
-import AccordionButton from "./AccordionButton";
-import AccordionPanel from "./AccordionPanel";
-import AccordionItem from "./AccordionItem";
-
-export { Accordion, AccordionButton, AccordionPanel, AccordionItem };
+export { default as Accordion } from "./Accordion";
+export { default as AccordionButton } from "./AccordionButton";
+export { default as AccordionItem } from "./AccordionItem";
+export { default as AccordionPanel } from "./AccordionPanel";

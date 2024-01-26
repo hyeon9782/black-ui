@@ -1,10 +1,3 @@
-import {
-  Tabs,
-  Tab,
-  TabList,
-  TabPanel,
-  TabPanels,
-} from "./components/Disclosure/Tabs";
 import { ToastProvider } from "./components/Feedback/Toast";
 
 import FormArea from "./components/FormArea";
@@ -14,6 +7,8 @@ import DataDisplayArea from "./components/DataDisplayArea";
 import DisclosureArea from "./components/DisclosureArea";
 
 import React from "react";
+
+import { Button, Tab, TabList, TabPanel, TabPanels, Tabs } from "./components";
 
 function App() {
   return (

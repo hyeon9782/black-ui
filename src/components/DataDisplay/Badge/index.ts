@@ -1,3 +1,1 @@
-import Badge from "./Badge";
-
-export { Badge };
+export { default as Badge } from "./Badge";

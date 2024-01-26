@@ -1,7 +1,5 @@
-import Slider from "./Slider";
-import SliderFilledTrack from "./SliderFilledTrack";
-import SliderMark from "./SliderMark";
-import SliderThumb from "./SliderThumb";
-import SliderTrack from "./SliderTrack";
-
-export { Slider, SliderFilledTrack, SliderMark, SliderThumb, SliderTrack };
+export { default as Slider } from "./Slider";
+export { default as SliderFilledTrack } from "./SliderFilledTrack";
+export { default as SliderMark } from "./SliderMark";
+export { default as SliderThumb } from "./SliderThumb";
+export { default as SliderTrack } from "./SliderTrack";

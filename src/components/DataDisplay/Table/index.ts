@@ -1,11 +1,9 @@
-import Table from "./Table";
-import TableCaption from "./TableCaption";
-import TableContainer from "./TableContainer";
-import Tbody from "./Tbody";
-import Thead from "./Thead";
-import Tfoot from "./Tfoot";
-import Td from "./Td";
-import Th from "./Th";
-import Tr from "./Tr";
-
-export { Table, TableCaption, TableContainer, Tbody, Thead, Tfoot, Td, Th, Tr };
+export { default as Table } from "./Table";
+export { default as TableCaption } from "./TableCaption";
+export { default as TableContainer } from "./TableContainer";
+export { default as Tbody } from "./Tbody";
+export { default as Thead } from "./Thead";
+export { default as Tfoot } from "./Tfoot";
+export { default as Td } from "./Td";
+export { default as Th } from "./Th";
+export { default as Tr } from "./Tr";
