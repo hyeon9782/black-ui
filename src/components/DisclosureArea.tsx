@@ -1,3 +1,4 @@
+import { container, overlayContainer } from "@/app.css";
 import {
   Accordion,
   AccordionButton,
@@ -7,8 +8,9 @@ import {
 
 const DisclosureArea = () => {
   return (
-    <div>
-      <div>
+    <div className={overlayContainer}>
+      <fieldset className={container}>
+        <legend>Accordion</legend>
         <Accordion>
           <AccordionItem>
             <AccordionButton>1번 제목</AccordionButton>
@@ -19,7 +21,7 @@ const DisclosureArea = () => {
             <AccordionPanel>2번 내용</AccordionPanel>
           </AccordionItem>
         </Accordion>
-      </div>
+      </fieldset>
     </div>
   );
 };

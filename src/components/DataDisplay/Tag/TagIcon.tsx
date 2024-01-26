@@ -1,7 +1,11 @@
-import React from "react";
+import { ReactElement } from "react";
 
-const TagIcon = () => {
-  return <div>TagIcon</div>;
+type TagIconProps = {
+  as: ReactElement;
+};
+
+const TagIcon = ({ as }: TagIconProps) => {
+  return <>{as}</>;
 };
 
 export default TagIcon;

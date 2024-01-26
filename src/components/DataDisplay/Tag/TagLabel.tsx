@@ -1,7 +1,9 @@
-import React from "react";
-
-const TagLabel = () => {
-  return <div>TagLabel</div>;
+import { ReactNode } from "react";
+type TagLabelProps = {
+  children: ReactNode;
+};
+const TagLabel = ({ children }: TagLabelProps) => {
+  return <div>{children}</div>;
 };
 
 export default TagLabel;

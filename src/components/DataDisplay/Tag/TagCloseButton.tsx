@@ -1,7 +1,11 @@
-import React from "react";
+import { IoMdClose } from "react-icons/io";
 
 const TagCloseButton = () => {
-  return <div>TagCloseButton</div>;
+  return (
+    <>
+      <IoMdClose />
+    </>
+  );
 };
 
 export default TagCloseButton;

@@ -1,13 +1,9 @@
-import {
-  Accordion,
-  AccordionButton,
-  AccordionPanel,
-  AccordionItem,
-} from "@/components/Disclosure/Accordion";
+import { IoMdSettings } from "react-icons/io";
 import Card from "@/components/DataDisplay/Card";
 import { Avatar } from "./DataDisplay/Avatar";
 import { container, overlayContainer } from "@/app.css";
 import { Badge } from "./DataDisplay/Badge";
+import { Tag, TagCloseButton, TagIcon, TagLabel } from "./DataDisplay/Tag";
 
 const DataDisplayArea = () => {
   return (
@@ -42,6 +38,19 @@ const DataDisplayArea = () => {
       </fieldset>
       <fieldset className={container}>
         <legend>Tag</legend>
+        <Tag>Sample Tag</Tag>
+        <Tag color="red" variant="solid">
+          <TagIcon as={<IoMdSettings />} />
+          <TagLabel>Left Icon</TagLabel>
+        </Tag>
+        <Tag color="blue" variant="subtle">
+          <TagLabel>Right Icon</TagLabel>
+          <TagIcon as={<IoMdSettings />} />
+        </Tag>
+        <Tag>
+          <TagLabel>Close Tag</TagLabel>
+          <TagCloseButton />
+        </Tag>
       </fieldset>
       <fieldset className={container}>
         <legend>Table</legend>
