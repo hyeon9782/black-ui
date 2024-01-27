@@ -22,7 +22,6 @@ const DataDisplayArea = () => {
   const productData: ProductItem[] = [
     { id: 1, name: "Product A", price: 10 },
     { id: 2, name: "Product B", price: 20 },
-    // ...
   ];
 
   const mapProductComponentProps = (product: ProductItem) => ({
