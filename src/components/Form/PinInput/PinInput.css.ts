@@ -44,4 +44,7 @@ export const field = recipe({
       },
     },
   },
+  defaultVariants: {
+    size: "md",
+  },
 });
