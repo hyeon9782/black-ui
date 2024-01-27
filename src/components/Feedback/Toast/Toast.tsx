@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import { toast } from "./Toast.css";
-export type Toast = {
+import { ToastVariants, toast } from "./Toast.css";
+export type Toast = ToastVariants & {
   id?: number;
   title: string;
   description: string;
-  status: string;
   duration?: number;
 };
 const Toast = ({ title, duration = 3000, description, status, id }: Toast) => {

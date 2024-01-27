@@ -1,5 +1,5 @@
 import { vars } from "@/css/vars.css";
-import { recipe } from "@vanilla-extract/recipes";
+import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
 export const wrap = recipe({
   base: {
@@ -45,3 +45,5 @@ export const toast = recipe({
     status: "success",
   },
 });
+
+export type ToastVariants = RecipeVariants<typeof toast>;
