@@ -12,7 +12,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Small: Story = {
-  args: { size: "sm", children: "Button!!!!" },
+  args: { size: "sm", children: "Button 수정수정" },
 };
 
 export const Medium: Story = {
