@@ -4,7 +4,7 @@ import Portal from "../Portal/Portal";
 
 type ModalContext = {
   onClose: () => void;
-  isOpen: boolean;
+  isOpen?: boolean;
 };
 
 export const ModalContext = createContext<ModalContext>({
@@ -14,7 +14,7 @@ export const ModalContext = createContext<ModalContext>({
 type ModalProps = {
   children: ReactNode;
   onClose: () => void;
-  isOpen: boolean;
+  isOpen?: boolean;
 };
 const Modal = ({ children, onClose, isOpen }: ModalProps) => {
   const value = {
