@@ -3,8 +3,8 @@ name: "Chromatic"
 on:
   push:
     branches: [main]
-    paths:
-      - "**.stories.tsx"
+    # paths:
+    #   - "**.stories.tsx"
 
 jobs:
   chromatic:
