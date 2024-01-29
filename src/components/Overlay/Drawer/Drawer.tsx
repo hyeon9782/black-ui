@@ -1,4 +1,4 @@
-import React, { ReactNode, createContext } from "react";
+import { ReactNode, createContext } from "react";
 import { DrawerVariants, drawer } from "./Drawer.css";
 import Portal from "../Portal/Portal";
 
