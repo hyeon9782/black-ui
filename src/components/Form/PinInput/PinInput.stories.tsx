@@ -6,7 +6,15 @@ const meta = {
   title: "Component/Form/PinInput",
   component: PinInput,
   tags: ["autodocs"],
-  parameters: { layout: "centered" },
+  parameters: {
+    layout: "centered",
+    componentSubtitle: "PinInput 컴포넌트입니다.",
+    docs: {
+      description: {
+        component: "PinInput을 구현할 때 사용합니다.",
+      },
+    },
+  },
 } satisfies Meta<typeof PinInput>;
 
 export default meta;
@@ -15,13 +23,15 @@ type Story = StoryObj<typeof meta>;
 export const Outline: Story = {
   args: {
     size: "lg",
-    children: (
-      <>
+  },
+  render: function Render(args) {
+    return (
+      <PinInput {...args}>
         <PinInputField />
         <PinInputField />
         <PinInputField />
         <PinInputField />
-      </>
-    ),
+      </PinInput>
+    );
   },
 };

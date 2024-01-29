@@ -12,7 +12,7 @@ type PinInputContextProps = {};
 export const PinInputContext = createContext<PinInputContextProps>({});
 
 type PinInputProps = {
-  children: ReactNode;
+  children?: ReactNode;
   mask?: boolean;
   size: string;
 };
