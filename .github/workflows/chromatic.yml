@@ -1,5 +1,4 @@
-# Workflow name
-name: "Chromatic Deployment"
+name: "Chromatic"
 
 on:
   push:
@@ -23,4 +22,3 @@ jobs:
         uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          token: ${{ secrets.GITHUB_TOKEN }}
