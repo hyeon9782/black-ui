@@ -3,8 +3,6 @@ name: "Chromatic"
 on:
   push:
     branches: [main]
-    # paths:
-    #   - "**.stories.tsx"
 
 jobs:
   chromatic:
@@ -14,8 +12,16 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          
+       - name: cache dependencies
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}-storybook
 
-      - name: Install dependencies
+      - name: depedency install
+        if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
 
       - name: Publish to Chromatic
