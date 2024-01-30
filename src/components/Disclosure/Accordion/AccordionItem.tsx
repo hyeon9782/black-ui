@@ -7,7 +7,7 @@ const AccordionItem = ({ children, index }: Props) => {
   return React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
       // AccordionButton과 AccordionPanel에 index prop 전달
-      return React.cloneElement(child, { index });
+      return React.cloneElement(child, { ...child.props, index });
     }
     return child;
   });

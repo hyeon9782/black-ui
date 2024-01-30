@@ -5,7 +5,7 @@ type Props = {
   children: ReactNode;
   index?: number;
 };
-const AccordionPanel = ({ children, index }: Props) => {
+const AccordionPanel = ({ children, index = 0 }: Props) => {
   const { checkIndex } = useContext(AccordionContext);
 
   return (
