@@ -11,5 +11,8 @@ export default {
     ],
     "\\.css\\.ts$": "@vanilla-extract/jest-transform",
   },
+  moduleNameMapper: {
+    "^@/css/(.*)$": "<rootDir>/src/css/$1",
+  },
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
 };
