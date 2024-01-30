@@ -34,10 +34,10 @@ const DataDisplayArea = () => {
         <legend>Avatar</legend>
         <Avatar name="jeongho" src="/이력서 사진.jpg" size="xs" />
         <Avatar name="jeongho" src="/이력서 사진.jpg" size="sm" />
-        <Avatar name="jeongho" src="/이력서 사진.jpg" size="md" />
-        <Avatar name="jeongho" src="/이력서 사진.jpg" size="lg" />
-        <Avatar name="jeongho" src="/이력서 사진.jpg" size="xl" />
-        <Avatar name="jeongho" src="/이력서 사진!!.jpg" size="2xl" />
+        <Avatar name="Hyeon" src="/이력서 사진!.jpg" size="md" />
+        <Avatar name="Jeong Ho" src="/이력서 사진!jpg" size="lg" />
+        <Avatar name="Hyeon Jeong Ho" size="xl" />
+        <Avatar src="/이력서 사진!.jpg" size="2xl" />
       </fieldset>
       <fieldset className={container}>
         <legend>Card</legend>
