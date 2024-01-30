@@ -4,7 +4,7 @@ type Props = {
   children: ReactNode;
   index?: number;
 };
-const TabPanel = ({ children, index }: Props) => {
+const TabPanel = ({ children, index = 0 }: Props) => {
   const { currentTab } = useContext(TabsContext);
   return (
     <div

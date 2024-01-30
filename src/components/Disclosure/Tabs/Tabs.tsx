@@ -22,6 +22,7 @@ const Tabs = ({ children, ...props }: TabsProps) => {
   };
 
   const value = {
+    ...props,
     currentTab,
     changeTab,
   };

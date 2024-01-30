@@ -4,7 +4,7 @@ type Props = {
   children: ReactNode;
   index?: number;
 };
-const Tab = ({ children, index }: Props) => {
+const Tab = ({ children, index = 0 }: Props) => {
   const { changeTab } = useContext(TabsContext);
   return <div onClick={() => changeTab(index)}>{children}</div>;
 };

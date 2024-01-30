@@ -1,21 +1,28 @@
 import React, { ReactNode, createContext, useState } from "react";
-import { accordion } from "./Accordion.css";
 
 type AccordionContextProps = {
   currentIndex: number;
-  changeIndex: (index: number | undefined) => void;
+  changeIndex: (index: number) => void;
   allowMultiple?: boolean;
-  checkIndex: (index: number | undefined) => boolean;
-  toggleIndex: (index: number | undefined) => void;
+  checkIndex: (index: number) => boolean;
+  toggleIndex: (index: number) => void;
   indexes: number[];
 };
 
 export const AccordionContext = createContext<AccordionContextProps>({
   currentIndex: 0,
-  changeIndex: () => {},
-  checkIndex: () => false,
-  toggleIndex: () => {},
+  changeIndex: (index: number) => {
+    console.log(index);
+  },
+  checkIndex: (index: number) => {
+    console.log(index);
+    return false;
+  },
+  toggleIndex: (index: number) => {
+    console.log(index);
+  },
   indexes: [],
+  allowMultiple: false,
 });
 
 type AccordionProps = {
@@ -25,7 +32,7 @@ type AccordionProps = {
 };
 
 const Accordion = ({ children, allowMultiple }: AccordionProps) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState<number>(-1);
   const [indexes, setIndexes] = useState<number[]>([]);
 
   const changeIndex = (index: number) => {
@@ -58,11 +65,14 @@ const Accordion = ({ children, allowMultiple }: AccordionProps) => {
     indexes,
   };
   return (
-    <div className={accordion({})}>
+    <div>
       <AccordionContext.Provider value={prop}>
         {React.Children.map(children, (child, index) =>
           React.isValidElement(child)
-            ? React.cloneElement(child, { index })
+            ? React.cloneElement(child, {
+                ...child.props,
+                index,
+              })
             : child
         )}
       </AccordionContext.Provider>
@@ -74,7 +84,8 @@ export default Accordion;
 
 /*
 
-1. allowMultiple props를 통해 열리는 메커니즘 추가 => O
-2. type 에러 해결
+1. ref를 통한 비제어 컴포넌트 구현
+2. 비즈니스 로직 리팩토링
+
 
 */

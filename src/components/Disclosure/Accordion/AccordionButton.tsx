@@ -7,11 +7,11 @@ type Props = {
   children: ReactNode;
   index?: number;
 };
-const AccordionButton = ({ children, index }: Props) => {
+const AccordionButton = ({ children, index = 0 }: Props) => {
   const { changeIndex, allowMultiple, toggleIndex, checkIndex } =
     useContext(AccordionContext);
 
-  const handleButtonClick = (index: number | undefined) => {
+  const handleButtonClick = (index: number) => {
     if (allowMultiple) {
       toggleIndex(index);
     }
