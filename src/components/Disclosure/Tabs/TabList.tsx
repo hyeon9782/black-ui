@@ -9,7 +9,9 @@ const TabList = ({ children }: TabListProps) => {
   return (
     <div className={tabList}>
       {Children.map(children, (child, index) =>
-        isValidElement(child) ? cloneElement(child, { index }) : child
+        isValidElement(child)
+          ? cloneElement(child, { ...child.props, index })
+          : child
       )}
     </div>
   );

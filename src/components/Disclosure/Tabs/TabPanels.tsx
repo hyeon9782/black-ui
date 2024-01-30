@@ -7,7 +7,7 @@ const TabPanels = ({ children }: Props) => {
     <div>
       {React.Children.map(children, (child, index) =>
         React.isValidElement(child)
-          ? React.cloneElement(child, { index })
+          ? React.cloneElement(child, { ...child.props, index })
           : child
       )}
     </div>
