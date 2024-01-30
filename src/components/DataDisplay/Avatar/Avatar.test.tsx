@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import Avatar from "./Avatar";
 
 describe("Avatar Tests", () => {
-  test("src가 있고 name이 있다면 Alt이 name 값인 image 태그를 렌더링해라", async () => {
+  test("src가 있고 name이 있다면 Alt이 name 값인 image 태그를 렌더링해라!!!!!!!!", async () => {
     render(<Avatar src="/이력서 사진.jpg" name="Jeong Ho" />);
 
     const avatar = screen.getByAltText("Jeong Ho");
@@ -38,6 +38,6 @@ describe("Avatar Tests", () => {
     render(<Avatar />);
 
     const avatar = screen.getByTestId("default-icon");
-    expect(avatar).toBeInTheDocument();
+    expect(avatar).not.toBeInTheDocument();
   });
 });
