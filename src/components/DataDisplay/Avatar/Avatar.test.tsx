@@ -38,6 +38,6 @@ describe("Avatar Tests", () => {
     render(<Avatar />);
 
     const avatar = screen.getByTestId("default-icon");
-    expect(avatar).not.toBeInTheDocument();
+    expect(avatar).toBeInTheDocument();
   });
 });
