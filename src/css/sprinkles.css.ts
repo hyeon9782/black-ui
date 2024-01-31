@@ -32,10 +32,10 @@ const responsiveProperties = defineProperties({
     gap: vars.space,
   },
   shorthands: {
-    borderLeftRadius: ["borderBottomLeftRadius", "borderTopLeftRadius"],
-    borderRightRadius: ["borderBottomRightRadius", "borderTopRightRadius"],
-    borderTopRadius: ["borderTopLeftRadius", "borderTopRightRadius"],
-    borderBottomRadius: ["borderBottomLeftRadius", "borderBottomRightRadius"],
+    // borderLeftRadius: ["borderBottomLeftRadius", "borderTopLeftRadius"],
+    // borderRightRadius: ["borderBottomRightRadius", "borderTopRightRadius"],
+    // borderTopRadius: ["borderTopLeftRadius", "borderTopRightRadius"],
+    // borderBottomRadius: ["borderBottomLeftRadius", "borderBottomRightRadius"],
     margin: ["marginTop", "marginBottom", "marginLeft", "marginRight"],
     marginX: ["marginLeft", "marginRight"],
     marginY: ["marginTop", "marginBottom"],
@@ -78,7 +78,7 @@ const selectorProperties = defineProperties({
 
 export const sprinkles = createSprinkles(
   responsiveProperties,
-  selectorProperties
+  selectorProperties,
 );
 
 export type Sprinkles = Parameters<typeof sprinkles>[0];
