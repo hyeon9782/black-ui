@@ -108,10 +108,10 @@ const FormArea = () => {
         <Checkbox color="red" size="sm" disabled>
           SM Checkbox
         </Checkbox>
-        <Checkbox color="red" size="md">
+        <Checkbox color="red" size="md" defaultChecked>
           MD Checkbox
         </Checkbox>
-        <Checkbox color="red" size="lg">
+        <Checkbox color="red" size="lg" readOnly>
           LG Checkbox
         </Checkbox>
       </fieldset>

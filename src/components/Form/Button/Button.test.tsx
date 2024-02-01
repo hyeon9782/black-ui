@@ -49,7 +49,7 @@ describe("Button 컴포넌트 테스트", () => {
 
   test("Spinner가 렌더링된다.", () => {
     render(
-      <Button isLoading data-testId="loading">
+      <Button isLoading data-testid="loading">
         Spinner
       </Button>,
     );
