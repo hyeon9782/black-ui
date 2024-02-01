@@ -18,7 +18,8 @@ import { Checkbox } from "./Form/Checkbox";
 import { Textarea } from "./Form/Textarea";
 import { Select } from "./Form/Select";
 import { Switch } from "./Form/Switch";
-import { FormControl } from "./Form/FormControl";
+import { FormControl, FormErrorMessage, FormLabel } from "./Form/FormControl";
+import FormHelperText from "./Form/FormControl/FormHelperText";
 const options = ["딸기", "사과", "포도"];
 
 const FormArea = () => {
@@ -27,6 +28,7 @@ const FormArea = () => {
   const changeRadio = (value: string) => {
     setRadioValue(value);
   };
+
   return (
     <div className={formBox}>
       <fieldset className={container}>
@@ -37,19 +39,41 @@ const FormArea = () => {
           color="black"
           onClick={() => alert("블랙 클릭")}
           leftIcon={<IoMdClose />}
-          disabled
+          isDisabled
         >
-          블랙 버튼
+          Left Icon
         </Button>
         <Button
-          size="sm"
+          size="xs"
           variant="outline"
           color="red"
           rightIcon={<IoMdClose />}
           onClick={() => alert("레드 클릭")}
         >
-          레드 버튼
+          Right Icon
         </Button>
+        <Button
+          size="sm"
+          variant="solid"
+          color="black"
+          onClick={() => alert("블랙 클릭")}
+          leftIcon={<IoMdClose />}
+          isLoading
+        >
+          Loading
+        </Button>
+        <Button
+          size="sm"
+          variant="solid"
+          color="black"
+          onClick={() => alert("블랙 클릭")}
+          leftIcon={<IoMdClose />}
+          isLoading
+          loadingText="loading..."
+        >
+          Loading Text
+        </Button>
+
         <Button
           size="md"
           variant="outline"
@@ -60,7 +84,7 @@ const FormArea = () => {
           레드 버튼
         </Button>
         <Button
-          size="lg"
+          size="md"
           variant="outline"
           color="red"
           onClick={() => alert("레드 클릭")}
@@ -165,14 +189,12 @@ const FormArea = () => {
       <fieldset className={container}>
         <legend>Form Control</legend>
         <FormControl>
-          <FormControl.Label>Email</FormControl.Label>
+          <FormLabel>Email</FormLabel>
           <Input />
-          <FormControl.HelperText>
+          <FormHelperText>
             Enter the email you'd like to receive the newsletter on.
-          </FormControl.HelperText>
-          <FormControl.ErrorMessage>
-            Email is required.
-          </FormControl.ErrorMessage>
+          </FormHelperText>
+          <FormErrorMessage>Email is required.</FormErrorMessage>
         </FormControl>
       </fieldset>
       <fieldset className={container}>

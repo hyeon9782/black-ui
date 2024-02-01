@@ -1,8 +1,4 @@
 import { ReactNode, createContext, useId } from "react";
-import FormLabel from "./FormLabel";
-import FormErrorMessage from "./FormErrorMessage";
-import FormHelperText from "./FormHelperText";
-import "@/css/global.css";
 
 type FormContextProps = {
   id?: string;
@@ -28,9 +24,5 @@ const FormControl = ({ children, ...props }: FormControlProps) => {
     </div>
   );
 };
-
-FormControl.Label = FormLabel;
-FormControl.HelperText = FormHelperText;
-FormControl.ErrorMessage = FormErrorMessage;
 
 export default FormControl;
