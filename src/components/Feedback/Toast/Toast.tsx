@@ -6,7 +6,7 @@ export type Toast = ToastVariants & {
   description: string;
   duration?: number;
 };
-const Toast = ({ title, duration = 3000, description, status, id }: Toast) => {
+const Toast = ({ title, duration = 3000, description, status }: Toast) => {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {

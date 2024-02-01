@@ -1,4 +1,4 @@
-import { style, keyframes } from "@vanilla-extract/css";
+import { keyframes } from "@vanilla-extract/css";
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
 const rotate = keyframes({
@@ -15,27 +15,27 @@ export const spin = recipe({
   variants: {
     size: {
       xs: {
-        fontSize: "1rem",
+        fontSize: "0.5rem",
       },
       sm: {
-        fontSize: "2rem",
+        fontSize: "1rem",
       },
       md: {
-        fontSize: "3rem",
+        fontSize: "1.5rem",
       },
       lg: {
-        fontSize: "4rem",
+        fontSize: "2rem",
       },
       xl: {
-        fontSize: "5rem",
+        fontSize: "2.5rem",
       },
       "2xl": {
-        fontSize: "6rem",
+        fontSize: "3rem",
       },
     },
   },
   defaultVariants: {
-    size: "sm",
+    size: "xs",
   },
 });
 

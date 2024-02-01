@@ -8,6 +8,9 @@ export const button = recipe({
     border: "none",
     fontWeight: "bold",
     cursor: "pointer",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     borderRadius: vars.radii.lg,
     selectors: {
       "&:disabled": {
@@ -18,17 +21,32 @@ export const button = recipe({
   },
   variants: {
     size: {
-      xs: sprinkles({ paddingX: "1", paddingY: "2" }),
-      sm: sprinkles({ paddingX: "2", paddingY: "3" }),
-      md: sprinkles({ paddingX: "4", paddingY: "5" }),
-      lg: sprinkles({ paddingX: "5", paddingY: "6" }),
+      xs: {
+        width: "80px",
+        height: "50px",
+      },
+      sm: {
+        width: "100px",
+        height: "50px",
+      },
+      md: {
+        width: "100px",
+        height: "50px",
+      },
+      lg: {
+        width: "100px",
+        height: "50px",
+      },
     },
     variant: {
-      solid: {},
+      solid: {
+        color: "white",
+      },
       outline: {
         borderStyle: "solid",
         borderWidth: "1px",
       },
+      ghost: {},
     },
     color: {
       black: {},
@@ -38,11 +56,11 @@ export const button = recipe({
   compoundVariants: [
     {
       variants: { variant: "solid", color: "black" },
-      style: sprinkles({ backgroundColor: "black", color: "white" }),
+      style: sprinkles({ backgroundColor: "black" }),
     },
     {
       variants: { variant: "solid", color: "red" },
-      style: sprinkles({ backgroundColor: "red", color: "white" }),
+      style: sprinkles({ backgroundColor: "red" }),
     },
     {
       variants: { variant: "outline", color: "black" },
@@ -53,6 +71,11 @@ export const button = recipe({
       style: sprinkles({ backgroundColor: "white", color: "red" }),
     },
   ],
+  defaultVariants: {
+    size: "xs",
+    variant: "solid",
+    color: "red",
+  },
 });
 
 export type ButtonVariants = RecipeVariants<typeof button>;

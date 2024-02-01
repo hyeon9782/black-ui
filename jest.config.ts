@@ -13,6 +13,7 @@ export default {
   },
   moduleNameMapper: {
     "^@/css/(.*)$": "<rootDir>/src/css/$1",
+    "^@/components/(.*)$": "<rootDir>/src/components/$1",
   },
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
 };
