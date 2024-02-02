@@ -7,9 +7,15 @@ import React, {
 } from "react";
 import { wrap } from "./PinInput.css";
 
-type PinInputContextProps = {};
+type PinInputContextProps = {
+  mask: boolean;
+  size: string;
+};
 
-export const PinInputContext = createContext<PinInputContextProps>({});
+export const PinInputContext = createContext<PinInputContextProps>({
+  mask: false,
+  size: "",
+});
 
 type PinInputProps = {
   children?: ReactNode;

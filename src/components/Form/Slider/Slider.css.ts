@@ -1,66 +1,18 @@
 import { vars } from "@/css/vars.css";
-import { recipe } from "@vanilla-extract/recipes";
+import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
 export const slider = recipe({
-  base: {
-    // position: "relative",
-    // top: 0,
-    appearance: "none",
-    "::-webkit-slider-thumb": {
-      backgroundColor: "red",
-      color: "red",
-    },
-    selectors: {
-      "&:disabled": {
-        cursor: "not-allowed",
-        opacity: "0.5",
-      },
-    },
-  },
-  variants: {},
-});
-
-export const track = recipe({
-  base: {
-    position: "relative",
-    top: "0px",
-  },
-});
-
-export const filledTrack = recipe({
-  base: {
-    borderRadius: vars.radii.md,
-    position: "absolute",
-    top: "0px",
-  },
+  base: {},
   variants: {
-    size: {
-      xs: {
-        height: 4,
-      },
-      sm: {
-        height: 6,
-      },
-      md: {
-        height: 8,
-      },
-      lg: {
-        height: 10,
-      },
-    },
     color: {
-      black: {
-        backgroundColor: "black",
-      },
       red: {
-        backgroundColor: "red",
+        accentColor: vars.colors.red,
       },
-      blue: {
-        backgroundColor: "blue",
-      },
-      green: {
-        backgroundColor: "green",
+      black: {
+        accentColor: vars.colors.black,
       },
     },
   },
 });
+
+export type SliderVariants = RecipeVariants<typeof slider>;
