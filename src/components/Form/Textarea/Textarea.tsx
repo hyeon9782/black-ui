@@ -3,8 +3,8 @@ import { TextareaVariants, textarea } from "./Textarea.css";
 
 type TextareaProps = TextareaVariants &
   Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "size"> & {
-    isDisabled: boolean;
-    isReadOnly: boolean;
+    isDisabled?: boolean;
+    isReadOnly?: boolean;
   };
 
 const Textarea = forwardRef(

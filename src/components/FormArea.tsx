@@ -1,5 +1,5 @@
 import { Radio, RadioGroup } from "@/components/Form/Radio";
-
+import { IoIosArrowDown } from "react-icons/io";
 import { IoMdStar } from "react-icons/io";
 import { container, formBox } from "@/app.css";
 import { useState } from "react";
@@ -34,59 +34,61 @@ const FormArea = () => {
       <fieldset className={container}>
         <legend>Button</legend>
         <Button
-          size="xs"
+          size="lg"
           variant="solid"
           color="black"
           leftIcon={<IoMdClose />}
         >
-          Left Icon
+          Button
         </Button>
         <Button
-          size="xs"
+          size="lg"
           variant="outline"
           color="red"
           rightIcon={<IoMdClose />}
         >
-          Right Icon
+          Button
         </Button>
         <Button
-          size="sm"
+          size="lg"
           variant="solid"
           color="black"
           onClick={() => alert("블랙 클릭")}
           leftIcon={<IoMdClose />}
           isLoading
+          spinner={<IoIosArrowDown />}
         >
-          Loading
+          Button
         </Button>
         <Button
-          size="sm"
+          size="lg"
           variant="solid"
           color="black"
           onClick={() => alert("블랙 클릭")}
           leftIcon={<IoMdClose />}
           isLoading
           loadingText="loading..."
+          spinnerPlacement="right"
         >
-          Loading Text
+          Button
         </Button>
 
         <Button
-          size="md"
+          size="lg"
           variant="outline"
           color="red"
           onClick={() => alert("레드 클릭")}
         >
           <IoMdClose />
-          레드 버튼
+          Button
         </Button>
         <Button
-          size="md"
+          size="lg"
           variant="outline"
           color="red"
           onClick={() => alert("레드 클릭")}
         >
-          레드 버튼
+          Button
         </Button>
         <IconButton icon={<IoMdStar />} aria-label="Star" isLoading />
       </fieldset>

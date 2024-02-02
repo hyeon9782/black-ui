@@ -12,7 +12,7 @@ type IconButtonProps = IconButtonVariants &
   };
 const IconButton = ({ icon, isLoading, ...props }: IconButtonProps) => {
   return (
-    <Button {...props} className={iconButton({})}>
+    <Button {...props} isLoading className={iconButton({})}>
       {!isLoading ? icon : <Spinner />}
     </Button>
   );
