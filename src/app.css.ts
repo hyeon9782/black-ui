@@ -9,10 +9,13 @@ export const formBox = style({
 });
 
 export const container = style({
+  width: "100%",
   display: "flex",
   gap: 10,
   borderRadius: 15,
+  flexWrap: "wrap",
   border: "2px solid lightgray",
+  boxSizing: "border-box",
   padding: 15,
   color: "gray",
 });

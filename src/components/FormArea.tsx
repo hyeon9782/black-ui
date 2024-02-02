@@ -19,6 +19,11 @@ const options = ["딸기", "사과", "포도"];
 
 const FormArea = () => {
   const [radioValue, setRadioValue] = useState("");
+  const [selectedItem, setSelectedItem] = useState("");
+
+  const onSelect = (value: string) => {
+    setSelectedItem(value);
+  };
 
   const changeRadio = (value: string) => {
     setRadioValue(value);
@@ -138,6 +143,7 @@ const FormArea = () => {
       </fieldset>
       <fieldset className={container}>
         <legend>Select</legend>
+
         <Select
           options={options}
           label="과일을 선택해주세요!"
@@ -147,20 +153,22 @@ const FormArea = () => {
         <Select
           options={options}
           label="과일을 선택해주세요!"
-          size="sm"
-          variant="unstyled"
-        />
-        <Select
-          options={options}
-          label="과일을 선택해주세요!"
-          size="md"
-          variant="flushed"
-        />
-        <Select
-          options={options}
-          label="과일을 선택해주세요!"
-          size="lg"
+          size="xs"
           variant="filled"
+        />
+        <Select
+          options={options}
+          label="과일을 선택해주세요!"
+          size="xs"
+          variant="flushed"
+          selectedItem={selectedItem}
+          onSelect={onSelect}
+        />
+        <Select
+          options={options}
+          label="과일을 선택해주세요!"
+          size="xs"
+          variant="unstyled"
         />
       </fieldset>
       <fieldset className={container}>

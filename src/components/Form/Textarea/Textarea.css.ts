@@ -16,16 +16,16 @@ export const textarea = recipe({
   variants: {
     size: {
       xs: {
-        fontSize: vars.fonts.h6,
+        fontSize: vars.fontSizes[0],
       },
       sm: {
-        fontSize: vars.fonts.h5,
+        fontSize: vars.fontSizes[2],
       },
       md: {
-        fontSize: vars.fonts.h4,
+        fontSize: vars.fontSizes[4],
       },
       lg: {
-        fontSize: vars.fonts.h3,
+        fontSize: vars.fontSizes[6],
       },
     },
   },

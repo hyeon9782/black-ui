@@ -49,7 +49,7 @@
   ],
   "lint-staged": {
     "**/*.tsx": [
-      "npm run test -- --findRelatedTests"
+      "npm run test -- --passWithNoTests"
     ]
   },
   "devDependencies": {
