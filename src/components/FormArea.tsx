@@ -92,10 +92,10 @@ const FormArea = () => {
       </fieldset>
       <fieldset className={container}>
         <legend>Input</legend>
-        <Input placeholder="아이디를 입력해라" size="xs" />
-        <Input placeholder="아이디를 입력해라" size="sm" />
-        <Input placeholder="아이디를 입력해라" size="md" />
-        <Input placeholder="아이디를 입력해라" size="lg" />
+        <Input placeholder="아이디를 입력해라" size="xs" variant="outline" />
+        <Input placeholder="아이디를 입력해라" size="xs" variant="filled" />
+        <Input placeholder="아이디를 입력해라" size="xs" variant="flushed" />
+        <Input placeholder="아이디를 입력해라" size="xs" variant="unstyled" />
       </fieldset>
       <fieldset className={container}>
         <legend>Checkbox</legend>
