@@ -4,19 +4,29 @@ import { vars } from "@/css/vars.css";
 
 export const button = recipe({
   base: {
-    alignSelf: "flex-start",
+    position: "relative",
+    userSelect: "none",
     border: "none",
     fontWeight: "bold",
     cursor: "pointer",
-    display: "flex",
+    display: "inline-flex",
     justifyContent: "center",
     alignItems: "center",
+    whiteSpace: "nowrap",
+    verticalAlign: "middle",
+    outline: "none",
     borderRadius: vars.radii.lg,
     selectors: {
       "&:disabled": {
         cursor: "not-allowed",
         opacity: "0.5",
       },
+      // "&:hover": {
+      //   backgroundColor: "lightgreen",
+      // },
+      // "&:active": {
+      //   backgroundColor: "#44FB00",
+      // },
     },
   },
   variants: {
@@ -56,7 +66,13 @@ export const button = recipe({
   compoundVariants: [
     {
       variants: { variant: "solid", color: "black" },
-      style: sprinkles({ backgroundColor: "black" }),
+      style: sprinkles({
+        backgroundColor: {
+          base: "brandTertiary",
+          hover: "brandPrimary",
+          active: "secondary",
+        },
+      }),
     },
     {
       variants: { variant: "solid", color: "red" },

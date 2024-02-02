@@ -4,15 +4,10 @@ import { IoMdStar } from "react-icons/io";
 import { container, formBox } from "@/app.css";
 import { useState } from "react";
 import { PinInput, PinInputField } from "./Form/PinInput";
-import {
-  Slider,
-  SliderFilledTrack,
-  SliderThumb,
-  SliderTrack,
-} from "./Form/Slider";
+import { Slider } from "./Form/Slider";
 import { IoMdClose } from "react-icons/io";
-import { Button } from "./Form/Button";
-import { IconButton } from "./Form/IconButton";
+import { Button, IconButton } from "./Form/Button";
+
 import { Input } from "./Form/Input";
 import { Checkbox } from "./Form/Checkbox";
 import { Textarea } from "./Form/Textarea";
@@ -37,9 +32,7 @@ const FormArea = () => {
           size="xs"
           variant="solid"
           color="black"
-          onClick={() => alert("블랙 클릭")}
           leftIcon={<IoMdClose />}
-          isDisabled
         >
           Left Icon
         </Button>
@@ -48,7 +41,6 @@ const FormArea = () => {
           variant="outline"
           color="red"
           rightIcon={<IoMdClose />}
-          onClick={() => alert("레드 클릭")}
         >
           Right Icon
         </Button>
@@ -108,10 +100,10 @@ const FormArea = () => {
         <Checkbox color="red" size="sm" disabled>
           SM Checkbox
         </Checkbox>
-        <Checkbox color="red" size="md">
+        <Checkbox color="red" size="md" defaultChecked>
           MD Checkbox
         </Checkbox>
-        <Checkbox color="red" size="lg">
+        <Checkbox color="red" size="lg" readOnly>
           LG Checkbox
         </Checkbox>
       </fieldset>
@@ -229,33 +221,8 @@ const FormArea = () => {
       </fieldset>
       <fieldset className={container}>
         <legend>Slider</legend>
-        <Slider size="xs" color="red">
-          <SliderTrack>
-            <SliderFilledTrack />
-          </SliderTrack>
-          <SliderThumb />
-        </Slider>
-
-        <Slider size="sm" color="black">
-          <SliderTrack>
-            <SliderFilledTrack />
-          </SliderTrack>
-          <SliderThumb />
-        </Slider>
-
-        <Slider size="md" color="blue">
-          <SliderTrack>
-            <SliderFilledTrack />
-          </SliderTrack>
-          <SliderThumb />
-        </Slider>
-
-        <Slider size="lg" color="green">
-          <SliderTrack>
-            <SliderFilledTrack />
-          </SliderTrack>
-          <SliderThumb />
-        </Slider>
+        <Slider color="red"></Slider>
+        <Slider color="black"></Slider>
       </fieldset>
     </div>
   );

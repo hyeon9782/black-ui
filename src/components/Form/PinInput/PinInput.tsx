@@ -1,4 +1,4 @@
-import {
+import React, {
   Children,
   ReactNode,
   cloneElement,
@@ -7,9 +7,15 @@ import {
 } from "react";
 import { wrap } from "./PinInput.css";
 
-type PinInputContextProps = {};
+type PinInputContextProps = {
+  mask: boolean;
+  size: string;
+};
 
-export const PinInputContext = createContext<PinInputContextProps>({});
+export const PinInputContext = createContext<PinInputContextProps>({
+  mask: false,
+  size: "",
+});
 
 type PinInputProps = {
   children?: ReactNode;
@@ -21,14 +27,14 @@ const PinInput = ({ children, size = "md", ...props }: PinInputProps) => {
   inputRefs.current = [];
 
   // Children 갯수만큼 Refs 추가
-  const addToRefs = (el) => {
+  const addToRefs = (el: HTMLElement) => {
     if (el && !inputRefs.current.includes(el)) {
       inputRefs.current.push(el);
     }
   };
 
   // 포커스 이동 함수
-  const handleFocus = (index, value) => {
+  const handleFocus = (index: number, value: number) => {
     if (
       !value &&
       index === inputRefs.current.length - 1 &&
@@ -49,11 +55,14 @@ const PinInput = ({ children, size = "md", ...props }: PinInputProps) => {
 
   // Children에 props 추가
   const enhancedChildren = Children.map(children, (child, index) =>
-    cloneElement(child, {
-      ref: (el) => addToRefs(el),
-      onInputChange: (value) => handleFocus(index, value),
-      ...props,
-    })
+    React.isValidElement(child)
+      ? cloneElement(child, {
+          ...child.props,
+          ref: (el: HTMLInputElement) => addToRefs(el),
+          onInputChange: (value: number) => handleFocus(index, value),
+          ...props,
+        })
+      : child,
   );
 
   const value = {

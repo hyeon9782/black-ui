@@ -1,40 +1,53 @@
-import { ChangeEvent, InputHTMLAttributes, useContext, useId } from "react";
+import {
+  ChangeEvent,
+  ForwardedRef,
+  InputHTMLAttributes,
+  forwardRef,
+  useContext,
+  useId,
+} from "react";
 import { RadioVariants, radio } from "./Radio.css";
 import { RadioContext } from "./RadioContext";
 
 type RadioProps = RadioVariants &
   Omit<InputHTMLAttributes<HTMLInputElement>, "size">;
 
-const Radio = ({ children, size, color, ...props }: RadioProps) => {
-  const id = useId();
-  const { name, onChange } = useContext(RadioContext);
+const Radio = forwardRef(
+  (
+    { children, size, color, ...props }: RadioProps,
+    ref: ForwardedRef<HTMLInputElement>,
+  ) => {
+    const id = useId();
+    const { name, onChange } = useContext(RadioContext);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log("들어옴");
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+      console.log("들어옴");
 
-    if (onChange) {
-      console.log("들어옴11");
-      onChange(e.target.value);
-    }
-  };
+      if (onChange) {
+        console.log("들어옴11");
+        onChange(e.target.value);
+      }
+    };
 
-  return (
-    <div
-      className={radio({
-        size,
-        color,
-      })}
-    >
-      <input
-        type="radio"
-        id={id}
-        {...props}
-        name={name}
-        onChange={handleChange}
-      />
-      <label htmlFor={id}>{children}</label>
-    </div>
-  );
-};
+    return (
+      <div
+        className={radio({
+          size,
+          color,
+        })}
+      >
+        <input
+          type="radio"
+          ref={ref}
+          id={id}
+          {...props}
+          name={name}
+          onChange={handleChange}
+        />
+        <label htmlFor={id}>{children}</label>
+      </div>
+    );
+  },
+);
 
 export default Radio;

@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useId } from "react";
+import { ReactNode, createContext, forwardRef, useId } from "react";
 
 type FormContextProps = {
   id?: string;
@@ -11,18 +11,21 @@ type FormControlProps = {
   isInvalid?: boolean;
 };
 
-const FormControl = ({ children, ...props }: FormControlProps) => {
-  const id = useId();
+const FormControl = forwardRef(
+  ({ children, ...props }: FormControlProps, ref) => {
+    const id = useId();
 
-  const prop = {
-    ...props,
-    id,
-  };
-  return (
-    <div>
-      <FormContext.Provider value={prop}>{children}</FormContext.Provider>
-    </div>
-  );
-};
+    const prop = {
+      ...props,
+      id,
+      ref,
+    };
+    return (
+      <div>
+        <FormContext.Provider value={prop}>{children}</FormContext.Provider>
+      </div>
+    );
+  },
+);
 
 export default FormControl;

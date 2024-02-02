@@ -1,7 +1,6 @@
 export * from "./Button";
 export * from "./Checkbox";
 export * from "./FormControl";
-export * from "./IconButton";
 export * from "./Input";
 export * from "./PinInput";
 export * from "./Radio";

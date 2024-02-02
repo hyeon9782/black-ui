@@ -1,8 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Slider from "./Slider";
-import SliderTrack from "./SliderTrack";
-import SliderThumb from "./SliderThumb";
-import SliderFilledTrack from "./SliderFilledTrack";
 
 const meta = {
   title: "Component/Form/Slider",
@@ -14,15 +11,8 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Outline: Story = {
+export const Red: Story = {
   args: {
-    children: (
-      <Slider size="xs" color="red">
-        <SliderTrack>
-          <SliderFilledTrack />
-        </SliderTrack>
-        <SliderThumb />
-      </Slider>
-    ),
+    color: "red",
   },
 };
