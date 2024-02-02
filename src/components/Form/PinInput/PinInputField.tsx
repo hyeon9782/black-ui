@@ -8,7 +8,7 @@ import {
 import { PinInputContext } from "./PinInput";
 import { field } from "./PinInput.css";
 type PinInputProps = {
-  onInputChange: (value: number | string) => void;
+  onInputChange?: (value: number | string) => void;
 };
 
 const PinInputField = forwardRef(

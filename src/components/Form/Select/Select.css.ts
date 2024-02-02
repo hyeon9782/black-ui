@@ -3,6 +3,8 @@ import { vars } from "@/css/vars.css";
 
 export const select = recipe({
   base: {
+    display: "flex",
+    justifyContent: "space-between",
     border: "none",
     width: "100%",
     backgroundColor: "white",
@@ -40,6 +42,16 @@ export const select = recipe({
   },
 });
 
-export const option = recipe({});
+export const selectOption = recipe({
+  base: {},
+  variants: {
+    selected: {
+      true: {
+        backgroundColor: "blue",
+      },
+      false: {},
+    },
+  },
+});
 
 export type SelectVariants = RecipeVariants<typeof select>;
