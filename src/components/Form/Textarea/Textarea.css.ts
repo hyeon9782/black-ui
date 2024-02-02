@@ -3,13 +3,17 @@ import { vars } from "@/css/vars.css";
 
 export const textarea = recipe({
   base: {
-    border: "1px solid lightgray",
+    border: "1px solid #E2E8F0",
+    color: "gray",
     borderRadius: vars.radii.md,
     padding: vars.space["2"],
     selectors: {
       "&:disabled": {
         cursor: "not-allowed",
         opacity: "0.5",
+      },
+      "&:focus": {
+        outline: "2px solid blue",
       },
     },
   },

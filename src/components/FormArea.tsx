@@ -229,8 +229,8 @@ const FormArea = () => {
       </fieldset>
       <fieldset className={container}>
         <legend>Slider</legend>
-        <Slider color="red"></Slider>
-        <Slider color="black"></Slider>
+        <Slider color="red" defaultValue={0} />
+        <Slider color="black" min={10} max={300} />
       </fieldset>
     </div>
   );
