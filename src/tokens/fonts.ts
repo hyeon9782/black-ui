@@ -1,14 +1,45 @@
-export const fonts = {
-  h1: "2.488rem", // 39.808px
-  h2: "2.074rem", // 33.184px
-  h3: "1.78rem", // 28.48px
-  h4: "1.44rem", // 23.04px
-  h5: "1.2rem", // 19.2px
-  h6: "1.1rem", // 17.6px
-  body: "1rem", // 16px
-  body2: ".878rem", // 14.048px
-  body3: ".79rem", // 12.64px
-  small: ".702rem", // 11.232px
-  input: "1rem", // 16px
-  label: ".878rem", // 14.048px
-};
+export const fontFamilies = {
+  pretendard: "Pretendard",
+} as const;
+
+export const fontSizes = {
+  "0": "0.75rem",
+  "1": "0.875rem",
+  "2": "1rem",
+  "3": "1.125rem",
+  "4": "1.3125rem",
+  "5": "1.375rem",
+  "6": "1.5rem",
+  "7": "1.75rem",
+  "8": "2rem",
+  "9": "2.25rem",
+  "10": "2.375rem",
+  "11": "3.125rem",
+} as const;
+
+export const fontWeights = {
+  hairline: "100",
+  thin: "200",
+  light: "300",
+  normal: "400",
+  medium: "500",
+  semeBold: "600",
+  bold: "700",
+  extrabold: "800",
+  black: "900",
+} as const;
+
+export const lineHeights = {
+  0: "130%",
+  1: "150%",
+} as const;
+
+export const letterSpacing = {
+  0: "-4%",
+  1: "-2%",
+} as const;
+
+export const textDecoration = {
+  none: "none",
+  underline: "underline",
+} as const;

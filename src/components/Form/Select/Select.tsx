@@ -1,4 +1,4 @@
-import { KeyboardEvent, useState } from "react";
+import { KeyboardEvent, useRef, useState } from "react";
 import { SelectVariants, select, selectOption } from "./Select.css";
 import { IoIosArrowDown } from "react-icons/io";
 type SelectProps = SelectVariants & {
@@ -6,6 +6,8 @@ type SelectProps = SelectVariants & {
   label: string;
   selectedItem?: string;
   onSelect?: any;
+  isDisabled?: boolean;
+  isReadOnly?: boolean;
 };
 const Select = ({
   options,
@@ -14,14 +16,18 @@ const Select = ({
   variant,
   selectedItem = "",
   onSelect,
+  isDisabled,
+  isReadOnly,
   ...props
 }: SelectProps) => {
+  const ref = useRef(null);
   const [open, setOpen] = useState(false);
 
   const allOptions = [label, ...options];
 
   const toggleOpen = () => {
     setOpen((prev) => !prev);
+    console.log(ref.current);
   };
 
   const selectItem = (value: string) => {
@@ -35,6 +41,8 @@ const Select = ({
       (open && event.key === "ArrowDown")
     ) {
       event.preventDefault();
+      console.log(ref.current);
+
       const currentIndex = allOptions.indexOf(selectedItem);
 
       let nextIndex;
@@ -52,6 +60,8 @@ const Select = ({
   return (
     <section style={{ width: "100%" }}>
       <button
+        ref={ref}
+        disabled={isDisabled || isReadOnly}
         className={select({ size, variant })}
         onClick={toggleOpen}
         {...props}
@@ -67,6 +77,8 @@ const Select = ({
             onClick={() => selectItem(label)}
             className={selectOption({
               selected: label === selectedItem,
+              variant,
+              size,
             })}
           >
             {label}
@@ -78,6 +90,8 @@ const Select = ({
                 onClick={() => selectItem(option)}
                 className={selectOption({
                   selected: option === selectedItem,
+                  variant,
+                  size,
                 })}
               >
                 {option}
@@ -97,9 +111,11 @@ export default Select;
 1. button click open or close => O
 2. option click select item => O
 3. keyboard select item => O
-4. size 별로 fontSize
-5. variant 별로 스타일 적용
-6. isDisabled, isReadOnly, isRequired
-7. color
+4. size 별로 fontSize, height => O
+5. variant 별로 스타일 적용 => O
+6. isDisabled, isReadOnly => O
+
+7. outline 색상 변경, fontWeight 변경
+8. options backgroundColor 변경
 
 */

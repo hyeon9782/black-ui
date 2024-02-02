@@ -149,28 +149,27 @@ const FormArea = () => {
           label="과일을 선택해주세요!"
           size="xs"
           variant="outline"
+        />
+        <Select
+          options={options}
+          label="과일을 선택해주세요!"
+          size="xs"
+          variant="filled"
+        />
+        <Select
+          options={options}
+          label="과일을 선택해주세요!"
+          size="xs"
+          variant="flushed"
           selectedItem={selectedItem}
           onSelect={onSelect}
         />
-        {/* {selectedItem}
         <Select
           options={options}
           label="과일을 선택해주세요!"
-          size="sm"
+          size="xs"
           variant="unstyled"
         />
-        <Select
-          options={options}
-          label="과일을 선택해주세요!"
-          size="md"
-          variant="flushed"
-        />
-        <Select
-          options={options}
-          label="과일을 선택해주세요!"
-          size="lg"
-          variant="filled"
-        /> */}
       </fieldset>
       <fieldset className={container}>
         <legend>Switch</legend>
