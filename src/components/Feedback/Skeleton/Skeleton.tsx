@@ -22,6 +22,7 @@ const Skeleton = ({
   radius,
   children,
   background,
+  ...props
 }: SkeletonProps) => {
   return (
     <div
@@ -32,6 +33,7 @@ const Skeleton = ({
         [skeletonBackground]: background,
         [skeletonRadius]: radius,
       })}
+      {...props}
     >
       {children}
     </div>
