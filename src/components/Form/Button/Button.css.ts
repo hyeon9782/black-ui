@@ -1,51 +1,52 @@
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 import { sprinkles } from "@/css/sprinkles.css";
 import { vars } from "@/css/vars.css";
+import { style } from "@vanilla-extract/css";
 
 export const button = recipe({
   base: {
-    position: "relative",
-    userSelect: "none",
-    border: "none",
-    fontWeight: "bold",
-    cursor: "pointer",
     display: "inline-flex",
-    justifyContent: "center",
+    appearance: "none",
     alignItems: "center",
+    justifyContent: "center",
+    userSelect: "none",
+    position: "relative",
+    outline: "none",
+    border: "none",
+    fontWeight: "600",
+    cursor: "pointer",
     whiteSpace: "nowrap",
     verticalAlign: "middle",
-    outline: "none",
+
     borderRadius: vars.radii.lg,
     selectors: {
       "&:disabled": {
         cursor: "not-allowed",
         opacity: "0.5",
       },
-      // "&:hover": {
-      //   backgroundColor: "lightgreen",
-      // },
-      // "&:active": {
-      //   backgroundColor: "#44FB00",
-      // },
     },
   },
   variants: {
     size: {
       xs: {
-        width: "80px",
-        height: "50px",
+        padding: "0 0.5rem",
+        height: "1.5rem",
+        fontSize: "0.75rem",
       },
       sm: {
-        width: "100px",
-        height: "50px",
+        padding: "0 0.75rem",
+        height: "2rem",
+        fontSize: "0.875rem",
       },
       md: {
-        width: "100px",
-        height: "50px",
+        padding: "0 1rem",
+        height: "2.5rem",
+        fontSize: "1rem",
       },
       lg: {
-        width: "100px",
-        height: "50px",
+        padding: "0 1.5rem",
+        height: "3rem",
+        fontSize: "1.125rem",
       },
     },
     variant: {
@@ -68,9 +69,10 @@ export const button = recipe({
       variants: { variant: "solid", color: "black" },
       style: sprinkles({
         backgroundColor: {
-          base: "brandTertiary",
-          hover: "brandPrimary",
-          active: "secondary",
+          base: "gray",
+          hover: "black",
+          active: "red",
+          disabled: "gray",
         },
       }),
     },
@@ -92,6 +94,13 @@ export const button = recipe({
     variant: "solid",
     color: "red",
   },
+});
+
+export const content = style({
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  gap: "5px",
 });
 
 export type ButtonVariants = RecipeVariants<typeof button>;

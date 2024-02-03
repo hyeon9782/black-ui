@@ -21,10 +21,7 @@ const Radio = forwardRef(
     const { name, onChange } = useContext(RadioContext);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-      console.log("들어옴");
-
       if (onChange) {
-        console.log("들어옴11");
         onChange(e.target.value);
       }
     };

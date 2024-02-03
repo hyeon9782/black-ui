@@ -55,6 +55,10 @@ export const select = recipe({
         padding: "0 16px 0 0",
       },
     },
+    defaultVariants: {
+      size: "md",
+      variant: "outline",
+    },
   },
 });
 

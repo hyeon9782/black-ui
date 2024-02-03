@@ -5,7 +5,7 @@ import {
   ReactElement,
   forwardRef,
 } from "react";
-import { ButtonVariants, button } from "./Button.css";
+import { ButtonVariants, button, content } from "./Button.css";
 import { Spinner } from "@/components/Feedback";
 
 export type ButtonProps = ButtonVariants &
@@ -15,6 +15,8 @@ export type ButtonProps = ButtonVariants &
     isLoading?: boolean;
     isDisabled?: boolean;
     loadingText?: string;
+    spinner?: ReactElement;
+    spinnerPlacement?: "left" | "right";
   };
 
 const Button = forwardRef(
@@ -29,6 +31,8 @@ const Button = forwardRef(
       isLoading,
       isDisabled,
       loadingText,
+      spinner,
+      spinnerPlacement = "left",
       ...props
     }: ButtonProps,
     ref: ForwardedRef<HTMLButtonElement>,
@@ -46,20 +50,43 @@ const Button = forwardRef(
           color,
         })}
       >
-        {isLoading ? (
-          <>
-            <Spinner size={size} /> {loadingText}
-          </>
-        ) : (
-          <>
-            {leftIcon}
-            {props.children}
-            {rightIcon}
-          </>
-        )}
+        <div className={content}>
+          {isLoading ? (
+            <>
+              {spinnerPlacement === "left" ? (
+                <>
+                  {spinner || <Spinner size={size} />} {loadingText}
+                </>
+              ) : (
+                <>
+                  {loadingText} {spinner || <Spinner size={size} />}
+                </>
+              )}
+            </>
+          ) : (
+            <>
+              {leftIcon}
+              {props.children}
+              {rightIcon}
+            </>
+          )}
+        </div>
       </button>
     );
   },
 );
 
 export default Button;
+
+/*
+
+1. hover, active, disabled 스타일 적용 =>
+2. size fontSize, height, padding 적용 => O 
+3. variant outline, solid, ghost =>
+4. color =>
+5. icon left & right => O
+6. isLoaidng & loadingText => O
+7. 커스텀 spinner => O
+8. spinnerPlacement => O
+
+*/

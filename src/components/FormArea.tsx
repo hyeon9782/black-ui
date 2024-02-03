@@ -1,5 +1,5 @@
 import { Radio, RadioGroup } from "@/components/Form/Radio";
-
+import { IoIosArrowDown } from "react-icons/io";
 import { IoMdStar } from "react-icons/io";
 import { container, formBox } from "@/app.css";
 import { useState } from "react";
@@ -34,68 +34,70 @@ const FormArea = () => {
       <fieldset className={container}>
         <legend>Button</legend>
         <Button
-          size="xs"
+          size="lg"
           variant="solid"
           color="black"
           leftIcon={<IoMdClose />}
         >
-          Left Icon
+          Button
         </Button>
         <Button
-          size="xs"
+          size="lg"
           variant="outline"
           color="red"
           rightIcon={<IoMdClose />}
         >
-          Right Icon
+          Button
         </Button>
         <Button
-          size="sm"
+          size="lg"
           variant="solid"
           color="black"
           onClick={() => alert("블랙 클릭")}
           leftIcon={<IoMdClose />}
           isLoading
+          spinner={<IoIosArrowDown />}
         >
-          Loading
+          Button
         </Button>
         <Button
-          size="sm"
+          size="lg"
           variant="solid"
           color="black"
           onClick={() => alert("블랙 클릭")}
           leftIcon={<IoMdClose />}
           isLoading
           loadingText="loading..."
+          spinnerPlacement="right"
         >
-          Loading Text
+          Button
         </Button>
 
         <Button
-          size="md"
+          size="lg"
           variant="outline"
           color="red"
           onClick={() => alert("레드 클릭")}
         >
           <IoMdClose />
-          레드 버튼
+          Button
         </Button>
         <Button
-          size="md"
+          size="lg"
           variant="outline"
           color="red"
           onClick={() => alert("레드 클릭")}
         >
-          레드 버튼
+          Button
         </Button>
         <IconButton icon={<IoMdStar />} aria-label="Star" isLoading />
       </fieldset>
       <fieldset className={container}>
         <legend>Input</legend>
-        <Input placeholder="아이디를 입력해라" size="xs" />
-        <Input placeholder="아이디를 입력해라" size="sm" />
-        <Input placeholder="아이디를 입력해라" size="md" />
-        <Input placeholder="아이디를 입력해라" size="lg" />
+        <Input placeholder="아이디를 입력해라" size="xs" variant="outline" />
+        <Input placeholder="아이디를 입력해라" size="xs" variant="filled" />
+        <Input placeholder="아이디를 입력해라" size="xs" variant="flushed" />
+        <Input placeholder="아이디를 입력해라" size="xs" variant="unstyled" />
       </fieldset>
       <fieldset className={container}>
         <legend>Checkbox</legend>
@@ -229,8 +231,8 @@ const FormArea = () => {
       </fieldset>
       <fieldset className={container}>
         <legend>Slider</legend>
-        <Slider color="red"></Slider>
-        <Slider color="black"></Slider>
+        <Slider color="red" defaultValue={0} />
+        <Slider color="black" min={10} max={300} />
       </fieldset>
     </div>
   );
