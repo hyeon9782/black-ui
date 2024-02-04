@@ -49,7 +49,7 @@ export const input = recipe({
         padding: "0 16px 0 0",
       },
     },
-    readOnly: {
+    isReadOnly: {
       true: {
         backgroundColor: vars.colors.gray,
       },
