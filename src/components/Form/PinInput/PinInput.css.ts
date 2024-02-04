@@ -1,5 +1,5 @@
 import { vars } from "@/css/vars.css";
-import { recipe } from "@vanilla-extract/recipes";
+import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
 export const wrap = recipe({
   base: {
@@ -48,3 +48,5 @@ export const field = recipe({
     size: "md",
   },
 });
+
+export type FieldVariants = RecipeVariants<typeof field>;

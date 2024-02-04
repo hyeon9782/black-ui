@@ -9,11 +9,13 @@ import { PinInputContext } from "./PinInput";
 import { field } from "./PinInput.css";
 type PinInputProps = {
   onInputChange?: (value: number | string) => void;
+  otp?: boolean;
+  isDisabled?: boolean;
 };
 
 const PinInputField = forwardRef(
   (
-    { onInputChange, ...restProps }: PinInputProps,
+    { onInputChange = () => {}, otp, isDisabled, ...props }: PinInputProps,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
     const { mask, size, ...rest } = useContext(PinInputContext);
@@ -29,21 +31,22 @@ const PinInputField = forwardRef(
 
     const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
       if (e.key === "Backspace") {
-        console.log("지우기");
-
         onInputChange("");
       }
     };
 
     return (
       <input
+        aria-label="Please enter your pin code"
         ref={ref}
+        disabled={isDisabled}
         type={mask ? "password" : "text"}
         className={field({ size })}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         maxLength={1}
-        {...restProps}
+        autoComplete={otp ? "one-time-code" : "off"}
+        {...props}
         {...rest}
       />
     );
