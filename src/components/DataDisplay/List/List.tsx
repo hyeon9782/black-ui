@@ -11,9 +11,10 @@ const List = <ItemType extends {}, ComponentProps extends {}>({
   space,
   direction,
   mapComponentProps,
+  ...props
 }: ListProps<ItemType, ComponentProps>) => {
   return (
-    <div className={list({ space, direction })}>
+    <div className={list({ space, direction })} {...props}>
       {listData.map((item, index) => (
         <Component key={index} {...mapComponentProps(item)} />
       ))}
