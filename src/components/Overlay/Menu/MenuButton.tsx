@@ -1,5 +1,6 @@
 import { ReactNode, useContext } from "react";
 import { MenuContext } from "./Menu";
+import { button } from "./Menu.css";
 
 type MenuButtonProps = {
   children: ReactNode;
@@ -8,7 +9,11 @@ type MenuButtonProps = {
 const MenuButton = ({ children }: MenuButtonProps) => {
   const { showMenu } = useContext(MenuContext);
 
-  return <button onClick={showMenu}>{children}</button>;
+  return (
+    <button onClick={showMenu} className={button({})}>
+      {children}
+    </button>
+  );
 };
 
 export default MenuButton;
