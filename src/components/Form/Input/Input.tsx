@@ -8,11 +8,20 @@ import { InputVariants, input } from "./Input.css";
 import { FormContext } from "../FormControl/FormControl";
 
 export type InputProps = InputVariants &
-  Omit<InputHTMLAttributes<HTMLInputElement>, "size">;
+  Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & {
+    isDisabled?: boolean;
+    isReadOnly?: boolean;
+  };
 
 const Input = forwardRef(
   (
-    { size = "md", variant = "outline", readOnly, ...props }: InputProps,
+    {
+      size = "md",
+      variant = "outline",
+      isReadOnly,
+      isDisabled,
+      ...props
+    }: InputProps,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
     const { id } = useContext(FormContext);
@@ -22,11 +31,12 @@ const Input = forwardRef(
         ref={ref}
         {...props}
         id={id}
-        readOnly={readOnly}
+        disabled={isDisabled}
+        readOnly={isReadOnly}
         className={input({
           size,
           variant,
-          readOnly,
+          isReadOnly,
         })}
       />
     );

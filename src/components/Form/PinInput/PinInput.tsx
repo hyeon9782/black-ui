@@ -3,31 +3,39 @@ import React, {
   ReactNode,
   cloneElement,
   createContext,
+  useEffect,
   useRef,
+  useState,
 } from "react";
-import { wrap } from "./PinInput.css";
+import { FieldVariants, wrap } from "./PinInput.css";
 
 type PinInputContextProps = {
-  mask: boolean;
-  size: string;
+  mask?: boolean;
+  size?: "sm" | "md" | "lg" | "xs" | undefined;
 };
 
-export const PinInputContext = createContext<PinInputContextProps>({
-  mask: false,
-  size: "",
-});
+export const PinInputContext = createContext<PinInputContextProps>({});
 
-type PinInputProps = {
+type PinInputProps = FieldVariants & {
   children?: ReactNode;
   mask?: boolean;
-  size: string;
+  otp?: boolean;
+  onComplate?: () => void;
 };
-const PinInput = ({ children, size = "md", ...props }: PinInputProps) => {
-  const inputRefs = useRef([]);
+const PinInput = ({
+  children,
+  size = "md",
+  otp,
+  onComplate,
+  ...props
+}: PinInputProps) => {
+  const inputRefs = useRef<HTMLInputElement[]>([]);
   inputRefs.current = [];
 
+  const [isCompleted, setIsCompleted] = useState(false);
+
   // Children 갯수만큼 Refs 추가
-  const addToRefs = (el: HTMLElement) => {
+  const addToRefs = (el: HTMLInputElement) => {
     if (el && !inputRefs.current.includes(el)) {
       inputRefs.current.push(el);
     }
@@ -48,7 +56,7 @@ const PinInput = ({ children, size = "md", ...props }: PinInputProps) => {
       inputRefs.current[index + 1].focus();
     }
 
-    if (!value && index > 0) {
+    if (!value && index > 0 && inputRefs.current[index - 1]) {
       inputRefs.current[index - 1].focus();
     }
   };
@@ -59,19 +67,39 @@ const PinInput = ({ children, size = "md", ...props }: PinInputProps) => {
       ? cloneElement(child, {
           ...child.props,
           ref: (el: HTMLInputElement) => addToRefs(el),
-          onInputChange: (value: number) => handleFocus(index, value),
-          ...props,
+          onInputChange: (value: number) => {
+            handleFocus(index, value);
+
+            const allFieldsFilled = inputRefs.current.every(
+              (input) => input.value !== "",
+            );
+            if (allFieldsFilled) {
+              setIsCompleted(true);
+            }
+          },
+          otp,
         })
       : child,
   );
 
+  useEffect(() => {
+    if (inputRefs) {
+      inputRefs.current[0].focus();
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isCompleted && onComplate) {
+      onComplate();
+    }
+  }, [isCompleted, onComplate]);
+
   const value = {
     size,
-    ...props,
   };
 
   return (
-    <div className={wrap({})}>
+    <div className={wrap({})} {...props}>
       <PinInputContext.Provider value={value}>
         {enhancedChildren}
       </PinInputContext.Provider>
@@ -80,3 +108,13 @@ const PinInput = ({ children, size = "md", ...props }: PinInputProps) => {
 };
 
 export default PinInput;
+
+/*
+
+1. aria-label 추가 => O
+2. disabled 추가 => O
+3. 자동 포커스 추가 => O
+4. onComplate 추가 => 
+5. otp 추가 => O
+
+*/

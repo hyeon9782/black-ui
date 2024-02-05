@@ -201,7 +201,7 @@ const FormArea = () => {
       </fieldset>
       <fieldset className={container}>
         <legend>PinInput</legend>
-        <PinInput size="xs">
+        {/* <PinInput size="xs" data-testid="pin-input">
           <PinInputField />
           <PinInputField />
           <PinInputField />
@@ -220,9 +220,9 @@ const FormArea = () => {
           <PinInputField />
           <PinInputField />
           <PinInputField />
-        </PinInput>
+        </PinInput> */}
 
-        <PinInput size="lg">
+        <PinInput size="lg" onComplate={() => alert("안녕")}>
           <PinInputField />
           <PinInputField />
           <PinInputField />
