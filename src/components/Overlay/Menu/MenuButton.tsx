@@ -1,4 +1,4 @@
-import { ReactNode, useContext } from "react";
+import { KeyboardEvent, ReactNode, useContext } from "react";
 import { MenuContext } from "./Menu";
 import { button } from "./Menu.css";
 
@@ -7,10 +7,24 @@ type MenuButtonProps = {
 };
 
 const MenuButton = ({ children }: MenuButtonProps) => {
-  const { showMenu } = useContext(MenuContext);
+  const { toggleMenu, handleFocus, isVisible } = useContext(MenuContext);
+
+  const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    if (!isVisible) {
+      toggleMenu();
+    } else {
+      handleFocus(0);
+    }
+  };
 
   return (
-    <button onClick={showMenu} className={button({})}>
+    <button
+      onClick={toggleMenu}
+      onKeyDown={handleKeyDown}
+      className={button({})}
+    >
       {children}
     </button>
   );
