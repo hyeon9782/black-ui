@@ -1,15 +1,22 @@
-import { ReactNode, createContext, useState } from "react";
+import { ReactNode, createContext, useRef, useState } from "react";
+import { menu } from "./Menu.css";
 
 type MenuContextProps = {
-  showMenu: () => void;
-  hideMenu: () => void;
+  toggleMenu: () => void;
+  focusedIndex: number;
   isVisible: boolean;
+  handleFocus: (index: number) => void;
+  setFocusedIndex: any;
+  addToRefs: any;
 };
 
 export const MenuContext = createContext<MenuContextProps>({
-  showMenu: () => {},
-  hideMenu: () => {},
+  toggleMenu: () => {},
+  focusedIndex: 0,
   isVisible: false,
+  handleFocus: () => {},
+  setFocusedIndex: () => {},
+  addToRefs: () => {},
 });
 
 type MenuProps = {
@@ -17,19 +24,35 @@ type MenuProps = {
 };
 const Menu = ({ children, ...props }: MenuProps) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [focusedIndex, setFocusedIndex] = useState(0);
+  const itemRefs = useRef<HTMLDivElement[]>([]);
 
-  const showMenu = () => setIsVisible(true);
-  const hideMenu = () => setIsVisible(false);
+  const toggleMenu = () => {
+    setIsVisible(!isVisible);
+    setFocusedIndex(0);
+  };
+
+  const addToRefs = (el: HTMLDivElement) => {
+    if (el && !itemRefs.current.includes(el)) {
+      itemRefs.current.push(el);
+    }
+  };
+
+  const handleFocus = (index: number) => {
+    itemRefs.current[index].focus();
+  };
 
   const value = {
-    ...props,
     isVisible,
-    showMenu,
-    hideMenu,
+    toggleMenu,
+    focusedIndex,
+    setFocusedIndex,
+    addToRefs,
+    handleFocus,
   };
 
   return (
-    <div>
+    <div {...props} className={menu({})}>
       <MenuContext.Provider value={value}>{children}</MenuContext.Provider>
     </div>
   );
@@ -39,10 +62,7 @@ export default Menu;
 
 /*
 
-1. animation 추가
-2. placement 추가 및 수정
-3. css 속성 vars & sprinkles로 수정
-4. MenuButton 스타일링
-5. MenuItem 스타일링
+1. hover시 css 변경
+2. keyboard 이벤트로 hover 효과
 
 */
