@@ -1,4 +1,3 @@
-import { vars } from "@/css/vars.css";
 import { recipe } from "@vanilla-extract/recipes";
 
 export const menu = recipe({
@@ -72,21 +71,15 @@ export const list = recipe({
       },
     },
   },
+  defaultVariants: {
+    isVisible: false,
+  },
 });
 
 export const item = recipe({
   base: {
     color: "inherit",
     padding: "0.375rem 0.75rem",
-    selectors: {
-      //   "&:hover": {
-      //     backgroundColor: "#EDF2F7",
-      //   },
-      //   "&:focus": {
-      //     backgroundColor: "#EDF2F7",
-      //     outline: "none",
-      //   },
-    },
   },
   variants: {
     selected: {

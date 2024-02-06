@@ -10,11 +10,11 @@ import { list } from "./Menu.css";
 type MenuListProps = {
   children: ReactNode;
 };
-const MenuList = ({ children }: MenuListProps) => {
+const MenuList = ({ children, ...props }: MenuListProps) => {
   const { isVisible, addToRefs } = useContext(MenuContext);
 
   return (
-    <div className={list({ isVisible })}>
+    <div className={list({ isVisible })} {...props}>
       {Children.map(children, (child, index) =>
         isValidElement(child)
           ? cloneElement(child, {
