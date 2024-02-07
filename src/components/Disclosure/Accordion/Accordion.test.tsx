@@ -1,36 +1,13 @@
-import { fireEvent, render, screen } from "@testing-library/react";
-import Accordion from "./Accordion";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import Accordion, { AccordionProps } from "./Accordion";
 import AccordionItem from "./AccordionItem";
 import AccordionButton from "./AccordionButton";
 import AccordionPanel from "./AccordionPanel";
 
-describe("Accordion Tests", () => {
-  test("제어 컴포넌트: 클릭하면 panel이 열리거나 닫혀라", () => {
-    render(
-      <Accordion>
-        <AccordionItem>
-          <AccordionButton>1번 제목</AccordionButton>
-          <AccordionPanel>1번 내용</AccordionPanel>
-        </AccordionItem>
-      </Accordion>
-    );
-
-    const accordionButton = screen.getByText("1번 제목");
-
-    fireEvent.click(accordionButton);
-
-    const accordionPanel = screen.getByText("1번 내용");
-
-    expect(accordionPanel).toBeVisible();
-
-    // fireEvent.click(accordionButton);
-
-    // expect(accordionPanel).not.toBeInTheDocument();
-  });
-
-  test("allowMultiple이 false면 2개 이상의 Panel이 열리지 않는다.", () => {
-    render(
-      <Accordion>
+describe("Accordion 컴포넌트 테스트", () => {
+  const Component = (args: AccordionProps) => {
+    return (
+      <Accordion {...args}>
         <AccordionItem>
           <AccordionButton>1번 제목</AccordionButton>
           <AccordionPanel>1번 내용</AccordionPanel>
@@ -41,54 +18,84 @@ describe("Accordion Tests", () => {
         </AccordionItem>
       </Accordion>
     );
+  };
 
-    const button1 = screen.getByText("1번 제목");
-    const button2 = screen.getByText("2번 제목");
+  test("defaultIndex가 적용된다.", () => {
+    render(<Component defaultIndex={0} />);
 
-    fireEvent.click(button1);
+    const firstPanel = screen.getByText("1번 내용");
 
-    const panel1 = screen.getByText("1번 내용");
-
-    expect(panel1).toBeVisible();
-
-    fireEvent.click(button2);
-
-    const panel2 = screen.getByText("2번 내용");
-
-    expect(panel2).toBeVisible();
-
-    expect(panel1).not.toBeVisible();
+    expect(firstPanel).toBeVisible();
   });
 
-  test("allowMultiple이 true면 2개 이상의 Panel이 열린다.", () => {
-    render(
-      <Accordion allowMultiple>
-        <AccordionItem>
-          <AccordionButton>1번 제목</AccordionButton>
-          <AccordionPanel>1번 내용</AccordionPanel>
-        </AccordionItem>
-        <AccordionItem>
-          <AccordionButton>2번 제목</AccordionButton>
-          <AccordionPanel>2번 내용</AccordionPanel>
-        </AccordionItem>
-      </Accordion>
-    );
+  test("Button 컴포넌트를 클릭할 때 onChange callback이 실행된다.", () => {
+    const fn = jest.fn();
+    render(<Component onChange={fn} />);
 
-    const button1 = screen.getByText("1번 제목");
-    const button2 = screen.getByText("2번 제목");
+    fireEvent.click(screen.getByText("1번 제목"));
+    expect(fn).toHaveBeenCalled();
+  });
 
-    fireEvent.click(button1);
+  test("기본: Button 컴포넌트를 클릭하면 해당하는 Panel 컴포넌트가 열린다.", async () => {
+    render(<Component />);
 
-    const panel1 = screen.getByText("1번 내용");
+    const firstButton = screen.getByText("1번 제목");
+    const firstPanel = screen.getByText("1번 내용");
+    const secondButton = screen.getByText("2번 제목");
+    const secondPanel = screen.getByText("2번 내용");
 
-    expect(panel1).toBeVisible();
+    expect(firstPanel).not.toBeVisible();
+    expect(secondPanel).not.toBeVisible();
 
-    fireEvent.click(button2);
+    fireEvent.click(firstButton);
 
-    const panel2 = screen.getByText("2번 내용");
+    await waitFor(() => expect(firstPanel).toBeVisible());
+    await waitFor(() => expect(secondPanel).not.toBeVisible());
 
-    expect(panel2).toBeVisible();
+    fireEvent.click(secondButton);
 
-    expect(panel1).toBeVisible();
+    await waitFor(() => expect(secondPanel).toBeVisible());
+    await waitFor(() => expect(firstPanel).not.toBeVisible());
+  });
+
+  test("allowToggle: Button 컴포넌트를 클릭하면 Panel 컴포넌트가 Toggle된다.", async () => {
+    render(<Component allowToggle />);
+
+    const firstButton = screen.getByText("1번 제목");
+    const firstPanel = screen.getByText("1번 내용");
+
+    expect(firstPanel).not.toBeVisible();
+
+    fireEvent.click(firstButton);
+
+    await waitFor(() => expect(firstPanel).toBeVisible());
+
+    fireEvent.click(firstButton);
+
+    await waitFor(() => expect(firstPanel).not.toBeVisible());
+  });
+  test("allowMultiple: Button 컴포넌트를 클릭하면 해당하는 Panel 컴포넌트가 Toggle되고 여러개의 Panel을 열 수 있다.", async () => {
+    render(<Component allowMultiple />);
+
+    const firstButton = screen.getByText("1번 제목");
+    const firstPanel = screen.getByText("1번 내용");
+    const secondButton = screen.getByText("2번 제목");
+    const secondPanel = screen.getByText("2번 내용");
+
+    expect(firstPanel).not.toBeVisible();
+    expect(secondPanel).not.toBeVisible();
+
+    fireEvent.click(firstButton);
+
+    await waitFor(() => expect(firstPanel).toBeVisible());
+    await waitFor(() => expect(secondPanel).not.toBeVisible());
+
+    fireEvent.click(secondButton);
+
+    await waitFor(() => expect(secondPanel).toBeVisible());
+    await waitFor(() => expect(firstPanel).toBeVisible());
+
+    fireEvent.click(secondButton);
+    await waitFor(() => expect(secondPanel).not.toBeVisible());
   });
 });
