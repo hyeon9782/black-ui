@@ -21,10 +21,11 @@ const Drawer = ({
   children,
   isOpen,
   onClose,
+  ...props
 }: DrawerProps) => {
   return (
     <Portal>
-      <div className={drawer({ isOpen })}>
+      <div className={drawer({ isOpen })} {...props}>
         <DrawerContext.Provider value={{ onClose, size, placement, isOpen }}>
           {children}
         </DrawerContext.Provider>

@@ -4,8 +4,12 @@ type Props = {
   children: ReactNode;
 };
 const PopoverTrigger = ({ children }: Props) => {
-  const { showPopover } = useContext(PopoverContext);
-  return <div onClick={showPopover}>{children}</div>;
+  const { togglePopover, triggerRef } = useContext(PopoverContext);
+  return (
+    <div ref={triggerRef} onClick={togglePopover}>
+      {children}
+    </div>
+  );
 };
 
 export default PopoverTrigger;

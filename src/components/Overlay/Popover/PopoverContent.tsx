@@ -1,14 +1,26 @@
 import { ReactNode, useContext } from "react";
 import { PopoverContext } from "./Popover";
-import { popover } from "./Popover.css";
+import { content } from "./Popover.css";
 
 type Props = {
   children: ReactNode;
 };
 
 const PopoverContent = ({ children }: Props) => {
-  const { isVisible, placement } = useContext(PopoverContext);
-  return isVisible && <div className={popover({ placement })}>{children}</div>;
+  const { isVisible, popoverRef, popoverStyle } = useContext(PopoverContext);
+
+  return (
+    <div
+      ref={popoverRef}
+      className={content({ isVisible })}
+      style={{
+        left: popoverStyle.left,
+        top: popoverStyle.top,
+      }}
+    >
+      {children}
+    </div>
+  );
 };
 
 export default PopoverContent;

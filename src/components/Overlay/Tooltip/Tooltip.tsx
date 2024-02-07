@@ -1,18 +1,42 @@
-import { ReactNode, useState } from "react";
+import { ReactNode, cloneElement, isValidElement } from "react";
 import { TooltipVariants, tooltip, wrap } from "./Tooltip.css";
+import { useTooltip } from "./useTooltip";
 type TooltipProps = TooltipVariants & {
   children: ReactNode;
   label: string;
 };
-const Tooltip = ({ children, label, placement, bg }: TooltipProps) => {
-  const [isVisible, setIsVisible] = useState(false);
+const Tooltip = ({ children, label }: TooltipProps) => {
+  const {
+    isOpen,
+    onClose,
+    onOpen,
+    tooltipHeight,
+    ref,
 
-  const showTooltip = () => setIsVisible(true);
-  const hideTooltip = () => setIsVisible(false);
+    tooltipWidth,
+  } = useTooltip();
+
   return (
-    <div onMouseEnter={showTooltip} onMouseLeave={hideTooltip} className={wrap}>
-      {children}
-      {isVisible && <div className={tooltip({ placement, bg })}>{label}</div>}
+    <div className={wrap} onPointerEnter={onOpen} onPointerLeave={onClose}>
+      {isValidElement(children)
+        ? cloneElement(children, {
+            ...children.props,
+            ref,
+          })
+        : children}
+      {
+        <div
+          // ref={tooltipRef}
+          style={{
+            position: "absolute",
+            top: tooltipHeight + 10,
+            left: tooltipWidth,
+          }}
+          className={tooltip({ isOpen })}
+        >
+          {label}
+        </div>
+      }
     </div>
   );
 };

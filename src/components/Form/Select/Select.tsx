@@ -115,6 +115,12 @@ export default Select;
 5. variant 별로 스타일 적용 => O
 6. isDisabled, isReadOnly => O
 
+
+**중요**
+현재 실제로 focus가 이동하는 것이 아니라 state로 이동하는 것처럼 보이게 만듬
+tabIndex 추가하고 focus를 실제로 되도록 로직 수정해야함
+
+
 7. outline 색상 변경, fontWeight 변경
 8. options backgroundColor 변경
 

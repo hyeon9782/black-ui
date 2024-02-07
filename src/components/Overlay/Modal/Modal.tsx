@@ -16,7 +16,7 @@ type ModalProps = {
   onClose: () => void;
   isOpen?: boolean;
 };
-const Modal = ({ children, onClose, isOpen }: ModalProps) => {
+const Modal = ({ children, onClose, isOpen, ...props }: ModalProps) => {
   const value = {
     onClose,
     isOpen,
@@ -24,7 +24,7 @@ const Modal = ({ children, onClose, isOpen }: ModalProps) => {
   return (
     isOpen && (
       <Portal>
-        <div className={wrap}>
+        <div className={wrap} {...props}>
           <ModalContext.Provider value={value}>
             {children}
           </ModalContext.Provider>
