@@ -5,9 +5,9 @@ type CloseButtonProps = CloseButtonVariants & {
   icon?: ReactElement;
   onClose?: () => void;
 };
-const CloseButton = ({ size, icon, onClose }: CloseButtonProps) => {
+const CloseButton = ({ size, icon, onClose, ...props }: CloseButtonProps) => {
   return (
-    <button onClick={onClose} className={close({ size })}>
+    <button onClick={onClose} className={close({ size })} {...props}>
       {icon || <IoMdClose />}
     </button>
   );
