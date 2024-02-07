@@ -1,3 +1,1 @@
-import Box from "./Box";
-
-export { Box };
+export { default as Box } from "./Box";
