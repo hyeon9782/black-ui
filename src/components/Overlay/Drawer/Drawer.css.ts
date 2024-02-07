@@ -82,11 +82,11 @@ export const drawerContent = recipe({
     },
     {
       variants: { placement: "top", isOpen: true },
-      style: { top: 0, width: "100%", height: 250 },
+      style: { top: 0, width: "100%", height: 250, left: 0 },
     },
     {
       variants: { placement: "top", isOpen: false },
-      style: { top: "-250px" },
+      style: { top: "-250px", left: 0 },
     },
   ],
 });

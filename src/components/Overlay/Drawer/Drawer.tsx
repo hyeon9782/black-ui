@@ -1,6 +1,6 @@
 import { ReactNode, createContext } from "react";
 import { DrawerVariants, drawer } from "./Drawer.css";
-import Portal from "../Portal/Portal";
+import Portal from "../../Other/Portal/Portal";
 
 type DrawerContextProps = DrawerVariants & {
   onClose: () => void;
