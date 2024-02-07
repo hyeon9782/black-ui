@@ -6,13 +6,10 @@ type Props = {
   index?: number;
 };
 const AccordionPanel = ({ children, index = 0 }: Props) => {
-  const { checkIndex } = useContext(AccordionContext);
+  const { indexes } = useContext(AccordionContext);
 
   return (
-    <div
-      className={panel}
-      style={checkIndex(index) ? { display: "block" } : { display: "none" }}
-    >
+    <div className={panel({ isOpen: indexes?.includes(index) })}>
       {children}
     </div>
   );
