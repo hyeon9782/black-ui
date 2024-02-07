@@ -1,18 +1,19 @@
 import { ReactNode, createContext, useState } from "react";
-import { TabListVariants, TabVariants, TabsVariants } from "./Tabs.css";
+import { TabListVariants, TabVariants } from "./Tabs.css";
 
-type TabsContextProps = {
-  currentTab: number;
-  changeTab: (index: number) => void;
-};
+type TabsContextProps = TabVariants &
+  TabListVariants & {
+    currentTab: number;
+    changeTab: (index: number) => void;
+    onChange?: (index: number) => void;
+  };
 
 export const TabsContext = createContext<TabsContextProps>({
   currentTab: 0,
   changeTab: () => {},
 });
 
-type TabsProps = TabsVariants &
-  TabListVariants &
+type TabsProps = TabListVariants &
   TabVariants & {
     children: ReactNode;
     defaultIdex?: number;
@@ -27,6 +28,7 @@ const Tabs = ({
   size,
   onChange,
   isFitted,
+  variant,
   ...props
 }: TabsProps) => {
   const [currentTab, setCurrentTab] = useState(defaultIdex || 4);
@@ -36,17 +38,17 @@ const Tabs = ({
   };
 
   const context = {
-    ...props,
     currentTab,
     changeTab,
     onChange,
     size,
     isFitted,
     align,
+    variant,
   };
 
   return (
-    <div>
+    <div {...props}>
       <TabsContext.Provider value={context}>{children}</TabsContext.Provider>
     </div>
   );
@@ -56,17 +58,16 @@ export default Tabs;
 
 /*
 
-1. variant - line, enclosed, enclosed-colored, soft-rounded, solid-rounded, unstyled
+1. variant - line, enclosed, soft-rounded, solid-rounded, unstyled => O
 2. defaultIndex => O
 3. size - sm, md, lg => O
 4. align - start, center, end => O
 5. isFitted - container에 맞게 크기 채우기 => O
 6. onChange => O
 7. isDisabled => O
-
---- 심화
-8. custom tab
-9. 접근성 - arrowLeft, arrowRight, tab, space or enter, home, end =>
-10. aria roles => O 
+8. aria roles => O
+-------------------------------------------------------------------------
+9. 접근성 - arrowLeft, arrowRight, tab, space or enter, home, end => 
+10. custom tab =>
 
 */

@@ -13,9 +13,9 @@ type TabListProps = {
 };
 
 const TabList = ({ children }: TabListProps) => {
-  const { align } = useContext(TabsContext);
+  const { align, variant } = useContext(TabsContext);
   return (
-    <div className={tabList({ align })} role="tablist">
+    <div className={tabList({ align, variant })} role="tablist">
       {Children.map(children, (child, index) =>
         isValidElement(child)
           ? cloneElement(child, { ...child.props, index })

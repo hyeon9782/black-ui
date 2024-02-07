@@ -1,27 +1,10 @@
-import { style } from "@vanilla-extract/css";
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
-
-export const tabs = recipe({
-  base: {},
-  variants: {
-    size: {
-      sm: {},
-      md: {},
-      lg: {},
-    },
-    variant: {
-      unstyled: {},
-    },
-  },
-  defaultVariants: {
-    size: "md",
-    variant: "unstyled",
-  },
-});
 
 export const tabList = recipe({
   base: {
+    position: "relative",
     display: "flex",
+    boxSizing: "border-box",
   },
   variants: {
     align: {
@@ -35,9 +18,21 @@ export const tabList = recipe({
         justifyContent: "end",
       },
     },
+    variant: {
+      line: {
+        borderBottom: "2px solid lightgray",
+      },
+      enclosed: {
+        borderBottom: "1px solid lightgray",
+      },
+      "solid-rounded": {},
+      "soft-rounded": {},
+      unstyled: {},
+    },
   },
   defaultVariants: {
     align: "start",
+    variant: "line",
   },
 });
 
@@ -49,6 +44,7 @@ export const tab = recipe({
     border: "none",
     backgroundColor: "white",
     cursor: "pointer",
+    boxSizing: "border-box",
   },
   variants: {
     size: {
@@ -65,6 +61,13 @@ export const tab = recipe({
         padding: "0.75rem 1rem",
       },
     },
+    variant: {
+      line: {},
+      enclosed: {},
+      "solid-rounded": { fontWeight: "600" },
+      "soft-rounded": { fontWeight: "600" },
+      unstyled: {},
+    },
     isFitted: {
       true: {
         width: `100%`,
@@ -78,10 +81,44 @@ export const tab = recipe({
       false: {},
     },
   },
+  compoundVariants: [
+    {
+      variants: { variant: "line", selected: true },
+      style: { borderBottom: "2px solid #2b6cb0", marginBottom: -2 },
+    },
+    {
+      variants: { variant: "enclosed", selected: true },
+      style: {
+        borderRadius: "0.375rem 0.375rem 0 0 ",
+        borderWidth: "1px 1px 0 1px",
+        borderStyle: "solid",
+        borderColor: "lightgray",
+        borderBottom: "1px solid white",
+        marginBottom: -1,
+      },
+    },
+    {
+      variants: { variant: "soft-rounded", selected: true },
+      style: {
+        backgroundColor: "rgb(190, 227, 248)",
+        color: "rgb(44, 82, 130)",
+        borderRadius: "9999px",
+      },
+    },
+    {
+      variants: { variant: "solid-rounded", selected: true },
+      style: {
+        backgroundColor: "#2b6cb0",
+        color: "white",
+        borderRadius: "9999px",
+      },
+    },
+  ],
   defaultVariants: {
     size: "md",
     isFitted: false,
     selected: false,
+    variant: "line",
   },
 });
 
@@ -100,8 +137,6 @@ export const panel = recipe({
     },
   },
 });
-
-export type TabsVariants = RecipeVariants<typeof tabs>;
 
 export type TabVariants = RecipeVariants<typeof tab>;
 

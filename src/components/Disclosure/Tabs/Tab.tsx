@@ -7,12 +7,12 @@ type Props = {
   isDisabled?: boolean;
 };
 const Tab = ({ children, isDisabled, index = 0 }: Props) => {
-  const { changeTab, currentTab, size, onChange, isFitted } =
+  const { changeTab, currentTab, size, onChange, isFitted, variant } =
     useContext(TabsContext);
 
   const handleClick = () => {
     if (onChange) {
-      onChange();
+      onChange(index);
     }
     changeTab(index);
   };
@@ -22,7 +22,12 @@ const Tab = ({ children, isDisabled, index = 0 }: Props) => {
       role="tab"
       aria-selected={index === currentTab}
       disabled={isDisabled}
-      className={tab({ size, isFitted, selected: index === currentTab })}
+      className={tab({
+        size,
+        isFitted,
+        selected: index === currentTab,
+        variant,
+      })}
     >
       {children}
     </button>
