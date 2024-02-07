@@ -12,6 +12,7 @@ import useDisclosure from "@/hooks/useDisclosure";
 import Tooltip from "./Overlay/Tooltip/Tooltip";
 import {
   Popover,
+  PopoverArrow,
   PopoverCloseButton,
   PopoverContent,
   PopoverTrigger,
@@ -94,15 +95,20 @@ const OverlayArea = () => {
 
       <fieldset className={container}>
         <legend>Popover</legend>
-        <Popover>
-          <PopoverTrigger>
-            <Button>Popover 나와라!</Button>
-          </PopoverTrigger>
-          <PopoverContent>
-            <PopoverCloseButton />
-            <div>Popover입니다!!</div>
-          </PopoverContent>
-        </Popover>
+        <div
+          style={{ display: "flex", justifyContent: "center", width: "100%" }}
+        >
+          <Popover>
+            <PopoverTrigger>
+              <Button>Popover 나와라!</Button>
+            </PopoverTrigger>
+            <PopoverContent>
+              <PopoverArrow />
+              <PopoverCloseButton />
+              <div>Popover입니다!!</div>
+            </PopoverContent>
+          </Popover>
+        </div>
       </fieldset>
 
       <fieldset className={container}>

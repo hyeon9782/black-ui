@@ -11,7 +11,11 @@ const useDisclosure = () => {
     setIsOpen(false);
   };
 
-  return { isOpen, onOpen, onClose };
+  const onToggle = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return { isOpen, onOpen, onClose, onToggle };
 };
 
 export default useDisclosure;

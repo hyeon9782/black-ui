@@ -15,7 +15,7 @@ type TabsProps = {
 };
 
 const Tabs = ({ children, ...props }: TabsProps) => {
-  const [currentTab, setCurrentTab] = useState(0);
+  const [currentTab, setCurrentTab] = useState(1);
 
   const changeTab = (tab: number) => {
     setCurrentTab(tab);

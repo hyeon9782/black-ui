@@ -60,7 +60,7 @@ const selectorProperties = defineProperties({
     boxShadow: vars.shadows,
     color: vars.colors,
     outlineColor: vars.colors,
-    textDecoration: vars.fonts,
+    textDecoration: vars.textDecoration,
   },
 });
 

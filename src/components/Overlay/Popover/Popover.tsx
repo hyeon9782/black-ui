@@ -1,34 +1,62 @@
-import { ReactNode, createContext, useState } from "react";
-import { popover } from "./Popover.css";
+import { ReactNode, createContext, useLayoutEffect, useState } from "react";
+import { wrap } from "./Popover.css";
+import { usePopover } from "./usePopover";
 
 type PopoverContextProps = {
   isVisible?: boolean;
-  showPopover?: () => void;
-  hidePopover?: () => void;
+  togglePopover: () => void;
   placement?: string;
+  triggerRef?: any;
+  popoverRef?: any;
+  popoverStyle?: any;
+  onClose: () => void;
 };
 
-export const PopoverContext = createContext<PopoverContextProps>({});
+export const PopoverContext = createContext<PopoverContextProps>({
+  togglePopover: () => {},
+  onClose: () => {},
+});
 
 type PopoverProps = {
   children: ReactNode;
   placement?: string;
 };
-const Popover = ({ children, placement }: PopoverProps) => {
-  const [isVisible, setIsVisible] = useState(false);
+const Popover = ({ children, placement, ...props }: PopoverProps) => {
+  const {
+    isOpen: isVisible,
+    onClose,
+    onToggle: togglePopover,
+    triggerRef,
+    popoverRef,
+  } = usePopover();
+  const [popoverStyle, setPopoverStyle] = useState({});
 
-  const showPopover = () => setIsVisible(true);
-  const hidePopover = () => setIsVisible(false);
+  useLayoutEffect(() => {
+    if (triggerRef.current && popoverRef.current) {
+      const { width, height } = triggerRef.current?.getBoundingClientRect();
+
+      const left = (width - popoverRef.current?.clientWidth) / 2;
+      const top = height + 10;
+
+      setPopoverStyle({
+        top,
+        left,
+      });
+    }
+  }, []);
 
   const value = {
     isVisible,
-    showPopover,
-    hidePopover,
+    togglePopover,
     placement,
+    triggerRef,
+    popoverRef,
+    popoverStyle,
+    onClose,
   };
 
   return (
-    <div className={popover({})}>
+    <div {...props} className={wrap}>
       <PopoverContext.Provider value={value}>
         {children}
       </PopoverContext.Provider>
@@ -40,8 +68,7 @@ export default Popover;
 
 /*
 
-1. animation 추가
-2. placement 추가 및 수정
-3. css 속성 vars & sprinkles로 수정
+1. Trigger 또는 Content 밖을 클릭하면 Popover가 닫힌다.
+2. 
 
 */
