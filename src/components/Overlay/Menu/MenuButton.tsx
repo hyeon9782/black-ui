@@ -7,7 +7,7 @@ type MenuButtonProps = {
 };
 
 const MenuButton = ({ children }: MenuButtonProps) => {
-  const { toggleMenu, handleFocus, isVisible } = useContext(MenuContext);
+  const { toggleMenu, itemRefs, isVisible } = useContext(MenuContext);
 
   const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -15,7 +15,7 @@ const MenuButton = ({ children }: MenuButtonProps) => {
     if (!isVisible) {
       toggleMenu();
     } else {
-      handleFocus(0);
+      itemRefs.current[0].focus();
     }
   };
 
