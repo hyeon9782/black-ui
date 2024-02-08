@@ -66,8 +66,8 @@ export default Tabs;
 6. onChange => O
 7. isDisabled => O
 8. aria roles => O
--------------------------------------------------------------------------
-9. 접근성 - arrowLeft, arrowRight, tab, space or enter, home, end => 
+9. 접근성 - arrowLeft, arrowRight, tab, home, end => O
+---------------------------------------------------------------------
 10. custom tab =>
 
 */
