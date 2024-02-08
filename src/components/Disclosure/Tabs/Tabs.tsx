@@ -13,9 +13,9 @@ export const TabsContext = createContext<TabsContextProps>({
   changeTab: () => {},
 });
 
-type TabsProps = TabListVariants &
+export type TabsProps = TabListVariants &
   TabVariants & {
-    children: ReactNode;
+    children?: ReactNode;
     defaultIdex?: number;
     onChange?: (index: number) => void;
     isFitted?: boolean;
@@ -31,7 +31,7 @@ const Tabs = ({
   variant,
   ...props
 }: TabsProps) => {
-  const [currentTab, setCurrentTab] = useState(defaultIdex || 4);
+  const [currentTab, setCurrentTab] = useState(defaultIdex || 0);
 
   const changeTab = (tab: number) => {
     setCurrentTab(tab);
