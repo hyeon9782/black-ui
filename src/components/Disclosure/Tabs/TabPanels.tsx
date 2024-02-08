@@ -4,11 +4,11 @@ type Props = {
 };
 const TabPanels = ({ children }: Props) => {
   return (
-    <div>
+    <div role="tabpanel">
       {React.Children.map(children, (child, index) =>
         React.isValidElement(child)
           ? React.cloneElement(child, { ...child.props, index })
-          : child
+          : child,
       )}
     </div>
   );

@@ -5,10 +5,10 @@ export const formBox = style({
   flexDirection: "column",
   gap: 10,
   flexWrap: "wrap",
-  padding: 10,
 });
 
 export const container = style({
+  padding: 10,
   width: "100%",
   display: "flex",
   gap: 10,
@@ -16,12 +16,10 @@ export const container = style({
   flexWrap: "wrap",
   border: "2px solid lightgray",
   boxSizing: "border-box",
-  padding: 15,
   color: "gray",
 });
 
 export const overlayContainer = style({
-  padding: 10,
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",

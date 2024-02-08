@@ -3,20 +3,18 @@ import { menu } from "./Menu.css";
 
 type MenuContextProps = {
   toggleMenu: () => void;
-  focusedIndex: number;
   isVisible: boolean;
-  handleFocus: (index: number) => void;
-  setFocusedIndex: any;
-  addToRefs: any;
+  currentIndex: number;
+  changeIndex: (index: number) => void;
+  itemRefs: HTMLDivElement[];
 };
 
 export const MenuContext = createContext<MenuContextProps>({
   toggleMenu: () => {},
-  focusedIndex: 0,
   isVisible: false,
-  handleFocus: () => {},
-  setFocusedIndex: () => {},
-  addToRefs: () => {},
+  currentIndex: 0,
+  changeIndex: () => {},
+  itemRefs: [],
 });
 
 type MenuProps = {
@@ -24,31 +22,26 @@ type MenuProps = {
 };
 const Menu = ({ children, ...props }: MenuProps) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [focusedIndex, setFocusedIndex] = useState(0);
+
   const itemRefs = useRef<HTMLDivElement[]>([]);
+
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const toggleMenu = () => {
     setIsVisible(!isVisible);
-    setFocusedIndex(0);
+    setCurrentIndex(0);
   };
 
-  const addToRefs = (el: HTMLDivElement) => {
-    if (el && !itemRefs.current.includes(el)) {
-      itemRefs.current.push(el);
-    }
-  };
-
-  const handleFocus = (index: number) => {
-    itemRefs.current[index].focus();
+  const changeIndex = (index: number) => {
+    setCurrentIndex(index);
   };
 
   const value = {
     isVisible,
     toggleMenu,
-    focusedIndex,
-    setFocusedIndex,
-    addToRefs,
-    handleFocus,
+    currentIndex,
+    changeIndex,
+    itemRefs,
   };
 
   return (
