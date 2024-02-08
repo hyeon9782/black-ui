@@ -8,7 +8,7 @@ type TableContextProps = {
 export const TableContext = createContext<TableContextProps>({});
 
 type TableProps = TableVariants & {
-  children: ReactNode;
+  children?: ReactNode;
 };
 const Table = ({ children, variant, ...props }: TableProps) => {
   return (

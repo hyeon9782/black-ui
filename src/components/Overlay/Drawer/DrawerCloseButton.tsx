@@ -1,14 +1,10 @@
 import { useContext } from "react";
-import { IoMdClose } from "react-icons/io";
 import { DrawerContext } from "./Drawer";
+import { CloseButton } from "@/components/Other/CloseButton";
 
 const DrawerCloseButton = () => {
   const { onClose } = useContext(DrawerContext);
-  return (
-    <div>
-      <IoMdClose onClick={onClose} />
-    </div>
-  );
+  return <CloseButton onClose={onClose} />;
 };
 
 export default DrawerCloseButton;

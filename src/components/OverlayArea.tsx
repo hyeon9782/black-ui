@@ -28,9 +28,22 @@ import {
   ModalHeader,
   ModalOverlay,
 } from "./Overlay/Modal";
-import { Button } from "./Form";
+import { Button, Radio, RadioGroup } from "./Form";
+import { useState } from "react";
+
+type placement = "right" | "left" | "top" | "bottom";
 const OverlayArea = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [placement, setPlacement] = useState<placement>("right");
+
+  const changeRadio = (value: placement) => {
+    setPlacement(value);
+  };
+
+  const {
+    isOpen: isDrawerOpen,
+    onOpen: onDrawerOpen,
+    onClose: onDrawerClose,
+  } = useDisclosure();
 
   const {
     isOpen: isModalOpen,
@@ -42,16 +55,38 @@ const OverlayArea = () => {
     <div className={overlayContainer}>
       <fieldset className={container}>
         <legend>Drawer</legend>
-        <Button onClick={onOpen}>Drawer 나와라!</Button>
-        <Drawer isOpen={isOpen} onClose={onClose} placement="left">
-          <DrawerOverlay />
-          <DrawerContent>
-            <DrawerCloseButton />
-            <DrawerHeader>Header</DrawerHeader>
-            <DrawerBody>Body</DrawerBody>
-            <DrawerFooter>Footer</DrawerFooter>
-          </DrawerContent>
-        </Drawer>
+        <div>
+          <div style={{ marginBottom: "10px" }}>
+            <RadioGroup onChange={changeRadio}>
+              <Radio size="sm" value="top">
+                Top
+              </Radio>
+              <Radio size="sm" value="right">
+                Right
+              </Radio>
+              <Radio size="sm" value="bottom">
+                Bottom
+              </Radio>
+              <Radio size="sm" value="left">
+                Left
+              </Radio>
+            </RadioGroup>
+          </div>
+          <Button onClick={onDrawerOpen}>Drawer {placement}</Button>
+          <Drawer
+            isOpen={isDrawerOpen}
+            onClose={onDrawerClose}
+            placement={placement}
+          >
+            <DrawerOverlay />
+            <DrawerContent>
+              <DrawerCloseButton />
+              <DrawerHeader>Header</DrawerHeader>
+              <DrawerBody>Body</DrawerBody>
+              <DrawerFooter>Footer</DrawerFooter>
+            </DrawerContent>
+          </Drawer>
+        </div>
       </fieldset>
 
       <fieldset className={container}>
@@ -66,8 +101,8 @@ const OverlayArea = () => {
               <div>Modal 입니다!</div>
             </ModalBody>
             <ModalFooter>
-              <Button>취소</Button>
-              <Button>확인</Button>
+              <Button onClick={() => onModalClose()}>취소</Button>
+              <Button onClick={() => onModalClose()}>확인</Button>
             </ModalFooter>
           </ModalContent>
         </Modal>

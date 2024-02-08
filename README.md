@@ -78,3 +78,8 @@ npm i @black-ui/react
 - [ ] useDisclosure
 
 ## Storybook
+
+## TODO
+
+- Framer Motion을 활용한 animation 적용
+- 공통 로직 분리

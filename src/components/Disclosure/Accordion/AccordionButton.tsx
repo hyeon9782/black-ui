@@ -6,22 +6,66 @@ import { button } from "./Accordion.css";
 type Props = {
   children: ReactNode;
   index?: number;
+  isDisabled?: boolean;
 };
-const AccordionButton = ({ children, index = 0 }: Props) => {
-  const { changeIndex, allowMultiple, toggleIndex, checkIndex } =
-    useContext(AccordionContext);
+const AccordionButton = ({ children, index = 0, isDisabled }: Props) => {
+  const {
+    allowMultiple,
+    allowToggle,
+    onChange,
+    removeIndex,
+    appendIndex,
+    resetIndex,
+    indexes,
+  } = useContext(AccordionContext);
 
   const handleButtonClick = (index: number) => {
-    if (allowMultiple) {
-      toggleIndex(index);
+    if (onChange) {
+      onChange();
     }
-    changeIndex(index);
+
+    const isInclude = indexes?.includes(index);
+
+    if (!allowMultiple && !allowToggle && !isInclude) {
+      resetIndex();
+      appendIndex(index);
+      return;
+    }
+
+    if (allowToggle && isInclude) {
+      removeIndex(index);
+      return;
+    }
+
+    if (allowToggle && !isInclude) {
+      resetIndex();
+      appendIndex(index);
+      return;
+    }
+
+    if (allowMultiple && isInclude) {
+      removeIndex(index);
+      return;
+    }
+
+    if (allowMultiple && !isInclude) {
+      appendIndex(index);
+      return;
+    }
+
+    if (!allowMultiple && !allowToggle && isInclude) {
+      return;
+    }
   };
   return (
-    <div onClick={() => handleButtonClick(index)} className={button}>
+    <button
+      onClick={() => handleButtonClick(index)}
+      className={button}
+      disabled={isDisabled}
+    >
       {children}
-      {checkIndex(index) ? <IoIosArrowUp /> : <IoIosArrowDown />}
-    </div>
+      {indexes?.includes(index) ? <IoIosArrowUp /> : <IoIosArrowDown />}
+    </button>
   );
 };
 

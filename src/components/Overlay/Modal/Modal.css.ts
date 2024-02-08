@@ -25,9 +25,10 @@ export const overlay = style({
 
 export const modal = recipe({
   base: {
+    position: "absolute",
     backgroundColor: "white",
     borderRadius: vars.radii.lg,
-    padding: vars.space[10],
+    padding: vars.space[5],
     zIndex: 2,
   },
   variants: {},

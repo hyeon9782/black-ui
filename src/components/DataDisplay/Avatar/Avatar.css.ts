@@ -45,18 +45,8 @@ export const avatar = recipe({
 });
 
 export const image = style({
-  width: "100%" /* 이미지가 div의 너비에 맞춰짐 */,
-  height: "100%" /* 비율을 유지하면서 높이가 조정됨 */,
-  // maxWidth:
-  //   "100%" /* 이미지가 div의 너비에 맞춰지되, 최대 너비는 100%로 제한 */,
-  // maxHeight:
-  //   "100%" /* 이미지가 div의 높이에 맞춰지되, 최대 높이는 100%로 제한 */,
-  // width: "auto",
-  // height: "auto",
-  // position: "absolute" /* 이미지를 상위 div에 대해 절대 위치 설정 */,
-  // top: "50%" /* 상위 div의 중앙을 기준으로 위로 이동 */,
-  // left: "50%" /* 상위 div의 중앙을 기준으로 왼쪽으로 이동 */,
-  // transform: "translate(-50%, -50%)" /* 이미지를 중앙 정렬 */,
+  width: "100%",
+  height: "100%",
 });
 
 export const fallback = style({

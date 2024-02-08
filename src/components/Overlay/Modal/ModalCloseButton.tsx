@@ -1,14 +1,10 @@
 import { useContext } from "react";
-import { IoMdClose } from "react-icons/io";
 import { ModalContext } from "./Modal";
+import { CloseButton } from "@/components/Other/CloseButton";
 
 const ModalCloseButton = () => {
   const { onClose } = useContext(ModalContext);
-  return (
-    <div onClick={onClose}>
-      <IoMdClose />
-    </div>
-  );
+  return <CloseButton onClose={onClose} />;
 };
 
 export default ModalCloseButton;

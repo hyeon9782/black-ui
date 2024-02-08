@@ -1,71 +1,69 @@
 import React, { ReactNode, createContext, useState } from "react";
+import { accordion } from "./Accordion.css";
 
 type AccordionContextProps = {
-  currentIndex: number;
-  changeIndex: (index: number) => void;
+  allowToggle?: boolean;
   allowMultiple?: boolean;
-  checkIndex: (index: number) => boolean;
-  toggleIndex: (index: number) => void;
-  indexes: number[];
+  onChange?: () => void;
+  appendIndex: (index: number) => void;
+  removeIndex: (index: number) => void;
+  resetIndex: () => void;
+  indexes?: number[];
 };
 
 export const AccordionContext = createContext<AccordionContextProps>({
-  currentIndex: 0,
-  changeIndex: (index: number) => {
-    console.log(index);
-  },
-  checkIndex: (index: number) => {
-    console.log(index);
-    return false;
-  },
-  toggleIndex: (index: number) => {
-    console.log(index);
-  },
-  indexes: [],
-  allowMultiple: false,
+  appendIndex: () => {},
+  removeIndex: () => {},
+  resetIndex: () => {},
 });
 
-type AccordionProps = {
-  children: ReactNode;
+export type AccordionProps = {
+  children?: ReactNode;
   allowMultiple?: boolean;
+  allowToggle?: boolean;
+  onChange?: () => void;
+  index?: number | number[];
   defaultIndex?: number | number[];
 };
 
-const Accordion = ({ children, allowMultiple }: AccordionProps) => {
-  const [currentIndex, setCurrentIndex] = useState<number>(-1);
-  const [indexes, setIndexes] = useState<number[]>([]);
+const Accordion = ({
+  children,
+  allowMultiple,
+  allowToggle,
+  onChange,
+  defaultIndex = -1,
+}: AccordionProps) => {
+  const indexArray: number[] = Array.isArray(defaultIndex)
+    ? defaultIndex
+    : [defaultIndex];
 
-  const changeIndex = (index: number) => {
-    setCurrentIndex(index);
+  const [indexes, setIndexes] = useState<number[]>(indexArray || []);
+
+  const appendIndex = (index: number) => {
+    setIndexes((prevIndexes) => [...prevIndexes, index]);
   };
 
-  const toggleIndex = (index: number) => {
-    if (indexes.includes(index)) {
-      setIndexes((prevIndexes) =>
-        prevIndexes.filter((prevIndex) => prevIndex !== index)
-      );
-    } else {
-      setIndexes((prevIndexes) => [...prevIndexes, index]);
-    }
+  const removeIndex = (index: number) => {
+    setIndexes((prevIndexes) =>
+      prevIndexes.filter((prevIndex) => prevIndex !== index),
+    );
   };
 
-  const checkIndex = (index: number) => {
-    if (allowMultiple) {
-      return indexes.includes(index);
-    }
-    return currentIndex === index;
+  const resetIndex = () => {
+    setIndexes([]);
   };
 
   const prop = {
-    currentIndex,
-    changeIndex,
-    toggleIndex,
-    checkIndex,
+    onChange,
     allowMultiple,
+    allowToggle,
+    appendIndex,
+    removeIndex,
+    resetIndex,
     indexes,
   };
   return (
-    <div>
+    <div className={accordion({})}>
       <AccordionContext.Provider value={prop}>
         {React.Children.map(children, (child, index) =>
           React.isValidElement(child)
@@ -73,7 +71,7 @@ const Accordion = ({ children, allowMultiple }: AccordionProps) => {
                 ...child.props,
                 index,
               })
-            : child
+            : child,
         )}
       </AccordionContext.Provider>
     </div>
@@ -84,8 +82,10 @@ export default Accordion;
 
 /*
 
-1. ref를 통한 비제어 컴포넌트 구현
-2. 비즈니스 로직 리팩토링
-
+1. allowToggle => O
+2. allowMultiple => O
+3. defaultIndex => O
+4. onChange => O
+5. isDisabled => O
 
 */

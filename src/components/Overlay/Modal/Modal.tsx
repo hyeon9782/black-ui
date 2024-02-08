@@ -1,6 +1,6 @@
 import { ReactNode, createContext } from "react";
 import { wrap } from "./Modal.css";
-import Portal from "../Portal/Portal";
+import Portal from "../../Other/Portal/Portal";
 
 type ModalContext = {
   onClose: () => void;
