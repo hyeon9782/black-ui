@@ -87,5 +87,7 @@ export default Accordion;
 3. defaultIndex => O
 4. onChange => O
 5. isDisabled => O
+---------------TODO----------------------
+6. keyboard 이벤트 커스텀 훅으로 묶어서 적용
 
 */

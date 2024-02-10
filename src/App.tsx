@@ -13,7 +13,7 @@ import { Tab, TabList, TabPanel, TabPanels, Tabs } from "./components";
 function App() {
   return (
     <ToastProvider>
-      <Tabs>
+      <Tabs variant="soft-rounded">
         <TabList>
           <Tab>Form</Tab>
           <Tab>Overlay</Tab>
