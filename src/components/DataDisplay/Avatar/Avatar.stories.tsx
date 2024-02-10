@@ -11,14 +11,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Small: Story = {
-  args: { size: "sm", src: "/이력서 사진.jpg", name: "JeongHo" },
+export const Basic: Story = {
+  args: { size: "md", src: "/이력서 사진.jpg", name: "Jeong Ho" },
 };
 
-export const Medium: Story = {
-  args: { size: "md", src: "/이력서 사진.jpg", name: "JeongHo" },
+export const Fallback: Story = {
+  args: { size: "md", src: "/이력서 사진!.jpg" },
 };
 
 export const Error: Story = {
-  args: { size: "lg", src: "/이력서 사진!.jpg", name: "JeongHo" },
+  args: { size: "md", src: "/이력서 사진!.jpg", name: "Jeong Ho" },
 };
