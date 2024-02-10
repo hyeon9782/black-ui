@@ -15,11 +15,14 @@ import { Select } from "./Form/Select";
 import { Switch } from "./Form/Switch";
 import { FormControl, FormErrorMessage, FormLabel } from "./Form/FormControl";
 import FormHelperText from "./Form/FormControl/FormHelperText";
+import useClipboard from "@/hooks/useClipboard";
 const options = ["딸기", "사과", "포도"];
 
 const FormArea = () => {
   const [radioValue, setRadioValue] = useState("");
   const [selectedItem, setSelectedItem] = useState("");
+
+  const { onCopy, value, setValue, hasCopied } = useClipboard("");
 
   const onSelect = (value: string) => {
     setSelectedItem(value);
@@ -31,6 +34,17 @@ const FormArea = () => {
 
   return (
     <div className={formBox}>
+      <fieldset className={container}>
+        <legend>Clipboard</legend>
+        <Input
+          placeholder={"내용이 복사됩니다."}
+          value={value}
+          onChange={(e) => {
+            setValue(e.target.value);
+          }}
+        />
+        <Button onClick={onCopy}>{hasCopied ? "Copied!" : "Copy"}</Button>
+      </fieldset>
       <fieldset className={container}>
         <legend>Button</legend>
         <Button
