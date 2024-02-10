@@ -4,17 +4,19 @@ import { SliderVariants, slider } from "./Slider.css";
 type SliderProps = SliderVariants &
   Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & {
     defaultValue?: number;
+    isDisabled?: boolean;
   };
 
 const Slider = forwardRef(
   (
-    { color, size, ...props }: SliderProps,
+    { color, size, isDisabled, ...props }: SliderProps,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
     return (
       <input
         type="range"
         ref={ref}
+        disabled={isDisabled}
         {...props}
         className={slider({ color, size })}
       />
