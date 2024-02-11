@@ -4,11 +4,17 @@ import useToast from "@/hooks/useToast";
 import Skeleton from "./Feedback/Skeleton/Skeleton";
 import { Button } from "./Form";
 import { Spinner } from "./Feedback/Spinner";
+import Progress from "./Feedback/Progress/Progress";
 
 const FeedbackArea = () => {
   const { openToast } = useToast();
   return (
     <div className={overlayContainer}>
+      <fieldset className={container}>
+        <legend>Progress</legend>
+
+        <Progress value={30} />
+      </fieldset>
       <fieldset className={container}>
         <legend>Skeleton</legend>
         <Skeleton
