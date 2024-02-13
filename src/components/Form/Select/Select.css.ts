@@ -50,9 +50,15 @@ export const select = recipe({
       flushed: {
         borderBottom: "1px solid #E2E8F0",
         padding: "0 16px 0 0",
+        "&:focus": {
+          outline: "2px solid blue",
+        },
       },
       unstyled: {
         padding: "0 16px 0 0",
+        "&:focus": {
+          outline: "2px solid blue",
+        },
       },
     },
     defaultVariants: {

@@ -35,6 +35,36 @@ const FormArea = () => {
   return (
     <div className={formBox}>
       <fieldset className={container}>
+        <legend>Select</legend>
+        <Select
+          options={options}
+          label="과일을 선택해주세요!"
+          size="xs"
+          variant="outline"
+          selectedItem={selectedItem}
+          onSelect={onSelect}
+        />
+        {/* <Select
+          options={options}
+          label="과일을 선택해주세요!"
+          size="xs"
+          variant="filled"
+        />
+        <Select
+          options={options}
+          label="과일을 선택해주세요!"
+          size="xs"
+          variant="flushed"
+          
+        /> */}
+        {/* <Select
+          options={options}
+          label="과일을 선택해주세요!"
+          size="xs"
+          variant="unstyled"
+        /> */}
+      </fieldset>
+      <fieldset className={container}>
         <legend>Clipboard</legend>
         <Input
           placeholder={"내용이 복사됩니다."}
@@ -157,36 +187,7 @@ const FormArea = () => {
         />
         <Textarea placeholder="Here is a sample placeholder" size="lg" />
       </fieldset>
-      <fieldset className={container}>
-        <legend>Select</legend>
 
-        <Select
-          options={options}
-          label="과일을 선택해주세요!"
-          size="xs"
-          variant="outline"
-        />
-        <Select
-          options={options}
-          label="과일을 선택해주세요!"
-          size="xs"
-          variant="filled"
-        />
-        <Select
-          options={options}
-          label="과일을 선택해주세요!"
-          size="xs"
-          variant="flushed"
-          selectedItem={selectedItem}
-          onSelect={onSelect}
-        />
-        <Select
-          options={options}
-          label="과일을 선택해주세요!"
-          size="xs"
-          variant="unstyled"
-        />
-      </fieldset>
       <fieldset className={container}>
         <legend>Switch</legend>
         <Switch size="xs" color="red">

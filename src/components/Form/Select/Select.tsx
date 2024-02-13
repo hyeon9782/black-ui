@@ -1,11 +1,11 @@
 import { KeyboardEvent, useRef, useState } from "react";
 import { SelectVariants, select, selectOption } from "./Select.css";
 import { IoIosArrowDown } from "react-icons/io";
-type SelectProps = SelectVariants & {
+export type SelectProps = SelectVariants & {
   options: string[];
   label: string;
   selectedItem?: string;
-  onSelect?: any;
+  onSelect?: (value: string) => void;
   isDisabled?: boolean;
   isReadOnly?: boolean;
 };
@@ -23,11 +23,12 @@ const Select = ({
   const ref = useRef(null);
   const [open, setOpen] = useState(false);
 
+  const itemRefs = useRef<HTMLDivElement[]>([]);
+
   const allOptions = [label, ...options];
 
   const toggleOpen = () => {
     setOpen((prev) => !prev);
-    console.log(ref.current);
   };
 
   const selectItem = (value: string) => {
@@ -35,25 +36,45 @@ const Select = ({
     toggleOpen();
   };
 
-  const handleKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {
-    if (
-      (open && event.key === "ArrowUp") ||
-      (open && event.key === "ArrowDown")
-    ) {
-      event.preventDefault();
-      console.log(ref.current);
+  const addToRefs = (el: HTMLDivElement) => {
+    if (el && !itemRefs.current.includes(el)) {
+      itemRefs.current.push(el);
+    }
+  };
 
-      const currentIndex = allOptions.indexOf(selectedItem);
+  const handleKeyDown = (
+    e: KeyboardEvent<HTMLDivElement>,
+    index: number,
+    value: string,
+  ) => {
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
 
-      let nextIndex;
+      const nextIndex = (index + 1) % allOptions.length;
 
-      if (event.key === "ArrowUp") {
-        nextIndex = (currentIndex - 1 + allOptions.length) % allOptions.length;
-      } else {
-        nextIndex = (currentIndex + 1) % allOptions.length;
-      }
+      itemRefs.current[nextIndex].focus();
 
       onSelect(allOptions[nextIndex]);
+    }
+
+    if (e.key === "ArrowUp") {
+      e.preventDefault();
+
+      const nextIndex = (index - 1 + allOptions.length) % allOptions.length;
+
+      itemRefs.current[nextIndex].focus();
+
+      onSelect(allOptions[nextIndex]);
+    }
+
+    if (e.key === "Tab") {
+      const nextIndex = (index + 1) % allOptions.length;
+      onSelect(allOptions[nextIndex]);
+    }
+
+    if (e.key === "Enter") {
+      selectItem(value);
+      onSelect(allOptions[index]);
     }
   };
 
@@ -64,42 +85,46 @@ const Select = ({
         disabled={isDisabled || isReadOnly}
         className={select({ size, variant })}
         onClick={toggleOpen}
+        onKeyDown={() => itemRefs.current[0].focus()}
         {...props}
-        onKeyDown={(e) => handleKeyDown(e)}
       >
         {selectedItem ? selectedItem : label}
 
         <IoIosArrowDown />
       </button>
-      {open && (
-        <section>
-          <div
-            onClick={() => selectItem(label)}
-            className={selectOption({
-              selected: label === selectedItem,
-              variant,
-              size,
-            })}
-          >
-            {label}
-          </div>
-          {options.map((option, idx) => {
-            return (
-              <div
-                key={idx}
-                onClick={() => selectItem(option)}
-                className={selectOption({
-                  selected: option === selectedItem,
-                  variant,
-                  size,
-                })}
-              >
-                {option}
-              </div>
-            );
+      <section style={open ? { display: "block" } : { display: "none" }}>
+        <div
+          ref={(el: HTMLDivElement) => addToRefs(el)}
+          tabIndex={0}
+          onKeyDown={(e) => handleKeyDown(e, 0, label)}
+          onClick={() => selectItem(label)}
+          className={selectOption({
+            selected: label === selectedItem,
+            variant,
+            size,
           })}
-        </section>
-      )}
+        >
+          {label}
+        </div>
+        {options.map((option, idx) => {
+          return (
+            <div
+              onKeyDown={(e) => handleKeyDown(e, idx + 1, option)}
+              ref={(el: HTMLDivElement) => addToRefs(el)}
+              tabIndex={0}
+              key={idx}
+              onClick={() => selectItem(option)}
+              className={selectOption({
+                selected: option === selectedItem,
+                variant,
+                size,
+              })}
+            >
+              {option}
+            </div>
+          );
+        })}
+      </section>
     </section>
   );
 };
@@ -114,12 +139,6 @@ export default Select;
 4. size 별로 fontSize, height => O
 5. variant 별로 스타일 적용 => O
 6. isDisabled, isReadOnly => O
-
-
-**중요**
-현재 실제로 focus가 이동하는 것이 아니라 state로 이동하는 것처럼 보이게 만듬
-tabIndex 추가하고 focus를 실제로 되도록 로직 수정해야함
-
 
 7. outline 색상 변경, fontWeight 변경
 8. options backgroundColor 변경

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Select from "./Select";
+import Select, { SelectProps } from "./Select";
+import { useState } from "react";
 
 const meta = {
   title: "Component/Form/Select",
   component: Select,
   tags: ["autodocs"],
-  parameters: { layout: "centered" },
 } satisfies Meta<typeof Select>;
 
 export default meta;
@@ -18,6 +18,14 @@ export const Outline: Story = {
     label: "과일을 선택 해주세요.",
     options: ["딸기", "바나나", "포도"],
   },
+  render: function Render(args: SelectProps) {
+    const [selectedItem, setSelectedItem] = useState("");
+    const onSelect = (value: string) => {
+      setSelectedItem(value);
+    };
+
+    return <Select {...args} selectedItem={selectedItem} onSelect={onSelect} />;
+  },
 };
 
 export const Filled: Story = {
@@ -26,6 +34,14 @@ export const Filled: Story = {
     variant: "filled",
     label: "과일을 선택 해주세요.",
     options: ["딸기", "바나나", "포도"],
+  },
+  render: function Render(args: SelectProps) {
+    const [selectedItem, setSelectedItem] = useState("");
+    const onSelect = (value: string) => {
+      setSelectedItem(value);
+    };
+
+    return <Select {...args} selectedItem={selectedItem} onSelect={onSelect} />;
   },
 };
 
@@ -36,6 +52,14 @@ export const Unstyled: Story = {
     label: "과일을 선택 해주세요.",
     options: ["딸기", "바나나", "포도"],
   },
+  render: function Render(args: SelectProps) {
+    const [selectedItem, setSelectedItem] = useState("");
+    const onSelect = (value: string) => {
+      setSelectedItem(value);
+    };
+
+    return <Select {...args} selectedItem={selectedItem} onSelect={onSelect} />;
+  },
 };
 
 export const Flushed: Story = {
@@ -44,5 +68,13 @@ export const Flushed: Story = {
     variant: "flushed",
     label: "과일을 선택 해주세요..",
     options: ["딸기", "바나나", "포도"],
+  },
+  render: function Render(args: SelectProps) {
+    const [selectedItem, setSelectedItem] = useState("");
+    const onSelect = (value: string) => {
+      setSelectedItem(value);
+    };
+
+    return <Select {...args} selectedItem={selectedItem} onSelect={onSelect} />;
   },
 };
