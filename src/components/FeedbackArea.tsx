@@ -1,10 +1,10 @@
 import { container, overlayContainer } from "@/app.css";
 
-import useToast from "@/hooks/useToast";
 import Skeleton from "./Feedback/Skeleton/Skeleton";
 import { Button } from "./Form";
 import { Spinner } from "./Feedback/Spinner";
 import Progress from "./Feedback/Progress/Progress";
+import { useToast } from "./Feedback/Toast";
 
 const FeedbackArea = () => {
   const { openToast } = useToast();
@@ -28,7 +28,7 @@ const FeedbackArea = () => {
               display: "flex",
               alignItems: "center",
               padding: "20px",
-              // justifyContent: "center",
+              justifyContent: "center",
               height: "100%",
             }}
           >
@@ -89,6 +89,7 @@ const FeedbackArea = () => {
               title: "Success",
               description: "설명입니다.",
               status: "success",
+              position: "topLeft",
             })
           }
         >
