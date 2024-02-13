@@ -3,9 +3,9 @@ import { InnerVariants, inner, progress } from "./Progress.css";
 type Props = InnerVariants & {
   value: number;
 };
-const Progress = ({ value, size, color }: Props) => {
+const Progress = ({ value, size, color, ...props }: Props) => {
   return (
-    <div className={progress}>
+    <div className={progress} {...props}>
       <div
         className={inner({ size, color })}
         style={{ width: `${value}%` }}

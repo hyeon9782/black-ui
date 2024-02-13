@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useMemo, useState } from "react";
+import { ReactNode, createContext, useId, useMemo, useState } from "react";
 import ToastList from "./ToastList";
 import { Toast } from "./Toast";
 
@@ -8,7 +8,7 @@ type Props = {
 
 type ToastDispatchContextProps = {
   open: (toast: Toast) => void;
-  close: (id: number) => void;
+  close: (id: string) => void;
 };
 
 export const ToastStateContext = createContext<Toast[]>([]);
@@ -18,15 +18,18 @@ export const ToastDispatchContext = createContext<ToastDispatchContextProps>({
   close: () => {},
 });
 
+let num = 0;
+
 const ToastProvider = ({ children }: Props) => {
   const [toasts, setToasts] = useState<Toast[]>([]);
   const memoizedToasts = useMemo(() => toasts, [toasts]);
+  const id = useId();
 
   const open = ({ title, description, duration, status }: Toast) => {
     setToasts((prevToasts) => [
       ...prevToasts,
       {
-        id: prevToasts.length,
+        id: id + num++,
         title,
         description,
         duration,
@@ -35,9 +38,9 @@ const ToastProvider = ({ children }: Props) => {
     ]);
   };
 
-  const close = (id: number) => {
+  const close = (id: string) => {
     setToasts((prevToasts) => {
-      return prevToasts.filter((prevToast) => prevToast.id === id);
+      return prevToasts.filter((prevToast) => prevToast.id !== id);
     });
   };
 
@@ -46,7 +49,7 @@ const ToastProvider = ({ children }: Props) => {
       open,
       close,
     }),
-    []
+    [toasts],
   );
   return (
     <div>
