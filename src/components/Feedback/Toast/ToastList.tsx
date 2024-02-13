@@ -9,7 +9,7 @@ const ToastList = () => {
   return (
     <div className={wrap({})}>
       {toastList.map((toast) => {
-        return <Toast key={toast.id} {...toast} />;
+        return <Toast key={toast.id} {...toast} id={toast.id} />;
       })}
     </div>
   );

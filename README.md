@@ -59,7 +59,6 @@ npm i @black-ui/react
 - [ ] Input
 - [ ] PinInput
 - [ ] Radio
-- [ ] RangeSlider
 - [ ] Select
 - [ ] Slider
 - [ ] Switch
@@ -76,10 +75,16 @@ npm i @black-ui/react
 ## Hooks
 
 - [ ] useDisclosure
+- [ ] useClipboard
+- [ ] useOutsideClick
+- [ ]
 
 ## Storybook
 
 ## TODO
 
 - Framer Motion을 활용한 animation 적용
+- SSR 대응
 - 공통 로직 분리
+  - keyboard event 커스텀 훅 구현
+  - usePopper 커스텀 훅 구현

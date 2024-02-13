@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Toast from "./Toast";
-import useToast from "@/hooks/useToast";
+
 import { Button } from "@/components/Form";
 import ToastProvider from "./ToastProvider";
+import useToast from "./useToast";
 
 const meta = {
   title: "Component/Feedback/Toast",
@@ -11,7 +12,16 @@ const meta = {
   decorators: [
     (Story) => (
       <ToastProvider>
-        <div style={{ height: "500px" }}>{<Story />}</div>
+        <div
+          style={{
+            height: "200px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {<Story />}
+        </div>
       </ToastProvider>
     ),
   ],
@@ -20,27 +30,28 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const Component = (args: any) => {
+  const { openToast } = useToast();
+  return (
+    <Button
+      onClick={() =>
+        openToast({
+          ...args,
+        })
+      }
+    >
+      Toast 나와라!
+    </Button>
+  );
+};
+
 export const Success: Story = {
   args: {
     title: "Toast입니다!",
     description: "Toast 설명입니다!",
     status: "success",
   },
-  render: function Render(args) {
-    const { openToast } = useToast();
-
-    return (
-      <Button
-        onClick={() =>
-          openToast({
-            ...args,
-          })
-        }
-      >
-        Toast 나와라!
-      </Button>
-    );
-  },
+  render: Component,
 };
 
 export const Error: Story = {
@@ -49,23 +60,7 @@ export const Error: Story = {
     description: "Toast 설명입니다!",
     status: "error",
   },
-  render: function Render(args) {
-    const { openToast } = useToast();
-
-    return (
-      <div>
-        <Button
-          onClick={() =>
-            openToast({
-              ...args,
-            })
-          }
-        >
-          Toast 나와라!
-        </Button>
-      </div>
-    );
-  },
+  render: Component,
 };
 
 export const Loading: Story = {
@@ -74,19 +69,5 @@ export const Loading: Story = {
     description: "Toast 설명입니다!",
     status: "loading",
   },
-  render: function Render(args) {
-    const { openToast } = useToast();
-
-    return (
-      <Button
-        onClick={() =>
-          openToast({
-            ...args,
-          })
-        }
-      >
-        Toast 나와라!
-      </Button>
-    );
-  },
+  render: Component,
 };

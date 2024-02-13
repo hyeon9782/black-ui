@@ -71,6 +71,7 @@
     "@vanilla-extract/vite-plugin": "^3.9.3",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "chromatic": "^10.6.1",
+    "deepmerge": "^4.3.1",
     "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
