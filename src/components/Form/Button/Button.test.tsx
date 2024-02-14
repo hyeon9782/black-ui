@@ -1,5 +1,3 @@
-// Button.test.tsx
-
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import Button from "./Button";
 import { IoMdClose } from "react-icons/io";
@@ -44,21 +42,21 @@ describe("Button 컴포넌트 테스트", () => {
         Spinner
       </Button>,
     );
-    expect(screen.getByText("loading...")).toBeDisabled();
+    expect(screen.getByRole("button")).toBeDisabled();
   });
-
-  // test("Spinner가 렌더링된다.", () => {
-  //   render(
-  //     <Button isLoading data-testid="loading">
-  //       Spinner
-  //     </Button>,
-  //   );
-  //   expect(screen.getByTestId("loading")).toBeDisabled();
-  // });
 
   test("비활성화 된다.", () => {
     render(<Button isDisabled>Disabled</Button>);
-    expect(screen.getByText("Disabled")).toBeDisabled();
+    expect(screen.getByRole("button")).toBeDisabled();
+  });
+
+  test("Spinner가 렌더링된다.", () => {
+    render(
+      <Button isLoading data-testid="loading">
+        Spinner
+      </Button>,
+    );
+    expect(screen.getByRole("button")).toBeDisabled();
   });
 
   test("aria 속성이 정상적으로 적용된다.", () => {

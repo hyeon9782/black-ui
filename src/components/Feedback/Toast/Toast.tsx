@@ -13,7 +13,6 @@ const Toast = ({
   duration = 3000,
   description,
   status,
-  position,
   id = "",
 }: Toast) => {
   const { close } = useContext(ToastDispatchContext);

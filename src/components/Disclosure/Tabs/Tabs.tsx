@@ -1,5 +1,5 @@
 import { ReactNode, createContext, useState } from "react";
-import { TabListVariants, TabVariants } from "./Tabs.css";
+import { TabListVariants, TabVariants, tabs } from "./Tabs.css";
 
 type TabsContextProps = TabVariants &
   TabListVariants & {
@@ -19,6 +19,7 @@ export type TabsProps = TabListVariants &
     defaultIdex?: number;
     onChange?: (index: number) => void;
     isFitted?: boolean;
+    orientation?: "vertical" | "horizontal";
   };
 
 const Tabs = ({
@@ -29,6 +30,7 @@ const Tabs = ({
   onChange,
   isFitted,
   variant,
+  orientation,
   ...props
 }: TabsProps) => {
   const [currentTab, setCurrentTab] = useState(defaultIdex || 0);
@@ -45,10 +47,11 @@ const Tabs = ({
     isFitted,
     align,
     variant,
+    orientation,
   };
 
   return (
-    <div {...props}>
+    <div {...props} className={tabs({ orientation })}>
       <TabsContext.Provider value={context}>{children}</TabsContext.Provider>
     </div>
   );
@@ -67,6 +70,7 @@ export default Tabs;
 7. isDisabled => O
 8. aria roles => O
 9. 접근성 - arrowLeft, arrowRight, tab, home, end => O
+10. orientation => O
 ---------------------------------------------------------------------
 10. custom tab =>
 

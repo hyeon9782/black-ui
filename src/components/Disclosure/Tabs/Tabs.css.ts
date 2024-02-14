@@ -1,5 +1,20 @@
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
+export const tabs = recipe({
+  base: {},
+  variants: {
+    orientation: {
+      vertical: {
+        display: "flex",
+      },
+      horizontal: {},
+    },
+  },
+  defaultVariants: {
+    orientation: "horizontal",
+  },
+});
+
 export const tabList = recipe({
   base: {
     position: "relative",
@@ -29,10 +44,19 @@ export const tabList = recipe({
       "soft-rounded": {},
       unstyled: {},
     },
+    orientation: {
+      vertical: {
+        flexDirection: "column",
+      },
+      horizontal: {
+        flexDirection: "row",
+      },
+    },
   },
   defaultVariants: {
     align: "start",
     variant: "line",
+    orientation: "horizontal",
   },
 });
 

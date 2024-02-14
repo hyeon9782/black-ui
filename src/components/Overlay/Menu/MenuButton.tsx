@@ -15,7 +15,7 @@ const MenuButton = ({ children }: MenuButtonProps) => {
     if (!isVisible) {
       toggleMenu();
     } else {
-      itemRefs.current[0].focus();
+      itemRefs?.current[0].focus();
     }
   };
 

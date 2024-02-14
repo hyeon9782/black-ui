@@ -16,7 +16,6 @@ type DrawerProps = DrawerVariants & {
 };
 
 const Drawer = ({
-  size = "md",
   placement = "right",
   children,
   isOpen,
@@ -26,7 +25,7 @@ const Drawer = ({
   return (
     <Portal>
       <div className={drawer({ isOpen })} {...props}>
-        <DrawerContext.Provider value={{ onClose, size, placement, isOpen }}>
+        <DrawerContext.Provider value={{ onClose, placement, isOpen }}>
           {children}
         </DrawerContext.Provider>
       </div>

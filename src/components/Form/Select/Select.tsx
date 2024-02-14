@@ -32,7 +32,7 @@ const Select = ({
   };
 
   const selectItem = (value: string) => {
-    onSelect(value);
+    onSelect?.(value);
     toggleOpen();
   };
 
@@ -54,7 +54,7 @@ const Select = ({
 
       itemRefs.current[nextIndex].focus();
 
-      onSelect(allOptions[nextIndex]);
+      onSelect?.(allOptions[nextIndex]);
     }
 
     if (e.key === "ArrowUp") {
@@ -64,17 +64,17 @@ const Select = ({
 
       itemRefs.current[nextIndex].focus();
 
-      onSelect(allOptions[nextIndex]);
+      onSelect?.(allOptions[nextIndex]);
     }
 
     if (e.key === "Tab") {
       const nextIndex = (index + 1) % allOptions.length;
-      onSelect(allOptions[nextIndex]);
+      onSelect?.(allOptions[nextIndex]);
     }
 
     if (e.key === "Enter") {
       selectItem(value);
-      onSelect(allOptions[index]);
+      onSelect?.(allOptions[index]);
     }
   };
 

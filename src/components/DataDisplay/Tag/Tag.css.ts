@@ -3,6 +3,7 @@ import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
 export const tag = recipe({
   base: {
+    position: "relative",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",

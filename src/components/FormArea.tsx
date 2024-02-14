@@ -130,6 +130,7 @@ const FormArea = () => {
           size="lg"
           variant="outline"
           color="red"
+          isDisabled
           onClick={() => alert("레드 클릭")}
         >
           Button
@@ -237,7 +238,7 @@ const FormArea = () => {
           <PinInputField />
         </PinInput> */}
 
-        <PinInput size="lg" onComplate={() => alert("안녕")}>
+        <PinInput size="lg" onComplate={() => alert("안녕")} defaultValue="123">
           <PinInputField />
           <PinInputField />
           <PinInputField />

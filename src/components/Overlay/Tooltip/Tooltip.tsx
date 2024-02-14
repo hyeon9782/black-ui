@@ -1,4 +1,10 @@
-import { ReactNode, cloneElement, isValidElement } from "react";
+import {
+  ReactNode,
+  cloneElement,
+  isValidElement,
+  useLayoutEffect,
+  useState,
+} from "react";
 import { TooltipVariants, tooltip, wrap } from "./Tooltip.css";
 import { useTooltip } from "./useTooltip";
 type TooltipProps = TooltipVariants & {
@@ -6,31 +12,42 @@ type TooltipProps = TooltipVariants & {
   label: string;
 };
 const Tooltip = ({ children, label }: TooltipProps) => {
-  const {
-    isOpen,
-    onClose,
-    onOpen,
-    tooltipHeight,
-    ref,
+  const { isOpen, onClose, onOpen, triggerRef, tooltipRef } = useTooltip();
 
-    tooltipWidth,
-  } = useTooltip();
+  const [contentPosition, setContentPosition] = useState({ top: 0, left: 0 });
+
+  useLayoutEffect(() => {
+    const trigger = triggerRef.current;
+    const popover = tooltipRef.current;
+
+    if (isOpen && trigger !== null && popover !== null) {
+      const triggerRect = trigger.getBoundingClientRect();
+      const popoverRect = popover.getBoundingClientRect();
+
+      console.log(triggerRect.height);
+
+      setContentPosition({
+        top: triggerRect.height + 10,
+        left: (triggerRect.width - popoverRect.width) / 2,
+      });
+    }
+  }, [isOpen]);
 
   return (
     <div className={wrap} onPointerEnter={onOpen} onPointerLeave={onClose}>
       {isValidElement(children)
         ? cloneElement(children, {
             ...children.props,
-            ref,
+            ref: triggerRef,
           })
         : children}
       {
         <div
-          // ref={tooltipRef}
+          ref={tooltipRef}
           style={{
             position: "absolute",
-            top: tooltipHeight + 10,
-            left: tooltipWidth,
+            top: `${contentPosition.top}px`,
+            left: `${contentPosition.left}px`,
           }}
           className={tooltip({ isOpen })}
         >

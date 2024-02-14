@@ -1,10 +1,4 @@
-import {
-  ForwardedRef,
-  KeyboardEvent,
-  ReactNode,
-  forwardRef,
-  useContext,
-} from "react";
+import { ForwardedRef, ReactNode, forwardRef, useContext } from "react";
 import { MenuContext } from "./Menu";
 import { item } from "./Menu.css";
 type MenuItemProps = {

@@ -21,7 +21,7 @@ describe("PinInput 컴포넌트 테스트", () => {
   });
 
   test("컴포넌트가 렌더링되면 첫 번째 필드에 자동으로 focus된다.", () => {
-    render(<Component />);
+    render(<Component autoFocus />);
 
     expect(screen.getByTestId("1")).toHaveFocus();
   });
