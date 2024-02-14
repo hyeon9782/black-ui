@@ -3,6 +3,8 @@ import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 export const list = recipe({
   base: {
     display: "flex",
+    margin: 0,
+    padding: 0,
   },
   variants: {
     space: {
@@ -27,8 +29,35 @@ export const list = recipe({
   compoundVariants: [],
   defaultVariants: {
     space: "sm",
-    direction: "row",
+    direction: "column",
+  },
+});
+
+export const item = recipe({
+  base: {
+    listStyle: "none",
+    margin: 0,
+    padding: 0,
+    display: "flex",
+    alignItems: "center",
+    gap: 10,
+  },
+  variants: {},
+});
+
+export const icon = recipe({
+  base: {
+    display: "flex",
+    alignItems: "center",
+  },
+  variants: {
+    color: {
+      green: { color: "green" },
+      red: { color: "red" },
+    },
   },
 });
 
 export type ListVariants = RecipeVariants<typeof list>;
+
+export type ListIconVariants = RecipeVariants<typeof icon>;
