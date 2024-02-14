@@ -16,7 +16,7 @@ type TabListProps = {
 
 const TabList = ({ children }: TabListProps) => {
   const tabRefs = useRef<HTMLButtonElement[]>([]);
-  const { align, variant, changeTab } = useContext(TabsContext);
+  const { align, variant, changeTab, orientation } = useContext(TabsContext);
 
   const addToRefs = (el: HTMLButtonElement) => {
     if (el && !tabRefs.current.includes(el)) {
@@ -63,7 +63,7 @@ const TabList = ({ children }: TabListProps) => {
   };
 
   return (
-    <div className={tabList({ align, variant })} role="tablist">
+    <div className={tabList({ align, variant, orientation })} role="tablist">
       {Children.map(children, (child, index) =>
         isValidElement(child)
           ? cloneElement(child, {
