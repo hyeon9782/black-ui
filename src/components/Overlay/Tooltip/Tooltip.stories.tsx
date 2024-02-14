@@ -16,7 +16,6 @@ export const Outline: Story = {
   args: {
     children: <Button>Tooltip</Button>,
     label: "Tooltip 입니다!",
-    placement: "bottom",
     bg: "black",
   },
 };

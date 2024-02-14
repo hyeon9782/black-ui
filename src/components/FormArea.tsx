@@ -238,7 +238,7 @@ const FormArea = () => {
           <PinInputField />
         </PinInput> */}
 
-        <PinInput size="lg" onComplate={() => alert("안녕")} defaultValue="123">
+        <PinInput size="lg" mask>
           <PinInputField />
           <PinInputField />
           <PinInputField />

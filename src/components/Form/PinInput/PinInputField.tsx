@@ -31,6 +31,8 @@ const PinInputField = forwardRef(
 
     const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
       if (e.key === "Backspace") {
+        console.log("백");
+
         onInputChange("");
       }
     };

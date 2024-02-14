@@ -11,9 +11,13 @@ export type Mode = "light" | "dark";
 
 type ThemeContextValue = {
   mode: Mode;
+  setMode: (mode: Mode) => void;
 };
 
-const ThemeContext = createContext<ThemeContextValue | {}>({});
+const ThemeContext = createContext<ThemeContextValue>({
+  mode: "light",
+  setMode: () => {},
+});
 
 export type ThemeProviderProps = {
   defaultMode?: Mode;

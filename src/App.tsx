@@ -7,8 +7,6 @@ import FeedbackArea from "./components/FeedbackArea";
 import DataDisplayArea from "./components/DataDisplayArea";
 import DisclosureArea from "./components/DisclosureArea";
 
-import React from "react";
-
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "./components";
 
 function App() {

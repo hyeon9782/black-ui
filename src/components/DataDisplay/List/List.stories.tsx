@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import List from "./List";
-import ProductBox, { ProductItem } from "@/components/ProductBox";
+import List, { ListProps } from "./List";
+import ListItem from "./ListItem";
+import ListIcon from "./ListIcon";
+import { IoMdSettings } from "react-icons/io";
 
 const meta = {
   title: "Component/DataDisplay/List",
@@ -12,32 +14,37 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const productData: ProductItem[] = [
-  { id: 1, name: "Product A", price: 10 },
-  { id: 2, name: "Product B", price: 20 },
-];
-
-const mapProductComponentProps = (product: ProductItem) => ({
-  product,
-  onClick: () => console.log(`Clicked on ${product.name}`),
-});
+const Component = (args: ListProps) => {
+  return (
+    <List {...args}>
+      <ListItem>
+        <ListIcon as={<IoMdSettings />} color="green" />
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+      </ListItem>
+      <ListItem>
+        <ListIcon as={<IoMdSettings />} color="green" />
+        Assumenda, quia temporibus eveniet a libero incidunt suscipit
+      </ListItem>
+      <ListItem>
+        <ListIcon as={<IoMdSettings />} color="green" />
+        Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+      </ListItem>
+    </List>
+  );
+};
 
 export const Column: Story = {
   args: {
-    mapComponentProps: mapProductComponentProps,
-    component: ProductBox,
-    listData: productData,
     space: "md",
     direction: "column",
   },
+  render: Component,
 };
 
 export const Row: Story = {
   args: {
-    mapComponentProps: mapProductComponentProps,
-    component: ProductBox,
-    listData: productData,
     space: "md",
     direction: "row",
   },
+  render: Component,
 };

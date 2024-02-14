@@ -1,9 +1,8 @@
 import { IoMdSettings } from "react-icons/io";
 import { container, overlayContainer } from "@/app.css";
-import ProductBox, { ProductItem } from "./ProductBox";
 import { Avatar } from "./DataDisplay/Avatar";
 import { Card } from "./DataDisplay/Card";
-import { List } from "./DataDisplay/List";
+import { List, ListItem } from "./DataDisplay/List";
 import { Badge } from "./DataDisplay/Badge";
 import { Tag, TagIcon, TagLabel } from "./DataDisplay/Tag";
 import {
@@ -17,21 +16,15 @@ import {
   Thead,
   Tr,
 } from "./DataDisplay/Table";
+import ListIcon from "./DataDisplay/List/ListIcon";
+// import { Button } from "../../dist";
 
 const DataDisplayArea = () => {
-  const productData: ProductItem[] = [
-    { id: 1, name: "Product A", price: 10 },
-    { id: 2, name: "Product B", price: 20 },
-  ];
-
-  const mapProductComponentProps = (product: ProductItem) => ({
-    product,
-    onClick: () => console.log(`Clicked on ${product.name}`),
-  });
   return (
     <div className={overlayContainer}>
       <fieldset className={container}>
         <legend>Avatar</legend>
+        {/* <Button>Button111</Button> */}
         <Avatar name="jeongho" src="/이력서 사진.jpg" size="xs" />
         <Avatar name="jeongho" src="/이력서 사진.jpg" size="sm" />
         <Avatar name="Hyeon" src="/이력서 사진!.jpg" size="md" />
@@ -48,20 +41,24 @@ const DataDisplayArea = () => {
       </fieldset>
       <fieldset className={container}>
         <legend>List</legend>
-        <List
-          component={ProductBox}
-          listData={productData}
-          space="md"
-          direction="column"
-          mapComponentProps={mapProductComponentProps}
-        />
-        <List
-          component={ProductBox}
-          listData={productData}
-          space="md"
-          direction="row"
-          mapComponentProps={mapProductComponentProps}
-        />
+        <List>
+          <ListItem>
+            <ListIcon as={<IoMdSettings />} color="green" />
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit
+          </ListItem>
+          <ListItem>
+            <ListIcon as={<IoMdSettings />} color="green" />
+            Assumenda, quia temporibus eveniet a libero incidunt suscipit
+          </ListItem>
+          <ListItem>
+            <ListIcon as={<IoMdSettings />} color="green" />
+            Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+          </ListItem>
+          <ListItem>
+            <ListIcon as={<IoMdSettings />} color="green" />
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit
+          </ListItem>
+        </List>
       </fieldset>
       <fieldset className={container}>
         <legend>Badge</legend>
