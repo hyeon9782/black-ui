@@ -21,12 +21,16 @@ type PinInputProps = FieldVariants & {
   mask?: boolean;
   otp?: boolean;
   onComplate?: () => void;
+  autoFocus?: boolean;
+  defaultValue?: string;
 };
 const PinInput = ({
   children,
   size = "md",
   otp,
   onComplate,
+  autoFocus,
+  defaultValue,
   ...props
 }: PinInputProps) => {
   const inputRefs = useRef<HTMLInputElement[]>([]);
@@ -83,7 +87,7 @@ const PinInput = ({
   );
 
   useEffect(() => {
-    if (inputRefs) {
+    if (inputRefs && autoFocus) {
       inputRefs.current[0].focus();
     }
   }, []);
@@ -112,9 +116,20 @@ export default PinInput;
 /*
 
 1. aria-label 추가 => O
-2. disabled 추가 => O
-3. 자동 포커스 추가 => O
-4. onComplate 추가 => 
+2. isDisabled 추가 => O
+3. autoFocus 추가 => O
+4. onComplate 추가 => O
 5. otp 추가 => O
+6. mask 추가 => O
+------------------FIX----------------------------
+1. onComplate 함수 실행시 refs 참조 값 읽는 에러 수정하기
+------------------TODO----------------------------
+7. manageFocus => 
+8. defaultValue =>
+9. focusBorderColor =>
+10. errorBorderColor =>
+11. onChange =>
+12. placeholder =>
+13. variant (outline, flushed, filled, unstyled) =>
 
 */

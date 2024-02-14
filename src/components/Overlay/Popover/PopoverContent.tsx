@@ -7,15 +7,15 @@ type Props = {
 };
 
 const PopoverContent = ({ children }: Props) => {
-  const { isVisible, popoverRef, popoverStyle } = useContext(PopoverContext);
+  const { isVisible, popoverRef, contentPosition } = useContext(PopoverContext);
 
   return (
     <div
       ref={popoverRef}
       className={content({ isVisible })}
       style={{
-        left: popoverStyle.left,
-        top: popoverStyle.top,
+        top: `${contentPosition.top}px`,
+        left: `${contentPosition.left}px`,
       }}
     >
       {children}

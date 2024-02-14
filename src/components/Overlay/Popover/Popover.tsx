@@ -1,4 +1,10 @@
-import { ReactNode, createContext, useLayoutEffect, useState } from "react";
+import {
+  ReactNode,
+  createContext,
+  useEffect,
+  useLayoutEffect,
+  useState,
+} from "react";
 import { wrap } from "./Popover.css";
 import { usePopover } from "./usePopover";
 
@@ -28,22 +34,26 @@ const Popover = ({ children, placement, ...props }: PopoverProps) => {
     onToggle: togglePopover,
     triggerRef,
     popoverRef,
+    wrapRef,
   } = usePopover();
-  const [popoverStyle, setPopoverStyle] = useState({});
+  const [contentPosition, setContentPosition] = useState({ top: 0, left: 0 });
 
   useLayoutEffect(() => {
-    if (triggerRef.current && popoverRef.current) {
-      const { width, height } = triggerRef.current?.getBoundingClientRect();
+    const trigger = triggerRef.current;
+    const popover = popoverRef.current;
 
-      const left = (width - popoverRef.current?.clientWidth) / 2;
-      const top = height + 10;
+    if (isVisible && trigger !== null && popover !== null) {
+      const triggerRect = trigger.getBoundingClientRect();
+      const popoverRect = popover.getBoundingClientRect();
 
-      setPopoverStyle({
-        top,
-        left,
+      console.log(triggerRect.height);
+
+      setContentPosition({
+        top: triggerRect.height + 10,
+        left: (triggerRect.width - popoverRect.width) / 2,
       });
     }
-  }, []);
+  }, [isVisible]);
 
   const value = {
     isVisible,
@@ -51,12 +61,12 @@ const Popover = ({ children, placement, ...props }: PopoverProps) => {
     placement,
     triggerRef,
     popoverRef,
-    popoverStyle,
+    contentPosition,
     onClose,
   };
 
   return (
-    <div {...props} className={wrap}>
+    <div {...props} className={wrap} ref={wrapRef}>
       <PopoverContext.Provider value={value}>
         {children}
       </PopoverContext.Provider>

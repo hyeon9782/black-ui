@@ -9,6 +9,7 @@ export const content = recipe({
   base: {
     padding: 10,
     position: "absolute",
+    top: "calc(100% + 10px)",
     backgroundColor: "white",
     width: "20rem",
     border: "1px solid lightgray",
@@ -22,10 +23,12 @@ export const content = recipe({
   variants: {
     isVisible: {
       true: {
-        display: "block",
+        // display: "block",
+        visibility: "visible",
       },
       false: {
-        display: "none",
+        // display: "none",
+        visibility: "hidden",
       },
     },
   },

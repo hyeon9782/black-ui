@@ -5,7 +5,7 @@ import { Avatar } from "./DataDisplay/Avatar";
 import { Card } from "./DataDisplay/Card";
 import { List } from "./DataDisplay/List";
 import { Badge } from "./DataDisplay/Badge";
-import { Tag, TagCloseButton, TagIcon, TagLabel } from "./DataDisplay/Tag";
+import { Tag, TagIcon, TagLabel } from "./DataDisplay/Tag";
 import {
   Table,
   TableCaption,
@@ -88,7 +88,6 @@ const DataDisplayArea = () => {
         </Tag>
         <Tag>
           <TagLabel>Close Tag</TagLabel>
-          <TagCloseButton />
         </Tag>
       </fieldset>
       <fieldset className={container}>
