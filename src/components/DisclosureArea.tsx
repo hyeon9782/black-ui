@@ -5,10 +5,12 @@ import {
   AccordionItem,
   AccordionPanel,
 } from "./Disclosure/Accordion";
+import { VisuallyHidden } from "./Disclosure/VisuallyHidden";
 
 const DisclosureArea = () => {
   return (
     <div className={overlayContainer}>
+      <VisuallyHidden>안녕</VisuallyHidden>
       <fieldset className={container}>
         <legend>Accordion</legend>
         <Accordion>
