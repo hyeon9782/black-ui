@@ -17,12 +17,14 @@ import {
   Tr,
 } from "./DataDisplay/Table";
 import ListIcon from "./DataDisplay/List/ListIcon";
+// import { Button } from "../../dist";
 
 const DataDisplayArea = () => {
   return (
     <div className={overlayContainer}>
       <fieldset className={container}>
         <legend>Avatar</legend>
+        {/* <Button>Button111</Button> */}
         <Avatar name="jeongho" src="/이력서 사진.jpg" size="xs" />
         <Avatar name="jeongho" src="/이력서 사진.jpg" size="sm" />
         <Avatar name="Hyeon" src="/이력서 사진!.jpg" size="md" />

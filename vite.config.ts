@@ -18,9 +18,12 @@ export default defineConfig({
   resolve: {
     alias: [{ find: "@", replacement: "/src" }],
   },
+  // optimizeDeps: {
+  //   exclude: ["**/*.test.tsx", "**/*.stories.tsx"],
+  // },
   build: {
     lib: {
-      entry: resolve(__dirname, "src/components/index.ts"),
+      entry: resolve(__dirname, "src/index.ts"),
       name: "@black-ui/react",
       fileName: "index",
       // 어떤 모듈형태로 빌드할건지 : es, umd, cjs
@@ -35,5 +38,7 @@ export default defineConfig({
         },
       },
     },
+    sourcemap: true,
+    emptyOutDir: true,
   },
 });

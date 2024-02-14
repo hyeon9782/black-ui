@@ -39,11 +39,12 @@
     "types": ["@testing-library/jest-dom", "jest"],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
-    }
+      "@/*": ["src/*"],
+    },
   },
   // 컴파일 대상 파일들을 설정함
-  "include": ["src/components"],
+  "include": ["src", "./index.ts"],
+  // "exclude": ["**/*.test.tsx", "**/*.stories.tsx"],
   //  프로젝트 참조 설정을 위한 경로를 설정함
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.node.json" }],
 }

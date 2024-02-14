@@ -1,1 +1,3 @@
-export function usePopper() {}
+const usePopper = () => {};
+
+export default usePopper;
