@@ -5,11 +5,9 @@ type Props = {
   children: ReactNode;
 };
 const DrawerContent = ({ children }: Props) => {
-  const { size, placement, isOpen } = useContext(DrawerContext);
+  const { placement, isOpen } = useContext(DrawerContext);
 
-  return (
-    <div className={drawerContent({ size, placement, isOpen })}>{children}</div>
-  );
+  return <div className={drawerContent({ placement, isOpen })}>{children}</div>;
 };
 
 export default DrawerContent;

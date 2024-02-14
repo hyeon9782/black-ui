@@ -130,6 +130,7 @@ const FormArea = () => {
           size="lg"
           variant="outline"
           color="red"
+          isDisabled
           onClick={() => alert("레드 클릭")}
         >
           Button

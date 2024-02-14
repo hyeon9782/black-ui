@@ -1,10 +1,4 @@
-import {
-  ReactNode,
-  createContext,
-  useEffect,
-  useLayoutEffect,
-  useState,
-} from "react";
+import { ReactNode, createContext, useLayoutEffect, useState } from "react";
 import { wrap } from "./Popover.css";
 import { usePopover } from "./usePopover";
 
@@ -14,7 +8,7 @@ type PopoverContextProps = {
   placement?: string;
   triggerRef?: any;
   popoverRef?: any;
-  popoverStyle?: any;
+  contentPosition?: any;
   onClose: () => void;
 };
 

@@ -4,8 +4,8 @@ import { useRef } from "react";
 export function useTooltip() {
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
 
-  const triggerRef = useRef<HTMLElement>(null);
-  const tooltipRef = useRef<HTMLElement>(null);
+  const triggerRef = useRef<HTMLDivElement | null>(null);
+  const tooltipRef = useRef<HTMLDivElement | null>(null);
 
   return {
     isOpen,

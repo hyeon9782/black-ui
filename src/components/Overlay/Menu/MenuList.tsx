@@ -15,8 +15,8 @@ const MenuList = ({ children, ...props }: MenuListProps) => {
   const { isVisible, changeIndex, itemRefs } = useContext(MenuContext);
 
   const addToRefs = (el: HTMLDivElement) => {
-    if (el && !itemRefs.current.includes(el)) {
-      itemRefs.current.push(el);
+    if (el && !itemRefs?.current.includes(el)) {
+      itemRefs?.current.push(el);
     }
   };
 
@@ -31,7 +31,7 @@ const MenuList = ({ children, ...props }: MenuListProps) => {
 
       const nextIndex = (index + 1) % menuItemCount;
 
-      itemRefs.current[nextIndex].focus();
+      itemRefs?.current[nextIndex].focus();
 
       changeIndex(nextIndex);
     }
@@ -41,7 +41,7 @@ const MenuList = ({ children, ...props }: MenuListProps) => {
 
       const nextIndex = (index - 1 + menuItemCount) % menuItemCount;
 
-      itemRefs.current[nextIndex].focus();
+      itemRefs?.current[nextIndex].focus();
 
       changeIndex(nextIndex);
     }

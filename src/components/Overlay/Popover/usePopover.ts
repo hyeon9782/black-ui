@@ -6,9 +6,9 @@ export type UsePopoverProps = {};
 export function usePopover() {
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
 
-  const triggerRef = useRef<HTMLElement>(null);
-  const popoverRef = useRef<HTMLElement>(null);
-  const wrapRef = useRef<HTMLElement>(null);
+  const triggerRef = useRef<HTMLDivElement | null>(null);
+  const popoverRef = useRef<HTMLDivElement | null>(null);
+  const wrapRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const pageClick = (e: any) => {

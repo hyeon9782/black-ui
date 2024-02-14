@@ -11,8 +11,8 @@ export const ModalContext = createContext<ModalContext>({
   onClose: () => {},
   isOpen: false,
 });
-type ModalProps = {
-  children: ReactNode;
+export type ModalProps = {
+  children?: ReactNode;
   onClose: () => void;
   isOpen?: boolean;
 };

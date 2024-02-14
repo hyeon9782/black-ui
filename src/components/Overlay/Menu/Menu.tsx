@@ -1,4 +1,10 @@
-import { ReactNode, createContext, useRef, useState } from "react";
+import {
+  MutableRefObject,
+  ReactNode,
+  createContext,
+  useRef,
+  useState,
+} from "react";
 import { menu } from "./Menu.css";
 
 type MenuContextProps = {
@@ -6,7 +12,7 @@ type MenuContextProps = {
   isVisible: boolean;
   currentIndex: number;
   changeIndex: (index: number) => void;
-  itemRefs: HTMLDivElement[];
+  itemRefs?: MutableRefObject<HTMLDivElement[]>;
 };
 
 export const MenuContext = createContext<MenuContextProps>({
@@ -14,7 +20,6 @@ export const MenuContext = createContext<MenuContextProps>({
   isVisible: false,
   currentIndex: 0,
   changeIndex: () => {},
-  itemRefs: [],
 });
 
 type MenuProps = {

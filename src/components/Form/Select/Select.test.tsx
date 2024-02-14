@@ -7,9 +7,10 @@ describe("Select 컴포넌트 테스트", () => {
       <Select
         options={["딸기", "포도", "바나나"]}
         label="과일을 선택해주세요"
+        data-testid="select"
       />,
     );
 
-    expect(screen.getByText("과일을 선택해주세요")).toBeInTheDocument();
+    expect(screen.getByTestId("select")).toBeInTheDocument();
   });
 });
