@@ -5,7 +5,6 @@ import React, {
   createContext,
   useEffect,
   useRef,
-  useState,
 } from "react";
 import { FieldVariants, wrap } from "./PinInput.css";
 
@@ -31,12 +30,10 @@ const PinInput = ({
   onComplate,
   autoFocus,
   defaultValue,
+  mask,
   ...props
 }: PinInputProps) => {
   const inputRefs = useRef<HTMLInputElement[]>([]);
-  inputRefs.current = [];
-
-  const [isCompleted, setIsCompleted] = useState(false);
 
   // Children 갯수만큼 Refs 추가
   const addToRefs = (el: HTMLInputElement) => {
@@ -73,13 +70,6 @@ const PinInput = ({
           ref: (el: HTMLInputElement) => addToRefs(el),
           onInputChange: (value: number) => {
             handleFocus(index, value);
-
-            const allFieldsFilled = inputRefs.current.every(
-              (input) => input.value !== "",
-            );
-            if (allFieldsFilled) {
-              setIsCompleted(true);
-            }
           },
           otp,
         })
@@ -92,14 +82,9 @@ const PinInput = ({
     }
   }, []);
 
-  useEffect(() => {
-    if (isCompleted && onComplate) {
-      onComplate();
-    }
-  }, [isCompleted, onComplate]);
-
   const value = {
     size,
+    mask,
   };
 
   return (
@@ -118,12 +103,12 @@ export default PinInput;
 1. aria-label 추가 => O
 2. isDisabled 추가 => O
 3. autoFocus 추가 => O
-4. onComplate 추가 => O
 5. otp 추가 => O
 6. mask 추가 => O
 ------------------FIX----------------------------
 1. onComplate 함수 실행시 refs 참조 값 읽는 에러 수정하기
 ------------------TODO----------------------------
+6. onComplate 추가 => 
 7. manageFocus => 
 8. defaultValue =>
 9. focusBorderColor =>
