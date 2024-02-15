@@ -62,6 +62,7 @@ const selectorProperties = defineProperties({
     color: vars.colors,
     outlineColor: vars.colors,
     textDecoration: vars.textDecoration,
+    accentColor: vars.colors,
   },
 });
 

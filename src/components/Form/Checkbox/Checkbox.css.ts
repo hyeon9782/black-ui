@@ -1,5 +1,6 @@
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 import { vars } from "@/css/vars.css";
+import { sprinkles } from "@/css/sprinkles.css";
 
 export const checkbox = recipe({
   base: {
@@ -13,6 +14,7 @@ export const checkbox = recipe({
         opacity: "0.5",
       },
     },
+    color: vars.colors.textSecondary,
   },
   variants: {
     size: {
@@ -30,13 +32,16 @@ export const checkbox = recipe({
       },
     },
     color: {
-      black: {
-        accentColor: vars.colors.black,
-      },
-      red: {
-        accentColor: vars.colors.red,
-      },
+      gray: sprinkles({ accentColor: "gray600" }),
+      red: sprinkles({ accentColor: "redSecondary" }),
+      green: sprinkles({ accentColor: "greenSecondary" }),
+      blue: sprinkles({ accentColor: "blueSecondary" }),
+      orange: sprinkles({ accentColor: "orangeSecondary" }),
     },
+  },
+  defaultVariants: {
+    size: "md",
+    color: "gray",
   },
 });
 

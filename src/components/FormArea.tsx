@@ -178,16 +178,19 @@ const FormArea = () => {
       </fieldset>
       <fieldset className={container}>
         <legend>Checkbox</legend>
-        <Checkbox color="black" size="xs">
+        <Checkbox color="gray" size="xs">
           XS Checkbox
         </Checkbox>
-        <Checkbox color="red" size="sm" disabled>
+        <Checkbox color="red" size="sm">
           SM Checkbox
         </Checkbox>
-        <Checkbox color="red" size="md" defaultChecked>
+        <Checkbox color="green" size="md" defaultChecked>
           MD Checkbox
         </Checkbox>
-        <Checkbox color="red" size="lg" readOnly>
+        <Checkbox color="blue" size="lg">
+          LG Checkbox
+        </Checkbox>
+        <Checkbox color="orange" size="lg" isDisabled>
           LG Checkbox
         </Checkbox>
       </fieldset>

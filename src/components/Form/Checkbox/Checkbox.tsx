@@ -3,11 +3,22 @@ import { CheckboxVariants, checkbox, input } from "./Checkbox.css";
 type CheckboxProps = CheckboxVariants &
   Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & {
     isChecked?: boolean;
+    isDisabled?: boolean;
+    isReadOnly?: boolean;
   };
 
 const Checkbox = forwardRef(
   (
-    { children, color, size, isChecked, readOnly, ...props }: CheckboxProps,
+    {
+      children,
+      color,
+      size,
+      isChecked,
+      readOnly,
+      isDisabled,
+      isReadOnly,
+      ...props
+    }: CheckboxProps,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
     return (
@@ -20,11 +31,11 @@ const Checkbox = forwardRef(
         <input
           ref={ref}
           type="checkbox"
+          disabled={isDisabled}
           checked={isChecked}
-          readOnly={readOnly}
+          readOnly={isReadOnly}
           className={input()}
           {...props}
-          style={{ backgroundColor: "red" }}
         />
         <span>{children}</span>
       </label>
