@@ -1,44 +1,92 @@
-# Black UI
+<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=500&section=header&text=Black%20UI&fontSize=90&animation=fadeIn&desc=Design System built on Vanilla Extract&descSize=24" />
 
-자체적으로 개발 중인 디자인 시스템 입니다.
+Vanilla Extract 기반 디자인 시스템으로 성능 저하 없이 멋진 디자인을 구현하세요!
 
-아직 미완성 프로젝트이며 꾸준히 업데이트할 예정입니다.
-
-개선할 부분이 있다면 언제든지 Issues 남겨주세요!
+미완성 프로젝트입니다. 개선할 부분이 있다면 언제든지 Issues 남겨주세요!
 
 ## Table of Contents
 
-- Components
-  - [Card](#Card)
+- 📦 [Installation](#installation)
+- 🛠️ [Stack](#stack-배경이-궁금하다면)
+- 📒 [Storybook](#storybook---docs)
+- 🔮 [Todo](#todo)
+- 💻 Components
+  - DataDisplay
+    - [Avatar](#avatar---source)
+    - [Badge](#badge---source)
+    - [Card](#card---source)
+    - [List](#list---source)
+    - [Table](#table---source)
+    - [Tag](#tag---source)
+  - Disclosure
+    - [Accordion](#accordion---source)
+    - [Tabs](#tabs---source)
+    - [VisuallyHidden](#visuallyhidden---source)
+  - Feedback
+    - [Progress](#progress---source)
+    - [Skeleton](#skeleton---source)
+    - [Spinner](#spinner---source)
+    - [Toast](#toast---source)
+  - Form
+    - [Button](#button---source)
+    - [Checkbox](#checkbox---source)
+    - [FormControl](#formcontrol---source)
+    - [Input](#input---source)
+    - [PinInput](#pininput---source)
+    - [Radio](#radio---source)
+    - [Select](#select---source)
+    - [Slider](#slider---source)
+    - [Switch](#switch---source)
+    - [Textarea](#textarea---source)
+  - Overlay
+    - [Drawer](#drawer---source)
+    - [Menu](#nenu---source)
+    - [Modal](#modal---source)
+    - [Popover](#popover---source)
+    - [Tooltip](#tooltip---source)
+  - Other
+    - [CloseButton](#closebutton---source)
+    - [Portal](#portal---source)
+    - [Theme](#theme---source)
 - Hooks
+  - [useClipboard](#useclipboard---source)
+  - [useDisclosure](#usedisclosure---source)
+  - [useOutsideClick](#useoutsideclick---source)
 
 ## Stack ([배경이 궁금하다면](https://velog.io/@hyeon9782/%EB%82%98%EB%A7%8C%EC%9D%98-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%9D%84-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EC%9E%90-%EA%B8%B0%EC%88%A0-%EC%8A%A4%ED%83%9D-%EC%84%A0%EC%A0%95))
 
-### TypeScript
+| 기술            | 설명                                        |
+| --------------- | ------------------------------------------- |
+| TypeScript      | JavaScript의 확장 언어                      |
+| React           | JavaScript 프레임워크                       |
+| Vite            | React 개발을 위한 빌드 도구                 |
+| Vanilla Extract | CSS-in-TS                                   |
+| Storybook       | React 컴포넌트를 테스트하고 문서화하는 도구 |
+| Jest            | JavaScript 테스트 프레임워크                |
 
-### React
-
-### Vite
-
-### Storybook
-
-### Jest
-
-## Styled System ([배경이 궁금하다면]())
-
-###
-
-## Getting Started
+## Installation
 
 ```
 npm i @black-ui/react
 ```
 
+## Storybook - [Docs](https://65b7157bc6ef4fa60075271e-qyzsipcmpk.chromatic.com)
+
+Storybook으로 배포한 Black UI 컴포넌트들을 직접 사용해볼 수 있어요!
+
+## Todo
+
+- Framer Motion을 활용한 animation 적용
+- SSR 대응
+- 공통 로직 분리
+  - keyboard event 커스텀 훅 구현
+  - usePopper 커스텀 훅 구현
+
 ## Components
 
 ### DataDisplay
 
-#### Avatar [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/DataDisplay/Avatar)
+#### Avatar - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/DataDisplay/Avatar)
 
 ##### Import
 
@@ -54,7 +102,7 @@ export const Example = () => {
 };
 ```
 
-#### Badge [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/DataDisplay/Badge)
+#### Badge - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/DataDisplay/Badge)
 
 ##### Import
 
@@ -82,7 +130,7 @@ export const Example = () => {
 };
 ```
 
-#### Card [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/DataDisplay/Card)
+#### Card - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/DataDisplay/Card)
 
 ##### Import
 
@@ -105,7 +153,7 @@ export const Example = () => {
 };
 ```
 
-#### List [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/DataDisplay/List)
+#### List - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/DataDisplay/List)
 
 ##### Import
 
@@ -140,7 +188,7 @@ export const Example = () => {
 };
 ```
 
-#### Table [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/DataDisplay/Table)
+#### Table - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/DataDisplay/Table)
 
 ##### Import
 
@@ -203,7 +251,7 @@ export const Example = () => {
 };
 ```
 
-#### Tag [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/DataDisplay/Tag)
+#### Tag - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/DataDisplay/Tag)
 
 ##### Import
 
@@ -236,7 +284,7 @@ export const Example = () => {
 
 ### Disclosure
 
-#### Accordion [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Disclosure/Accordion)
+#### Accordion - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Disclosure/Accordion)
 
 ##### Import
 
@@ -268,7 +316,7 @@ export const Example = () => {
 };
 ```
 
-#### Tabs [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Disclosure/Tabs)
+#### Tabs - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Disclosure/Tabs)
 
 ##### Import
 
@@ -295,7 +343,7 @@ export const Example = () => {
 };
 ```
 
-#### VisuallyHidden [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Disclosure/VisuallyHidden)
+#### VisuallyHidden - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Disclosure/VisuallyHidden)
 
 ##### Import
 
@@ -318,7 +366,7 @@ export const Example = () => {
 
 ### Feedback
 
-#### Progress [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Feedback/Progress)
+#### Progress - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Feedback/Progress)
 
 ##### Import
 
@@ -335,7 +383,7 @@ export const Example = () => {
 };
 ```
 
-#### Skeleton [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Feedback/Skeleton)
+#### Skeleton - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Feedback/Skeleton)
 
 ##### Import
 
@@ -353,7 +401,7 @@ export const Example = () => {
 };
 ```
 
-#### Spinner [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Feedback/Spinner)
+#### Spinner - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Feedback/Spinner)
 
 ##### Import
 
@@ -369,7 +417,7 @@ export const Example = () => {
 };
 ```
 
-#### Toast [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Feedback/Toast)
+#### Toast - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Feedback/Toast)
 
 ##### Import
 
@@ -402,7 +450,7 @@ export const Example = () => {
 
 ### Form
 
-#### Button [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Button)
+#### Button - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Button)
 
 ##### Import
 
@@ -470,7 +518,7 @@ export const Example = () => {
 };
 ```
 
-#### Checkbox [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Checkbox)
+#### Checkbox - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Checkbox)
 
 ##### Import
 
@@ -501,7 +549,7 @@ export const Example = () => {
 };
 ```
 
-#### FormControl [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/FormControl)
+#### FormControl - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/FormControl)
 
 ##### Import
 
@@ -532,7 +580,7 @@ export const Example = () => {
 };
 ```
 
-#### Input [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Input)
+#### Input - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Input)
 
 ##### Import
 
@@ -555,7 +603,7 @@ export const Example = () => {
 };
 ```
 
-#### PinInput [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/PinInput)
+#### PinInput - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/PinInput)
 
 ##### Import
 
@@ -578,7 +626,7 @@ export const Example = () => {
 };
 ```
 
-#### Radio [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Radio)
+#### Radio - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Radio)
 
 ##### Import
 
@@ -616,7 +664,7 @@ export const Example = () => {
 };
 ```
 
-#### Select [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Select)
+#### Select - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Select)
 
 ##### Import
 
@@ -648,7 +696,7 @@ export const Example = () => {
 };
 ```
 
-#### Slider [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Slider)
+#### Slider - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Slider)
 
 ##### Import
 
@@ -671,7 +719,7 @@ export const Example = () => {
 };
 ```
 
-#### Switch [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Switch)
+#### Switch - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Switch)
 
 ##### Import
 
@@ -697,7 +745,7 @@ export const Example = () => {
 };
 ```
 
-#### Textarea [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Textarea)
+#### Textarea - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Textarea)
 
 ##### Import
 
@@ -723,7 +771,7 @@ export const Example = () => {
 
 ### Overlay
 
-#### Drawer [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Overlay/Drawer)
+#### Drawer - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Overlay/Drawer)
 
 ##### Import
 
@@ -763,7 +811,7 @@ export const Example = () => {
 };
 ```
 
-#### Menu [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Overlay/Menu)
+#### Menu - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Overlay/Menu)
 
 ##### Import
 
@@ -796,7 +844,7 @@ export const Example = () => {
 };
 ```
 
-#### Modal [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Overlay/Modal)
+#### Modal - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Overlay/Modal)
 
 ##### Import
 
@@ -844,7 +892,7 @@ export const Example = () => {
 };
 ```
 
-#### Popover [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Overlay/Popover)
+#### Popover - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Overlay/Popover)
 
 ##### Import
 
@@ -877,7 +925,7 @@ export const Example = () => {
 };
 ```
 
-#### Tooltip [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Overlay/Tooltip)
+#### Tooltip - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Overlay/Tooltip)
 
 ##### Import
 
@@ -899,7 +947,7 @@ export const Example = () => {
 
 ### Other
 
-#### CloseButton [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Other/CloseButton)
+#### CloseButton - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Other/CloseButton)
 
 ##### Import
 
@@ -915,7 +963,7 @@ export const Example = () => {
 };
 ```
 
-#### Portal [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Other/Portal)
+#### Portal - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Other/Portal)
 
 ##### Import
 
@@ -935,7 +983,7 @@ export const Example = () => {
 };
 ```
 
-#### Theme [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Other/Theme)
+#### Theme - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Other/Theme)
 
 ##### Import
 
@@ -955,9 +1003,9 @@ export const Example = () => {
 };
 ```
 
-## Hooks [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/hooks)
+## Hooks
 
-#### useDisclosure
+#### useDisclosure - [Source](https://github.com/hyeon9782/black-ui/blob/main/src/hooks/useDisclosure.ts)
 
 ##### Import
 
@@ -996,7 +1044,7 @@ export const Example = () => {
 };
 ```
 
-#### useClipboard
+#### useClipboard - [Source](https://github.com/hyeon9782/black-ui/blob/main/src/hooks/useClipboard.ts)
 
 #### Import
 
@@ -1024,7 +1072,7 @@ export const Example = () => {
 };
 ```
 
-#### useOutsideClick
+#### useOutsideClick - [Source](https://github.com/hyeon9782/black-ui/blob/main/src/hooks/useOutsideClick.ts)
 
 ##### Import
 
@@ -1056,13 +1104,3 @@ function Example() {
   );
 }
 ```
-
-## Storybook [(Docs)](https://65b7157bc6ef4fa60075271e-qyzsipcmpk.chromatic.com)
-
-## TODO
-
-- Framer Motion을 활용한 animation 적용
-- SSR 대응
-- 공통 로직 분리
-  - keyboard event 커스텀 훅 구현
-  - usePopper 커스텀 훅 구현
