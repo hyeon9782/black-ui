@@ -6,6 +6,12 @@
 
 개선할 부분이 있다면 언제든지 Issues 남겨주세요!
 
+## Table of Contents
+
+- Components
+  - [Card](#Card)
+- Hooks
+
 ## Stack ([배경이 궁금하다면](https://velog.io/@hyeon9782/%EB%82%98%EB%A7%8C%EC%9D%98-%EB%94%94%EC%9E%90%EC%9D%B8-%EC%8B%9C%EC%8A%A4%ED%85%9C%EC%9D%84-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EC%9E%90-%EA%B8%B0%EC%88%A0-%EC%8A%A4%ED%83%9D-%EC%84%A0%EC%A0%95))
 
 ### TypeScript
@@ -32,54 +38,1026 @@ npm i @black-ui/react
 
 ### DataDisplay
 
-- [ ] Avatar
-- [ ] Badge
-- [ ] Card
-- [ ] List
-- [ ] Table
-- [ ] Tag
+#### Avatar [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/DataDisplay/Avatar)
+
+##### Import
+
+```js
+import { Avatar } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  return <Avatar src="/images/profile.jpg" alt="Name" size="sm" />;
+};
+```
+
+#### Badge [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/DataDisplay/Badge)
+
+##### Import
+
+```js
+import { Badge } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  return (
+    <>
+      <Badge variant="outline" color="green">
+        Green Outline
+      </Badge>
+      <Badge variant="solid" color="red">
+        Red Solid
+      </Badge>
+      <Badge variant="subtle" color="blue">
+        Blue Subtle
+      </Badge>
+    </>
+  );
+};
+```
+
+#### Card [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/DataDisplay/Card)
+
+##### Import
+
+```js
+import { Card } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  return (
+    <>
+      <Card variant="elevated">Card</Card>
+      <Card variant="filled">Card</Card>
+      <Card variant="unstyled">Card</Card>
+      <Card variant="outline">Card</Card>
+    </>
+  );
+};
+```
+
+#### List [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/DataDisplay/List)
+
+##### Import
+
+```js
+import { List, ListItem, ListIcon } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  return (
+    <List>
+      <ListItem>
+        <ListIcon as={<IoMdSettings />} color="green" />
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+      </ListItem>
+      <ListItem>
+        <ListIcon as={<IoMdSettings />} color="green" />
+        Assumenda, quia temporibus eveniet a libero incidunt suscipit
+      </ListItem>
+      <ListItem>
+        <ListIcon as={<IoMdSettings />} color="green" />
+        Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
+      </ListItem>
+      <ListItem>
+        <ListIcon as={<IoMdSettings />} color="green" />
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+      </ListItem>
+    </List>
+  );
+};
+```
+
+#### Table [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/DataDisplay/Table)
+
+##### Import
+
+```js
+import {
+  Table,
+  TableCaption,
+  TableContainer,
+  Tbody,
+  Td,
+  Tfoot,
+  Th,
+  Thead,
+  Tr,
+} from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  return (
+    <TableContainer>
+      <Table variant="filled">
+        <TableCaption>Imperial to metric conversion factors</TableCaption>
+        <Thead>
+          <Tr>
+            <Th>To convert</Th>
+            <Th>into</Th>
+            <Th>multiply by</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          <Tr>
+            <Td>inches</Td>
+            <Td>millimetres (mm)</Td>
+            <Td>25.4</Td>
+          </Tr>
+          <Tr>
+            <Td>feet</Td>
+            <Td>centimetres (cm)</Td>
+            <Td>30.48</Td>
+          </Tr>
+          <Tr>
+            <Td>yards</Td>
+            <Td>metres (m)</Td>
+            <Td>0.91444</Td>
+          </Tr>
+        </Tbody>
+        <Tfoot>
+          <Tr>
+            <Th>To convert</Th>
+            <Th>into</Th>
+            <Th>multiply by</Th>
+          </Tr>
+        </Tfoot>
+      </Table>
+    </TableContainer>
+  );
+};
+```
+
+#### Tag [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/DataDisplay/Tag)
+
+##### Import
+
+```js
+import { Tag, TagIcon, TagLabel } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  return (
+    <>
+      <Tag>Sample Tag</Tag>
+      <Tag color="red" variant="solid">
+        <TagIcon as={<IoMdSettings />} />
+        <TagLabel>Left Icon</TagLabel>
+      </Tag>
+      <Tag color="blue" variant="subtle">
+        <TagLabel>Right Icon</TagLabel>
+        <TagIcon as={<IoMdSettings />} />
+      </Tag>
+      <Tag>
+        <TagLabel>Close Tag</TagLabel>
+      </Tag>
+    </>
+  );
+};
+```
 
 ### Disclosure
 
-- [ ] Accordion
-- [ ] Tabs
+#### Accordion [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Disclosure/Accordion)
+
+##### Import
+
+```js
+import {
+  Accordion,
+  AccordionButton,
+  AccordionItem,
+  AccordionPanel,
+} from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  return (
+    <Accordion>
+      <AccordionItem>
+        <AccordionButton>First Title</AccordionButton>
+        <AccordionPanel>First Contents</AccordionPanel>
+      </AccordionItem>
+      <AccordionItem>
+        <AccordionButton>Second Title</AccordionButton>
+        <AccordionPanel>Second Contents</AccordionPanel>
+      </AccordionItem>
+    </Accordion>
+  );
+};
+```
+
+#### Tabs [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Disclosure/Tabs)
+
+##### Import
+
+```js
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  return (
+    <Tabs variant="soft-rounded">
+      <TabList>
+        <Tab>First Tab</Tab>
+        <Tab>Second Tab</Tab>
+      </TabList>
+      <TabPanels>
+        <TabPanel>First Panel</TabPanel>
+        <TabPanel>Second Panel</TabPanel>
+      </TabPanels>
+    </Tabs>
+  );
+};
+```
+
+#### VisuallyHidden [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Disclosure/VisuallyHidden)
+
+##### Import
+
+```js
+import { VisuallyHidden, VisuallyHiddenInput } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  return (
+    <>
+      <VisuallyHidden>Hello</VisuallyHidden>
+      <VisuallyHiddenInput />
+    </>
+  );
+};
+```
 
 ### Feedback
 
-- [ ] Skeleton
-- [ ] Spinner
-- [ ] Toast
+#### Progress [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Feedback/Progress)
+
+##### Import
+
+```js
+import { Progress } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  const [value, setValue] = useState(0);
+  return <Progress value={value} />;
+};
+```
+
+#### Skeleton [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Feedback/Skeleton)
+
+##### Import
+
+```js
+import { Skeleton } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  return (
+    <Skeleton width="150px" height="150px" radius="15px" background="gray" />
+  );
+};
+```
+
+#### Spinner [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Feedback/Spinner)
+
+##### Import
+
+```js
+import { Spinner } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  return <Spinner size="sm" />;
+};
+```
+
+#### Toast [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Feedback/Toast)
+
+##### Import
+
+```js
+import { ToastProvider, useToast, Button } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  const { openToast } = useToast();
+  return (
+    <ToastProvider>
+      <Button
+        onClick={() =>
+          openToast({
+            title: "Title",
+            description: "Description",
+            status: "success",
+          })
+        }
+      >
+        Toast
+      </Button>
+    </ToastProvider>
+  );
+};
+```
 
 ### Form
 
-- [ ] Button
-- [ ] Checkbox
-- [ ] FormControl
-- [ ] IconButton
-- [ ] Input
-- [ ] PinInput
-- [ ] Radio
-- [ ] Select
-- [ ] Slider
-- [ ] Switch
-- [ ] Textarea
+#### Button [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Button)
+
+##### Import
+
+```js
+import { Button, IconButton } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  return (
+    <>
+      <Button size="lg" variant="solid" color="black" leftIcon={<IoMdClose />}>
+        Button
+      </Button>
+      <Button size="lg" variant="outline" color="red" rightIcon={<IoMdClose />}>
+        Button
+      </Button>
+      <Button
+        size="lg"
+        variant="solid"
+        color="black"
+        onClick={() => alert("블랙 클릭")}
+        leftIcon={<IoMdClose />}
+        isLoading
+        spinner={<IoIosArrowDown />}
+      >
+        Button
+      </Button>
+      <Button
+        size="lg"
+        variant="solid"
+        color="black"
+        onClick={() => alert("블랙 클릭")}
+        leftIcon={<IoMdClose />}
+        isLoading
+        loadingText="loading..."
+        spinnerPlacement="right"
+      >
+        Button
+      </Button>
+
+      <Button
+        size="lg"
+        variant="outline"
+        color="red"
+        onClick={() => alert("레드 클릭")}
+      >
+        <IoMdClose />
+        Button
+      </Button>
+      <Button
+        size="lg"
+        variant="outline"
+        color="red"
+        isDisabled
+        onClick={() => alert("레드 클릭")}
+      >
+        Button
+      </Button>
+      <IconButton icon={<IoMdStar />} aria-label="Star" isLoading />
+    </>
+  );
+};
+```
+
+#### Checkbox [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Checkbox)
+
+##### Import
+
+```js
+import { Checkbox } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  return (
+    <>
+      <Checkbox color="black" size="xs">
+        XS Checkbox
+      </Checkbox>
+      <Checkbox color="red" size="sm" disabled>
+        SM Checkbox
+      </Checkbox>
+      <Checkbox color="red" size="md" defaultChecked>
+        MD Checkbox
+      </Checkbox>
+      <Checkbox color="red" size="lg" readOnly>
+        LG Checkbox
+      </Checkbox>
+    </>
+  );
+};
+```
+
+#### FormControl [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/FormControl)
+
+##### Import
+
+```js
+import {
+  FormControl,
+  FormLabel,
+  FormHelperText,
+  FormErrorMessage,
+  Input,
+} from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  return (
+    <FormControl>
+      <FormLabel>Email</FormLabel>
+      <Input />
+      <FormHelperText>
+        Enter the email you'd like to receive the newsletter on.
+      </FormHelperText>
+      <FormErrorMessage>Email is required.</FormErrorMessage>
+    </FormControl>
+  );
+};
+```
+
+#### Input [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Input)
+
+##### Import
+
+```js
+import { Input } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  return (
+    <>
+      <Input placeholder="아이디를 입력해라" size="xs" variant="outline" />
+      <Input placeholder="아이디를 입력해라" size="xs" variant="filled" />
+      <Input placeholder="아이디를 입력해라" size="xs" variant="flushed" />
+      <Input placeholder="아이디를 입력해라" size="xs" variant="unstyled" />
+    </>
+  );
+};
+```
+
+#### PinInput [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/PinInput)
+
+##### Import
+
+```js
+import { PinInput, PinInputField } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  return (
+    <PinInput size="lg" mask>
+      <PinInputField />
+      <PinInputField />
+      <PinInputField />
+      <PinInputField />
+    </PinInput>
+  );
+};
+```
+
+#### Radio [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Radio)
+
+##### Import
+
+```js
+import { RadioGroup, Radio } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+
+  const [radioValue, setRadioValue] = useState("");
+
+  const changeRadio = (value: string) => {
+    setRadioValue(value);
+  };
+
+  return (
+   <RadioGroup onChange={changeRadio} direction="row">
+    <Radio color="black" size="xs" value={1}>
+      XS Radio
+    </Radio>
+    <Radio color="black" size="sm" value={2}>
+      SM Radio
+    </Radio>
+    <Radio color="black" size="md" value={3}>
+      MD Radio
+    </Radio>
+    <Radio color="red" size="lg" value={4}>
+      LG Radio
+    </Radio>
+  </RadioGroup>
+  );
+};
+```
+
+#### Select [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Select)
+
+##### Import
+
+```js
+import { Select } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+
+  const [selectedItem, setSelectedItem] = useState("");
+
+  const onSelect = (value: string) => {
+    setSelectedItem(value);
+  };
+
+  return (
+    <Select
+      options={options}
+      label="과일을 선택해주세요!"
+      size="xs"
+      variant="outline"
+      selectedItem={selectedItem}
+      onSelect={onSelect}
+    />
+  );
+};
+```
+
+#### Slider [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Slider)
+
+##### Import
+
+```js
+import { Slider } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  const [value, setValue] = useState(0);
+  return (
+    <Slider
+      color="red"
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+    />
+  );
+};
+```
+
+#### Switch [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Switch)
+
+##### Import
+
+```js
+import { Switch } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  const [value, setValue] = useState("");
+  return (
+    <Switch
+      size="xs"
+      color="red"
+      value={value}
+      onChage={(e) => value(e.target.value)}
+    >
+      Red
+    </Switch>
+  );
+};
+```
+
+#### Textarea [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Textarea)
+
+##### Import
+
+```js
+import { Textarea } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  const [value, setValue] = useState("");
+  return (
+    <Textarea
+      placeholder="Here is a sample placeholder"
+      size="sm"
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+    />
+  );
+};
+```
 
 ### Overlay
 
-- [ ] Drawer
-- [ ] Menu
-- [ ] Modal
-- [ ] Popover
-- [ ] Tooltip
+#### Drawer [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Overlay/Drawer)
 
-## Hooks
+##### Import
 
-- [ ] useDisclosure
-- [ ] useClipboard
-- [ ] useOutsideClick
-- [ ]
+```js
+import {
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  DrawerHeader,
+  DrawerBody,
+  DrawerFooter,
+  useDisclosure,
+} from "@black-ui/react";
+```
 
-## Storybook
+##### Usage
+
+```js
+export const Example = () => {
+  const {
+    isOpen: isDrawerOpen,
+    onOpen: onDrawerOpen,
+    onClose: onDrawerClose,
+  } = useDisclosure();
+  return (
+    <Drawer isOpen={isDrawerOpen} onClose={onDrawerClose} placement={placement}>
+      <DrawerOverlay />
+      <DrawerContent>
+        <DrawerCloseButton />
+        <DrawerHeader>Header</DrawerHeader>
+        <DrawerBody>Body</DrawerBody>
+        <DrawerFooter>Footer</DrawerFooter>
+      </DrawerContent>
+    </Drawer>
+  );
+};
+```
+
+#### Menu [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Overlay/Menu)
+
+##### Import
+
+```js
+import { Menu, MenuButton, MenuList, MenuItem } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  return (
+    <Menu>
+      <MenuButton>Menu 나와라!</MenuButton>
+      <MenuList>
+        <MenuItem
+          onClick={() => {
+            alert("다운로드!");
+          }}
+        >
+          Download
+        </MenuItem>
+        <MenuItem>Create a Copy</MenuItem>
+        <MenuItem>Mark as Draft</MenuItem>
+        <MenuItem>Delete</MenuItem>
+        <MenuItem>Attend a Workshop</MenuItem>
+      </MenuList>
+    </Menu>
+  );
+};
+```
+
+#### Modal [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Overlay/Modal)
+
+##### Import
+
+```js
+import {
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  useDisclosure,
+} from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  const {
+    isOpen: isModalOpen,
+    onOpen: onModalOpen,
+    onClose: onModalClose,
+  } = useDisclosure();
+  return (
+    <>
+      <Button onClick={onModalOpen}>Modal 나와라!</Button>
+      <Modal isOpen={isModalOpen} onClose={onModalClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Modal Title</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <div>Modal 입니다!</div>
+          </ModalBody>
+          <ModalFooter>
+            <Button onClick={() => onModalClose()}>취소</Button>
+            <Button onClick={() => onModalClose()}>확인</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
+  );
+};
+```
+
+#### Popover [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Overlay/Popover)
+
+##### Import
+
+```js
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverCloseButton,
+  Button,
+} from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  return (
+    <Popover>
+      <PopoverTrigger>
+        <Button>Popover 나와라!</Button>
+      </PopoverTrigger>
+      <PopoverContent>
+        <PopoverArrow />
+        <PopoverCloseButton />
+        <div>Popover입니다!!</div>
+      </PopoverContent>
+    </Popover>
+  );
+};
+```
+
+#### Tooltip [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Overlay/Tooltip)
+
+##### Import
+
+```js
+import { Tooltip } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  return (
+    <Tooltip label="Hover me">
+      <Button>Tooltip 나와라!</Button>
+    </Tooltip>
+  );
+};
+```
+
+### Other
+
+#### CloseButton [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Other/CloseButton)
+
+##### Import
+
+```js
+import { CloseButton } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  return <CloseButton size="sm" />;
+};
+```
+
+#### Portal [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Other/Portal)
+
+##### Import
+
+```js
+import { Portal } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  return (
+    <Portal>
+      <div>This text is portaled at the end of document.body!</div>
+    </Portal>
+  );
+};
+```
+
+#### Theme [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/components/Other/Theme)
+
+##### Import
+
+```js
+import { ThemeProvider, ThemeSwitcher } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  return (
+    <ThemeProvider defaultMode="light">
+      <ThemeSwitcher></ThemeSwitcher>
+    </ThemeProvider>
+  );
+};
+```
+
+## Hooks [(Source)](https://github.com/hyeon9782/black-ui/tree/main/src/hooks)
+
+#### useDisclosure
+
+##### Import
+
+```js
+import { useDisclosure } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  const {
+    isOpen: isModalOpen,
+    onOpen: onModalOpen,
+    onClose: onModalClose,
+  } = useDisclosure();
+  return (
+    <>
+      <Button onClick={onModalOpen}>Modal 나와라!</Button>
+      <Modal isOpen={isModalOpen} onClose={onModalClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Modal Title</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <div>Modal 입니다!</div>
+          </ModalBody>
+          <ModalFooter>
+            <Button onClick={() => onModalClose()}>취소</Button>
+            <Button onClick={() => onModalClose()}>확인</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </>
+  );
+};
+```
+
+#### useClipboard
+
+#### Import
+
+```js
+import { useClipboard } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+export const Example = () => {
+  const { onCopy, value, setValue, hasCopied } = useClipboard("");
+  return (
+    <>
+      <Input
+        placeholder={"내용이 복사됩니다."}
+        value={value}
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
+      />
+      <Button onClick={onCopy}>{hasCopied ? "Copied!" : "Copy"}</Button>
+    </>
+  );
+};
+```
+
+#### useOutsideClick
+
+##### Import
+
+```js
+import { useOutsideClick } from "@black-ui/react";
+```
+
+##### Usage
+
+```js
+function Example() {
+  const ref = React.useRef();
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+  useOutsideClick({
+    ref: ref,
+    handler: () => setIsModalOpen(false),
+  });
+
+  return (
+    <>
+      {isModalOpen ? (
+        <div ref={ref}>
+          👋 Hey, I'm a modal. Click anywhere outside of me to close.
+        </div>
+      ) : (
+        <button onClick={() => setIsModalOpen(true)}>Open Modal</button>
+      )}
+    </>
+  );
+}
+```
+
+## Storybook [(Docs)](https://65b7157bc6ef4fa60075271e-qyzsipcmpk.chromatic.com)
 
 ## TODO
 

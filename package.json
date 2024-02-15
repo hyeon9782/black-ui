@@ -5,9 +5,13 @@
   "author": {
     "name": "hyeon9782"
   },
+  "storybook": {
+    "title": "Black UI",
+    "url": "https://65b7157bc6ef4fa60075271e-qyzsipcmpk.chromatic.com"
+  },
   "repository": {
     "type": "git",
-    "url": "git://github.com/hyeon9782/black-ui.git"
+    "url": "https://github.com/hyeon9782/black-ui"
   },
   "description": "A presonalised UI Library.",
   "license": "MIT",
@@ -43,9 +47,13 @@
     "vite-plugin-libcss": "^1.1.1"
   },
   "keywords": [
-    "design system",
-    "button",
-    "input"
+    "design-system",
+    "react",
+    "react-components",
+    "components",
+    "vanilla-extract",
+    "ui",
+    "library"
   ],
   "lint-staged": {
     "**/*.tsx": [
