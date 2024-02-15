@@ -1,4 +1,4 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=500&section=header&text=Black%20UI&fontSize=90&animation=fadeIn&desc=Design System built on Vanilla Extract&descSize=24" />
+![header](https://capsule-render.vercel.app/api?type=waving&height=500&color=gradient&text=Black%20UI&desc=Design%20System%20built%20on%20Vanilla%20Extract&textBg=false&descSize=24)
 
 Vanilla Extract 기반 디자인 시스템으로 성능 저하 없이 멋진 디자인을 구현하세요!
 
