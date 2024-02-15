@@ -60,7 +60,7 @@ Vanilla Extract 기반 디자인 시스템으로 성능 저하 없이 멋진 디
 | TypeScript      | JavaScript의 확장 언어                      |
 | React           | JavaScript 프레임워크                       |
 | Vite            | React 개발을 위한 빌드 도구                 |
-| Vanilla Extract | CSS-in-TS                                   |
+| Vanilla Extract | Zero-runtime Stylesheets in TypeScript.     |
 | Storybook       | React 컴포넌트를 테스트하고 문서화하는 도구 |
 | Jest            | JavaScript 테스트 프레임워크                |
 

@@ -20,7 +20,6 @@ const responsiveProperties = defineProperties({
       "space-between",
     ],
     alignItems: ["stretch", "flex-start", "center", "flex-end"],
-
     paddingTop: vars.space,
     paddingBottom: vars.space,
     paddingLeft: vars.space,
@@ -30,6 +29,8 @@ const responsiveProperties = defineProperties({
     marginLeft: vars.space,
     marginRight: vars.space,
     gap: vars.space,
+    height: vars.space,
+    fontSize: vars.fontSizes,
   },
   shorthands: {
     // borderLeftRadius: ["borderBottomLeftRadius", "borderTopLeftRadius"],

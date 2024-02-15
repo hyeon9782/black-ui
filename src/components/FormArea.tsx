@@ -77,16 +77,48 @@ const FormArea = () => {
       </fieldset>
       <fieldset className={container}>
         <legend>Button</legend>
-        <Button
-          size="lg"
-          variant="solid"
-          color="black"
-          leftIcon={<IoMdClose />}
-        >
+        <Button size="xs" variant="solid" color="red">
           Button
         </Button>
-        <Button
-          size="lg"
+        <Button size="sm" variant="solid" color="red">
+          Button
+        </Button>
+        <Button size="md" variant="solid" color="red">
+          Button
+        </Button>
+        <Button size="lg" variant="solid" color="red">
+          Button
+        </Button>
+        <Button size="xs" variant="outline" color="red">
+          Button
+        </Button>
+        <Button size="sm" variant="outline" color="red">
+          Button
+        </Button>
+        <Button size="md" variant="outline" color="red">
+          Button
+        </Button>
+        <Button size="lg" variant="outline" color="red">
+          Button
+        </Button>
+        <Button size="xs" variant="ghost" color="red">
+          Button
+        </Button>
+        <Button size="sm" variant="ghost" color="red">
+          Button
+        </Button>
+        <Button size="md" variant="ghost" color="red">
+          Button
+        </Button>
+        <Button size="lg" variant="ghost" color="red">
+          Button
+        </Button>
+
+        {/* <Button size="xs" variant="solid" color="gray" leftIcon={<IoMdClose />}>
+          Button
+        </Button> */}
+        {/* <Button
+          size="sm"
           variant="outline"
           color="red"
           rightIcon={<IoMdClose />}
@@ -94,9 +126,9 @@ const FormArea = () => {
           Button
         </Button>
         <Button
-          size="lg"
+          size="md"
           variant="solid"
-          color="black"
+          color="gray"
           onClick={() => alert("블랙 클릭")}
           leftIcon={<IoMdClose />}
           isLoading
@@ -107,7 +139,7 @@ const FormArea = () => {
         <Button
           size="lg"
           variant="solid"
-          color="black"
+          color="gray"
           onClick={() => alert("블랙 클릭")}
           leftIcon={<IoMdClose />}
           isLoading
@@ -135,7 +167,7 @@ const FormArea = () => {
         >
           Button
         </Button>
-        <IconButton icon={<IoMdStar />} aria-label="Star" isLoading />
+        <IconButton icon={<IoMdStar />} aria-label="Star" isLoading /> */}
       </fieldset>
       <fieldset className={container}>
         <legend>Input</legend>
