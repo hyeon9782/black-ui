@@ -1,5 +1,26 @@
 import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
 import { vars } from "./vars.css";
+import { calc } from "@vanilla-extract/css-utils";
+
+const space = vars.space;
+
+const negativeSpace = {
+  ["-px"]: `${calc(space.px).negate()}`,
+  ["-0.5"]: `${calc(space["0.5"]).negate()}`,
+  ["-1"]: `${calc(space["1"]).negate()}`,
+  ["-1.5"]: `${calc(space["1.5"]).negate()}`,
+  ["-2"]: `${calc(space["2"]).negate()}`,
+  ["-2.5"]: `${calc(space["2.5"]).negate()}`,
+  ["-3"]: `${calc(space["3"]).negate()}`,
+  ["-3.5"]: `${calc(space["3.5"]).negate()}`,
+  ["-4"]: `${calc(space["4"]).negate()}`,
+  ["-10"]: `${calc(space["10"]).negate()}`,
+};
+
+const margins = {
+  ...space,
+  ...negativeSpace,
+};
 
 const responsiveProperties = defineProperties({
   conditions: {
@@ -38,10 +59,10 @@ const responsiveProperties = defineProperties({
     paddingBottom: vars.space,
     paddingLeft: vars.space,
     paddingRight: vars.space,
-    marginTop: vars.space,
-    marginBottom: vars.space,
-    marginLeft: vars.space,
-    marginRight: vars.space,
+    marginTop: margins,
+    marginBottom: margins,
+    marginLeft: margins,
+    marginRight: margins,
     gap: vars.space,
     height: vars.space,
     maxWidth: vars.space,
