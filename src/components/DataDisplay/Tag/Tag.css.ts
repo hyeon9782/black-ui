@@ -1,18 +1,17 @@
 import { sprinkles } from "@/css/sprinkles.css";
-import { vars } from "@/css/vars.css";
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
 export const tag = recipe({
-  base: {
+  base: sprinkles({
     position: "relative",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    borderRadius: vars.radii.md,
-    gap: 5,
-    padding: "5px 10px",
+    borderRadius: "md",
+    gap: "1",
     fontWeight: "bold",
-  },
+    paddingY: "1",
+  }),
   variants: {
     color: {
       gray: {},
@@ -36,14 +35,12 @@ export const tag = recipe({
       }),
     },
     variant: {
-      outline: {
+      outline: sprinkles({
         backgroundColor: "white",
-        borderWidth: "2px",
+        borderWidth: "0.5",
         borderStyle: "solid",
-      },
-      solid: {
-        color: "white",
-      },
+      }),
+      solid: sprinkles({ color: "textWhite" }),
       subtle: {},
     },
   },

@@ -16,8 +16,8 @@ export const card = recipe({
       }),
     },
     direction: {
-      true: sprinkles({ flexDirection: "column" }),
-      false: sprinkles({ flexDirection: "row" }),
+      true: sprinkles({ flexDirection: "row" }),
+      false: sprinkles({ flexDirection: "column" }),
     },
     justify: {
       center: sprinkles({

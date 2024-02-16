@@ -1,13 +1,12 @@
 import { sprinkles } from "@/css/sprinkles.css";
-import { vars } from "@/css/vars.css";
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
 export const badge = recipe({
-  base: {
-    padding: "0 5px",
-    borderRadius: vars.radii.sm,
+  base: sprinkles({
+    paddingX: "1",
+    borderRadius: "sm",
     fontWeight: "bold",
-  },
+  }),
   variants: {
     color: {
       gray: {},
@@ -31,14 +30,12 @@ export const badge = recipe({
       }),
     },
     variant: {
-      outline: {
+      outline: sprinkles({
         backgroundColor: "white",
-        borderWidth: "2px",
+        borderWidth: "0.5",
         borderStyle: "solid",
-      },
-      solid: {
-        color: "white",
-      },
+      }),
+      solid: sprinkles({ color: "textWhite" }),
       subtle: {},
     },
   },

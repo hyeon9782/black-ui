@@ -1,5 +1,4 @@
 import { sprinkles } from "@/css/sprinkles.css";
-import { style } from "@vanilla-extract/css";
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
 export const list = recipe({
@@ -36,13 +35,13 @@ export const list = recipe({
   },
 });
 
-export const item = style({
+export const item = sprinkles({
   listStyle: "none",
-  margin: 0,
-  padding: 0,
+  margin: "0",
+  padding: "0",
   display: "flex",
   alignItems: "center",
-  gap: 10,
+  gap: "2",
 });
 
 export const icon = recipe({

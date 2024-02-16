@@ -9,6 +9,7 @@ const responsiveProperties = defineProperties({
   },
   defaultCondition: "mobile",
   properties: {
+    overflow: ["hidden", "auto", "scroll"],
     display: ["none", "flex", "block", "inline"],
     flexDirection: ["row", "column"],
     justifyContent: [
@@ -42,6 +43,8 @@ const responsiveProperties = defineProperties({
     gap: vars.space,
     height: vars.space,
     fontSize: vars.fontSizes,
+    fontWeight: vars.fontWeights,
+    listStyle: ["none", "outside"],
     position: ["absolute", "fixed", "relative", "sticky"],
     right: vars.space,
     textAlign: ["center", "left", "right"],
