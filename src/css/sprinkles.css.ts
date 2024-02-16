@@ -42,6 +42,8 @@ const responsiveProperties = defineProperties({
     marginRight: vars.space,
     gap: vars.space,
     height: vars.space,
+    maxWidth: vars.space,
+    maxHeight: vars.space,
     fontSize: vars.fontSizes,
     fontWeight: vars.fontWeights,
     listStyle: ["none", "outside"],
@@ -64,6 +66,7 @@ const responsiveProperties = defineProperties({
       "0.9",
       "1",
     ],
+    captionSide: ["bottom", "top"],
   },
   shorthands: {
     borderLeftRadius: ["borderBottomLeftRadius", "borderTopLeftRadius"],
