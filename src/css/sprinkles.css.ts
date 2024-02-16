@@ -30,6 +30,8 @@ const responsiveProperties = defineProperties({
   },
   defaultCondition: "mobile",
   properties: {
+    whiteSpace: ["nowrap"],
+    clip: ["rect(0, 0, 0, 0)"],
     cursor: ["pointer", "progress"],
     boxSizing: ["border-box", "content-box"],
     overflow: ["hidden", "auto", "scroll"],
