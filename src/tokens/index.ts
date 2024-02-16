@@ -11,8 +11,11 @@ import {
   textDecoration,
 } from "./fonts";
 import { media } from "./media";
+import { borderStyles, borderWidths } from "./border";
 
 export const tokens = {
+  borderStyles,
+  borderWidths,
   colors,
   radii,
   shadows,

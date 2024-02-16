@@ -171,10 +171,10 @@ const FormArea = () => {
       </fieldset>
       <fieldset className={container}>
         <legend>Input</legend>
-        <Input placeholder="아이디를 입력해라" size="xs" variant="outline" />
-        <Input placeholder="아이디를 입력해라" size="xs" variant="filled" />
-        <Input placeholder="아이디를 입력해라" size="xs" variant="flushed" />
-        <Input placeholder="아이디를 입력해라" size="xs" variant="unstyled" />
+        <Input placeholder="아이디를 입력해라" size="lg" variant="outline" />
+        <Input placeholder="아이디를 입력해라" size="lg" variant="filled" />
+        <Input placeholder="아이디를 입력해라" size="lg" variant="flushed" />
+        <Input placeholder="아이디를 입력해라" size="lg" variant="unstyled" />
       </fieldset>
       <fieldset className={container}>
         <legend>Checkbox</legend>

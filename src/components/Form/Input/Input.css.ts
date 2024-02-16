@@ -1,12 +1,13 @@
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 import { vars } from "@/css/vars.css";
+import { sprinkles } from "@/css/sprinkles.css";
 
 export const input = recipe({
   base: {
     backgroundColor: vars.colors.white,
-    border: "none",
     outline: "none",
     width: "100%",
+    border: "none",
     selectors: {
       "&:disabled": {
         cursor: "not-allowed",
@@ -16,15 +17,48 @@ export const input = recipe({
   },
   variants: {
     size: {
-      xs: {
-        fontSize: "0.75rem",
-        height: "1.5rem",
-      },
-      sm: { fontSize: "0.875rem", height: "2rem" },
-      md: { fontSize: "1rem", height: "2.5rem" },
-      lg: { fontSize: "1.125rem", height: "3rem" },
+      xs: sprinkles({
+        fontSize: "0",
+        height: "6",
+      }),
+      sm: sprinkles({
+        fontSize: "1",
+        height: "8",
+      }),
+      md: sprinkles({
+        fontSize: "2",
+        height: "10",
+      }),
+      lg: sprinkles({
+        fontSize: "3",
+        height: "12",
+      }),
     },
     variant: {
+      // outline: sprinkles({
+      //   borderColor: "gray",
+      //   borderWidth: "px",
+      //   borderStyle: "solid",
+      //   borderRadius: "md",
+      //   paddingX: "4",
+      //   paddingY: "0",
+      // }),
+      // filled: sprinkles({
+      //   backgroundColor: "gray",
+      //   borderRadius: "md",
+      //   paddingX: "4",
+      //   paddingY: "0",
+      //   borderStyle: "none",
+      // }),
+      // flushed: sprinkles({
+      //   borderTopWidth: "0",
+      //   borderLeftWidth: "0",
+      //   borderRightWidth: "0",
+      //   borderBottomWidth: "px",
+      //   borderColor: "gray",
+      //   paddingBottom: "4",
+      //   borderStyle: "solid",
+      // }),
       outline: {
         border: "1px solid #E2E8F0",
         borderRadius: "5px",
@@ -56,7 +90,6 @@ export const input = recipe({
       false: {},
     },
   },
-  compoundVariants: [],
   defaultVariants: {
     size: "md",
     variant: "outline",
