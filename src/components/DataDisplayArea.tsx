@@ -62,13 +62,13 @@ const DataDisplayArea = () => {
       </fieldset>
       <fieldset className={container}>
         <legend>Badge</legend>
-        <Badge variant="outline" color="green">
-          Green Outline
+        <Badge variant="outline" color="gray">
+          gray Outline
         </Badge>
-        <Badge variant="solid" color="red">
-          Red Solid
+        <Badge variant="solid" color="gray">
+          gray Solid
         </Badge>
-        <Badge variant="subtle" color="blue">
+        <Badge variant="subtle" color="gray">
           Blue Subtle
         </Badge>
       </fieldset>
