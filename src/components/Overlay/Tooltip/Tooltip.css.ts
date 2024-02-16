@@ -1,66 +1,59 @@
-import { vars } from "@/css/vars.css";
-import { style } from "@vanilla-extract/css";
+import { sprinkles } from "@/css/sprinkles.css";
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
-export const wrap = style({
+export const wrap = sprinkles({
   position: "relative",
   display: "inline-block",
-  width: "fit-content",
-  height: "fit-content",
+  width: "fit",
+  height: "fit",
   overflow: "visible",
 });
 
 export const tooltip = recipe({
-  base: {
+  base: sprinkles({
     position: "absolute",
-    borderRadius: vars.radii.sm,
-    padding: "5px 7px 5px 7px",
-  },
+    borderRadius: "md",
+    paddingX: "2",
+    paddingY: "1",
+  }),
   variants: {
     bg: {
-      gray: {
-        backgroundColor: "gray",
-        color: "black",
-      },
-      black: {
-        backgroundColor: "black",
-        color: "white",
-      },
+      black: sprinkles({
+        backgroundColor: "gray800",
+        color: "textWhite",
+      }),
+      gray: sprinkles({
+        backgroundColor: "gray100",
+        color: "gray500",
+      }),
+      red: sprinkles({
+        backgroundColor: "redBackground",
+        color: "redPrimary",
+      }),
+      blue: sprinkles({
+        backgroundColor: "blueBackground",
+        color: "bluePrimary",
+      }),
+      orange: sprinkles({
+        backgroundColor: "orangeBackground",
+        color: "orangePrimary",
+      }),
+      green: sprinkles({
+        backgroundColor: "greenBackground",
+        color: "greenPrimary",
+      }),
     },
     isOpen: {
-      true: {
+      true: sprinkles({
         display: "block",
-      },
-      false: {
+      }),
+      false: sprinkles({
         display: "none",
-      },
-    },
-    placement: {
-      // top: {
-      //   top: "-100%",
-      //   left: "50%",
-      //   transform: "translate(-50%, 0)",
-      // },
-      // bottom: {
-      //   bottom: "-100%",
-      //   left: "50%",
-      //   transform: "translate(-50%, 0)",
-      // },
-      // left: {
-      //   top: "50%",
-      //   left: "-100%",
-      //   transform: "translate(50%, -50%)",
-      // },
-      // right: {
-      //   top: "50%",
-      //   left: "100%",
-      //   transform: "translate(50%, -50%)",
-      // },
+      }),
     },
   },
   defaultVariants: {
     bg: "black",
-    // placement: "right",
   },
 });
 

@@ -38,8 +38,8 @@ const responsiveProperties = defineProperties({
     clip: ["rect(0, 0, 0, 0)"],
     cursor: ["pointer", "progress"],
     boxSizing: ["border-box", "content-box"],
-    overflow: ["hidden", "auto", "scroll"],
-    display: ["none", "flex", "block", "inline"],
+    overflow: ["hidden", "auto", "scroll", "visible"],
+    display: ["none", "flex", "block", "inline", "inline-block"],
     flexDirection: ["row", "column"],
     justifyContent: [
       "stretch",
@@ -100,6 +100,8 @@ const responsiveProperties = defineProperties({
     zIndex: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
     userSelect: ["none"],
     outline: ["none"],
+    transform: ["rotate(45deg)"],
+    wordWrap: ["break-word"],
   },
   shorthands: {
     borderLeftRadius: ["borderBottomLeftRadius", "borderTopLeftRadius"],

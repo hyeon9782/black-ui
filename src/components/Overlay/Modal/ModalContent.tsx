@@ -4,7 +4,7 @@ type Props = {
   children: ReactNode;
 };
 const ModalContent = ({ children }: Props) => {
-  return <div className={modal({})}>{children}</div>;
+  return <div className={modal}>{children}</div>;
 };
 
 export default ModalContent;
