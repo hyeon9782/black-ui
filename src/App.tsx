@@ -15,7 +15,7 @@ function App() {
       <ToastProvider>
         <>
           <ThemeSwitcher></ThemeSwitcher>
-          <Tabs variant="soft-rounded">
+          <Tabs>
             <TabList>
               <Tab>Form</Tab>
               <Tab>Overlay</Tab>

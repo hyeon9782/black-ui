@@ -1,12 +1,12 @@
+import { sprinkles } from "@/css/sprinkles.css";
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
 export const tabs = recipe({
-  base: {},
   variants: {
     orientation: {
-      vertical: {
+      vertical: sprinkles({
         display: "flex",
-      },
+      }),
       horizontal: {},
     },
   },
@@ -16,41 +16,47 @@ export const tabs = recipe({
 });
 
 export const tabList = recipe({
-  base: {
+  base: sprinkles({
     position: "relative",
     display: "flex",
     boxSizing: "border-box",
-  },
+  }),
   variants: {
     align: {
-      start: {
-        justifyContent: "start",
-      },
-      center: {
+      start: sprinkles({
+        justifyContent: "flex-start",
+      }),
+      center: sprinkles({
         justifyContent: "center",
-      },
-      end: {
-        justifyContent: "end",
-      },
+      }),
+      end: sprinkles({
+        justifyContent: "flex-end",
+      }),
     },
     variant: {
-      line: {
-        borderBottom: "2px solid lightgray",
-      },
-      enclosed: {
-        borderBottom: "1px solid lightgray",
-      },
+      line: sprinkles({
+        borderWidth: "0",
+        borderColor: "gray",
+        borderStyle: "solid",
+        borderBottomWidth: "0.5",
+      }),
+      enclosed: sprinkles({
+        borderWidth: "0",
+        borderColor: "gray",
+        borderStyle: "solid",
+        borderBottomWidth: "px",
+      }),
       "solid-rounded": {},
       "soft-rounded": {},
       unstyled: {},
     },
     orientation: {
-      vertical: {
+      vertical: sprinkles({
         flexDirection: "column",
-      },
-      horizontal: {
+      }),
+      horizontal: sprinkles({
         flexDirection: "row",
-      },
+      }),
     },
   },
   defaultVariants: {
@@ -61,85 +67,92 @@ export const tabList = recipe({
 });
 
 export const tab = recipe({
-  base: {
+  base: sprinkles({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    border: "none",
+    borderStyle: "none",
     backgroundColor: "white",
     cursor: "pointer",
     boxSizing: "border-box",
-  },
+  }),
   variants: {
     size: {
-      sm: {
-        fontSize: "0.875rem",
-        padding: "0.25rem 1rem",
-      },
-      md: {
-        fontSize: "1rem",
-        padding: "0.5rem 1rem",
-      },
-      lg: {
-        fontSize: "1.125rem",
-        padding: "0.75rem 1rem",
-      },
+      sm: sprinkles({
+        fontSize: "1",
+        paddingX: "4",
+        paddingY: "2",
+      }),
+      md: sprinkles({
+        fontSize: "2",
+        paddingX: "6",
+        paddingY: "4",
+      }),
+      lg: sprinkles({
+        fontSize: "3",
+        paddingX: "8",
+        paddingY: "6",
+      }),
     },
     variant: {
       line: {},
       enclosed: {},
-      "solid-rounded": { fontWeight: "600" },
-      "soft-rounded": { fontWeight: "600" },
+      "solid-rounded": sprinkles({ fontWeight: "bold" }),
+      "soft-rounded": sprinkles({ fontWeight: "bold" }),
       unstyled: {},
     },
     isFitted: {
-      true: {
-        width: `100%`,
-      },
+      true: sprinkles({ width: "full" }),
       false: {},
     },
     selected: {
-      true: {
-        color: "#2b6cb0",
-      },
+      true: sprinkles({ color: "blueSecondary" }),
       false: {},
     },
   },
   compoundVariants: [
     {
       variants: { variant: "line", selected: true },
-      style: { borderBottom: "2px solid #2b6cb0", marginBottom: -2 },
+      style: sprinkles({
+        borderStyle: "solid",
+        borderColor: "blueSecondary",
+        borderWidth: "0",
+        borderBottomWidth: "0.5",
+        marginBottom: "-0.5",
+      }),
     },
     {
       variants: { variant: "enclosed", selected: true },
-      style: {
-        borderRadius: "0.375rem 0.375rem 0 0 ",
-        borderWidth: "1px 1px 0 1px",
+      style: sprinkles({
+        borderTopRadius: "md",
+        borderTopWidth: "px",
+        borderLeftWidth: "px",
+        borderRightWidth: "px",
         borderStyle: "solid",
-        borderColor: "lightgray",
-        borderBottom: "1px solid white",
-        marginBottom: -1,
-      },
+        borderColor: "gray",
+        borderBottomWidth: "0",
+        marginBottom: "-0.5",
+      }),
     },
     {
       variants: { variant: "soft-rounded", selected: true },
-      style: {
-        backgroundColor: "rgb(190, 227, 248)",
-        color: "rgb(44, 82, 130)",
-        borderRadius: "9999px",
-      },
+      style: sprinkles({
+        backgroundColor: "blueBackground",
+        color: "blueSecondary",
+        borderRadius: "full",
+      }),
     },
     {
       variants: { variant: "solid-rounded", selected: true },
-      style: {
-        backgroundColor: "#2b6cb0",
-        color: "white",
-        borderRadius: "9999px",
-      },
+      style: sprinkles({
+        backgroundColor: "blueSecondary",
+        color: "textWhite",
+        borderRadius: "full",
+      }),
     },
   ],
   defaultVariants: {
-    size: "md",
+    size: "sm",
     isFitted: false,
     selected: false,
     variant: "line",
@@ -147,17 +160,17 @@ export const tab = recipe({
 });
 
 export const panel = recipe({
-  base: {
-    padding: "1rem",
-  },
+  base: sprinkles({
+    padding: "4",
+  }),
   variants: {
     selected: {
-      true: {
+      true: sprinkles({
         display: "block",
-      },
-      false: {
+      }),
+      false: sprinkles({
         display: "none",
-      },
+      }),
     },
   },
 });

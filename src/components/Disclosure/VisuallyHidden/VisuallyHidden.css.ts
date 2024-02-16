@@ -1,11 +1,11 @@
-import { style } from "@vanilla-extract/css";
+import { sprinkles } from "@/css/sprinkles.css";
 
-export const visuallyHidden = style({
-  border: "0",
+export const visuallyHidden = sprinkles({
+  borderStyle: "none",
   clip: "rect(0, 0, 0, 0)",
-  height: "1px",
-  width: "1px",
-  margin: "-1px",
+  height: "px",
+  width: "px",
+  margin: "-0.5",
   padding: "0",
   overflow: "hidden",
   whiteSpace: "nowrap",
