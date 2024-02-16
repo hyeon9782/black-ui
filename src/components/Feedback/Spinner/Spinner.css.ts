@@ -1,3 +1,4 @@
+import { sprinkles } from "@/css/sprinkles.css";
 import { keyframes } from "@vanilla-extract/css";
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
@@ -14,24 +15,24 @@ export const spin = recipe({
   },
   variants: {
     size: {
-      xs: {
-        fontSize: "0.5rem",
-      },
-      sm: {
-        fontSize: "1rem",
-      },
-      md: {
-        fontSize: "1.5rem",
-      },
-      lg: {
-        fontSize: "2rem",
-      },
-      xl: {
-        fontSize: "2.5rem",
-      },
-      "2xl": {
-        fontSize: "3rem",
-      },
+      xs: sprinkles({
+        fontSize: "0",
+      }),
+      sm: sprinkles({
+        fontSize: "2",
+      }),
+      md: sprinkles({
+        fontSize: "6",
+      }),
+      lg: sprinkles({
+        fontSize: "8",
+      }),
+      xl: sprinkles({
+        fontSize: "10",
+      }),
+      "2xl": sprinkles({
+        fontSize: "11",
+      }),
     },
   },
   defaultVariants: {

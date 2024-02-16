@@ -19,6 +19,7 @@ export const skeletonBackground = createVar();
 export const skeletonRadius = createVar();
 
 export const skeletonPlaceholder = style({
+  boxSizing: "border-box",
   width: skeletonWidth,
   height: skeletonHeight,
   borderRadius: skeletonRadius,

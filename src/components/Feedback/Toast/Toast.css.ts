@@ -1,3 +1,4 @@
+import { sprinkles } from "@/css/sprinkles.css";
 import { vars } from "@/css/vars.css";
 import { keyframes } from "@vanilla-extract/css";
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
@@ -14,12 +15,12 @@ const slideTop = keyframes({
 });
 
 export const wrap = recipe({
-  base: {
+  base: sprinkles({
     display: "flex",
     flexDirection: "column",
-    gap: 10,
+    gap: "1",
     position: "fixed",
-  },
+  }),
   variants: {
     position: {
       top: {
@@ -57,6 +58,8 @@ export const wrap = recipe({
 
 export const toast = recipe({
   base: {
+    color: "white",
+    fontWeight: "bold",
     opacity: 50,
     borderRadius: vars.radii.lg,
     padding: "10px 20px",
@@ -64,20 +67,19 @@ export const toast = recipe({
   },
   variants: {
     status: {
-      success: {
-        background: "lightgreen",
-      },
-      error: {
-        background: "red",
-      },
-      loading: {
-        background: "blue",
-      },
+      success: sprinkles({
+        backgroundColor: "statusSuccess",
+      }),
+      error: sprinkles({
+        backgroundColor: "statusDanger",
+      }),
+      loading: sprinkles({
+        backgroundColor: "statusInfo",
+      }),
     },
   },
-  compoundVariants: [],
   defaultVariants: {
-    status: "success",
+    status: "error",
   },
 });
 
