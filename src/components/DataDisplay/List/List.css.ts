@@ -1,60 +1,73 @@
+import { sprinkles } from "@/css/sprinkles.css";
+import { style } from "@vanilla-extract/css";
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
 export const list = recipe({
-  base: {
-    display: "flex",
-    margin: 0,
-    padding: 0,
-  },
+  base: sprinkles({ display: "flex", margin: "0", padding: "0" }),
   variants: {
     space: {
-      xs: {
-        gap: 5,
-      },
-      sm: { gap: 10 },
-      md: { gap: 15 },
-      lg: { gap: 20 },
-      xl: { gap: 25 },
-      "2xl": { gap: 30 },
+      xs: sprinkles({
+        gap: "px",
+      }),
+      sm: sprinkles({
+        gap: "0.5",
+      }),
+      md: sprinkles({
+        gap: "0.75",
+      }),
+      lg: sprinkles({
+        gap: "1",
+      }),
+      xl: sprinkles({
+        gap: "1.5",
+      }),
+      "2xl": sprinkles({
+        gap: "2",
+      }),
     },
     direction: {
-      row: {
-        flexDirection: "row",
-      },
-      column: {
-        flexDirection: "column",
-      },
+      row: sprinkles({ flexDirection: "row" }),
+      column: sprinkles({ flexDirection: "column" }),
     },
   },
-  compoundVariants: [],
   defaultVariants: {
-    space: "sm",
+    space: "md",
     direction: "column",
   },
 });
 
-export const item = recipe({
-  base: {
-    listStyle: "none",
-    margin: 0,
-    padding: 0,
-    display: "flex",
-    alignItems: "center",
-    gap: 10,
-  },
-  variants: {},
+export const item = style({
+  listStyle: "none",
+  margin: 0,
+  padding: 0,
+  display: "flex",
+  alignItems: "center",
+  gap: 10,
 });
 
 export const icon = recipe({
-  base: {
-    display: "flex",
-    alignItems: "center",
-  },
+  base: sprinkles({ display: "flex", alignItems: "center" }),
   variants: {
     color: {
-      green: { color: "green" },
-      red: { color: "red" },
+      gray: sprinkles({
+        color: "gray400",
+      }),
+      red: sprinkles({
+        color: "redPrimary",
+      }),
+      green: sprinkles({
+        color: "greenPrimary",
+      }),
+      blue: sprinkles({
+        color: "bluePrimary",
+      }),
+      orange: sprinkles({
+        color: "orangePrimary",
+      }),
     },
+  },
+  defaultVariants: {
+    color: "gray",
   },
 });
 

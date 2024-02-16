@@ -43,19 +43,19 @@ const DataDisplayArea = () => {
         <legend>List</legend>
         <List>
           <ListItem>
-            <ListIcon as={<IoMdSettings />} color="green" />
+            <ListIcon as={<IoMdSettings />} />
             Lorem ipsum dolor sit amet, consectetur adipisicing elit
           </ListItem>
           <ListItem>
-            <ListIcon as={<IoMdSettings />} color="green" />
+            <ListIcon as={<IoMdSettings />} />
             Assumenda, quia temporibus eveniet a libero incidunt suscipit
           </ListItem>
           <ListItem>
-            <ListIcon as={<IoMdSettings />} color="green" />
+            <ListIcon as={<IoMdSettings />} />
             Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
           </ListItem>
           <ListItem>
-            <ListIcon as={<IoMdSettings />} color="green" />
+            <ListIcon as={<IoMdSettings />} />
             Lorem ipsum dolor sit amet, consectetur adipisicing elit
           </ListItem>
         </List>
