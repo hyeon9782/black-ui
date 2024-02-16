@@ -1,40 +1,67 @@
-import { vars } from "@/css/vars.css";
+import { sprinkles } from "@/css/sprinkles.css";
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
 export const card = recipe({
-  base: {
-    padding: 10,
-    borderRadius: vars.radii.md,
-  },
+  base: sprinkles({ borderRadius: "md", display: "flex" }),
   variants: {
-    color: {
-      black: {},
-      red: {},
+    align: {
+      center: sprinkles({
+        alignItems: "center",
+      }),
+      start: sprinkles({
+        alignItems: "flex-start",
+      }),
+      end: sprinkles({
+        alignItems: "flex-end",
+      }),
     },
-    aligin: {},
-    direction: {},
-    justify: {},
+    direction: {
+      true: sprinkles({ flexDirection: "row" }),
+      false: sprinkles({ flexDirection: "column" }),
+    },
+    justify: {
+      center: sprinkles({
+        justifyContent: "center",
+      }),
+      start: sprinkles({
+        justifyContent: "flex-start",
+      }),
+      end: sprinkles({
+        justifyContent: "flex-end",
+      }),
+    },
     size: {
-      xs: {},
-      sm: {},
-      md: {},
-      lg: {},
+      sm: sprinkles({
+        padding: "3",
+      }),
+      md: sprinkles({
+        padding: "5",
+      }),
+      lg: sprinkles({
+        padding: "7",
+      }),
     },
     variant: {
-      elevated: {
-        boxShadow: vars.shadows["xs"],
-      },
-      outline: {
-        border: "1px solid lightgray",
-      },
-      filled: {
-        backgroundColor: "lightgray",
-      },
+      elevated: sprinkles({
+        boxShadow: "xs",
+      }),
+      outline: sprinkles({
+        borderColor: "gray",
+        borderWidth: "px",
+        borderStyle: "solid",
+      }),
+      filled: sprinkles({
+        backgroundColor: "gray",
+      }),
       unstyled: {},
     },
   },
   defaultVariants: {
     variant: "outline",
+    size: "sm",
+    align: "center",
+    justify: "center",
+    direction: false,
   },
 });
 

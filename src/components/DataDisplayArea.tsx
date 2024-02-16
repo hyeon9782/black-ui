@@ -1,7 +1,7 @@
 import { IoMdSettings } from "react-icons/io";
 import { container, overlayContainer } from "@/app.css";
 import { Avatar } from "./DataDisplay/Avatar";
-import { Card } from "./DataDisplay/Card";
+import { Card, CardHeader, CardBody, CardFooter } from "./DataDisplay/Card";
 import { List, ListItem } from "./DataDisplay/List";
 import { Badge } from "./DataDisplay/Badge";
 import { Tag, TagIcon, TagLabel } from "./DataDisplay/Tag";
@@ -34,41 +34,57 @@ const DataDisplayArea = () => {
       </fieldset>
       <fieldset className={container}>
         <legend>Card</legend>
-        <Card variant="elevated">Card</Card>
-        <Card variant="filled">Card</Card>
-        <Card variant="unstyled">Card</Card>
-        <Card variant="outline">Card</Card>
+        <Card variant="elevated">
+          <CardHeader>Header</CardHeader>
+          <CardBody>Body</CardBody>
+          <CardFooter>Footer</CardFooter>
+        </Card>
+        <Card variant="filled">
+          <CardHeader>Header</CardHeader>
+          <CardBody>Body</CardBody>
+          <CardFooter>Footer</CardFooter>
+        </Card>
+        <Card variant="unstyled">
+          <CardHeader>Header</CardHeader>
+          <CardBody>Body</CardBody>
+          <CardFooter>Footer</CardFooter>
+        </Card>
+        <Card variant="outline">
+          <CardHeader>Header</CardHeader>
+          <CardBody>Body</CardBody>
+          <CardFooter>Footer</CardFooter>
+        </Card>
       </fieldset>
       <fieldset className={container}>
         <legend>List</legend>
         <List>
           <ListItem>
-            <ListIcon as={<IoMdSettings />} color="green" />
+            <ListIcon as={<IoMdSettings />} />
             Lorem ipsum dolor sit amet, consectetur adipisicing elit
           </ListItem>
           <ListItem>
-            <ListIcon as={<IoMdSettings />} color="green" />
+            <ListIcon as={<IoMdSettings />} />
             Assumenda, quia temporibus eveniet a libero incidunt suscipit
           </ListItem>
           <ListItem>
-            <ListIcon as={<IoMdSettings />} color="green" />
+            <ListIcon as={<IoMdSettings />} />
             Quidem, ipsam illum quis sed voluptatum quae eum fugit earum
           </ListItem>
           <ListItem>
-            <ListIcon as={<IoMdSettings />} color="green" />
+            <ListIcon as={<IoMdSettings />} />
             Lorem ipsum dolor sit amet, consectetur adipisicing elit
           </ListItem>
         </List>
       </fieldset>
       <fieldset className={container}>
         <legend>Badge</legend>
-        <Badge variant="outline" color="green">
-          Green Outline
+        <Badge variant="outline" color="gray">
+          gray Outline
         </Badge>
-        <Badge variant="solid" color="red">
-          Red Solid
+        <Badge variant="solid" color="gray">
+          gray Solid
         </Badge>
-        <Badge variant="subtle" color="blue">
+        <Badge variant="subtle" color="gray">
           Blue Subtle
         </Badge>
       </fieldset>
@@ -90,7 +106,7 @@ const DataDisplayArea = () => {
       <fieldset className={container}>
         <legend>Table</legend>
         <TableContainer>
-          <Table>
+          <Table variant="simple">
             <TableCaption>Imperial to metric conversion factors</TableCaption>
             <Thead>
               <Tr>
@@ -127,42 +143,6 @@ const DataDisplayArea = () => {
         </TableContainer>
         <TableContainer>
           <Table variant="unstyled">
-            <TableCaption>Imperial to metric conversion factors</TableCaption>
-            <Thead>
-              <Tr>
-                <Th>To convert</Th>
-                <Th>into</Th>
-                <Th>multiply by</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              <Tr>
-                <Td>inches</Td>
-                <Td>millimetres (mm)</Td>
-                <Td>25.4</Td>
-              </Tr>
-              <Tr>
-                <Td>feet</Td>
-                <Td>centimetres (cm)</Td>
-                <Td>30.48</Td>
-              </Tr>
-              <Tr>
-                <Td>yards</Td>
-                <Td>metres (m)</Td>
-                <Td>0.91444</Td>
-              </Tr>
-            </Tbody>
-            <Tfoot>
-              <Tr>
-                <Th>To convert</Th>
-                <Th>into</Th>
-                <Th>multiply by</Th>
-              </Tr>
-            </Tfoot>
-          </Table>
-        </TableContainer>
-        <TableContainer>
-          <Table variant="filled">
             <TableCaption>Imperial to metric conversion factors</TableCaption>
             <Thead>
               <Tr>

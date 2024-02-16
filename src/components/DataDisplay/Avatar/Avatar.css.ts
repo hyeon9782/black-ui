@@ -1,42 +1,39 @@
-import { vars } from "@/css/vars.css";
-import { style } from "@vanilla-extract/css";
+import { sprinkles } from "@/css/sprinkles.css";
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
 export const avatar = recipe({
-  base: {
-    borderRadius: vars.radii.full,
+  base: sprinkles({
+    borderRadius: "full",
     backgroundColor: "gray",
     overflow: "hidden",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
+    color: "textSecondary",
+  }),
   variants: {
     size: {
-      xs: {
-        width: 50,
-        height: 50,
-      },
-      sm: {
-        width: 100,
-        height: 100,
-      },
-      md: {
-        width: 150,
-        height: 150,
-      },
-      lg: {
-        width: 200,
-        height: 200,
-      },
-      xl: {
-        width: 250,
-        height: 250,
-      },
-      "2xl": {
-        width: 300,
-        height: 300,
-      },
+      xs: sprinkles({
+        width: "10",
+        height: "10",
+      }),
+      sm: sprinkles({
+        width: "20",
+        height: "20",
+      }),
+      md: sprinkles({
+        width: "30",
+        height: "30",
+      }),
+      lg: sprinkles({
+        width: "40",
+        height: "40",
+      }),
+      xl: sprinkles({
+        width: "52",
+        height: "52",
+      }),
+      "2xl": sprinkles({
+        width: "64",
+        height: "64",
+      }),
     },
   },
   defaultVariants: {
@@ -44,17 +41,12 @@ export const avatar = recipe({
   },
 });
 
-export const image = style({
-  width: "100%",
-  height: "100%",
-});
+export const image = sprinkles({ width: "full", height: "full" });
 
-export const fallback = style({
-  backgroundColor: "gray",
-  width: "100%",
-  height: "100%",
-  color: "black",
-  fontSize: "2rem",
+export const fallback = sprinkles({
+  width: "full",
+  height: "full",
+  fontSize: "8",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",

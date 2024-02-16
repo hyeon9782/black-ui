@@ -67,8 +67,8 @@ type ThemeMode = {
 };
 
 export type Theme = {
-  //   borderStyles: Tokens["borderStyles"];
-  //   borderWidths: Tokens["borderWidths"];
+  borderStyles: Tokens["borderStyles"];
+  borderWidths: Tokens["borderWidths"];
   colors: ThemeColors;
   mode: ThemeMode;
   radii: Tokens["radii"];

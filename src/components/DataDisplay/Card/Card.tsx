@@ -3,11 +3,22 @@ import { CardVariants, card } from "./Card.css";
 type CardProps = CardVariants & {
   children: ReactNode;
 };
-const Card = ({ children, variant, ...props }: CardProps) => {
+const Card = ({
+  children,
+  variant,
+  size,
+  align,
+  justify,
+  direction,
+  ...props
+}: CardProps) => {
   return (
-    <div className={card({ variant })} {...props}>
+    <article
+      className={card({ variant, size, align, justify, direction })}
+      {...props}
+    >
       {children}
-    </div>
+    </article>
   );
 };
 

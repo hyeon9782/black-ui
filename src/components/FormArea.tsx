@@ -77,16 +77,48 @@ const FormArea = () => {
       </fieldset>
       <fieldset className={container}>
         <legend>Button</legend>
-        <Button
-          size="lg"
-          variant="solid"
-          color="black"
-          leftIcon={<IoMdClose />}
-        >
+        <Button size="xs" variant="solid" color="red">
           Button
         </Button>
-        <Button
-          size="lg"
+        <Button size="sm" variant="solid" color="red">
+          Button
+        </Button>
+        <Button size="md" variant="solid" color="red">
+          Button
+        </Button>
+        <Button size="lg" variant="solid" color="red">
+          Button
+        </Button>
+        <Button size="xs" variant="outline" color="red">
+          Button
+        </Button>
+        <Button size="sm" variant="outline" color="red">
+          Button
+        </Button>
+        <Button size="md" variant="outline" color="red">
+          Button
+        </Button>
+        <Button size="lg" variant="outline" color="red">
+          Button
+        </Button>
+        <Button size="xs" variant="ghost" color="red">
+          Button
+        </Button>
+        <Button size="sm" variant="ghost" color="red">
+          Button
+        </Button>
+        <Button size="md" variant="ghost" color="red">
+          Button
+        </Button>
+        <Button size="lg" variant="ghost" color="red">
+          Button
+        </Button>
+
+        {/* <Button size="xs" variant="solid" color="gray" leftIcon={<IoMdClose />}>
+          Button
+        </Button> */}
+        {/* <Button
+          size="sm"
           variant="outline"
           color="red"
           rightIcon={<IoMdClose />}
@@ -94,9 +126,9 @@ const FormArea = () => {
           Button
         </Button>
         <Button
-          size="lg"
+          size="md"
           variant="solid"
-          color="black"
+          color="gray"
           onClick={() => alert("블랙 클릭")}
           leftIcon={<IoMdClose />}
           isLoading
@@ -107,7 +139,7 @@ const FormArea = () => {
         <Button
           size="lg"
           variant="solid"
-          color="black"
+          color="gray"
           onClick={() => alert("블랙 클릭")}
           leftIcon={<IoMdClose />}
           isLoading
@@ -135,27 +167,30 @@ const FormArea = () => {
         >
           Button
         </Button>
-        <IconButton icon={<IoMdStar />} aria-label="Star" isLoading />
+        <IconButton icon={<IoMdStar />} aria-label="Star" isLoading /> */}
       </fieldset>
       <fieldset className={container}>
         <legend>Input</legend>
-        <Input placeholder="아이디를 입력해라" size="xs" variant="outline" />
-        <Input placeholder="아이디를 입력해라" size="xs" variant="filled" />
-        <Input placeholder="아이디를 입력해라" size="xs" variant="flushed" />
-        <Input placeholder="아이디를 입력해라" size="xs" variant="unstyled" />
+        <Input placeholder="아이디를 입력해라" size="lg" variant="outline" />
+        <Input placeholder="아이디를 입력해라" size="lg" variant="filled" />
+        <Input placeholder="아이디를 입력해라" size="lg" variant="flushed" />
+        <Input placeholder="아이디를 입력해라" size="lg" variant="unstyled" />
       </fieldset>
       <fieldset className={container}>
         <legend>Checkbox</legend>
-        <Checkbox color="black" size="xs">
+        <Checkbox color="gray" size="xs">
           XS Checkbox
         </Checkbox>
-        <Checkbox color="red" size="sm" disabled>
+        <Checkbox color="red" size="sm">
           SM Checkbox
         </Checkbox>
-        <Checkbox color="red" size="md" defaultChecked>
+        <Checkbox color="green" size="md" defaultChecked>
           MD Checkbox
         </Checkbox>
-        <Checkbox color="red" size="lg" readOnly>
+        <Checkbox color="blue" size="lg">
+          LG Checkbox
+        </Checkbox>
+        <Checkbox color="orange" size="lg" isDisabled>
           LG Checkbox
         </Checkbox>
       </fieldset>

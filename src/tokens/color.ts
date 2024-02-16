@@ -2,7 +2,7 @@ export const colors = {
   base: {
     white: "#ffffff",
     black: "#121212",
-    gray: "gray",
+    gray: "#E2E8F0",
     red: "red",
     bluePrimary: "#3182ce",
     blueSecondary: "#4299e1",

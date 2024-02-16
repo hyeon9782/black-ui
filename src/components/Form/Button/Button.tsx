@@ -24,7 +24,7 @@ const Button = forwardRef(
     {
       variant = "solid",
       size = "md",
-      color = "black",
+      color = "gray",
       leftIcon,
       rightIcon,
       onClick,
@@ -82,8 +82,8 @@ export default Button;
 
 1. hover, active, disabled 스타일 적용 =>
 2. size fontSize, height, padding 적용 => O 
-3. variant outline, solid, ghost =>
-4. color =>
+3. variant outline, solid, ghost => O
+4. color => P
 5. icon left & right => O
 6. isLoaidng & loadingText => O
 7. 커스텀 spinner => O

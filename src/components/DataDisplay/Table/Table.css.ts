@@ -1,16 +1,30 @@
-import { vars } from "@/css/vars.css";
-import { style } from "@vanilla-extract/css";
+import { sprinkles } from "@/css/sprinkles.css";
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
+export const container = sprinkles({
+  maxWidth: "full",
+});
+
 export const table = recipe({
-  base: {
-    borderRadius: vars.radii.md,
-  },
+  base: [
+    sprinkles({
+      borderRadius: "md",
+      width: "full",
+    }),
+    {
+      boxSizing: "border-box",
+      borderCollapse: "collapse",
+    },
+  ],
   variants: {
     variant: {
       simple: {},
-      filled: {},
       unstyled: {},
+    },
+    size: {
+      sm: sprinkles({ fontSize: "1" }),
+      md: sprinkles({ fontSize: "2" }),
+      lg: sprinkles({ fontSize: "3" }),
     },
   },
   defaultVariants: {
@@ -25,10 +39,6 @@ export const tr = recipe({
       simple: {
         borderBottom: "1px solid lightgray",
       },
-      filled: {
-        backgroundColor: "lightgray",
-        color: "white",
-      },
       unstyled: {},
     },
   },
@@ -37,13 +47,84 @@ export const tr = recipe({
   },
 });
 
-export const td = style({
-  padding: 10,
+export const td = recipe({
+  base: sprinkles({ color: "textTertiary" }),
+  variants: {
+    size: {
+      sm: sprinkles({
+        fontSize: "1",
+        paddingX: "2",
+        paddingY: "1",
+      }),
+      md: sprinkles({
+        fontSize: "2",
+        paddingX: "3",
+        paddingY: "2",
+      }),
+      lg: sprinkles({
+        fontSize: "3",
+        paddingX: "4",
+        paddingY: "3",
+      }),
+    },
+  },
+  defaultVariants: {
+    size: "md",
+  },
 });
 
-export const th = style({
-  padding: 10,
-  fontWeight: "bold",
+export const th = recipe({
+  base: sprinkles({ color: "textSecondary" }),
+  variants: {
+    size: {
+      sm: sprinkles({
+        fontSize: "1",
+        paddingX: "2",
+        paddingY: "1",
+      }),
+      md: sprinkles({
+        fontSize: "2",
+        paddingX: "3",
+        paddingY: "2",
+      }),
+      lg: sprinkles({
+        fontSize: "3",
+        paddingX: "4",
+        paddingY: "3",
+      }),
+    },
+  },
+  defaultVariants: {
+    size: "md",
+  },
 });
+
+export const caption = recipe({
+  base: sprinkles({ color: "textSecondary" }),
+  variants: {
+    placement: {
+      bottom: sprinkles({ captionSide: "bottom", marginTop: "2" }),
+      top: sprinkles({ captionSide: "top", marginBottom: "2" }),
+    },
+    size: {
+      sm: sprinkles({
+        fontSize: "1",
+      }),
+      md: sprinkles({
+        fontSize: "2",
+      }),
+      lg: sprinkles({
+        fontSize: "3",
+      }),
+    },
+  },
+  defaultVariants: {
+    placement: "bottom",
+  },
+});
+
+export type TableCaptionVariants = RecipeVariants<typeof caption>;
 
 export type TableVariants = RecipeVariants<typeof table>;
+
+export type TableTrVariants = RecipeVariants<typeof tr>;
