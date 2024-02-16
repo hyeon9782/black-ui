@@ -135,7 +135,7 @@ export const Example = () => {
 ##### Import
 
 ```js
-import { Card } from "@black-ui/react";
+import { Card, CardHeader, CardBody, CardFooter } from "@black-ui/react";
 ```
 
 ##### Usage
@@ -143,12 +143,11 @@ import { Card } from "@black-ui/react";
 ```js
 export const Example = () => {
   return (
-    <>
-      <Card variant="elevated">Card</Card>
-      <Card variant="filled">Card</Card>
-      <Card variant="unstyled">Card</Card>
-      <Card variant="outline">Card</Card>
-    </>
+    <Card variant="elevated">
+      <CardHeader>Header</CardHeader>
+      <CardBody>Body</CardBody>
+      <CardFooter>Footer</CardFooter>
+    </Card>
   );
 };
 ```

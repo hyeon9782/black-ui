@@ -1,7 +1,7 @@
 import { IoMdSettings } from "react-icons/io";
 import { container, overlayContainer } from "@/app.css";
 import { Avatar } from "./DataDisplay/Avatar";
-import { Card } from "./DataDisplay/Card";
+import { Card, CardHeader, CardBody, CardFooter } from "./DataDisplay/Card";
 import { List, ListItem } from "./DataDisplay/List";
 import { Badge } from "./DataDisplay/Badge";
 import { Tag, TagIcon, TagLabel } from "./DataDisplay/Tag";
@@ -34,10 +34,26 @@ const DataDisplayArea = () => {
       </fieldset>
       <fieldset className={container}>
         <legend>Card</legend>
-        <Card variant="elevated">Card</Card>
-        <Card variant="filled">Card</Card>
-        <Card variant="unstyled">Card</Card>
-        <Card variant="outline">Card</Card>
+        <Card variant="elevated">
+          <CardHeader>Header</CardHeader>
+          <CardBody>Body</CardBody>
+          <CardFooter>Footer</CardFooter>
+        </Card>
+        <Card variant="filled">
+          <CardHeader>Header</CardHeader>
+          <CardBody>Body</CardBody>
+          <CardFooter>Footer</CardFooter>
+        </Card>
+        <Card variant="unstyled">
+          <CardHeader>Header</CardHeader>
+          <CardBody>Body</CardBody>
+          <CardFooter>Footer</CardFooter>
+        </Card>
+        <Card variant="outline">
+          <CardHeader>Header</CardHeader>
+          <CardBody>Body</CardBody>
+          <CardFooter>Footer</CardFooter>
+        </Card>
       </fieldset>
       <fieldset className={container}>
         <legend>List</legend>
