@@ -50,7 +50,7 @@ const Menu = ({ children, ...props }: MenuProps) => {
   };
 
   return (
-    <div {...props} className={menu({})}>
+    <div {...props} className={menu}>
       <MenuContext.Provider value={value}>{children}</MenuContext.Provider>
     </div>
   );

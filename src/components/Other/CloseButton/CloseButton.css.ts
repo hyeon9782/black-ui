@@ -1,31 +1,33 @@
+import { sprinkles } from "@/css/sprinkles.css";
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
 export const close = recipe({
-  base: {
-    position: "absolute",
-    top: 10,
-    right: 10,
-    backgroundColor: "white",
-    border: "none",
-    padding: 0,
-  },
+  base: [
+    sprinkles({
+      position: "absolute",
+      backgroundColor: "white",
+      borderStyle: "none",
+      padding: "0",
+    }),
+    { top: 10, right: 10 },
+  ],
   variants: {
     size: {
-      xs: {
-        fontSize: "0.5rem",
-      },
-      sm: {
-        fontSize: "1rem",
-      },
-      md: {
-        fontSize: "1.5rem",
-      },
-      lg: {
-        fontSize: "2rem",
-      },
-      xl: {
-        fontSize: "2.5rem",
-      },
+      xs: sprinkles({
+        fontSize: "0",
+      }),
+      sm: sprinkles({
+        fontSize: "1",
+      }),
+      md: sprinkles({
+        fontSize: "2",
+      }),
+      lg: sprinkles({
+        fontSize: "3",
+      }),
+      xl: sprinkles({
+        fontSize: "4",
+      }),
     },
   },
   defaultVariants: {

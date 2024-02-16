@@ -1,44 +1,46 @@
-import { vars } from "@/css/vars.css";
+import { sprinkles } from "@/css/sprinkles.css";
 import { recipe } from "@vanilla-extract/recipes";
 
 export const switcher = recipe({
-  base: {
-    border: "1px solid lightgray",
-    borderRadius: vars.radii.full,
+  base: sprinkles({
+    borderStyle: "solid",
+    borderWidth: "px",
+    borderColor: "gray",
+    borderRadius: "full",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     cursor: "pointer",
-  },
+  }),
   variants: {
     mode: {
-      light: {
+      light: sprinkles({
         backgroundColor: "white",
-      },
-      dark: {
+      }),
+      dark: sprinkles({
         backgroundColor: "black",
-      },
+      }),
     },
     size: {
-      sm: {
-        width: "30px",
-        height: "30px",
-        fontSize: "1rem",
-      },
-      md: {
-        width: "50px",
-        height: "50px",
-        fontSize: "1.5rem",
-      },
-      lg: {
-        width: "70px",
-        height: "70px",
-        fontSize: "2rem",
-      },
+      sm: sprinkles({
+        width: "8",
+        height: "8",
+        fontSize: "1",
+      }),
+      md: sprinkles({
+        width: "12",
+        height: "12",
+        fontSize: "4",
+      }),
+      lg: sprinkles({
+        width: "16",
+        height: "16",
+        fontSize: "8",
+      }),
     },
   },
   defaultVariants: {
     mode: "light",
-    size: "md",
+    size: "lg",
   },
 });

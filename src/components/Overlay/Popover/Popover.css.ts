@@ -1,55 +1,56 @@
-import { style } from "@vanilla-extract/css";
+import { sprinkles } from "@/css/sprinkles.css";
 import { recipe } from "@vanilla-extract/recipes";
 
-export const wrap = style({
+export const wrap = sprinkles({
   position: "relative",
 });
 
 export const content = recipe({
-  base: {
-    padding: 10,
+  base: sprinkles({
+    padding: "2",
     position: "absolute",
-    top: "calc(100% + 10px)",
     backgroundColor: "white",
-    width: "20rem",
-    border: "1px solid lightgray",
-    borderRadius: "0.375rem",
-    boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+    width: "80",
+    borderStyle: "solid",
+    borderColor: "gray100",
+    borderWidth: "px",
+    borderRadius: "md",
+    boxShadow: "md",
     wordWrap: "break-word",
     boxSizing: "border-box",
-    color: "#2D3748",
+    color: "textSecondary",
     zIndex: 1,
-  },
+  }),
   variants: {
     isVisible: {
-      true: {
-        // display: "block",
+      true: sprinkles({
         visibility: "visible",
-      },
-      false: {
-        // display: "none",
+      }),
+      false: sprinkles({
         visibility: "hidden",
-      },
+      }),
     },
   },
-  compoundVariants: [],
 });
 
-export const close = style({
+export const close = sprinkles({
   position: "absolute",
-  top: 10,
-  right: 10,
+  top: "0.5",
+  right: "0.5",
 });
 
-export const arrow = style({
-  width: "8px",
-  height: "8px",
+export const arrow = sprinkles({
+  width: "2",
+  height: "2",
   position: "absolute",
   transform: "rotate(45deg)",
-  left: "50%",
-  top: -5,
-  borderWidth: "1px 0 0 1px",
+  left: "half",
+  top: "-1.5",
+  borderTopWidth: "px",
+  borderBottomWidth: "0",
+  borderLeftWidth: "px",
+  borderRightWidth: "0",
   borderStyle: "solid",
-  borderColor: "#E2E8F0",
+  borderColor: "gray200",
   backgroundColor: "white",
 });
