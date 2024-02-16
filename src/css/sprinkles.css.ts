@@ -9,6 +9,8 @@ const responsiveProperties = defineProperties({
   },
   defaultCondition: "mobile",
   properties: {
+    cursor: ["pointer", "progress"],
+    boxSizing: ["border-box", "content-box"],
     overflow: ["hidden", "auto", "scroll"],
     display: ["none", "flex", "block", "inline"],
     flexDirection: ["row", "column"],

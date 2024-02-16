@@ -1,61 +1,65 @@
-import { style } from "@vanilla-extract/css";
+import { sprinkles } from "@/css/sprinkles.css";
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
 export const accordion = recipe({
-  base: {
-    width: "100%",
-    borderTop: "1px solid #E2E8F0",
-  },
+  base: sprinkles({
+    width: "full",
+    borderTopWidth: "px",
+    borderBottomWidth: "0",
+    borderLeftWidth: "0",
+    borderRightWidth: "0",
+    borderColor: "gray",
+    borderStyle: "solid",
+  }),
   variants: {},
-  compoundVariants: [],
 });
 
 export const item = recipe({
-  base: {
-    width: "100%",
-    borderBottom: "1px solid #E2E8F0",
+  base: sprinkles({
+    width: "full",
+    borderTopWidth: "0",
+    borderLeftWidth: "0",
+    borderRightWidth: "0",
+    borderBottomWidth: "px",
+    borderColor: "gray",
+    borderStyle: "solid",
     boxSizing: "border-box",
-  },
+  }),
   variants: {
     isDisabled: {
-      true: {
-        opacity: "0.8",
-      },
+      true: sprinkles({ opacity: "0.5" }),
       false: {},
     },
   },
 });
 
-export const button = style({
-  border: "none",
+export const button = sprinkles({
+  borderStyle: "none",
   cursor: "pointer",
-  width: "100%",
+  width: "full",
   display: "flex",
   justifyContent: "space-between",
-  backgroundColor: "white",
-  padding: "0.5rem 1rem",
-  boxSizing: "border-box",
-  fontSize: "1rem",
-  color: "#4A5568",
-  selectors: {
-    "&:hover": {
-      backgroundColor: "#EDF2F7",
-    },
+  backgroundColor: {
+    base: "white",
+    hover: "gray100",
+    disabled: "backgroundSurfaceBaseDisabled",
   },
+  paddingX: "4",
+  paddingY: "2",
+  boxSizing: "border-box",
+  fontSize: "2",
+  color: "textSecondary",
 });
 
 export const panel = recipe({
-  base: {
-    padding: "0.5rem 1rem",
-  },
+  base: sprinkles({
+    paddingX: "4",
+    paddingY: "2",
+  }),
   variants: {
     isOpen: {
-      true: {
-        display: "block",
-      },
-      false: {
-        display: "none",
-      },
+      true: sprinkles({ display: "block" }),
+      false: sprinkles({ display: "none" }),
     },
   },
 });
