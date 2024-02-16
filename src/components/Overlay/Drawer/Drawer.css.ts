@@ -1,10 +1,11 @@
-import { keyframes, style } from "@vanilla-extract/css";
+import { sprinkles } from "@/css/sprinkles.css";
+import { keyframes } from "@vanilla-extract/css";
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
 const slideLeft = keyframes({
   "0%": {
-    WebkitTransform: "translateX(-250px)",
-    transform: "translateX(-250px)",
+    WebkitTransform: "translateX(-16rem)",
+    transform: "translateX(-16rem)",
   },
   "100%": {
     WebkitTransform: "translateX(0)",
@@ -14,8 +15,8 @@ const slideLeft = keyframes({
 
 const slideRight = keyframes({
   "0%": {
-    WebkitTransform: "translateX(250px)",
-    transform: "translateX(250px)",
+    WebkitTransform: "translateX(16rem)",
+    transform: "translateX(16rem)",
   },
   "100%": {
     WebkitTransform: "translateX(0)",
@@ -25,8 +26,8 @@ const slideRight = keyframes({
 
 const slideTop = keyframes({
   "0%": {
-    WebkitTransform: "translateY(-250px)",
-    transform: "translateY(-250px)",
+    WebkitTransform: "translateY(-16rem)",
+    transform: "translateY(-16rem)",
   },
   "100%": {
     WebkitTransform: "translateY(0)",
@@ -36,8 +37,8 @@ const slideTop = keyframes({
 
 const slideBottom = keyframes({
   "0%": {
-    WebkitTransform: "translateY(250px)",
-    transform: "translateY(250px)",
+    WebkitTransform: "translateY(16rem)",
+    transform: "translateY(16rem)",
   },
   "100%": {
     WebkitTransform: "translateY(0)",
@@ -46,7 +47,6 @@ const slideBottom = keyframes({
 });
 
 export const drawer = recipe({
-  base: {},
   variants: {
     placement: {
       top: {},
@@ -55,21 +55,21 @@ export const drawer = recipe({
       left: {},
     },
     isOpen: {
-      true: {
+      true: sprinkles({
         display: "block",
-      },
-      false: {
+      }),
+      false: sprinkles({
         display: "none",
-      },
+      }),
     },
   },
 });
 
 export const drawerContent = recipe({
-  base: {
+  base: sprinkles({
     position: "fixed",
     backgroundColor: "white",
-  },
+  }),
   variants: {
     placement: {
       top: {
@@ -93,30 +93,40 @@ export const drawerContent = recipe({
   compoundVariants: [
     {
       variants: { placement: "left", isOpen: true },
-      style: { left: 0, width: 250, height: "100%", top: 0 },
+      style: sprinkles({ left: "0", width: "64", height: "full", top: "0" }),
     },
     {
       variants: { placement: "right", isOpen: true },
-      style: { right: 0, width: 250, height: "100%", top: 0 },
+      style: sprinkles({
+        right: "0",
+        width: "64",
+        height: "full",
+        top: "0",
+      }),
     },
     {
       variants: { placement: "bottom", isOpen: true },
-      style: { bottom: 0, width: "100%", height: 250, left: 0 },
+      style: sprinkles({ bottom: "0", width: "full", height: "64", left: "0" }),
     },
     {
       variants: { placement: "top", isOpen: true },
-      style: { top: 0, width: "100%", height: 250, left: 0 },
+      style: sprinkles({ top: "0", width: "full", height: "64", left: "0" }),
     },
   ],
+  defaultVariants: {
+    isOpen: false,
+    placement: "right",
+  },
 });
 
-export const drawerOverlay = style({
+export const drawerOverlay = sprinkles({
   position: "fixed",
-  top: 0,
-  left: 0,
-  width: "100%",
-  height: "100%",
-  backgroundColor: "rgba(0, 0, 0, 0.5)",
+  top: "0",
+  left: "0",
+  width: "full",
+  height: "full",
+  backgroundColor: "black",
+  opacity: "0.5",
 });
 
 export type DrawerVariants = RecipeVariants<typeof drawer>;

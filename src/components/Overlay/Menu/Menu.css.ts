@@ -1,44 +1,41 @@
+import { sprinkles } from "@/css/sprinkles.css";
 import { recipe } from "@vanilla-extract/recipes";
 
-export const menu = recipe({
-  base: {
-    position: "relative",
-  },
-  variants: {},
+export const menu = sprinkles({
+  position: "relative",
 });
 
 export const button = recipe({
-  base: {
-    border: "none",
-    borderRadius: "4px",
+  base: sprinkles({
+    borderStyle: "none",
+    borderRadius: "lg",
     userSelect: "none",
     position: "relative",
-    padding: "0 1rem",
-    color: "#1A202C",
-    fontSize: "1rem",
-    height: "2.5rem",
-    fontWeight: "600",
-    lineHeight: "1.2",
-    display: "inline-flex",
+    paddingX: "4",
+    paddingY: "0",
+    color: "textSecondary",
+    fontSize: "2",
+    height: "10",
+    fontWeight: "bold",
+    lineHeight: 0,
+    display: "flex",
     justifyContent: "center",
     alignItems: "center",
     whiteSpace: "nowrap",
-    minWidth: "2.5rem",
+    minWidth: "10",
     outline: "none",
-    selectors: {
-      "&:focus": {
-        backgroundColor: "gray",
-      },
-    },
-  },
+  }),
   variants: {
     variant: {
-      button: {
-        backgroundColor: "#EDF2F7",
-      },
-      none: {
+      button: sprinkles({
+        backgroundColor: {
+          base: "gray100",
+          focus: "gray300",
+        },
+      }),
+      none: sprinkles({
         backgroundColor: "white",
-      },
+      }),
     },
   },
   defaultVariants: {
@@ -47,28 +44,26 @@ export const button = recipe({
 });
 
 export const list = recipe({
-  base: {
-    minWidth: "13rem",
+  base: sprinkles({
+    minWidth: "52",
     backgroundColor: "white",
-    borderRadius: "0.375rem",
-    border: "1px solid #E2E8F0",
-    boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
-    outline: "transparent solid 2px",
-    outlineOffset: "2px",
-    padding: "0.5rem 0",
+    borderRadius: "sm",
+    boxShadow: "2xl",
+    paddingX: "0",
+    paddingY: "0.5",
     position: "absolute",
-    top: "3rem",
-    left: 0,
+    top: "11",
+    left: "0",
     zIndex: 1,
-  },
+  }),
   variants: {
     isVisible: {
-      true: {
+      true: sprinkles({
         display: "block",
-      },
-      false: {
+      }),
+      false: sprinkles({
         display: "none",
-      },
+      }),
     },
   },
   defaultVariants: {
@@ -77,16 +72,20 @@ export const list = recipe({
 });
 
 export const item = recipe({
-  base: {
-    color: "inherit",
-    padding: "0.375rem 0.75rem",
-  },
+  base: sprinkles({
+    color: "textSecondary",
+    paddingY: "1.5",
+    paddingX: "3",
+  }),
   variants: {
     selected: {
-      true: {
-        backgroundColor: "#EDF2F7",
-      },
+      true: sprinkles({
+        backgroundColor: "gray100",
+      }),
       false: {},
     },
+  },
+  defaultVariants: {
+    selected: false,
   },
 });
