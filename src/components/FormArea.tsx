@@ -40,7 +40,7 @@ const FormArea = () => {
           options={options}
           label="과일을 선택해주세요!"
           size="xs"
-          variant="outline"
+          variant="flushed"
           selectedItem={selectedItem}
           onSelect={onSelect}
         />

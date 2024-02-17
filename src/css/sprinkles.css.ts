@@ -86,7 +86,6 @@ const responsiveProperties = defineProperties({
     captionSide: ["bottom", "top"],
     zIndex: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
     userSelect: ["none"],
-    outline: ["none"],
     transform: ["rotate(45deg)"],
     wordWrap: ["break-word"],
     zoom: [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5],
@@ -122,6 +121,7 @@ const selectorProperties = defineProperties({
     outlineColor: vars.colors,
     textDecoration: vars.textDecoration,
     accentColor: vars.colors,
+    outline: ["none", "Highlight"],
     cursor: ["pointer", "not-allowed", "auto"],
     opacity: [
       "0",

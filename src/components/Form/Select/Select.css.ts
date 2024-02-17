@@ -1,65 +1,74 @@
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 import { vars } from "@/css/vars.css";
+import { sprinkles } from "@/css/sprinkles.css";
 
 export const select = recipe({
-  base: {
+  base: sprinkles({
     display: "flex",
-    fontWeight: vars.fontWeights.normal,
+    fontWeight: "normal",
     alignItems: "center",
     justifyContent: "space-between",
-    border: "none",
-    width: "100%",
+    borderStyle: "none",
+    width: "full",
     backgroundColor: "white",
-    color: "gray",
+    color: "textPlaceholder",
     outline: "none",
-    textAlign: "start",
-    selectors: {
-      "&:disabled": {
-        cursor: "not-allowed",
-        opacity: "0.5",
-      },
+    cursor: {
+      base: "pointer",
+      disabled: "not-allowed",
     },
-  },
+    opacity: {
+      base: "1",
+      disabled: "0.5",
+    },
+  }),
   variants: {
     size: {
-      xs: {
-        fontSize: "0.75rem",
-        height: "1.5rem",
-      },
-      sm: { fontSize: "0.875rem", height: "2rem" },
-      md: { fontSize: "1rem", height: "2.5rem" },
-      lg: { fontSize: "1.125rem", height: "3rem" },
+      xs: sprinkles({
+        fontSize: "0",
+        height: "6",
+      }),
+      sm: sprinkles({ fontSize: "1", height: "8" }),
+      md: sprinkles({ fontSize: "2", height: "10" }),
+      lg: sprinkles({ fontSize: "3", height: "12" }),
     },
     variant: {
-      outline: {
-        border: "1px solid #E2E8F0",
-        borderRadius: "5px",
-        padding: "0 16px",
-        "&:focus": {
-          outline: "2px solid blue",
+      outline: sprinkles({
+        borderStyle: "solid",
+        borderWidth: "px",
+        borderColor: "gray300",
+        borderRadius: "md",
+        paddingX: "4",
+        outline: {
+          focus: "Highlight",
         },
-      },
-      filled: {
-        backgroundColor: "#E2E8F0",
-        padding: "0 16px",
-        borderRadius: "5px",
-        "&:focus": {
-          outline: "2px solid blue",
+      }),
+      filled: sprinkles({
+        backgroundColor: "gray",
+        paddingX: "4",
+        borderRadius: "md",
+        outline: {
+          focus: "Highlight",
         },
-      },
-      flushed: {
-        borderBottom: "1px solid #E2E8F0",
-        padding: "0 16px 0 0",
-        "&:focus": {
-          outline: "2px solid blue",
+      }),
+      flushed: sprinkles({
+        borderStyle: "solid",
+        borderColor: "gray",
+        borderWidth: "0",
+        borderBottomWidth: "px",
+        padding: "0",
+        paddingRight: "4",
+        outline: {
+          focus: "Highlight",
         },
-      },
-      unstyled: {
-        padding: "0 16px 0 0",
-        "&:focus": {
-          outline: "2px solid blue",
+      }),
+      unstyled: sprinkles({
+        padding: "0",
+        paddingRight: "4",
+        outline: {
+          focus: "Highlight",
         },
-      },
+      }),
     },
     defaultVariants: {
       size: "md",
@@ -69,36 +78,38 @@ export const select = recipe({
 });
 
 export const selectOption = recipe({
-  base: {
+  base: sprinkles({
     display: "flex",
-    fontWeight: vars.fontWeights.normal,
+    fontWeight: "normal",
     alignItems: "center",
-  },
+  }),
   variants: {
     size: {
-      xs: {
-        fontSize: "0.75rem",
-        height: "1.5rem",
-      },
-      sm: { fontSize: "0.875rem", height: "2rem" },
-      md: { fontSize: "1rem", height: "2.5rem" },
-      lg: { fontSize: "1.125rem", height: "3rem" },
+      xs: sprinkles({
+        fontSize: "0",
+        height: "6",
+      }),
+      sm: sprinkles({ fontSize: "1", height: "8" }),
+      md: sprinkles({ fontSize: "2", height: "10" }),
+      lg: sprinkles({ fontSize: "3", height: "12" }),
     },
     variant: {
-      outline: {
-        padding: "4px 16px",
-      },
-      filled: {
-        padding: "4px 16px",
-      },
-      flushed: { padding: "4px 0" },
-      unstyled: { padding: "4px 0" },
+      outline: sprinkles({
+        paddingX: "4",
+        paddingY: "1",
+      }),
+      filled: sprinkles({
+        paddingX: "4",
+        paddingY: "1",
+      }),
+      flushed: sprinkles({ padding: "1" }),
+      unstyled: sprinkles({ padding: "1" }),
     },
     selected: {
-      true: {
-        backgroundColor: "blue",
+      true: sprinkles({
+        backgroundColor: "blueTertiary",
         color: "white",
-      },
+      }),
       false: {},
     },
   },
