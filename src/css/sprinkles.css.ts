@@ -88,6 +88,7 @@ const responsiveProperties = defineProperties({
     outline: ["none"],
     transform: ["rotate(45deg)"],
     wordWrap: ["break-word"],
+    zoom: [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5],
   },
   shorthands: {
     borderLeftRadius: ["borderBottomLeftRadius", "borderTopLeftRadius"],
