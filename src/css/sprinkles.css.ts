@@ -30,6 +30,7 @@ const responsiveProperties = defineProperties({
   },
   defaultCondition: "mobile",
   properties: {
+    appearance: ["none"],
     left: margins,
     top: margins,
     right: margins,
@@ -38,7 +39,7 @@ const responsiveProperties = defineProperties({
     clip: ["rect(0, 0, 0, 0)"],
     boxSizing: ["border-box", "content-box"],
     overflow: ["hidden", "auto", "scroll", "visible"],
-    display: ["none", "flex", "block", "inline", "inline-block"],
+    display: ["none", "flex", "block", "inline", "inline-block", "inline-flex"],
     flexDirection: ["row", "column"],
     justifyContent: [
       "stretch",

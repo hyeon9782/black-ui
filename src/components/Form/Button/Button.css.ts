@@ -1,10 +1,8 @@
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 import { sprinkles } from "@/css/sprinkles.css";
-import { vars } from "@/css/vars.css";
-import { style } from "@vanilla-extract/css";
 
 export const button = recipe({
-  base: {
+  base: sprinkles({
     display: "inline-flex",
     appearance: "none",
     alignItems: "center",
@@ -12,19 +10,19 @@ export const button = recipe({
     userSelect: "none",
     position: "relative",
     outline: "none",
-    border: "none",
-    fontWeight: "600",
-    cursor: "pointer",
+    borderStyle: "none",
+    fontWeight: "bold",
     whiteSpace: "nowrap",
-    verticalAlign: "middle",
-    borderRadius: vars.radii.lg,
-    selectors: {
-      "&:disabled": {
-        cursor: "not-allowed",
-        opacity: "0.5",
-      },
+    borderRadius: "lg",
+    cursor: {
+      base: "pointer",
+      disabled: "not-allowed",
     },
-  },
+    opacity: {
+      base: "1",
+      disabled: "0.5",
+    },
+  }),
   variants: {
     size: {
       xs: sprinkles({
@@ -53,13 +51,13 @@ export const button = recipe({
       }),
     },
     variant: {
-      solid: {
+      solid: sprinkles({
         color: "white",
-      },
-      outline: {
+      }),
+      outline: sprinkles({
         borderStyle: "solid",
-        borderWidth: "1px",
-      },
+        borderWidth: "px",
+      }),
       ghost: {},
     },
     color: {
@@ -79,7 +77,6 @@ export const button = recipe({
           hover: "gray800",
           disabled: "gray",
         },
-        color: "textPlaceholder",
       }),
     },
     {
@@ -89,6 +86,7 @@ export const button = recipe({
           base: "white",
           hover: "gray100",
         },
+        borderColor: "gray800",
         color: "gray800",
       }),
     },
@@ -109,7 +107,6 @@ export const button = recipe({
           base: "blueSecondary",
           hover: "bluePrimary",
         },
-        color: "textPlaceholder",
       }),
     },
     {
@@ -119,6 +116,7 @@ export const button = recipe({
           base: "white",
           hover: "blueBackground",
         },
+        borderColor: "bluePrimary",
         color: "bluePrimary",
       }),
     },
@@ -139,7 +137,6 @@ export const button = recipe({
           base: "greenSecondary",
           hover: "greenPrimary",
         },
-        color: "textPlaceholder",
       }),
     },
     {
@@ -149,6 +146,7 @@ export const button = recipe({
           base: "white",
           hover: "greenBackground",
         },
+        borderColor: "greenPrimary",
         color: "greenPrimary",
       }),
     },
@@ -169,7 +167,6 @@ export const button = recipe({
           base: "orangeSecondary",
           hover: "orangePrimary",
         },
-        color: "textPlaceholder",
       }),
     },
     {
@@ -179,6 +176,7 @@ export const button = recipe({
           base: "white",
           hover: "orangeBackground",
         },
+        borderColor: "orangePrimary",
         color: "orangePrimary",
       }),
     },
@@ -199,7 +197,6 @@ export const button = recipe({
           base: "redSecondary",
           hover: "redPrimary",
         },
-        color: "textPlaceholder",
       }),
     },
     {
@@ -209,6 +206,7 @@ export const button = recipe({
           base: "white",
           hover: "redBackground",
         },
+        borderColor: "redPrimary",
         color: "redPrimary",
       }),
     },
@@ -230,11 +228,11 @@ export const button = recipe({
   },
 });
 
-export const content = style({
+export const content = sprinkles({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  gap: "5px",
+  gap: "1",
 });
 
 export type ButtonVariants = RecipeVariants<typeof button>;
