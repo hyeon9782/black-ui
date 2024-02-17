@@ -273,7 +273,7 @@ const FormArea = () => {
           <PinInputField />
         </PinInput> */}
 
-        <PinInput size="lg" mask>
+        <PinInput size="lg">
           <PinInputField />
           <PinInputField />
           <PinInputField />

@@ -1,47 +1,49 @@
-import { vars } from "@/css/vars.css";
+import { sprinkles } from "@/css/sprinkles.css";
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
-export const wrap = recipe({
-  base: {
-    display: "flex",
-    gap: 10,
-  },
+export const wrap = sprinkles({
+  display: "flex",
+  gap: "3",
 });
 
 export const field = recipe({
-  base: {
-    border: "1px solid lightgray",
-    borderRadius: vars.radii.lg,
+  base: sprinkles({
+    borderStyle: "solid",
+    borderWidth: "px",
+    borderColor: "gray",
+    borderRadius: "lg",
     textAlign: "center",
-    selectors: {
-      "&:disabled": {
-        cursor: "not-allowed",
-        opacity: "0.5",
-      },
+    cursor: {
+      base: "pointer",
+      disabled: "not-allowed",
     },
-  },
+    opacity: {
+      base: "1",
+      disabled: "0.5",
+    },
+  }),
   variants: {
     size: {
-      xs: {
-        width: 24,
-        height: 24,
-        fontSize: 12,
-      },
-      sm: {
-        width: 32,
-        height: 32,
-        fontSize: 16,
-      },
-      md: {
-        width: 40,
-        height: 40,
-        fontSize: 20,
-      },
-      lg: {
-        width: 48,
-        height: 48,
-        fontSize: 24,
-      },
+      xs: sprinkles({
+        width: "8",
+        height: "8",
+        fontSize: "1",
+      }),
+      sm: sprinkles({
+        width: "10",
+        height: "10",
+        fontSize: "2",
+      }),
+      md: sprinkles({
+        width: "12",
+        height: "12",
+        fontSize: "3",
+      }),
+      lg: sprinkles({
+        width: "14",
+        height: "14",
+        fontSize: "4",
+      }),
     },
   },
   defaultVariants: {
