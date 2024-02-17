@@ -1,46 +1,60 @@
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
-import { vars } from "@/css/vars.css";
+import { sprinkles } from "@/css/sprinkles.css";
 
 export const radio = recipe({
-  base: {
+  base: sprinkles({
     display: "flex",
     alignItems: "center",
-    fontSize: "11px",
-    selectors: {
-      "&:disabled": {
-        cursor: "not-allowed",
-        opacity: "0.5",
-      },
+    fontSize: "0",
+    cursor: {
+      base: "auto",
+      disabled: "not-allowed",
     },
-  },
+    opacity: {
+      base: "1",
+      disabled: "0.5",
+    },
+  }),
   variants: {
     size: {
-      xs: {
+      xs: sprinkles({
         zoom: 1,
-      },
-      sm: {
+      }),
+      sm: sprinkles({
         zoom: 1.5,
-      },
-      md: {
+      }),
+      md: sprinkles({
         zoom: 2,
-      },
-      lg: {
+      }),
+      lg: sprinkles({
         zoom: 3,
-      },
+      }),
     },
     direction: {
-      row: {
+      row: sprinkles({
         display: "flex",
-      },
+      }),
       colunm: {},
     },
     color: {
-      black: {
-        accentColor: vars.colors.black,
-      },
-      red: {
-        accentColor: vars.colors.red,
-      },
+      red: sprinkles({
+        accentColor: "redSecondary",
+      }),
+      black: sprinkles({
+        accentColor: "black",
+      }),
+      gray: sprinkles({
+        accentColor: "gray",
+      }),
+      orange: sprinkles({
+        accentColor: "orangeSecondary",
+      }),
+      green: sprinkles({
+        accentColor: "greenSecondary",
+      }),
+      blue: sprinkles({
+        accentColor: "blueSecondary",
+      }),
     },
   },
 });

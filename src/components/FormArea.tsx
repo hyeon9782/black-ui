@@ -206,7 +206,7 @@ const FormArea = () => {
           <Radio color="black" size="md" value={3}>
             MD Radio
           </Radio>
-          <Radio color="red" size="lg" value={4}>
+          <Radio color="red" size="lg" value={4} disabled>
             LG Radio
           </Radio>
         </RadioGroup>
@@ -287,7 +287,7 @@ const FormArea = () => {
         <Slider color="gray" defaultValue={30} />
         <Slider color="blue" defaultValue={10} />
         <Slider color="green" defaultValue={20} />
-        <Slider color="orang" defaultValue={30} />
+        <Slider color="orange" defaultValue={30} />
         <Slider color="black" min={10} max={300} />
       </fieldset>
     </div>
