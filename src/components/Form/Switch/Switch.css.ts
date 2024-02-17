@@ -1,4 +1,24 @@
+import { sprinkles } from "@/css/sprinkles.css";
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
+
+export const label = recipe({
+  variants: {
+    size: {
+      xs: sprinkles({
+        zoom: 0.5,
+      }),
+      sm: sprinkles({
+        zoom: 1,
+      }),
+      md: sprinkles({
+        zoom: 2,
+      }),
+      lg: sprinkles({
+        zoom: 3,
+      }),
+    },
+  },
+});
 
 export const customSwitch = recipe({
   base: {
@@ -40,38 +60,36 @@ export const customSwitch = recipe({
     },
   },
   variants: {
-    size: {
-      xs: {
-        zoom: 0.6,
-      },
-      sm: {
-        zoom: 1,
-      },
-      md: {
-        zoom: 1.4,
-      },
-      lg: {
-        zoom: 1.8,
-      },
-    },
     color: {
-      green: {
-        ":checked": {
-          background: "green",
+      green: sprinkles({
+        backgroundColor: {
+          checked: "greenSecondary",
         },
-      },
-      blue: {
-        ":checked": {
-          background: "blue",
+      }),
+      blue: sprinkles({
+        backgroundColor: {
+          checked: "blueSecondary",
         },
-      },
-      red: {
-        ":checked": {
-          background: "red",
+      }),
+      red: sprinkles({
+        backgroundColor: {
+          checked: "redSecondary",
         },
-      },
+      }),
+      orange: sprinkles({
+        backgroundColor: {
+          checked: "orangeSecondary",
+        },
+      }),
+      black: sprinkles({
+        backgroundColor: {
+          checked: "black",
+        },
+      }),
     },
   },
 });
 
 export type SwitchVariants = RecipeVariants<typeof customSwitch>;
+
+export type LabelVariants = RecipeVariants<typeof label>;

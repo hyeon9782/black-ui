@@ -1,30 +1,41 @@
-import { vars } from "@/css/vars.css";
+import { sprinkles } from "@/css/sprinkles.css";
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
 export const slider = recipe({
-  base: {},
   variants: {
     size: {
-      xs: {
+      xs: sprinkles({
         zoom: 1,
-      },
-      sm: {
+      }),
+      sm: sprinkles({
         zoom: 1.5,
-      },
-      md: {
+      }),
+      md: sprinkles({
         zoom: 2,
-      },
-      lg: {
+      }),
+      lg: sprinkles({
         zoom: 3,
-      },
+      }),
     },
     color: {
-      red: {
-        accentColor: vars.colors.red,
-      },
-      black: {
-        accentColor: vars.colors.black,
-      },
+      red: sprinkles({
+        accentColor: "redSecondary",
+      }),
+      black: sprinkles({
+        accentColor: "black",
+      }),
+      gray: sprinkles({
+        accentColor: "gray",
+      }),
+      orange: sprinkles({
+        accentColor: "orangeSecondary",
+      }),
+      green: sprinkles({
+        accentColor: "greenSecondary",
+      }),
+      blue: sprinkles({
+        accentColor: "blueSecondary",
+      }),
     },
   },
   defaultVariants: {

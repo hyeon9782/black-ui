@@ -40,7 +40,7 @@ const FormArea = () => {
           options={options}
           label="과일을 선택해주세요!"
           size="xs"
-          variant="outline"
+          variant="flushed"
           selectedItem={selectedItem}
           onSelect={onSelect}
         />
@@ -206,7 +206,7 @@ const FormArea = () => {
           <Radio color="black" size="md" value={3}>
             MD Radio
           </Radio>
-          <Radio color="red" size="lg" value={4}>
+          <Radio color="red" size="lg" value={4} disabled>
             LG Radio
           </Radio>
         </RadioGroup>
@@ -273,7 +273,7 @@ const FormArea = () => {
           <PinInputField />
         </PinInput> */}
 
-        <PinInput size="lg" mask>
+        <PinInput size="lg">
           <PinInputField />
           <PinInputField />
           <PinInputField />
@@ -282,7 +282,12 @@ const FormArea = () => {
       </fieldset>
       <fieldset className={container}>
         <legend>Slider</legend>
+
         <Slider color="red" defaultValue={0} />
+        <Slider color="gray" defaultValue={30} />
+        <Slider color="blue" defaultValue={10} />
+        <Slider color="green" defaultValue={20} />
+        <Slider color="orange" defaultValue={30} />
         <Slider color="black" min={10} max={300} />
       </fieldset>
     </div>

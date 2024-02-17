@@ -1,35 +1,36 @@
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
-import { vars } from "@/css/vars.css";
 import { sprinkles } from "@/css/sprinkles.css";
 
 export const checkbox = recipe({
-  base: {
+  base: sprinkles({
     display: "flex",
     alignItems: "center",
-    fontSize: "11px",
-    gap: vars.space["1"],
-    selectors: {
-      "&:disabled": {
-        cursor: "not-allowed",
-        opacity: "0.5",
-      },
+    fontSize: "0",
+    gap: "1",
+    cursor: {
+      base: "auto",
+      disabled: "not-allowed",
     },
-    color: vars.colors.textSecondary,
-  },
+    opacity: {
+      base: "1",
+      disabled: "0.5",
+    },
+    color: "textSecondary",
+  }),
   variants: {
     size: {
-      xs: {
+      xs: sprinkles({
         zoom: 1,
-      },
-      sm: {
+      }),
+      sm: sprinkles({
         zoom: 1.5,
-      },
-      md: {
+      }),
+      md: sprinkles({
         zoom: 2,
-      },
-      lg: {
+      }),
+      lg: sprinkles({
         zoom: 3,
-      },
+      }),
     },
     color: {
       gray: sprinkles({ accentColor: "gray600" }),

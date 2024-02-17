@@ -88,7 +88,7 @@ const PinInput = ({
   };
 
   return (
-    <div className={wrap({})} {...props}>
+    <div className={wrap} {...props}>
       <PinInputContext.Provider value={value}>
         {enhancedChildren}
       </PinInputContext.Provider>

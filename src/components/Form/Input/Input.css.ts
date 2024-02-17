@@ -1,20 +1,21 @@
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
-import { vars } from "@/css/vars.css";
 import { sprinkles } from "@/css/sprinkles.css";
 
 export const input = recipe({
-  base: {
-    backgroundColor: vars.colors.white,
+  base: sprinkles({
+    backgroundColor: "white",
     outline: "none",
-    width: "100%",
-    border: "none",
-    selectors: {
-      "&:disabled": {
-        cursor: "not-allowed",
-        opacity: "0.5",
-      },
+    width: "full",
+    borderStyle: "none",
+    cursor: {
+      base: "pointer",
+      disabled: "not-allowed",
     },
-  },
+    opacity: {
+      base: "1",
+      disabled: "0.5",
+    },
+  }),
   variants: {
     size: {
       xs: sprinkles({
@@ -35,58 +36,43 @@ export const input = recipe({
       }),
     },
     variant: {
-      // outline: sprinkles({
-      //   borderColor: "gray",
-      //   borderWidth: "px",
-      //   borderStyle: "solid",
-      //   borderRadius: "md",
-      //   paddingX: "4",
-      //   paddingY: "0",
-      // }),
-      // filled: sprinkles({
-      //   backgroundColor: "gray",
-      //   borderRadius: "md",
-      //   paddingX: "4",
-      //   paddingY: "0",
-      //   borderStyle: "none",
-      // }),
-      // flushed: sprinkles({
-      //   borderTopWidth: "0",
-      //   borderLeftWidth: "0",
-      //   borderRightWidth: "0",
-      //   borderBottomWidth: "px",
-      //   borderColor: "gray",
-      //   paddingBottom: "4",
-      //   borderStyle: "solid",
-      // }),
-      outline: {
-        border: "1px solid #E2E8F0",
-        borderRadius: "5px",
-        padding: "0 16px",
-        "&:focus": {
-          outline: "2px solid blue",
+      outline: sprinkles({
+        borderColor: "gray",
+        borderWidth: "px",
+        borderStyle: "solid",
+        borderRadius: "md",
+        paddingX: "4",
+        paddingY: "0",
+        outline: {
+          focus: "Highlight",
         },
-      },
-      filled: {
-        backgroundColor: "#E2E8F0",
-        padding: "0 16px",
-        borderRadius: "5px",
-        "&:focus": {
-          outline: "2px solid blue",
+      }),
+      filled: sprinkles({
+        backgroundColor: "gray",
+        paddingX: "4",
+        paddingY: "0",
+        borderRadius: "md",
+        outline: {
+          focus: "Highlight",
         },
-      },
-      flushed: {
-        borderBottom: "1px solid #E2E8F0",
-        padding: "0 16px 0 0",
-      },
-      unstyled: {
-        padding: "0 16px 0 0",
-      },
+      }),
+      flushed: sprinkles({
+        borderStyle: "solid",
+        borderWidth: "0",
+        borderColor: "gray",
+        borderBottomWidth: "px",
+        padding: "0",
+        paddingRight: "4",
+      }),
+      unstyled: sprinkles({
+        padding: "0",
+        paddingRight: "4",
+      }),
     },
     isReadOnly: {
-      true: {
-        backgroundColor: vars.colors.gray,
-      },
+      true: sprinkles({
+        backgroundColor: "gray",
+      }),
       false: {},
     },
   },
