@@ -1,7 +1,13 @@
 import { ForwardedRef, InputHTMLAttributes, forwardRef } from "react";
-import { SwitchVariants, customSwitch } from "./Switch.css";
+import {
+  LabelVariants,
+  SwitchVariants,
+  customSwitch,
+  label,
+} from "./Switch.css";
 
 type SwitchProps = SwitchVariants &
+  LabelVariants &
   Omit<InputHTMLAttributes<HTMLInputElement>, "size">;
 
 const Switch = forwardRef(
@@ -10,14 +16,14 @@ const Switch = forwardRef(
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
     return (
-      <label>
+      <label className={label({ size })}>
         <input
           type="checkbox"
           ref={ref}
-          className={customSwitch({ size, color })}
+          className={customSwitch({ color })}
           {...props}
         />
-        {children}
+        <span>{children}</span>
       </label>
     );
   },

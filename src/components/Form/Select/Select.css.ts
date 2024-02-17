@@ -1,5 +1,4 @@
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
-import { vars } from "@/css/vars.css";
 import { sprinkles } from "@/css/sprinkles.css";
 
 export const select = recipe({

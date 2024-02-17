@@ -1,6 +1,9 @@
-import { recipe } from "@vanilla-extract/recipes";
+import { sprinkles } from "@/css/sprinkles.css";
 
-export const formControl = recipe({
-  base: {},
-  variants: {},
+export const errorMessage = sprinkles({
+  color: "statusDanger",
+});
+
+export const helperText = sprinkles({
+  color: "statusInfo",
 });

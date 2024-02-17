@@ -111,6 +111,7 @@ const selectorProperties = defineProperties({
     focus: { selector: "&:focus" },
     hover: { selector: "&:hover" },
     disabled: { selector: "&:disabled" },
+    checked: { selector: "&:checked" },
   },
   defaultCondition: "base",
   properties: {
