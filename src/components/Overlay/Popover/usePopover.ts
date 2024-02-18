@@ -1,5 +1,6 @@
+import { useOutsideClick } from "@/hooks";
 import useDisclosure from "@/hooks/useDisclosure";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 export type UsePopoverProps = {};
 
@@ -8,20 +9,8 @@ export function usePopover() {
 
   const triggerRef = useRef<HTMLDivElement | null>(null);
   const popoverRef = useRef<HTMLDivElement | null>(null);
-  const wrapRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    const pageClick = (e: any) => {
-      if (!wrapRef.current?.contains(e.target)) {
-        onClose();
-      }
-    };
-    window.addEventListener("click", pageClick);
+  const { ref } = useOutsideClick({ callback: onClose });
 
-    return () => {
-      window.removeEventListener("click", pageClick);
-    };
-  }, []);
-
-  return { isOpen, onOpen, onClose, onToggle, triggerRef, popoverRef, wrapRef };
+  return { isOpen, onOpen, onClose, onToggle, triggerRef, popoverRef, ref };
 }
