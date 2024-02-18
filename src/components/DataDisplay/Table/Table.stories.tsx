@@ -60,11 +60,6 @@ const Component = (args?: any) => {
   );
 };
 
-export const Filled: Story = {
-  args: { variant: "filled" },
-  render: Component,
-};
-
 export const Simple: Story = {
   args: { variant: "simple" },
   render: Component,

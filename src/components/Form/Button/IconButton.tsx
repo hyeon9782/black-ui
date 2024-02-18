@@ -1,8 +1,8 @@
 import { ButtonHTMLAttributes, ReactElement } from "react";
-import { IconButtonVariants, iconButton } from "./IconButton.css";
 import { Spinner } from "@/components/Feedback/Spinner";
 import { Button } from ".";
-type IconButtonProps = IconButtonVariants &
+import { ButtonVariants } from "./Button.css";
+type IconButtonProps = ButtonVariants &
   ButtonHTMLAttributes<HTMLButtonElement> & {
     icon: ReactElement;
     isLoading?: boolean;
@@ -12,7 +12,7 @@ type IconButtonProps = IconButtonVariants &
   };
 const IconButton = ({ icon, isLoading, ...props }: IconButtonProps) => {
   return (
-    <Button {...props} isLoading className={iconButton({})}>
+    <Button {...props} isLoading>
       {!isLoading ? icon : <Spinner />}
     </Button>
   );
