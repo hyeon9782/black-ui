@@ -28,7 +28,7 @@ const Popover = ({ children, placement, ...props }: PopoverProps) => {
     onToggle: togglePopover,
     triggerRef,
     popoverRef,
-    wrapRef,
+    ref: wrapRef,
   } = usePopover();
   const [contentPosition, setContentPosition] = useState({ top: 0, left: 0 });
 
