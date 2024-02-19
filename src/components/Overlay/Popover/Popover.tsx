@@ -1,6 +1,7 @@
 import { ReactNode, createContext, useLayoutEffect, useState } from "react";
 import { wrap } from "./Popover.css";
 import { usePopover } from "./usePopover";
+import { usePopper } from "@/hooks";
 
 type PopoverContextProps = {
   isVisible?: boolean;
@@ -27,27 +28,10 @@ const Popover = ({ children, placement, ...props }: PopoverProps) => {
     onClose,
     onToggle: togglePopover,
     triggerRef,
-    popoverRef,
-    ref: wrapRef,
-  } = usePopover();
-  const [contentPosition, setContentPosition] = useState({ top: 0, left: 0 });
-
-  useLayoutEffect(() => {
-    const trigger = triggerRef.current;
-    const popover = popoverRef.current;
-
-    if (isVisible && trigger !== null && popover !== null) {
-      const triggerRect = trigger.getBoundingClientRect();
-      const popoverRect = popover.getBoundingClientRect();
-
-      console.log(triggerRect.height);
-
-      setContentPosition({
-        top: triggerRect.height + 10,
-        left: (triggerRect.width - popoverRect.width) / 2,
-      });
-    }
-  }, [isVisible]);
+    contentRef: popoverRef,
+    ref,
+    contentPosition,
+  } = usePopper();
 
   const value = {
     isVisible,
@@ -60,7 +44,7 @@ const Popover = ({ children, placement, ...props }: PopoverProps) => {
   };
 
   return (
-    <div {...props} className={wrap} ref={wrapRef}>
+    <div {...props} className={wrap} ref={ref}>
       <PopoverContext.Provider value={value}>
         {children}
       </PopoverContext.Provider>

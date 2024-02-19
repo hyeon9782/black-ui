@@ -6,6 +6,7 @@ import {
   useState,
 } from "react";
 import { menu } from "./Menu.css";
+import { useOutsideClick } from "@/hooks";
 
 type MenuContextProps = {
   toggleMenu: () => void;
@@ -32,6 +33,12 @@ const Menu = ({ children, ...props }: MenuProps) => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  const onClose = () => {
+    setIsVisible(false);
+  };
+
+  const { ref } = useOutsideClick({ callback: onClose });
+
   const toggleMenu = () => {
     setIsVisible(!isVisible);
     setCurrentIndex(0);
@@ -50,7 +57,7 @@ const Menu = ({ children, ...props }: MenuProps) => {
   };
 
   return (
-    <div {...props} className={menu}>
+    <div {...props} className={menu} ref={ref}>
       <MenuContext.Provider value={value}>{children}</MenuContext.Provider>
     </div>
   );
