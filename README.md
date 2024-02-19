@@ -76,9 +76,12 @@ Storybook으로 배포한 Black UI 컴포넌트들을 직접 사용해볼 수 �
 
 ## Todo
 
-- Framer Motion을 활용한 animation 적용
-- SSR 대응
-- 공통 로직 분리
+- 테스트 코드 보완하기
+- SSR 대응하기
+- 반응형 디자인 구현
+- Context API 최적화
+- 번들 사이즈 최적화
+- 공통 로직 분리하기
   - keyboard event 커스텀 훅 구현
   - usePopper 커스텀 훅 구현
 
