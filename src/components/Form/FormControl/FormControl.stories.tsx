@@ -15,17 +15,20 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Small: Story = {
-  args: {
-    children: (
-      <FormControl>
-        <FormLabel>Email</FormLabel>
-        <Input />
-        <FormHelperText>
-          Enter the email you'd like to receive the newsletter on.
-        </FormHelperText>
-        <FormErrorMessage> Email is required.</FormErrorMessage>
-      </FormControl>
-    ),
-  },
+const Component = (args: any) => {
+  return (
+    <FormControl {...args}>
+      <FormLabel>Email</FormLabel>
+      <Input />
+      <FormHelperText>
+        Enter the email you'd like to receive the newsletter on.
+      </FormHelperText>
+      <FormErrorMessage> Email is required.</FormErrorMessage>
+    </FormControl>
+  );
+};
+
+export const Basic: Story = {
+  args: { isInvalid: true },
+  render: Component,
 };

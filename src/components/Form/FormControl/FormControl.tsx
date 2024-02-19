@@ -7,7 +7,7 @@ type FormContextProps = {
 export const FormContext = createContext<FormContextProps>({});
 
 type FormControlProps = {
-  children: ReactNode;
+  children?: ReactNode;
   isInvalid?: boolean;
 };
 
