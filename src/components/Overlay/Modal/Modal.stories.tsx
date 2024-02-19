@@ -45,8 +45,8 @@ export const Left: Story = {
               <div>Modal 입니다!</div>
             </ModalBody>
             <ModalFooter>
-              <Button>취소</Button>
-              <Button>확인</Button>
+              <Button onClick={onClose}>취소</Button>
+              <Button onClick={onClose}>확인</Button>
             </ModalFooter>
           </ModalContent>
         </Modal>

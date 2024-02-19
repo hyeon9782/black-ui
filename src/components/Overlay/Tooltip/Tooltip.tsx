@@ -5,7 +5,7 @@ type TooltipProps = TooltipVariants & {
   children: ReactNode;
   label: string;
 };
-const Tooltip = ({ children, label }: TooltipProps) => {
+const Tooltip = ({ children, label, bg, ...props }: TooltipProps) => {
   const {
     isOpen,
     onOpen,
@@ -16,7 +16,12 @@ const Tooltip = ({ children, label }: TooltipProps) => {
   } = usePopper();
 
   return (
-    <div className={wrap} onPointerEnter={onOpen} onPointerLeave={onClose}>
+    <div
+      className={wrap}
+      onPointerEnter={onOpen}
+      onPointerLeave={onClose}
+      {...props}
+    >
       {isValidElement(children)
         ? cloneElement(children, {
             ...children.props,
@@ -31,7 +36,7 @@ const Tooltip = ({ children, label }: TooltipProps) => {
             top: `${contentPosition.top}px`,
             left: `${contentPosition.left}px`,
           }}
-          className={tooltip({ isOpen })}
+          className={tooltip({ isOpen, bg })}
         >
           {label}
         </div>

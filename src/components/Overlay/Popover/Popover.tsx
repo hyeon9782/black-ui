@@ -1,6 +1,5 @@
-import { ReactNode, createContext, useLayoutEffect, useState } from "react";
+import { ReactNode, createContext } from "react";
 import { wrap } from "./Popover.css";
-import { usePopover } from "./usePopover";
 import { usePopper } from "@/hooks";
 
 type PopoverContextProps = {
@@ -53,10 +52,3 @@ const Popover = ({ children, placement, ...props }: PopoverProps) => {
 };
 
 export default Popover;
-
-/*
-
-1. Trigger 또는 Content 밖을 클릭하면 Popover가 닫힌다.
-2. 
-
-*/

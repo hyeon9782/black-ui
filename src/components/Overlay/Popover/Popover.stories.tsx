@@ -5,6 +5,7 @@ import PopoverContent from "./PopoverContent";
 import PopoverTrigger from "./PopoverTrigger";
 
 import { Button } from "@/components/Form";
+import PopoverArrow from "./PopoverArrow";
 
 const meta = {
   title: "Component/Overlay/Popover",
@@ -19,28 +20,41 @@ const meta = {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          height: "200px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {<Story />}
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof Popover>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Left: Story = {
+export const Bottom: Story = {
   args: {
     children: <></>,
   },
   render: function Render(args) {
     return (
-      <>
-        <Popover {...args}>
-          <PopoverTrigger>
-            <Button>Popover 나와라!</Button>
-          </PopoverTrigger>
-          <PopoverContent>
-            <PopoverCloseButton />
-            <div>Popover입니다!!</div>
-          </PopoverContent>
-        </Popover>
-      </>
+      <Popover {...args}>
+        <PopoverTrigger>
+          <Button>Popover 나와라!</Button>
+        </PopoverTrigger>
+        <PopoverContent>
+          <PopoverArrow />
+          <PopoverCloseButton />
+          <div>Popover입니다!!</div>
+        </PopoverContent>
+      </Popover>
     );
   },
 };
