@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import useDisclosure from "./useDisclosure";
 import useOutsideClick from "./useOutsideClick";
 
