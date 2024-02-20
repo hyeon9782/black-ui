@@ -4,12 +4,13 @@ import { panel } from "./Accordion.css";
 type Props = {
   children: ReactNode;
   index?: number;
+  id?: string;
 };
-const AccordionPanel = ({ children, index = 0 }: Props) => {
+const AccordionPanel = ({ children, index = 0, id }: Props) => {
   const { indexes } = useContext(AccordionContext);
 
   return (
-    <div className={panel({ isOpen: indexes?.includes(index) })}>
+    <div className={panel({ isOpen: indexes?.includes(index) })} id={id}>
       {children}
     </div>
   );

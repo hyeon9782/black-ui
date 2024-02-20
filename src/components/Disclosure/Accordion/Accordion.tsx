@@ -63,7 +63,7 @@ const Accordion = ({
     indexes,
   };
   return (
-    <div className={accordion({})}>
+    <div className={accordion}>
       <AccordionContext.Provider value={prop}>
         {React.Children.map(children, (child, index) =>
           React.isValidElement(child)

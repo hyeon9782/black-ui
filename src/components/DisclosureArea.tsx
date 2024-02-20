@@ -14,7 +14,7 @@ const DisclosureArea = () => {
       <fieldset className={container}>
         <legend>Accordion</legend>
         <Accordion>
-          <AccordionItem isDisabled>
+          <AccordionItem>
             <AccordionButton>1번 제목</AccordionButton>
             <AccordionPanel>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

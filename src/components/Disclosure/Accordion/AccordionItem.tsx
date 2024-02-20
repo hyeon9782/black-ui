@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useId } from "react";
 import { item } from "./Accordion.css";
 type Props = {
   children: ReactNode;
@@ -6,6 +6,7 @@ type Props = {
   isDisabled?: boolean;
 };
 const AccordionItem = ({ children, index, isDisabled }: Props) => {
+  const id = useId();
   return (
     <div className={item({ isDisabled })}>
       {React.Children.map(children, (child) => {
@@ -14,6 +15,7 @@ const AccordionItem = ({ children, index, isDisabled }: Props) => {
             ...child.props,
             index,
             isDisabled,
+            id,
           });
         }
         return child;

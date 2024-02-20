@@ -7,8 +7,9 @@ type Props = {
   children: ReactNode;
   index?: number;
   isDisabled?: boolean;
+  id?: string;
 };
-const AccordionButton = ({ children, index = 0, isDisabled }: Props) => {
+const AccordionButton = ({ children, index = 0, isDisabled, id }: Props) => {
   const {
     allowMultiple,
     allowToggle,
@@ -19,12 +20,12 @@ const AccordionButton = ({ children, index = 0, isDisabled }: Props) => {
     indexes,
   } = useContext(AccordionContext);
 
+  const isInclude = indexes?.includes(index);
+
   const handleButtonClick = (index: number) => {
     if (onChange) {
       onChange();
     }
-
-    const isInclude = indexes?.includes(index);
 
     if (!allowMultiple && !allowToggle && !isInclude) {
       resetIndex();
@@ -59,6 +60,10 @@ const AccordionButton = ({ children, index = 0, isDisabled }: Props) => {
   };
   return (
     <button
+      role="button"
+      aria-expanded={isInclude}
+      aria-controls={id}
+      aria-disabled={!allowToggle && !allowMultiple && isInclude}
       onClick={() => handleButtonClick(index)}
       className={button}
       disabled={isDisabled}
@@ -70,3 +75,10 @@ const AccordionButton = ({ children, index = 0, isDisabled }: Props) => {
 };
 
 export default AccordionButton;
+
+/*
+
+WAI-ARIA Roles, States, and Properties
+
+
+*/
