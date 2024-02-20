@@ -18,9 +18,6 @@ export default defineConfig({
   resolve: {
     alias: [{ find: "@", replacement: "/src" }],
   },
-  // optimizeDeps: {
-  //   exclude: ["**/*.test.tsx", "**/*.stories.tsx"],
-  // },
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
@@ -30,6 +27,7 @@ export default defineConfig({
       formats: ["es", "umd", "cjs"],
     },
     rollupOptions: {
+      treeshake: "recommended",
       external: ["react", "react-dom"],
       output: {
         globals: {

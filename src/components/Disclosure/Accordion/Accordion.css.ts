@@ -1,17 +1,25 @@
 import { sprinkles } from "@/css/sprinkles.css";
-import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
+import { keyframes } from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
 
-export const accordion = recipe({
-  base: sprinkles({
-    width: "full",
-    borderTopWidth: "px",
-    borderBottomWidth: "0",
-    borderLeftWidth: "0",
-    borderRightWidth: "0",
-    borderColor: "gray",
-    borderStyle: "solid",
-  }),
-  variants: {},
+const accordionDown = keyframes({
+  from: { height: 0 },
+  to: { height: "60px" },
+});
+
+const accordionUp = keyframes({
+  from: { height: "60px" },
+  to: { height: 0 },
+});
+
+export const accordion = sprinkles({
+  width: "full",
+  borderTopWidth: "px",
+  borderBottomWidth: "0",
+  borderLeftWidth: "0",
+  borderRightWidth: "0",
+  borderColor: "gray",
+  borderStyle: "solid",
 });
 
 export const item = recipe({
@@ -55,13 +63,27 @@ export const panel = recipe({
   base: sprinkles({
     paddingX: "4",
     paddingY: "2",
+    boxSizing: "border-box",
   }),
   variants: {
     isOpen: {
-      true: sprinkles({ display: "block" }),
-      false: sprinkles({ display: "none" }),
+      true: [
+        sprinkles({ display: "block" }),
+        // {
+        //   height: "auto",
+        //   overflow: "hidden",
+        //   animation: `${accordionDown} 0.2s ease-out`,
+        // },
+      ],
+      false: [
+        sprinkles({ display: "none" }),
+        // {
+        //   // height: 0,
+        //   overflow: "hidden",
+        //   height: 0,
+        //   // animation: `${accordionUp} 0.2s ease-out`,
+        // },
+      ],
     },
   },
 });
-
-export type AccordionVariants = RecipeVariants<typeof accordion>;

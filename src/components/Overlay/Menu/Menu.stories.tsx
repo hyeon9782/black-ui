@@ -17,6 +17,20 @@ const meta = {
       },
     },
   },
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          height: "400px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {<Story />}
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof Menu>;
 
 export default meta;

@@ -6,7 +6,7 @@ type ThemeSwitcherProps = {
   size?: "lg" | "md" | "sm";
 };
 
-const ThemeSwitcher = ({ size }: ThemeSwitcherProps) => {
+const ThemeSwitcher = ({ size, ...props }: ThemeSwitcherProps) => {
   const { mode, setMode } = useTheme();
 
   const toggleMode = useCallback(() => {
@@ -14,7 +14,7 @@ const ThemeSwitcher = ({ size }: ThemeSwitcherProps) => {
     setMode(nextMode);
   }, [mode, setMode]);
   return (
-    <div onClick={toggleMode} className={switcher({ mode, size })}>
+    <div onClick={toggleMode} className={switcher({ mode, size })} {...props}>
       {mode === "dark" ? "🌙" : "☀️"}
     </div>
   );

@@ -1,4 +1,11 @@
-import React, { ReactNode, createContext, useState } from "react";
+import React, {
+  Children,
+  KeyboardEvent,
+  ReactNode,
+  createContext,
+  useRef,
+  useState,
+} from "react";
 import { accordion } from "./Accordion.css";
 
 type AccordionContextProps = {
@@ -9,6 +16,7 @@ type AccordionContextProps = {
   removeIndex: (index: number) => void;
   resetIndex: () => void;
   indexes?: number[];
+  handleKeyDown?: (e: any, index: number) => void;
 };
 
 export const AccordionContext = createContext<AccordionContextProps>({
@@ -38,6 +46,53 @@ const Accordion = ({
     : [defaultIndex];
 
   const [indexes, setIndexes] = useState<number[]>(indexArray || []);
+  const refs = useRef<HTMLButtonElement[]>([]);
+
+  const addToRefs = (el: HTMLButtonElement) => {
+    if (el && !refs.current.includes(el)) {
+      refs.current.push(el);
+    }
+  };
+
+  const handleKeyDown = (
+    e: KeyboardEvent<HTMLButtonElement>,
+    index: number,
+  ) => {
+    console.log("나옴");
+    console.log(e);
+    console.log(index);
+
+    const count = Children.count(children);
+
+    console.log(count);
+
+    if (e.key === "Home") {
+      // e.preventDefault();
+      refs.current[0].focus();
+      console.log("Home");
+    }
+
+    if (e.key === "End") {
+      // e.preventDefault();
+      const nextIndex = refs.current.length - 1;
+      refs.current[nextIndex].focus();
+      console.log("End");
+    }
+
+    if (e.key === "ArrowDown") {
+      // e.preventDefault();
+      const nextIndex = (index + 1) % count;
+      refs.current[nextIndex].focus();
+      console.log("Down");
+    }
+
+    if (e.key === "ArrowUp") {
+      // e.preventDefault();
+      const nextIndex = (index - 1 + count) % count;
+      refs.current[nextIndex].focus();
+      console.log("Up");
+    }
+  };
 
   const appendIndex = (index: number) => {
     setIndexes((prevIndexes) => [...prevIndexes, index]);
@@ -61,15 +116,19 @@ const Accordion = ({
     removeIndex,
     resetIndex,
     indexes,
+    handleKeyDown,
+    // refs,
   };
   return (
-    <div className={accordion({})}>
+    <div className={accordion}>
       <AccordionContext.Provider value={prop}>
         {React.Children.map(children, (child, index) =>
           React.isValidElement(child)
             ? React.cloneElement(child, {
                 ...child.props,
                 index,
+                // handleKeyDown,
+                ref: (el: HTMLButtonElement) => addToRefs(el),
               })
             : child,
         )}

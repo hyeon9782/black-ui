@@ -79,11 +79,22 @@ Storybook으로 배포한 Black UI 컴포넌트들을 직접 사용해볼 수 �
 - 테스트 코드 보완하기
 - SSR 대응하기
 - 반응형 디자인 구현
+- 컴포넌트 단위로 패키지 분할
+- 웹 접근성 높이기
+- Headless 컴포넌트 추가
 - Context API 최적화
 - 번들 사이즈 최적화
+  - Code Splitting
+  - Tree Shaking
+  - Minify
+  - CSS 압축
+  - JS 압축
 - 공통 로직 분리하기
   - keyboard event 커스텀 훅 구현
-  - usePopper 커스텀 훅 구현
+- 컴포넌트 구현하기
+  - Carousel
+  - Calendar
+  - Date Picker
 
 ## Components
 
