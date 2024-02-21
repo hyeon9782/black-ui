@@ -1,12 +1,12 @@
-import { ReactNode, useContext } from "react";
-import { TabsContext } from "./Tabs";
+import { ReactNode } from "react";
+import { useTabsContext } from "./Tabs";
 import { panel } from "./Tabs.css";
 type Props = {
   children: ReactNode;
   index?: number;
 };
 const TabPanel = ({ children, index = 0 }: Props) => {
-  const { currentTab } = useContext(TabsContext);
+  const { currentTab } = useTabsContext();
   return (
     <div className={panel({ selected: currentTab === index })}>{children}</div>
   );

@@ -1,11 +1,12 @@
-import { ReactNode, createContext } from "react";
+import { ReactNode, createContext, useContext } from "react";
 import { TableVariants, table } from "./Table.css";
 
 type TableContextProps = {
   variant?: "simple" | "unstyled" | undefined;
   size?: "sm" | "md" | "lg" | undefined;
 };
-export const TableContext = createContext<TableContextProps>({});
+
+const TableContext = createContext<TableContextProps>({});
 
 type TableProps = TableVariants & {
   children?: ReactNode;
@@ -21,3 +22,11 @@ const Table = ({ children, variant, size = "lg", ...props }: TableProps) => {
 };
 
 export default Table;
+
+export const useTableContext = () => {
+  const context = useContext(TableContext);
+  if (!context) {
+    throw new Error("There is no TableContext");
+  }
+  return context;
+};

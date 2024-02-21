@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useState } from "react";
+import { ReactNode, createContext, useContext, useState } from "react";
 import { TabListVariants, TabVariants, tabs } from "./Tabs.css";
 
 type TabsContextProps = TabVariants &
@@ -8,10 +8,7 @@ type TabsContextProps = TabVariants &
     onChange?: (index: number) => void;
   };
 
-export const TabsContext = createContext<TabsContextProps>({
-  currentTab: 0,
-  changeTab: () => {},
-});
+const TabsContext = createContext<TabsContextProps | null>(null);
 
 export type TabsProps = TabListVariants &
   TabVariants & {
@@ -58,3 +55,11 @@ const Tabs = ({
 };
 
 export default Tabs;
+
+export const useTabsContext = () => {
+  const context = useContext(TabsContext);
+  if (!context) {
+    throw new Error("There is no TabsContext");
+  }
+  return context;
+};

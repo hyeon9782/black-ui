@@ -3,12 +3,11 @@ import {
   Children,
   isValidElement,
   cloneElement,
-  useContext,
   useRef,
   KeyboardEvent,
 } from "react";
 import { tabList } from "./Tabs.css";
-import { TabsContext } from "./Tabs";
+import { useTabsContext } from "./Tabs";
 
 type TabListProps = {
   children: ReactNode;
@@ -16,7 +15,7 @@ type TabListProps = {
 
 const TabList = ({ children }: TabListProps) => {
   const tabRefs = useRef<HTMLButtonElement[]>([]);
-  const { align, variant, changeTab, orientation } = useContext(TabsContext);
+  const { align, variant, changeTab, orientation } = useTabsContext();
 
   const addToRefs = (el: HTMLButtonElement) => {
     if (el && !tabRefs.current.includes(el)) {
