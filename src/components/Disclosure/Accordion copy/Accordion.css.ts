@@ -64,12 +64,26 @@ export const panel = recipe({
     paddingX: "4",
     paddingY: "2",
     boxSizing: "border-box",
-    overflow: "hidden",
   }),
   variants: {
     isOpen: {
-      true: [sprinkles({ display: "block" })],
-      false: [sprinkles({ display: "none" })],
+      true: [
+        sprinkles({ display: "block" }),
+        // {
+        //   height: "auto",
+        //   overflow: "hidden",
+        //   animation: `${accordionDown} 0.2s ease-out`,
+        // },
+      ],
+      false: [
+        sprinkles({ display: "none" }),
+        // {
+        //   // height: 0,
+        //   overflow: "hidden",
+        //   height: 0,
+        //   // animation: `${accordionUp} 0.2s ease-out`,
+        // },
+      ],
     },
   },
 });

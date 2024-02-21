@@ -1,4 +1,4 @@
-import { ReactNode, createContext } from "react";
+import { ReactNode, createContext, useContext } from "react";
 import { wrap } from "./Popover.css";
 import { usePopper } from "@/hooks";
 
@@ -12,10 +12,7 @@ type PopoverContextProps = {
   onClose: () => void;
 };
 
-export const PopoverContext = createContext<PopoverContextProps>({
-  togglePopover: () => {},
-  onClose: () => {},
-});
+const PopoverContext = createContext<PopoverContextProps | null>(null);
 
 type PopoverProps = {
   children: ReactNode;
@@ -52,3 +49,11 @@ const Popover = ({ children, placement, ...props }: PopoverProps) => {
 };
 
 export default Popover;
+
+export const usePopoverContext = () => {
+  const context = useContext(PopoverContext);
+  if (!context) {
+    throw new Error("There is no PopoverContext");
+  }
+  return context;
+};

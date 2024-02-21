@@ -1,13 +1,12 @@
-import { ReactNode, useContext } from "react";
+import { PropsWithChildren } from "react";
 import { TableCaptionVariants, caption } from "./Table.css";
-import { TableContext } from "./Table";
+import { useTableContext } from "./Table";
 
-type TableCaptionProps = TableCaptionVariants & {
-  children: ReactNode;
-};
-
-const TableCaption = ({ children, placement }: TableCaptionProps) => {
-  const { size } = useContext(TableContext);
+const TableCaption = ({
+  children,
+  placement,
+}: PropsWithChildren<TableCaptionVariants>) => {
+  const { size } = useTableContext();
   return <caption className={caption({ placement, size })}>{children}</caption>;
 };
 

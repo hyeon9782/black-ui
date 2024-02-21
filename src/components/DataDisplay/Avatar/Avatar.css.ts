@@ -41,7 +41,11 @@ export const avatar = recipe({
   },
 });
 
-export const image = sprinkles({ width: "full", height: "full" });
+export const image = sprinkles({
+  width: "full",
+  height: "full",
+  objectFit: "cover",
+});
 
 export const fallback = sprinkles({
   width: "full",

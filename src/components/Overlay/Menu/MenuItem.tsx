@@ -1,5 +1,5 @@
-import { ForwardedRef, ReactNode, forwardRef, useContext } from "react";
-import { MenuContext } from "./Menu";
+import { ForwardedRef, ReactNode, forwardRef } from "react";
+import { useMenuContext } from "./Menu";
 import { item } from "./Menu.css";
 type MenuItemProps = {
   children: ReactNode;
@@ -12,7 +12,7 @@ const MenuItem = forwardRef(
     { children, onClick, index = 0, handleKeyDown = () => {} }: MenuItemProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    const { toggleMenu, currentIndex, changeIndex } = useContext(MenuContext);
+    const { toggleMenu, currentIndex, changeIndex } = useMenuContext();
     const handleClick = () => {
       if (onClick) {
         onClick();

@@ -30,6 +30,7 @@ const responsiveProperties = defineProperties({
   },
   defaultCondition: "mobile",
   properties: {
+    objectFit: ["cover"],
     appearance: ["none"],
     left: margins,
     top: margins,

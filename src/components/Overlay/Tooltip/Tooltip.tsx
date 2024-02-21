@@ -46,11 +46,3 @@ const Tooltip = ({ children, label, bg, ...props }: TooltipProps) => {
 };
 
 export default Tooltip;
-
-/*
-
-1. animation 추가
-2. placement 추가 및 수정
-3. css 속성 vars & sprinkles로 수정
-
-*/

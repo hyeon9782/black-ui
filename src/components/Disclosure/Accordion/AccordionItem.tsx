@@ -1,33 +1,46 @@
-import React, { ForwardedRef, ReactNode, forwardRef, useId } from "react";
+import {
+  ForwardedRef,
+  PropsWithChildren,
+  createContext,
+  forwardRef,
+  useContext,
+  useId,
+} from "react";
 import { item } from "./Accordion.css";
 type Props = {
-  children: ReactNode;
-  index?: number;
+  value: string;
   isDisabled?: boolean;
 };
+type AccordionItemContextProps = {
+  value: string;
+  id: string;
+};
+
+export const AccordionItemContext =
+  createContext<AccordionItemContextProps | null>(null);
+
 const AccordionItem = forwardRef(
   (
-    { children, index, isDisabled }: Props,
-    ref: ForwardedRef<HTMLButtonElement>,
+    { children, value, isDisabled }: PropsWithChildren<Props>,
+    ref: ForwardedRef<HTMLDivElement>,
   ) => {
     const id = useId();
     return (
-      <div className={item({ isDisabled })}>
-        {React.Children.map(children, (child) => {
-          if (React.isValidElement(child)) {
-            return React.cloneElement(child, {
-              ...child.props,
-              index,
-              isDisabled,
-              id,
-              ref,
-            });
-          }
-          return child;
-        })}
+      <div className={item({ isDisabled })} ref={ref}>
+        <AccordionItemContext.Provider value={{ value, id }}>
+          {children}
+        </AccordionItemContext.Provider>
       </div>
     );
   },
 );
+
+export const useAccordionItemContext = () => {
+  const context = useContext(AccordionItemContext);
+  if (!context) {
+    throw new Error("Error");
+  }
+  return context;
+};
 
 export default AccordionItem;

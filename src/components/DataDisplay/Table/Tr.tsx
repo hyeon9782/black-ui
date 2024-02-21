@@ -1,10 +1,9 @@
 import { ChildrenProps } from "@/types";
 import { tr } from "./Table.css";
-import { TableContext } from "./Table";
-import { useContext } from "react";
+import { useTableContext } from "./Table";
 
 const Tr = ({ children }: ChildrenProps) => {
-  const { variant } = useContext(TableContext);
+  const { variant } = useTableContext();
   return <tr className={tr({ variant })}>{children}</tr>;
 };
 

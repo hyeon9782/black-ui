@@ -4,15 +4,14 @@ import {
   ReactNode,
   cloneElement,
   isValidElement,
-  useContext,
 } from "react";
-import { MenuContext } from "./Menu";
+import { useMenuContext } from "./Menu";
 import { list } from "./Menu.css";
 type MenuListProps = {
   children: ReactNode;
 };
 const MenuList = ({ children, ...props }: MenuListProps) => {
-  const { isVisible, changeIndex, itemRefs } = useContext(MenuContext);
+  const { isVisible, changeIndex, itemRefs } = useMenuContext();
 
   const addToRefs = (el: HTMLDivElement) => {
     if (el && !itemRefs?.current.includes(el)) {

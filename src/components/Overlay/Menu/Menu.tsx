@@ -1,14 +1,15 @@
 import {
   MutableRefObject,
-  ReactNode,
+  PropsWithChildren,
   createContext,
+  useContext,
   useRef,
   useState,
 } from "react";
-import { menu } from "./Menu.css";
+import { menu, MenuVariants } from "./Menu.css";
 import { useOutsideClick } from "@/hooks";
 
-type MenuContextProps = {
+type MenuContextProps = MenuVariants & {
   toggleMenu: () => void;
   isVisible: boolean;
   currentIndex: number;
@@ -16,17 +17,13 @@ type MenuContextProps = {
   itemRefs?: MutableRefObject<HTMLDivElement[]>;
 };
 
-export const MenuContext = createContext<MenuContextProps>({
-  toggleMenu: () => {},
-  isVisible: false,
-  currentIndex: 0,
-  changeIndex: () => {},
-});
+const MenuContext = createContext<MenuContextProps | null>(null);
 
-type MenuProps = {
-  children: ReactNode;
-};
-const Menu = ({ children, ...props }: MenuProps) => {
+const Menu = ({
+  children,
+  variant,
+  ...props
+}: PropsWithChildren<MenuVariants>) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const itemRefs = useRef<HTMLDivElement[]>([]);
@@ -54,6 +51,7 @@ const Menu = ({ children, ...props }: MenuProps) => {
     currentIndex,
     changeIndex,
     itemRefs,
+    variant,
   };
 
   return (
@@ -65,9 +63,10 @@ const Menu = ({ children, ...props }: MenuProps) => {
 
 export default Menu;
 
-/*
-
-1. hover시 css 변경
-2. keyboard 이벤트로 hover 효과
-
-*/
+export const useMenuContext = () => {
+  const context = useContext(MenuContext);
+  if (!context) {
+    throw new Error("There is no MenuContext");
+  }
+  return context;
+};

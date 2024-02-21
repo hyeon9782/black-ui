@@ -14,7 +14,7 @@ const DisclosureArea = () => {
       <fieldset className={container}>
         <legend>Accordion</legend>
         <Accordion>
-          <AccordionItem>
+          <AccordionItem value="Item 1">
             <AccordionButton>1번 제목</AccordionButton>
             <AccordionPanel>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -23,7 +23,7 @@ const DisclosureArea = () => {
               nisi ut aliquip ex ea commodo consequat.
             </AccordionPanel>
           </AccordionItem>
-          <AccordionItem>
+          <AccordionItem value="Item 2">
             <AccordionButton>2번 제목</AccordionButton>
             <AccordionPanel>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -34,27 +34,17 @@ const DisclosureArea = () => {
           </AccordionItem>
         </Accordion>
         <Accordion allowToggle>
-          <AccordionItem>
+          <AccordionItem value="Item 3">
             <AccordionButton>1번 제목</AccordionButton>
-            <AccordionPanel>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </AccordionPanel>
+            <AccordionPanel>1번 내용</AccordionPanel>
           </AccordionItem>
-          <AccordionItem>
+          <AccordionItem value="Item 4">
             <AccordionButton>2번 제목</AccordionButton>
-            <AccordionPanel>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </AccordionPanel>
+            <AccordionPanel>2번 내용</AccordionPanel>
           </AccordionItem>
         </Accordion>
         <Accordion allowMultiple>
-          <AccordionItem>
+          <AccordionItem value="Item 5">
             <AccordionButton>1번 제목</AccordionButton>
             <AccordionPanel>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -63,7 +53,7 @@ const DisclosureArea = () => {
               nisi ut aliquip ex ea commodo consequat.
             </AccordionPanel>
           </AccordionItem>
-          <AccordionItem>
+          <AccordionItem value="Item 6">
             <AccordionButton>2번 제목</AccordionButton>
             <AccordionPanel>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

@@ -1,5 +1,5 @@
 import { sprinkles } from "@/css/sprinkles.css";
-import { recipe } from "@vanilla-extract/recipes";
+import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
 export const menu = sprinkles({
   position: "relative",
@@ -89,3 +89,5 @@ export const item = recipe({
     selected: false,
   },
 });
+
+export type MenuVariants = RecipeVariants<typeof button>;

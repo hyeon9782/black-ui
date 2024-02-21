@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { ModalContext } from "./Modal";
+import { useModalContext } from "./Modal";
 import { overlay } from "./Modal.css";
 
 const ModalOverlay = () => {
-  const { onClose } = useContext(ModalContext);
+  const { onClose } = useModalContext();
   return <div onClick={onClose} className={overlay}></div>;
 };
 

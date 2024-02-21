@@ -1,10 +1,9 @@
 import { ChildrenProps } from "@/types";
 import { th } from "./Table.css";
-import { TableContext } from "./Table";
-import { useContext } from "react";
+import { useTableContext } from "./Table";
 
 const Th = ({ children }: ChildrenProps) => {
-  const { size } = useContext(TableContext);
+  const { size } = useTableContext();
   return <th className={th({ size })}>{children}</th>;
 };
 

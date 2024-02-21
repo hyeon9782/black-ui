@@ -1,11 +1,5 @@
-import {
-  ForwardedRef,
-  KeyboardEvent,
-  ReactNode,
-  forwardRef,
-  useContext,
-} from "react";
-import { TabsContext } from "./Tabs";
+import { ForwardedRef, KeyboardEvent, ReactNode, forwardRef } from "react";
+import { useTabsContext } from "./Tabs";
 import { tab } from "./Tabs.css";
 type Props = {
   children: ReactNode;
@@ -19,7 +13,7 @@ const Tab = forwardRef(
     ref: ForwardedRef<HTMLButtonElement>,
   ) => {
     const { changeTab, currentTab, size, onChange, isFitted, variant } =
-      useContext(TabsContext);
+      useTabsContext();
 
     const handleClick = () => {
       if (onChange) {

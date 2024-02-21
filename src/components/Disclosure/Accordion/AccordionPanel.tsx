@@ -1,20 +1,19 @@
-import { ForwardedRef, ReactNode, forwardRef, useContext } from "react";
-import { AccordionContext } from "./Accordion";
+import { ForwardedRef, PropsWithChildren, forwardRef } from "react";
+import { useAccordionContext } from "./Accordion";
 import { panel } from "./Accordion.css";
-type Props = {
-  children: ReactNode;
-  index?: number;
-  id?: string;
-};
+import { useAccordionItemContext } from "./AccordionItem";
+
 const AccordionPanel = forwardRef(
-  (
-    { children, index = 0, id }: Props,
-    ref: ForwardedRef<HTMLButtonElement>,
-  ) => {
-    const { indexes } = useContext(AccordionContext);
+  ({ children }: PropsWithChildren, ref: ForwardedRef<HTMLDivElement>) => {
+    const { values } = useAccordionContext();
+    const { value, id } = useAccordionItemContext();
 
     return (
-      <div className={panel({ isOpen: indexes?.includes(index) })} id={id}>
+      <div
+        className={panel({ isOpen: values?.includes(value) })}
+        id={id}
+        ref={ref}
+      >
         {children}
       </div>
     );
