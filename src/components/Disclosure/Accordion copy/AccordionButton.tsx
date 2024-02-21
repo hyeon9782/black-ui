@@ -1,57 +1,61 @@
-import { ForwardedRef, PropsWithChildren, forwardRef } from "react";
+import { ForwardedRef, ReactNode, forwardRef, useContext } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
-import { useAccordionContext } from "./Accordion";
+import { AccordionContext } from "./Accordion";
 import { button } from "./Accordion.css";
-import { useAccordionItemContext } from "./AccordionItem";
-
+type Props = {
+  children: ReactNode;
+  index?: number;
+  isDisabled?: boolean;
+  id?: string;
+};
 const AccordionButton = forwardRef(
-  ({ children }: PropsWithChildren, ref: ForwardedRef<HTMLButtonElement>) => {
+  (
+    { children, index = 0, isDisabled, id }: Props,
+    ref: ForwardedRef<HTMLButtonElement>,
+  ) => {
     const {
       allowMultiple,
       allowToggle,
       onChange,
-      handleOpenItem,
-      handleCloseItem,
-      handleResetItem,
-      refs,
+      removeIndex,
+      appendIndex,
+      resetIndex,
       handleKeyDown,
-      values,
-    } = useAccordionContext();
+      indexes,
+    } = useContext(AccordionContext);
 
-    const { value, id } = useAccordionItemContext();
+    const isInclude = indexes?.includes(index);
 
-    const isInclude = values?.includes(value);
-
-    const handleButtonClick = (value: string) => {
+    const handleButtonClick = (index: number) => {
       if (onChange) {
         onChange();
       }
 
       if (!allowMultiple && !allowToggle && !isInclude) {
-        handleResetItem();
-        handleOpenItem(value);
+        resetIndex();
+        appendIndex(index);
         return;
       }
 
       if (allowToggle && isInclude) {
-        handleCloseItem(value);
+        removeIndex(index);
         return;
       }
 
       if (allowToggle && !isInclude) {
-        handleResetItem();
-        handleOpenItem(value);
+        resetIndex();
+        appendIndex(index);
         return;
       }
 
       if (allowMultiple && isInclude) {
-        handleCloseItem(value);
+        removeIndex(index);
         return;
       }
 
       if (allowMultiple && !isInclude) {
-        handleOpenItem(value);
+        appendIndex(index);
         return;
       }
 
@@ -67,13 +71,13 @@ const AccordionButton = forwardRef(
         aria-expanded={isInclude}
         aria-controls={id}
         aria-disabled={!allowToggle && !allowMultiple && isInclude}
-        // onKeyDown={(e) => handleKeyDown?.(e)}
-        onClick={() => handleButtonClick(value)}
+        onKeyDown={(e) => handleKeyDown?.(e, index)}
+        onClick={() => handleButtonClick(index)}
         className={button}
-        // disabled={isDisabled}
+        disabled={isDisabled}
       >
         {children}
-        {values?.includes(value) ? <IoIosArrowUp /> : <IoIosArrowDown />}
+        {indexes?.includes(index) ? <IoIosArrowUp /> : <IoIosArrowDown />}
       </button>
     );
   },

@@ -1,8 +1,9 @@
-import React, {
+import {
   Children,
   KeyboardEvent,
-  ReactNode,
+  PropsWithChildren,
   createContext,
+  useContext,
   useRef,
   useState,
 } from "react";
@@ -12,26 +13,23 @@ type AccordionContextProps = {
   allowToggle?: boolean;
   allowMultiple?: boolean;
   onChange?: () => void;
-  appendIndex: (index: number) => void;
-  removeIndex: (index: number) => void;
-  resetIndex: () => void;
-  indexes?: number[];
+  handleOpenItem: (value: string) => void;
+  handleCloseItem: (value: string) => void;
+  handleResetItem: () => void;
+  values: string[];
   handleKeyDown?: (e: any, index: number) => void;
 };
 
-export const AccordionContext = createContext<AccordionContextProps>({
-  appendIndex: () => {},
-  removeIndex: () => {},
-  resetIndex: () => {},
-});
+export const AccordionContext = createContext<AccordionContextProps | null>(
+  null,
+);
 
 export type AccordionProps = {
-  children?: ReactNode;
   allowMultiple?: boolean;
   allowToggle?: boolean;
   onChange?: () => void;
-  index?: number | number[];
-  defaultIndex?: number | number[];
+  value?: string | string[];
+  defaultValue?: string | string[];
 };
 
 const Accordion = ({
@@ -39,86 +37,53 @@ const Accordion = ({
   allowMultiple,
   allowToggle,
   onChange,
-  defaultIndex = -1,
-}: AccordionProps) => {
-  const indexArray: number[] = Array.isArray(defaultIndex)
-    ? defaultIndex
-    : [defaultIndex];
+  defaultValue = "",
+}: PropsWithChildren<AccordionProps>) => {
+  const defaultValues: string[] = Array.isArray(defaultValue)
+    ? defaultValue
+    : [defaultValue];
+  const [values, setValues] = useState<string[]>(defaultValues || []);
 
-  const [indexes, setIndexes] = useState<number[]>(indexArray || []);
-  const refs = useRef<HTMLButtonElement[]>([]);
-
-  const addToRefs = (el: HTMLButtonElement) => {
-    if (el && !refs.current.includes(el)) {
-      refs.current.push(el);
-    }
+  const handleOpenItem = (value: string) => {
+    setValues((prevValues) => [...prevValues, value]);
   };
 
-  const handleKeyDown = (
-    e: KeyboardEvent<HTMLButtonElement>,
-    index: number,
-  ) => {
-    const count = Children.count(children);
-    let nextIndex = 0;
-    switch (e.key) {
-      case "Home":
-        nextIndex = 0;
-        break;
-      case "End":
-        nextIndex = refs.current.length - 1;
-        break;
-      case "ArrowDown":
-        nextIndex = (index + 1) % count;
-        break;
-      case "ArrowUp":
-        nextIndex = (index - 1 + count) % count;
-        break;
-      default:
-        nextIndex = index;
-    }
-
-    refs.current[nextIndex].focus();
-  };
-
-  const appendIndex = (index: number) => {
-    setIndexes((prevIndexes) => [...prevIndexes, index]);
-  };
-
-  const removeIndex = (index: number) => {
-    setIndexes((prevIndexes) =>
-      prevIndexes.filter((prevIndex) => prevIndex !== index),
+  const handleCloseItem = (value: string) => {
+    setValues((prevValues) =>
+      prevValues.filter((prevValue) => prevValue !== value),
     );
   };
 
-  const resetIndex = () => {
-    setIndexes([]);
+  const handleResetItem = () => {
+    setValues([]);
   };
 
-  const prop = {
+  const value = {
     onChange,
     allowMultiple,
     allowToggle,
-    appendIndex,
-    removeIndex,
-    resetIndex,
-    indexes,
-    handleKeyDown,
+    handleOpenItem,
+    handleCloseItem,
+    handleResetItem,
+
+    values,
+    refs,
   };
   return (
     <div className={accordion}>
-      <AccordionContext.Provider value={prop}>
-        {React.Children.map(children, (child, index) =>
-          React.isValidElement(child)
-            ? React.cloneElement(child, {
-                ...child.props,
-                index,
-                ref: (el: HTMLButtonElement) => addToRefs(el),
-              })
-            : child,
-        )}
+      <AccordionContext.Provider value={value}>
+        {children}
       </AccordionContext.Provider>
     </div>
   );
+};
+
+export const useAccordionContext = () => {
+  const context = useContext(AccordionContext);
+  if (!context) {
+    throw new Error("Error");
+  }
+  return context;
 };
 
 export default Accordion;
