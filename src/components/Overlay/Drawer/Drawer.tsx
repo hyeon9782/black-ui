@@ -1,4 +1,4 @@
-import { ReactNode, createContext } from "react";
+import { ReactNode, createContext, useContext } from "react";
 import { DrawerVariants, drawer } from "./Drawer.css";
 import Portal from "../../Other/Portal/Portal";
 
@@ -6,9 +6,7 @@ type DrawerContextProps = DrawerVariants & {
   onClose: () => void;
 };
 
-export const DrawerContext = createContext<DrawerContextProps>({
-  onClose: () => {},
-});
+const DrawerContext = createContext<DrawerContextProps | null>(null);
 
 type DrawerProps = DrawerVariants & {
   children: ReactNode;
@@ -34,3 +32,11 @@ const Drawer = ({
 };
 
 export default Drawer;
+
+export const useDrawerContext = () => {
+  const context = useContext(DrawerContext);
+  if (!context) {
+    throw new Error("There is no DrawerContext");
+  }
+  return context;
+};

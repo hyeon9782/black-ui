@@ -1,11 +1,11 @@
-import { ReactNode, useContext } from "react";
+import { ReactNode } from "react";
 import { drawerContent } from "./Drawer.css";
-import { DrawerContext } from "./Drawer";
+import { useDrawerContext } from "./Drawer";
 type Props = {
   children: ReactNode;
 };
 const DrawerContent = ({ children }: Props) => {
-  const { placement, isOpen } = useContext(DrawerContext);
+  const { placement, isOpen } = useDrawerContext();
 
   return <div className={drawerContent({ placement, isOpen })}>{children}</div>;
 };

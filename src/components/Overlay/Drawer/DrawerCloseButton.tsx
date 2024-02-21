@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { DrawerContext } from "./Drawer";
+import { useDrawerContext } from "./Drawer";
 import { CloseButton } from "@/components/Other/CloseButton";
 
 const DrawerCloseButton = () => {
-  const { onClose } = useContext(DrawerContext);
+  const { onClose } = useDrawerContext();
   return <CloseButton onClose={onClose} />;
 };
 

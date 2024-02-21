@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { ModalContext } from "./Modal";
+import { useModalContext } from "./Modal";
 import { CloseButton } from "@/components/Other/CloseButton";
 
 const ModalCloseButton = () => {
-  const { onClose } = useContext(ModalContext);
+  const { onClose } = useModalContext();
   return <CloseButton onClose={onClose} />;
 };
 

@@ -1,9 +1,8 @@
-import { useContext } from "react";
 import { drawerOverlay } from "./Drawer.css";
-import { DrawerContext } from "./Drawer";
+import { useDrawerContext } from "./Drawer";
 
 const DrawerOverlay = () => {
-  const { onClose } = useContext(DrawerContext);
+  const { onClose } = useDrawerContext();
   return <div className={drawerOverlay} onClick={onClose}></div>;
 };
 

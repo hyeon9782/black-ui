@@ -58,20 +58,3 @@ const Tabs = ({
 };
 
 export default Tabs;
-
-/*
-
-1. variant - line, enclosed, soft-rounded, solid-rounded, unstyled => O
-2. defaultIndex => O
-3. size - sm, md, lg => O
-4. align - start, center, end => O
-5. isFitted - container에 맞게 크기 채우기 => O
-6. onChange => O
-7. isDisabled => O
-8. aria roles => O
-9. 접근성 - arrowLeft, arrowRight, tab, home, end => O
-10. orientation => O
----------------------------------------------------------------------
-10. custom tab =>
-
-*/

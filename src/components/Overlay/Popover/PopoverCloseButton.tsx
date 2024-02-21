@@ -1,9 +1,8 @@
-import { useContext } from "react";
-import { PopoverContext } from "./Popover";
+import { usePopoverContext } from "./Popover";
 import { CloseButton } from "@/components/Other";
 
 const PopoverCloseButton = () => {
-  const { onClose } = useContext(PopoverContext);
+  const { onClose } = usePopoverContext();
   return <CloseButton onClose={onClose} />;
 };
 

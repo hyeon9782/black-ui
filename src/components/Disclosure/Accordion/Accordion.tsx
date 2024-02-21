@@ -65,16 +65,12 @@ const Accordion = ({
     handleOpenItem,
     handleCloseItem,
     handleResetItem,
-
     values,
-    refs,
   };
   return (
-    <div className={accordion}>
-      <AccordionContext.Provider value={value}>
-        {children}
-      </AccordionContext.Provider>
-    </div>
+    <AccordionContext.Provider value={value}>
+      <div className={accordion}>{children}</div>
+    </AccordionContext.Provider>
   );
 };
 
