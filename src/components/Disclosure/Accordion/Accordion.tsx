@@ -58,40 +58,26 @@ const Accordion = ({
     e: KeyboardEvent<HTMLButtonElement>,
     index: number,
   ) => {
-    console.log("나옴");
-    console.log(e);
-    console.log(index);
-
     const count = Children.count(children);
-
-    console.log(count);
-
-    if (e.key === "Home") {
-      // e.preventDefault();
-      refs.current[0].focus();
-      console.log("Home");
+    let nextIndex = 0;
+    switch (e.key) {
+      case "Home":
+        nextIndex = 0;
+        break;
+      case "End":
+        nextIndex = refs.current.length - 1;
+        break;
+      case "ArrowDown":
+        nextIndex = (index + 1) % count;
+        break;
+      case "ArrowUp":
+        nextIndex = (index - 1 + count) % count;
+        break;
+      default:
+        nextIndex = index;
     }
 
-    if (e.key === "End") {
-      // e.preventDefault();
-      const nextIndex = refs.current.length - 1;
-      refs.current[nextIndex].focus();
-      console.log("End");
-    }
-
-    if (e.key === "ArrowDown") {
-      // e.preventDefault();
-      const nextIndex = (index + 1) % count;
-      refs.current[nextIndex].focus();
-      console.log("Down");
-    }
-
-    if (e.key === "ArrowUp") {
-      // e.preventDefault();
-      const nextIndex = (index - 1 + count) % count;
-      refs.current[nextIndex].focus();
-      console.log("Up");
-    }
+    refs.current[nextIndex].focus();
   };
 
   const appendIndex = (index: number) => {
@@ -117,7 +103,6 @@ const Accordion = ({
     resetIndex,
     indexes,
     handleKeyDown,
-    // refs,
   };
   return (
     <div className={accordion}>
@@ -127,7 +112,6 @@ const Accordion = ({
             ? React.cloneElement(child, {
                 ...child.props,
                 index,
-                // handleKeyDown,
                 ref: (el: HTMLButtonElement) => addToRefs(el),
               })
             : child,
@@ -138,15 +122,3 @@ const Accordion = ({
 };
 
 export default Accordion;
-
-/*
-
-1. allowToggle => O
-2. allowMultiple => O
-3. defaultIndex => O
-4. onChange => O
-5. isDisabled => O
----------------TODO----------------------
-6. keyboard 이벤트 커스텀 훅으로 묶어서 적용
-
-*/
