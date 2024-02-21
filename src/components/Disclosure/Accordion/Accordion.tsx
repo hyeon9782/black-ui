@@ -3,6 +3,7 @@ import {
   KeyboardEvent,
   PropsWithChildren,
   createContext,
+  useCallback,
   useContext,
   useRef,
   useState,
@@ -32,6 +33,15 @@ export type AccordionProps = {
   defaultValue?: string | string[];
 };
 
+const ACCORDION_KEYS = [
+  "Home",
+  "End",
+  "ArrowDown",
+  "ArrowUp",
+  "ArrowLeft",
+  "ArrowRight",
+];
+
 const Accordion = ({
   children,
   allowMultiple,
@@ -44,18 +54,30 @@ const Accordion = ({
     : [defaultValue];
   const [values, setValues] = useState<string[]>(defaultValues || []);
 
-  const handleOpenItem = (value: string) => {
-    setValues((prevValues) => [...prevValues, value]);
-  };
+  const handleOpenItem = useCallback(
+    (value: string) => {
+      setValues((prevValues) => [...prevValues, value]);
+    },
+    [setValues],
+  );
 
-  const handleCloseItem = (value: string) => {
-    setValues((prevValues) =>
-      prevValues.filter((prevValue) => prevValue !== value),
-    );
-  };
+  const handleCloseItem = useCallback(
+    (value: string) => {
+      setValues((prevValues) =>
+        prevValues.filter((prevValue) => prevValue !== value),
+      );
+    },
+    [setValues],
+  );
 
-  const handleResetItem = () => {
+  const handleResetItem = useCallback(() => {
     setValues([]);
+  }, [setValues]);
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+    if (!ACCORDION_KEYS.includes(event.key)) return;
+    const target = event.target;
+    event.preventDefault();
   };
 
   const value = {
@@ -69,7 +91,9 @@ const Accordion = ({
   };
   return (
     <AccordionContext.Provider value={value}>
-      <div className={accordion}>{children}</div>
+      <div className={accordion} onKeyDown={handleKeyDown}>
+        {children}
+      </div>
     </AccordionContext.Provider>
   );
 };
