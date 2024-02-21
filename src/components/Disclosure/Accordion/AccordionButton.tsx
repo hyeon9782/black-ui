@@ -1,8 +1,9 @@
 import {
   ForwardedRef,
-  KeyboardEvent,
   PropsWithChildren,
   forwardRef,
+  useEffect,
+  useRef,
 } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
@@ -19,10 +20,27 @@ const AccordionButton = forwardRef(
       handleOpenItem,
       handleCloseItem,
       handleResetItem,
-      refs,
-      // handleKeyDown,
+      accordionRefs,
+      handleKeyDown,
       values,
     } = useAccordionContext();
+
+    const buttonRef = useRef<HTMLButtonElement>(null);
+
+    useEffect(() => {
+      if (buttonRef?.current && accordionRefs.current) {
+        accordionRefs?.current.push(buttonRef.current);
+        // setIndex(accordionRefs.current.indexOf(buttonRef?.current));
+        return () => {
+          if (buttonRef.current) {
+            const index = accordionRefs.current.indexOf(buttonRef?.current);
+            if (index !== -1) {
+              accordionRefs?.current.splice(index, 1);
+            }
+          }
+        };
+      }
+    }, [accordionRefs, buttonRef]);
 
     const { value, id } = useAccordionItemContext();
 
@@ -67,12 +85,12 @@ const AccordionButton = forwardRef(
 
     return (
       <button
-        ref={ref}
+        ref={buttonRef}
         role="button"
         aria-expanded={isInclude}
         aria-controls={id}
         aria-disabled={!allowToggle && !allowMultiple && isInclude}
-        // onKeyDown={(e) => handleKeyDown?.(e)}
+        onKeyDown={handleKeyDown}
         onClick={() => handleButtonClick(value)}
         className={button}
         // disabled={isDisabled}

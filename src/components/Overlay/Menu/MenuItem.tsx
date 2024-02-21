@@ -19,7 +19,7 @@ type MenuItemProps = {
 
 */
 
-const MenuKeybaord = ["ArrowDown", "ArrowUp", "Enter"];
+const MenuKeybaord = ["ArrowDown", "ArrowUp", "Enter", "Home", "End"];
 const MenuItem = forwardRef(
   (
     { children, onClick }: PropsWithChildren<MenuItemProps>,
@@ -62,21 +62,27 @@ const MenuItem = forwardRef(
       const menuItemCount = itemRefs?.current.length;
       e.preventDefault();
       let nextIndex = 0;
-      if (e.key === "ArrowDown") {
-        nextIndex = (index + 1) % menuItemCount;
-        itemRefs?.current[nextIndex].focus();
-      }
 
-      if (e.key === "ArrowUp") {
-        nextIndex = (index - 1 + menuItemCount) % menuItemCount;
-        itemRefs?.current[nextIndex].focus();
+      switch (e.key) {
+        case "ArrowDown":
+          nextIndex = (index + 1) % menuItemCount;
+          break;
+        case "ArrowUp":
+          nextIndex = (index - 1 + menuItemCount) % menuItemCount;
+          break;
+        case "Home":
+          nextIndex = 0;
+          break;
+        case "End":
+          nextIndex = menuItemCount - 1;
+          break;
       }
 
       if (e.key === "Enter") {
         handleClick();
         nextIndex = index;
       }
-
+      itemRefs?.current[nextIndex].focus();
       changeIndex(nextIndex);
     };
     return (

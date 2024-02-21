@@ -1,5 +1,4 @@
 import {
-  Children,
   KeyboardEvent,
   PropsWithChildren,
   createContext,
@@ -18,7 +17,8 @@ type AccordionContextProps = {
   handleCloseItem: (value: string) => void;
   handleResetItem: () => void;
   values: string[];
-  handleKeyDown?: (e: any, index: number) => void;
+  handleKeyDown: () => void;
+  accordionRefs: HTMLButtonElement[];
 };
 
 export const AccordionContext = createContext<AccordionContextProps | null>(
@@ -33,14 +33,7 @@ export type AccordionProps = {
   defaultValue?: string | string[];
 };
 
-const ACCORDION_KEYS = [
-  "Home",
-  "End",
-  "ArrowDown",
-  "ArrowUp",
-  "ArrowLeft",
-  "ArrowRight",
-];
+const ACCORDION_KEYS = ["Home", "End", "ArrowDown", "ArrowUp"];
 
 const Accordion = ({
   children,
@@ -53,6 +46,7 @@ const Accordion = ({
     ? defaultValue
     : [defaultValue];
   const [values, setValues] = useState<string[]>(defaultValues || []);
+  const accordionRefs = useRef<HTMLButtonElement[]>([]);
 
   const handleOpenItem = useCallback(
     (value: string) => {
@@ -76,8 +70,30 @@ const Accordion = ({
 
   const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     if (!ACCORDION_KEYS.includes(event.key)) return;
-    const target = event.target;
+    const length = accordionRefs.current.length;
+    const target = event.target as HTMLButtonElement;
+    const currentIndex = accordionRefs.current.indexOf(target);
+
     event.preventDefault();
+
+    let nextIndex = 0;
+
+    switch (event.key) {
+      case "ArrowDown":
+        nextIndex = (currentIndex + 1) % length;
+        break;
+      case "ArrowUp":
+        nextIndex = (currentIndex - 1 + length) % length;
+        break;
+      case "Home":
+        nextIndex = 0;
+        break;
+      case "End":
+        nextIndex = accordionRefs.current.length - 1;
+        break;
+    }
+
+    accordionRefs.current[nextIndex].focus();
   };
 
   const value = {
@@ -87,13 +103,13 @@ const Accordion = ({
     handleOpenItem,
     handleCloseItem,
     handleResetItem,
+    handleKeyDown,
+    accordionRefs,
     values,
   };
   return (
     <AccordionContext.Provider value={value}>
-      <div className={accordion} onKeyDown={handleKeyDown}>
-        {children}
-      </div>
+      <div className={accordion}>{children}</div>
     </AccordionContext.Provider>
   );
 };
