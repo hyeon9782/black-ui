@@ -1,8 +1,8 @@
 import {
-  Children,
   KeyboardEvent,
   PropsWithChildren,
   createContext,
+  useCallback,
   useContext,
   useRef,
   useState,
@@ -17,7 +17,8 @@ type AccordionContextProps = {
   handleCloseItem: (value: string) => void;
   handleResetItem: () => void;
   values: string[];
-  handleKeyDown?: (e: any, index: number) => void;
+  handleKeyDown: () => void;
+  accordionRefs: HTMLButtonElement[];
 };
 
 export const AccordionContext = createContext<AccordionContextProps | null>(
@@ -32,6 +33,8 @@ export type AccordionProps = {
   defaultValue?: string | string[];
 };
 
+const ACCORDION_KEYS = ["Home", "End", "ArrowDown", "ArrowUp"];
+
 const Accordion = ({
   children,
   allowMultiple,
@@ -43,19 +46,54 @@ const Accordion = ({
     ? defaultValue
     : [defaultValue];
   const [values, setValues] = useState<string[]>(defaultValues || []);
+  const accordionRefs = useRef<HTMLButtonElement[]>([]);
 
-  const handleOpenItem = (value: string) => {
-    setValues((prevValues) => [...prevValues, value]);
-  };
+  const handleOpenItem = useCallback(
+    (value: string) => {
+      setValues((prevValues) => [...prevValues, value]);
+    },
+    [setValues],
+  );
 
-  const handleCloseItem = (value: string) => {
-    setValues((prevValues) =>
-      prevValues.filter((prevValue) => prevValue !== value),
-    );
-  };
+  const handleCloseItem = useCallback(
+    (value: string) => {
+      setValues((prevValues) =>
+        prevValues.filter((prevValue) => prevValue !== value),
+      );
+    },
+    [setValues],
+  );
 
-  const handleResetItem = () => {
+  const handleResetItem = useCallback(() => {
     setValues([]);
+  }, [setValues]);
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+    if (!ACCORDION_KEYS.includes(event.key)) return;
+    const length = accordionRefs.current.length;
+    const target = event.target as HTMLButtonElement;
+    const currentIndex = accordionRefs.current.indexOf(target);
+
+    event.preventDefault();
+
+    let nextIndex = 0;
+
+    switch (event.key) {
+      case "ArrowDown":
+        nextIndex = (currentIndex + 1) % length;
+        break;
+      case "ArrowUp":
+        nextIndex = (currentIndex - 1 + length) % length;
+        break;
+      case "Home":
+        nextIndex = 0;
+        break;
+      case "End":
+        nextIndex = accordionRefs.current.length - 1;
+        break;
+    }
+
+    accordionRefs.current[nextIndex].focus();
   };
 
   const value = {
@@ -65,6 +103,8 @@ const Accordion = ({
     handleOpenItem,
     handleCloseItem,
     handleResetItem,
+    handleKeyDown,
+    accordionRefs,
     values,
   };
   return (
