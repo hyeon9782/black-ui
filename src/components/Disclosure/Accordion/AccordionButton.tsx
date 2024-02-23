@@ -28,14 +28,13 @@ const AccordionButton = forwardRef(
     const buttonRef = useRef<HTMLButtonElement>(null);
 
     useEffect(() => {
-      if (buttonRef?.current && accordionRefs.current) {
-        accordionRefs?.current.push(buttonRef.current);
-        // setIndex(accordionRefs.current.indexOf(buttonRef?.current));
+      if (buttonRef?.current && accordionRefs?.current) {
+        accordionRefs.current.push(buttonRef.current);
         return () => {
-          if (buttonRef.current) {
-            const index = accordionRefs.current.indexOf(buttonRef?.current);
+          if (buttonRef.current && accordionRefs.current) {
+            const index = accordionRefs.current.indexOf(buttonRef.current);
             if (index !== -1) {
-              accordionRefs?.current.splice(index, 1);
+              accordionRefs.current.splice(index, 1);
             }
           }
         };

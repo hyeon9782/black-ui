@@ -30,6 +30,9 @@ import {
 } from "./Overlay/Modal";
 import { Button, Radio, RadioGroup } from "./Form";
 import { useState } from "react";
+import TooltipTrigger from "./Overlay/Tooltip/TooltipTrigger";
+import TooltipContent from "./Overlay/Tooltip/TooltipContent";
+import TooltipArrow from "./Overlay/Tooltip/TooltipArrow";
 
 type placement = "right" | "left" | "top" | "bottom";
 const OverlayArea = () => {
@@ -148,8 +151,13 @@ const OverlayArea = () => {
 
       <fieldset className={container}>
         <legend>Tooltip</legend>
-        <Tooltip label="Hover me">
-          <Button>Tooltip 나와라!</Button>
+        <Tooltip>
+          <TooltipTrigger>
+            <Button>Tooltip 나와라!</Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Tooltip입니다.</p>
+          </TooltipContent>
         </Tooltip>
       </fieldset>
     </div>
