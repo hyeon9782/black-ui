@@ -2,13 +2,13 @@ import {
   ChangeEvent,
   ForwardedRef,
   KeyboardEvent,
+  Ref,
   forwardRef,
-  useEffect,
-  useRef,
   useState,
 } from "react";
 import { usePinInputContext } from "./PinInput";
 import { field } from "./PinInput.css";
+import useCollectRefs from "@/hooks/useCollectRefs";
 type PinInputProps = {
   isDisabled?: boolean;
 };
@@ -20,23 +20,14 @@ const PinInputField = forwardRef(
   ) => {
     const { mask, size, otp, handleFocus, inputRefs, ...rest } =
       usePinInputContext();
-    const inputRef = useRef<HTMLInputElement>(null);
+
     const [index, setIndex] = useState(-1);
 
-    useEffect(() => {
-      if (inputRef?.current && inputRefs?.current) {
-        inputRefs.current.push(inputRef.current);
-        setIndex(inputRefs.current.indexOf(inputRef.current));
-        return () => {
-          if (inputRef.current && inputRefs.current) {
-            const index = inputRefs.current.indexOf(inputRef.current);
-            if (index !== -1) {
-              inputRefs.current.splice(index, 1);
-            }
-          }
-        };
-      }
-    }, []);
+    const setter = (index: number) => {
+      setIndex(index);
+    };
+
+    const { ref: inputRef } = useCollectRefs({ refs: inputRefs, setter });
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
       const value = e.target.value;
@@ -58,7 +49,7 @@ const PinInputField = forwardRef(
     return (
       <input
         aria-label="Please enter your pin code"
-        ref={inputRef}
+        ref={inputRef as Ref<HTMLInputElement>}
         disabled={isDisabled}
         type={mask ? "password" : "text"}
         className={field({ size })}

@@ -1,32 +1,33 @@
 import {
+  KeyboardEvent,
   MutableRefObject,
   PropsWithChildren,
   createContext,
   useContext,
-  useRef,
   useState,
 } from "react";
 import { menu, MenuVariants } from "./Menu.css";
 import { useOutsideClick } from "@/hooks";
+import useKeyboardEvent from "@/hooks/useKeyboardEvent";
 
 type MenuContextProps = MenuVariants & {
   toggleMenu: () => void;
   isVisible: boolean;
   currentIndex: number;
   changeIndex: (index: number) => void;
-  itemRefs?: MutableRefObject<HTMLDivElement[]>;
+  itemRefs: MutableRefObject<HTMLElement[]>;
+  handleKeyDown: (e: KeyboardEvent<HTMLElement>, callback?: () => void) => void;
 };
 
 const MenuContext = createContext<MenuContextProps | null>(null);
 
+const MenuKeybaord = ["ArrowDown", "ArrowUp", "Enter", "Home", "End"];
 const Menu = ({
   children,
   variant,
   ...props
 }: PropsWithChildren<MenuVariants>) => {
   const [isVisible, setIsVisible] = useState(false);
-
-  const itemRefs = useRef<HTMLDivElement[]>([]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -45,6 +46,11 @@ const Menu = ({
     setCurrentIndex(index);
   };
 
+  const { refs: itemRefs, handleKeyDown } = useKeyboardEvent({
+    keyList: MenuKeybaord,
+    changeIndex: changeIndex,
+  });
+
   const value = {
     isVisible,
     toggleMenu,
@@ -52,6 +58,7 @@ const Menu = ({
     changeIndex,
     itemRefs,
     variant,
+    handleKeyDown,
   };
 
   return (

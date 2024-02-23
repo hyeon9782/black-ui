@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import Tooltip from "./Tooltip";
 import { Button } from "@/components/Form";
+import TooltipTrigger from "./TooltipTrigger";
+import TooltipContent from "./TooltipContent";
 
 const meta = {
   title: "Component/Overlay/Tooltip",
@@ -26,10 +28,22 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const Component = (args: any) => {
+  return (
+    <Tooltip {...args}>
+      <TooltipTrigger>
+        <Button>Tooltip</Button>
+      </TooltipTrigger>
+      <TooltipContent>
+        <p>Tooltip 입니다.</p>
+      </TooltipContent>
+    </Tooltip>
+  );
+};
+
 export const Bottom: Story = {
   args: {
-    children: <Button>Tooltip</Button>,
-    label: "Tooltip 입니다!",
     bg: "black",
   },
+  render: Component,
 };

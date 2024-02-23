@@ -5,10 +5,10 @@ import {
   createContext,
   useCallback,
   useContext,
-  useRef,
   useState,
 } from "react";
 import { accordion } from "./Accordion.css";
+import useKeyboardEvent from "@/hooks/useKeyboardEvent";
 
 type AccordionContextProps = {
   allowToggle?: boolean;
@@ -18,8 +18,8 @@ type AccordionContextProps = {
   handleCloseItem: (value: string) => void;
   handleResetItem: () => void;
   values: string[];
-  handleKeyDown: () => void;
-  accordionRefs: RefObject<HTMLButtonElement[]>;
+  handleKeyDown: (e: KeyboardEvent<HTMLElement>, callback?: () => void) => void;
+  accordionRefs: RefObject<HTMLElement[]>;
 };
 
 export const AccordionContext = createContext<AccordionContextProps | null>(
@@ -47,7 +47,10 @@ const Accordion = ({
     ? defaultValue
     : [defaultValue];
   const [values, setValues] = useState<string[]>(defaultValues || []);
-  const accordionRefs = useRef<HTMLButtonElement[]>([]);
+
+  const { refs: accordionRefs, handleKeyDown } = useKeyboardEvent({
+    keyList: ACCORDION_KEYS,
+  });
 
   const handleOpenItem = useCallback(
     (value: string) => {
@@ -68,34 +71,6 @@ const Accordion = ({
   const handleResetItem = useCallback(() => {
     setValues([]);
   }, [setValues]);
-
-  const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
-    if (!ACCORDION_KEYS.includes(event.key)) return;
-    const length = accordionRefs.current.length;
-    const target = event.target as HTMLButtonElement;
-    const currentIndex = accordionRefs.current.indexOf(target);
-
-    event.preventDefault();
-
-    let nextIndex = 0;
-
-    switch (event.key) {
-      case "ArrowDown":
-        nextIndex = (currentIndex + 1) % length;
-        break;
-      case "ArrowUp":
-        nextIndex = (currentIndex - 1 + length) % length;
-        break;
-      case "Home":
-        nextIndex = 0;
-        break;
-      case "End":
-        nextIndex = accordionRefs.current.length - 1;
-        break;
-    }
-
-    accordionRefs.current[nextIndex].focus();
-  };
 
   const value = {
     onChange,
