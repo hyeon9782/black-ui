@@ -1,15 +1,10 @@
-import {
-  ForwardedRef,
-  PropsWithChildren,
-  forwardRef,
-  useEffect,
-  useRef,
-} from "react";
+import { ForwardedRef, PropsWithChildren, Ref, forwardRef } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 import { useAccordionContext } from "./Accordion";
 import { button } from "./Accordion.css";
 import { useAccordionItemContext } from "./AccordionItem";
+import useCollectRefs from "@/hooks/useCollectRefs";
 
 const AccordionButton = forwardRef(
   ({ children }: PropsWithChildren, ref: ForwardedRef<HTMLButtonElement>) => {
@@ -25,21 +20,7 @@ const AccordionButton = forwardRef(
       values,
     } = useAccordionContext();
 
-    const buttonRef = useRef<HTMLButtonElement>(null);
-
-    useEffect(() => {
-      if (buttonRef?.current && accordionRefs?.current) {
-        accordionRefs.current.push(buttonRef.current);
-        return () => {
-          if (buttonRef.current && accordionRefs.current) {
-            const index = accordionRefs.current.indexOf(buttonRef.current);
-            if (index !== -1) {
-              accordionRefs.current.splice(index, 1);
-            }
-          }
-        };
-      }
-    }, [accordionRefs, buttonRef]);
+    const { ref: buttonRef } = useCollectRefs({ refs: accordionRefs });
 
     const { value, id } = useAccordionItemContext();
 
@@ -84,7 +65,7 @@ const AccordionButton = forwardRef(
 
     return (
       <button
-        ref={buttonRef}
+        ref={buttonRef as Ref<HTMLButtonElement>}
         role="button"
         aria-expanded={isInclude}
         aria-controls={id}

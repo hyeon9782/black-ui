@@ -1,13 +1,13 @@
 import {
   ForwardedRef,
   PropsWithChildren,
+  Ref,
   forwardRef,
-  useEffect,
-  useRef,
   useState,
 } from "react";
 import { useMenuContext } from "./Menu";
 import { item } from "./Menu.css";
+import useCollectRefs from "@/hooks/useCollectRefs";
 type MenuItemProps = {
   onClick?: () => void;
 };
@@ -26,23 +26,13 @@ const MenuItem = forwardRef(
     const { toggleMenu, currentIndex, changeIndex, handleKeyDown, itemRefs } =
       useMenuContext();
 
-    const itemRef = useRef<HTMLDivElement>(null);
     const [index, setIndex] = useState(-1);
 
-    useEffect(() => {
-      if (itemRef?.current && itemRefs?.current) {
-        itemRefs?.current.push(itemRef.current);
-        setIndex(itemRefs.current.indexOf(itemRef?.current));
-        return () => {
-          if (itemRef.current) {
-            const index = itemRefs.current.indexOf(itemRef?.current);
-            if (index !== -1) {
-              itemRefs?.current.splice(index, 1);
-            }
-          }
-        };
-      }
-    }, [itemRefs, itemRef]);
+    const setter = (index: number) => {
+      setIndex(index);
+    };
+
+    const { ref: itemRef } = useCollectRefs({ refs: itemRefs, setter });
 
     const handleClick = () => {
       if (onClick) {
@@ -57,7 +47,7 @@ const MenuItem = forwardRef(
 
     return (
       <div
-        ref={itemRef}
+        ref={itemRef as Ref<HTMLDivElement>}
         tabIndex={0}
         onClick={handleClick}
         onKeyDown={(e) => handleKeyDown(e, handleClick)}

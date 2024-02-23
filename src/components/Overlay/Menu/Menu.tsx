@@ -15,7 +15,7 @@ type MenuContextProps = MenuVariants & {
   isVisible: boolean;
   currentIndex: number;
   changeIndex: (index: number) => void;
-  itemRefs?: MutableRefObject<HTMLElement[]>;
+  itemRefs: MutableRefObject<HTMLElement[]>;
   handleKeyDown: (e: KeyboardEvent<HTMLElement>, callback?: () => void) => void;
 };
 
