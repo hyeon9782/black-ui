@@ -14,8 +14,6 @@ const useKeyboardEvent = ({ keyList, changeIndex }: UseKeybaordEvent) => {
   ) => {
     if (!keyList.includes(event.key)) return;
 
-    console.log("키보드");
-
     const length = refs.current.length;
     const target = event.target as HTMLElement;
     const currentIndex = refs.current.indexOf(target);

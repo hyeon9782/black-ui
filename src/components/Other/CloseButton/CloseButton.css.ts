@@ -9,7 +9,7 @@ export const close = recipe({
       borderStyle: "none",
       padding: "0",
     }),
-    { top: 10, right: 10 },
+    { top: 10, right: 10, backgroundColor: "inherit", color: "inherit" },
   ],
   variants: {
     size: {

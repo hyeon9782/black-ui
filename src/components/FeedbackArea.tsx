@@ -86,9 +86,9 @@ const FeedbackArea = () => {
         <Button
           onClick={() =>
             openToast({
-              title: "Success",
-              description: "설명입니다.",
-              status: "success",
+              title: "Scheduled: Catch up ",
+              description: "Friday, February 10, 2023 at 5:57 PM",
+              status: "info",
               position: "topLeft",
             })
           }

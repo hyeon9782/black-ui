@@ -1,6 +1,6 @@
 import { sprinkles } from "@/css/sprinkles.css";
 import { vars } from "@/css/vars.css";
-import { keyframes } from "@vanilla-extract/css";
+import { createVar, keyframes, style } from "@vanilla-extract/css";
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
 const slideTop = keyframes({
@@ -61,8 +61,8 @@ export const toast = recipe({
     color: "white",
     fontWeight: "bold",
     opacity: 50,
-    borderRadius: vars.radii.lg,
-    padding: "10px 20px",
+    borderRadius: vars.radii.md,
+    padding: "10px",
     animation: `${slideTop} 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
   },
   variants: {
@@ -70,17 +70,50 @@ export const toast = recipe({
       success: sprinkles({
         backgroundColor: "statusSuccess",
       }),
-      error: sprinkles({
+      warning: sprinkles({
+        backgroundColor: "statusWarning",
+      }),
+      danger: sprinkles({
         backgroundColor: "statusDanger",
       }),
-      loading: sprinkles({
+      info: sprinkles({
         backgroundColor: "statusInfo",
       }),
     },
   },
   defaultVariants: {
-    status: "error",
+    status: "success",
   },
+});
+
+export const titleBox = sprinkles({
+  fontSize: "2",
+});
+
+export const descriptionBox = sprinkles({
+  fontSize: "0",
+});
+
+export const icon = sprinkles({
+  display: "flex",
+  alignItems: "center",
+  fontSize: "10",
+});
+
+const progressBar = keyframes({
+  "0%": { width: "100%" },
+  "100%": { width: "0" },
+});
+
+export const time = createVar();
+
+export const progress = style({
+  position: "absolute",
+  left: 0,
+  bottom: 0,
+  height: 5,
+  backgroundColor: vars.colors.opacityWhite400,
+  animation: `${progressBar} ${time} linear`,
 });
 
 export type ToastVariants = RecipeVariants<typeof toast>;
