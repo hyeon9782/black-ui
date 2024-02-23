@@ -1,80 +1,76 @@
 import {
-  ReactNode,
-  Children,
-  isValidElement,
-  cloneElement,
   useRef,
   KeyboardEvent,
+  PropsWithChildren,
+  createContext,
+  useContext,
+  RefObject,
 } from "react";
 import { tabList } from "./Tabs.css";
 import { useTabsContext } from "./Tabs";
 
-type TabListProps = {
-  children: ReactNode;
+type TabListContextProps = {
+  handleKeyDown: (e: KeyboardEvent<HTMLButtonElement>) => void;
+  tabRefs: RefObject<HTMLButtonElement[]>;
 };
 
-const TabList = ({ children }: TabListProps) => {
+const TabListContext = createContext<TabListContextProps | null>(null);
+
+const TabsKeyboard = ["Home", "End", "ArrowRight", "ArrowLeft", "Tab"];
+
+const TabList = ({ children }: PropsWithChildren) => {
   const tabRefs = useRef<HTMLButtonElement[]>([]);
   const { align, variant, changeTab, orientation } = useTabsContext();
 
-  const addToRefs = (el: HTMLButtonElement) => {
-    if (el && !tabRefs.current.includes(el)) {
-      tabRefs.current.push(el);
-    }
-  };
+  const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
+    if (!TabsKeyboard.includes(e.key)) return;
+    const count = tabRefs.current.length;
+    const target = e.target as HTMLButtonElement;
+    const currentIndex = tabRefs.current.indexOf(target);
 
-  const handleKeyDown = (
-    e: KeyboardEvent<HTMLButtonElement>,
-    index: number,
-  ) => {
-    const count = Children.count(children);
+    e.preventDefault();
 
-    if (e.key === "Tab" && index < tabRefs.current.length - 1) {
-      changeTab(index + 1);
+    let nextIndex = 0;
+
+    if (e.key === "Tab" && currentIndex < tabRefs.current.length - 1) {
+      nextIndex = currentIndex + 1;
     }
 
     if (e.key === "Home") {
-      e.preventDefault();
-      tabRefs.current[0].focus();
-      changeTab(0);
+      nextIndex = 0;
     }
 
     if (e.key === "End") {
-      e.preventDefault();
-      const nextIndex = tabRefs.current.length - 1;
-      tabRefs.current[nextIndex].focus();
-      changeTab(nextIndex);
+      nextIndex = tabRefs.current.length - 1;
     }
 
     if (e.key === "ArrowRight") {
-      e.preventDefault();
-      const nextIndex = (index + 1) % count;
-      tabRefs.current[nextIndex].focus();
-      changeTab(nextIndex);
+      nextIndex = (currentIndex + 1) % count;
     }
 
     if (e.key === "ArrowLeft") {
-      e.preventDefault();
-      const nextIndex = (index - 1 + count) % count;
-      tabRefs.current[nextIndex].focus();
-      changeTab(nextIndex);
+      nextIndex = (currentIndex - 1 + count) % count;
     }
+
+    tabRefs.current[nextIndex].focus();
+    changeTab(nextIndex);
   };
 
   return (
-    <div className={tabList({ align, variant, orientation })} role="tablist">
-      {Children.map(children, (child, index) =>
-        isValidElement(child)
-          ? cloneElement(child, {
-              ...child.props,
-              index,
-              ref: (el: HTMLButtonElement) => addToRefs(el),
-              handleKeyDown,
-            })
-          : child,
-      )}
-    </div>
+    <TabListContext.Provider value={{ handleKeyDown, tabRefs }}>
+      <div className={tabList({ align, variant, orientation })} role="tablist">
+        {children}
+      </div>
+    </TabListContext.Provider>
   );
 };
 
 export default TabList;
+
+export const useTabListContext = () => {
+  const context = useContext(TabListContext);
+  if (!context) {
+    throw new Error("Error");
+  }
+  return context;
+};
