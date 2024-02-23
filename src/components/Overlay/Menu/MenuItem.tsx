@@ -1,6 +1,5 @@
 import {
   ForwardedRef,
-  KeyboardEvent,
   PropsWithChildren,
   forwardRef,
   useEffect,
@@ -19,13 +18,12 @@ type MenuItemProps = {
 
 */
 
-const MenuKeybaord = ["ArrowDown", "ArrowUp", "Enter", "Home", "End"];
 const MenuItem = forwardRef(
   (
     { children, onClick }: PropsWithChildren<MenuItemProps>,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    const { toggleMenu, currentIndex, changeIndex, itemRefs } =
+    const { toggleMenu, currentIndex, changeIndex, handleKeyDown, itemRefs } =
       useMenuContext();
 
     const itemRef = useRef<HTMLDivElement>(null);
@@ -57,40 +55,12 @@ const MenuItem = forwardRef(
       changeIndex(index);
     };
 
-    const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
-      if (!MenuKeybaord.includes(e.key) || !itemRefs?.current) return;
-      const menuItemCount = itemRefs?.current.length;
-      e.preventDefault();
-      let nextIndex = 0;
-
-      switch (e.key) {
-        case "ArrowDown":
-          nextIndex = (index + 1) % menuItemCount;
-          break;
-        case "ArrowUp":
-          nextIndex = (index - 1 + menuItemCount) % menuItemCount;
-          break;
-        case "Home":
-          nextIndex = 0;
-          break;
-        case "End":
-          nextIndex = menuItemCount - 1;
-          break;
-      }
-
-      if (e.key === "Enter") {
-        handleClick();
-        nextIndex = index;
-      }
-      itemRefs?.current[nextIndex].focus();
-      changeIndex(nextIndex);
-    };
     return (
       <div
         ref={itemRef}
         tabIndex={0}
         onClick={handleClick}
-        onKeyDown={handleKeyDown}
+        onKeyDown={(e) => handleKeyDown(e, handleClick)}
         onMouseEnter={handleMouse}
         className={item({ selected: index === currentIndex })}
       >
