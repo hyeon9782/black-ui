@@ -1,6 +1,7 @@
 import {
   KeyboardEvent,
   PropsWithChildren,
+  RefObject,
   createContext,
   useCallback,
   useContext,
@@ -18,7 +19,7 @@ type AccordionContextProps = {
   handleResetItem: () => void;
   values: string[];
   handleKeyDown: () => void;
-  accordionRefs: HTMLButtonElement[];
+  accordionRefs: RefObject<HTMLButtonElement[]>;
 };
 
 export const AccordionContext = createContext<AccordionContextProps | null>(

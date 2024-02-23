@@ -1,17 +1,32 @@
-import React, { ReactNode } from "react";
-type Props = {
-  children: ReactNode;
+import {
+  PropsWithChildren,
+  RefObject,
+  createContext,
+  useContext,
+  useRef,
+} from "react";
+
+type TabPanelsContextProps = {
+  panelRefs: RefObject<HTMLDivElement[]>;
 };
-const TabPanels = ({ children }: Props) => {
+
+const TabPanelsContext = createContext<TabPanelsContextProps | null>(null);
+
+const TabPanels = ({ children }: PropsWithChildren) => {
+  const panelRefs = useRef([]);
   return (
-    <div role="tabpanel">
-      {React.Children.map(children, (child, index) =>
-        React.isValidElement(child)
-          ? React.cloneElement(child, { ...child.props, index })
-          : child,
-      )}
-    </div>
+    <TabPanelsContext.Provider value={{ panelRefs }}>
+      <div role="tabpanel">{children}</div>
+    </TabPanelsContext.Provider>
   );
 };
 
 export default TabPanels;
+
+export const useTabPanelsContext = () => {
+  const context = useContext(TabPanelsContext);
+  if (!context) {
+    throw new Error("Error");
+  }
+  return context;
+};

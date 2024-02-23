@@ -1,11 +1,29 @@
-import { ReactNode, cloneElement, isValidElement } from "react";
-import { TooltipVariants, tooltip, wrap } from "./Tooltip.css";
+import {
+  ForwardedRef,
+  PropsWithChildren,
+  createContext,
+  useContext,
+} from "react";
+import { TooltipVariants, wrap } from "./Tooltip.css";
 import { usePopper } from "@/hooks";
-type TooltipProps = TooltipVariants & {
-  children: ReactNode;
-  label: string;
+
+type TooltipContexProps = TooltipVariants & {
+  triggerRef: ForwardedRef<HTMLDivElement>;
+  tooltipRef: ForwardedRef<HTMLDivElement>;
+  contentPosition: {
+    top: number;
+    left: number;
+  };
+  isOpen: boolean;
 };
-const Tooltip = ({ children, label, bg, ...props }: TooltipProps) => {
+
+const TooltipContext = createContext<TooltipContexProps | null>(null);
+
+const Tooltip = ({
+  children,
+  bg,
+  ...props
+}: PropsWithChildren<TooltipVariants>) => {
   const {
     isOpen,
     onOpen,
@@ -16,33 +34,27 @@ const Tooltip = ({ children, label, bg, ...props }: TooltipProps) => {
   } = usePopper();
 
   return (
-    <div
-      className={wrap}
-      onPointerEnter={onOpen}
-      onPointerLeave={onClose}
-      {...props}
+    <TooltipContext.Provider
+      value={{ triggerRef, tooltipRef, contentPosition, isOpen }}
     >
-      {isValidElement(children)
-        ? cloneElement(children, {
-            ...children.props,
-            ref: triggerRef,
-          })
-        : children}
-      {
-        <div
-          ref={tooltipRef}
-          style={{
-            position: "absolute",
-            top: `${contentPosition.top}px`,
-            left: `${contentPosition.left}px`,
-          }}
-          className={tooltip({ isOpen, bg })}
-        >
-          {label}
-        </div>
-      }
-    </div>
+      <div
+        className={wrap}
+        onPointerEnter={onOpen}
+        onPointerLeave={onClose}
+        {...props}
+      >
+        {children}
+      </div>
+    </TooltipContext.Provider>
   );
 };
 
 export default Tooltip;
+
+export const useTooltipContext = () => {
+  const context = useContext(TooltipContext);
+  if (!context) {
+    throw new Error("There is no TooltipContext");
+  }
+  return context;
+};

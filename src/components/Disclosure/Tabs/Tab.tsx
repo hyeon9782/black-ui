@@ -1,19 +1,27 @@
-import { ForwardedRef, KeyboardEvent, ReactNode, forwardRef } from "react";
+import {
+  ForwardedRef,
+  ReactNode,
+  forwardRef,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { useTabsContext } from "./Tabs";
 import { tab } from "./Tabs.css";
+import { useTabListContext } from "./TabList";
 type Props = {
   children: ReactNode;
-  index?: number;
   isDisabled?: boolean;
-  handleKeyDown?: (e: KeyboardEvent<HTMLButtonElement>, index: number) => void;
 };
 const Tab = forwardRef(
-  (
-    { children, isDisabled, index = 0, handleKeyDown = () => {} }: Props,
-    ref: ForwardedRef<HTMLButtonElement>,
-  ) => {
+  ({ children, isDisabled }: Props, ref: ForwardedRef<HTMLButtonElement>) => {
     const { changeTab, currentTab, size, onChange, isFitted, variant } =
       useTabsContext();
+
+    const tabRef = useRef<HTMLButtonElement>(null);
+
+    const { tabRefs, handleKeyDown } = useTabListContext();
+    const [index, setIndex] = useState(-1);
 
     const handleClick = () => {
       if (onChange) {
@@ -21,12 +29,28 @@ const Tab = forwardRef(
       }
       changeTab(index);
     };
+
+    useEffect(() => {
+      if (tabRef?.current && tabRefs?.current) {
+        tabRefs.current.push(tabRef.current);
+        setIndex(tabRefs.current.indexOf(tabRef.current));
+        return () => {
+          if (tabRef.current && tabRefs.current) {
+            const index = tabRefs.current.indexOf(tabRef.current);
+            if (index !== -1) {
+              tabRefs.current.splice(index, 1);
+            }
+          }
+        };
+      }
+    }, []);
+
     return (
       <button
-        ref={ref}
+        ref={tabRef}
         onClick={handleClick}
         role="tab"
-        onKeyDown={(e) => handleKeyDown(e, index)}
+        onKeyDown={handleKeyDown}
         aria-selected={index === currentTab}
         disabled={isDisabled}
         className={tab({
