@@ -117,3 +117,5 @@ export const progress = style({
 });
 
 export type ToastVariants = RecipeVariants<typeof toast>;
+
+export type ListVariants = RecipeVariants<typeof wrap>;

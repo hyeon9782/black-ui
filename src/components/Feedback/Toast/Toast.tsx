@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import {
+  ListVariants,
   ToastVariants,
   descriptionBox,
   icon,
@@ -13,16 +14,16 @@ import { CiCircleCheck, CiCircleInfo, CiWarning } from "react-icons/ci";
 import { MdOutlineDangerous } from "react-icons/md";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
 import { CloseButton } from "@/components/Other";
-export type Toast = ToastVariants & {
-  id?: string;
-  title: string;
-  description: string;
-  duration?: number;
-  position?: string;
-};
+export type Toast = ToastVariants &
+  ListVariants & {
+    id?: string;
+    title: string;
+    description: string;
+    duration?: number;
+  };
 const Toast = ({
   title,
-  duration = 300000,
+  duration = 3000,
   description,
   status,
   id = "",

@@ -2,6 +2,7 @@ import {
   PropsWithChildren,
   RefObject,
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useRef,
@@ -38,7 +39,7 @@ const PinInput = ({
   const inputRefs = useRef<HTMLInputElement[]>([]);
 
   // 포커스 이동 함수
-  const handleFocus = (index: number, value: string) => {
+  const handleFocus = useCallback((index: number, value: string) => {
     if (
       !value &&
       index === inputRefs.current.length - 1 &&
@@ -55,7 +56,7 @@ const PinInput = ({
     if (!value && index > 0 && inputRefs.current[index - 1]) {
       inputRefs.current[index - 1].focus();
     }
-  };
+  }, []);
 
   useEffect(() => {
     if (inputRefs && autoFocus) {

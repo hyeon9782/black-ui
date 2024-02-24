@@ -25,7 +25,7 @@ const ToastProvider = ({ children }: Props) => {
   const memoizedToasts = useMemo(() => toasts, [toasts]);
   const id = useId();
 
-  const open = ({ title, description, duration, status }: Toast) => {
+  const open = ({ title, description, duration, status, position }: Toast) => {
     setToasts((prevToasts) => [
       ...prevToasts,
       {
@@ -34,6 +34,7 @@ const ToastProvider = ({ children }: Props) => {
         description,
         duration,
         status,
+        position,
       },
     ]);
   };
