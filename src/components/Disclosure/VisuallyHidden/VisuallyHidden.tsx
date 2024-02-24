@@ -1,4 +1,4 @@
-import * as React from "react";
+import { PropsWithChildren } from "react";
 import { visuallyHidden } from "./VisuallyHidden.css";
 
 type Props = {
@@ -9,7 +9,7 @@ export const VisuallyHidden = ({
   as = "div",
   children,
   ...props
-}: React.PropsWithChildren<Props>) => {
+}: PropsWithChildren<Props>) => {
   return (
     <div className={visuallyHidden} {...props}>
       {children}

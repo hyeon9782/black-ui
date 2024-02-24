@@ -1,9 +1,6 @@
-import { ReactNode } from "react";
+import { PropsWithChildren } from "react";
 
-type Props = {
-  children: ReactNode;
-};
-const ModalBody = ({ children }: Props) => {
+const ModalBody = ({ children }: PropsWithChildren) => {
   return <div>{children}</div>;
 };
 

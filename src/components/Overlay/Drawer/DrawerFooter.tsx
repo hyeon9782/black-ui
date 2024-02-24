@@ -1,8 +1,6 @@
-import { ReactNode } from "react";
-type Props = {
-  children: ReactNode;
-};
-const DrawerFooter = ({ children }: Props) => {
+import { PropsWithChildren } from "react";
+
+const DrawerFooter = ({ children }: PropsWithChildren) => {
   return <div>{children}</div>;
 };
 

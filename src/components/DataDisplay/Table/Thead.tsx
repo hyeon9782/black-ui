@@ -1,6 +1,6 @@
-import { ChildrenProps } from "@/types";
+import { PropsWithChildren } from "react";
 
-const Thead = ({ children }: ChildrenProps) => {
+const Thead = ({ children }: PropsWithChildren) => {
   return <thead>{children}</thead>;
 };
 

@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { PropsWithChildren } from "react";
 import {
   skeletonBackground,
   skeletonHeight,
@@ -12,7 +12,6 @@ type SkeletonProps = {
   width: string;
   height: string;
   radius: string;
-  children?: ReactNode;
   background: string;
 };
 
@@ -23,7 +22,7 @@ const Skeleton = ({
   children,
   background,
   ...props
-}: SkeletonProps) => {
+}: PropsWithChildren<SkeletonProps>) => {
   return (
     <div
       className={skeletonPlaceholder}

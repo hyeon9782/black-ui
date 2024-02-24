@@ -1,9 +1,7 @@
-import { ReactNode } from "react";
+import { PropsWithChildren } from "react";
 import { createPortal } from "react-dom";
-type PortalProps = {
-  children: ReactNode;
-};
-const Portal = ({ children }: PortalProps) => {
+
+const Portal = ({ children }: PropsWithChildren) => {
   return <>{createPortal(children, document.body)}</>;
 };
 

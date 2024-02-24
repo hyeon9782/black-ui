@@ -36,7 +36,6 @@ export const overlay = sprinkles({
 
 export const modal = style([
   sprinkles({
-    position: "absolute",
     backgroundColor: "white",
     borderRadius: "lg",
     padding: "5",

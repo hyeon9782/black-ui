@@ -33,6 +33,7 @@ const Button = forwardRef(
       loadingText,
       spinner,
       spinnerPlacement = "left",
+      children,
       ...props
     }: ButtonProps,
     ref: ForwardedRef<HTMLButtonElement>,
@@ -66,7 +67,7 @@ const Button = forwardRef(
           ) : (
             <>
               {leftIcon}
-              {props.children}
+              {children}
               {rightIcon}
             </>
           )}

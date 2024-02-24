@@ -87,7 +87,7 @@ const responsiveProperties = defineProperties({
     captionSide: ["bottom", "top"],
     zIndex: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
     userSelect: ["none"],
-    transform: ["rotate(45deg)"],
+    transform: ["rotate(45deg)", "translate(-50%, -50%)"],
     wordWrap: ["break-word"],
     zoom: [0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5],
   },

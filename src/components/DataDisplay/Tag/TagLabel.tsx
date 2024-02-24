@@ -1,8 +1,6 @@
-import { ReactNode } from "react";
-type TagLabelProps = {
-  children: ReactNode;
-};
-const TagLabel = ({ children }: TagLabelProps) => {
+import { PropsWithChildren } from "react";
+
+const TagLabel = ({ children }: PropsWithChildren) => {
   return <div>{children}</div>;
 };
 

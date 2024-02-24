@@ -1,8 +1,6 @@
-import { ReactNode } from "react";
+import { PropsWithChildren } from "react";
 import { CardVariants, card } from "./Card.css";
-type CardProps = CardVariants & {
-  children: ReactNode;
-};
+
 const Card = ({
   children,
   variant,
@@ -11,7 +9,7 @@ const Card = ({
   justify,
   direction,
   ...props
-}: CardProps) => {
+}: PropsWithChildren<CardVariants>) => {
   return (
     <article
       className={card({ variant, size, align, justify, direction })}

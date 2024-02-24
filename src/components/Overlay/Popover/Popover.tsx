@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext } from "react";
+import { PropsWithChildren, createContext, useContext } from "react";
 import { wrap } from "./Popover.css";
 import { usePopper } from "@/hooks";
 
@@ -15,10 +15,13 @@ type PopoverContextProps = {
 const PopoverContext = createContext<PopoverContextProps | null>(null);
 
 type PopoverProps = {
-  children: ReactNode;
   placement?: string;
 };
-const Popover = ({ children, placement, ...props }: PopoverProps) => {
+const Popover = ({
+  children,
+  placement,
+  ...props
+}: PropsWithChildren<PopoverProps>) => {
   const {
     isOpen: isVisible,
     onClose,

@@ -1,8 +1,6 @@
-import { ReactNode } from "react";
-type Props = {
-  children: ReactNode;
-};
-const ModalHeader = ({ children }: Props) => {
+import { PropsWithChildren } from "react";
+
+const ModalHeader = ({ children }: PropsWithChildren) => {
   return <div>{children}</div>;
 };
 
