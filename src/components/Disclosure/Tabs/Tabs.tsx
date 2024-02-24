@@ -1,4 +1,10 @@
-import { ReactNode, createContext, useContext, useState } from "react";
+import {
+  ReactNode,
+  createContext,
+  useCallback,
+  useContext,
+  useState,
+} from "react";
 import { TabListVariants, TabVariants, tabs } from "./Tabs.css";
 
 type TabsContextProps = TabVariants &
@@ -32,9 +38,9 @@ const Tabs = ({
 }: TabsProps) => {
   const [currentTab, setCurrentTab] = useState(defaultIdex || 0);
 
-  const changeTab = (tab: number) => {
+  const changeTab = useCallback((tab: number) => {
     setCurrentTab(tab);
-  };
+  }, []);
 
   const context = {
     currentTab,

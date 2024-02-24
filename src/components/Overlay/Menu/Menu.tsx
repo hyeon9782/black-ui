@@ -3,6 +3,7 @@ import {
   MutableRefObject,
   PropsWithChildren,
   createContext,
+  useCallback,
   useContext,
   useState,
 } from "react";
@@ -37,14 +38,14 @@ const Menu = ({
 
   const { ref } = useOutsideClick({ callback: onClose });
 
-  const toggleMenu = () => {
+  const toggleMenu = useCallback(() => {
     setIsVisible(!isVisible);
     setCurrentIndex(0);
-  };
+  }, []);
 
-  const changeIndex = (index: number) => {
+  const changeIndex = useCallback((index: number) => {
     setCurrentIndex(index);
-  };
+  }, []);
 
   const { refs: itemRefs, handleKeyDown } = useKeyboardEvent({
     keyList: MenuKeybaord,
