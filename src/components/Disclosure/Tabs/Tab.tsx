@@ -1,14 +1,22 @@
-import { ForwardedRef, ReactNode, Ref, forwardRef, useState } from "react";
+import {
+  ForwardedRef,
+  PropsWithChildren,
+  Ref,
+  forwardRef,
+  useState,
+} from "react";
 import { useTabsContext } from "./Tabs";
 import { tab } from "./Tabs.css";
 import { useTabListContext } from "./TabList";
 import useCollectRefs from "@/hooks/useCollectRefs";
 type Props = {
-  children: ReactNode;
   isDisabled?: boolean;
 };
 const Tab = forwardRef(
-  ({ children, isDisabled }: Props, ref: ForwardedRef<HTMLButtonElement>) => {
+  (
+    { children, isDisabled }: PropsWithChildren<Props>,
+    ref: ForwardedRef<HTMLButtonElement>,
+  ) => {
     const { changeTab, currentTab, size, onChange, isFitted, variant } =
       useTabsContext();
 

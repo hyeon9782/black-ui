@@ -1,12 +1,8 @@
-import { KeyboardEvent, ReactNode } from "react";
+import { KeyboardEvent, PropsWithChildren } from "react";
 import { useMenuContext } from "./Menu";
 import { button } from "./Menu.css";
 
-type MenuButtonProps = {
-  children: ReactNode;
-};
-
-const MenuButton = ({ children }: MenuButtonProps) => {
+const MenuButton = ({ children }: PropsWithChildren) => {
   const { toggleMenu, itemRefs, isVisible, variant } = useMenuContext();
 
   const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {

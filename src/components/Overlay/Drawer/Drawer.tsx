@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext } from "react";
+import { PropsWithChildren, createContext, useContext } from "react";
 import { DrawerVariants, drawer } from "./Drawer.css";
 import Portal from "../../Other/Portal/Portal";
 
@@ -9,7 +9,6 @@ type DrawerContextProps = DrawerVariants & {
 const DrawerContext = createContext<DrawerContextProps | null>(null);
 
 type DrawerProps = DrawerVariants & {
-  children: ReactNode;
   onClose: () => void;
 };
 
@@ -19,7 +18,7 @@ const Drawer = ({
   isOpen,
   onClose,
   ...props
-}: DrawerProps) => {
+}: PropsWithChildren<DrawerProps>) => {
   return (
     <Portal>
       <div className={drawer({ isOpen })} {...props}>

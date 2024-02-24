@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
+import { PropsWithChildren } from "react";
 
-const CardFooter = ({ children }: { children: ReactNode }) => {
+const CardFooter = ({ children }: PropsWithChildren) => {
   return <footer>{children}</footer>;
 };
 

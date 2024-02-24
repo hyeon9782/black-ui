@@ -1,8 +1,6 @@
-import { ReactNode } from "react";
-type Props = {
-  children: ReactNode;
-};
-const ModalFooter = ({ children }: Props) => {
+import { PropsWithChildren } from "react";
+
+const ModalFooter = ({ children }: PropsWithChildren) => {
   return <div>{children}</div>;
 };
 

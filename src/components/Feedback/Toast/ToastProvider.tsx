@@ -1,10 +1,12 @@
-import { ReactNode, createContext, useId, useMemo, useState } from "react";
+import {
+  PropsWithChildren,
+  createContext,
+  useId,
+  useMemo,
+  useState,
+} from "react";
 import ToastList from "./ToastList";
 import { Toast } from "./Toast";
-
-type Props = {
-  children: ReactNode;
-};
 
 type ToastDispatchContextProps = {
   open: (toast: Toast) => void;
@@ -20,7 +22,7 @@ export const ToastDispatchContext = createContext<ToastDispatchContextProps>({
 
 let num = 0;
 
-const ToastProvider = ({ children }: Props) => {
+const ToastProvider = ({ children }: PropsWithChildren) => {
   const [toasts, setToasts] = useState<Toast[]>([]);
   const memoizedToasts = useMemo(() => toasts, [toasts]);
   const id = useId();

@@ -1,5 +1,5 @@
 import {
-  ReactNode,
+  PropsWithChildren,
   createContext,
   useCallback,
   useContext,
@@ -18,7 +18,6 @@ const TabsContext = createContext<TabsContextProps | null>(null);
 
 export type TabsProps = TabListVariants &
   TabVariants & {
-    children?: ReactNode;
     defaultIdex?: number;
     onChange?: (index: number) => void;
     isFitted?: boolean;
@@ -35,7 +34,7 @@ const Tabs = ({
   variant,
   orientation,
   ...props
-}: TabsProps) => {
+}: PropsWithChildren<TabsProps>) => {
   const [currentTab, setCurrentTab] = useState(defaultIdex || 0);
 
   const changeTab = useCallback((tab: number) => {

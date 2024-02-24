@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
+import { PropsWithChildren } from "react";
 
-const CardBody = ({ children }: { children: ReactNode }) => {
+const CardBody = ({ children }: PropsWithChildren) => {
   return <section>{children}</section>;
 };
 

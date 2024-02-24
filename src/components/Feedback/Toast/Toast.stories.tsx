@@ -47,27 +47,36 @@ const Component = (args: any) => {
 
 export const Success: Story = {
   args: {
-    title: "Toast입니다!",
-    description: "Toast 설명입니다!",
+    title: "Scheduled: Catch up ",
+    description: "Friday, February 10, 2023 at 5:57 PM",
     status: "success",
   },
   render: Component,
 };
 
-export const Error: Story = {
+export const Warning: Story = {
   args: {
-    title: "Toast입니다!",
-    description: "Toast 설명입니다!",
-    status: "error",
+    title: "Scheduled: Catch up ",
+    description: "Friday, February 10, 2023 at 5:57 PM",
+    status: "warning",
   },
   render: Component,
 };
 
-export const Loading: Story = {
+export const Danger: Story = {
   args: {
-    title: "Toast입니다!",
-    description: "Toast 설명입니다!",
-    status: "loading",
+    title: "Scheduled: Catch up ",
+    description: "Friday, February 10, 2023 at 5:57 PM",
+    status: "danger",
+  },
+  render: Component,
+};
+
+export const Info: Story = {
+  args: {
+    title: "Scheduled: Catch up ",
+    description: "Friday, February 10, 2023 at 5:57 PM",
+    status: "info",
   },
   render: Component,
 };

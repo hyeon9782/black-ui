@@ -1,6 +1,6 @@
-import { ChildrenProps } from "@/types";
+import { PropsWithChildren } from "react";
 
-const Tfoot = ({ children }: ChildrenProps) => {
+const Tfoot = ({ children }: PropsWithChildren) => {
   return <tfoot>{children}</tfoot>;
 };
 

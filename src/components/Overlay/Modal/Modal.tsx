@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext } from "react";
+import { PropsWithChildren, createContext, useContext } from "react";
 import { wrap } from "./Modal.css";
 import Portal from "../../Other/Portal/Portal";
 
@@ -10,15 +10,20 @@ type ModalContext = {
 const ModalContext = createContext<ModalContext | null>(null);
 
 export type ModalProps = {
-  children?: ReactNode;
   onClose: () => void;
-  isOpen?: boolean;
+  isOpen: boolean;
 };
-const Modal = ({ children, onClose, isOpen, ...props }: ModalProps) => {
+const Modal = ({
+  children,
+  onClose,
+  isOpen,
+  ...props
+}: PropsWithChildren<ModalProps>) => {
   const value = {
     onClose,
     isOpen,
   };
+
   return (
     isOpen && (
       <Portal>

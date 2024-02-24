@@ -1,11 +1,7 @@
-import { ReactNode } from "react";
+import { PropsWithChildren } from "react";
 import { container } from "./Table.css";
 
-type Props = {
-  children: ReactNode;
-};
-
-const TableContainer = ({ children }: Props) => {
+const TableContainer = ({ children }: PropsWithChildren) => {
   return <div className={container}>{children}</div>;
 };
 
