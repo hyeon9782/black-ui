@@ -14,6 +14,7 @@ type Props = {
 type AccordionItemContextProps = {
   value: string;
   id: string;
+  isDisabled?: boolean;
 };
 
 export const AccordionItemContext =
@@ -27,7 +28,7 @@ const AccordionItem = forwardRef(
     const id = useId();
     return (
       <div className={item({ isDisabled })} ref={ref}>
-        <AccordionItemContext.Provider value={{ value, id }}>
+        <AccordionItemContext.Provider value={{ value, id, isDisabled }}>
           {children}
         </AccordionItemContext.Provider>
       </div>

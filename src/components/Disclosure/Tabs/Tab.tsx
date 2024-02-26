@@ -9,13 +9,14 @@ import { useTabsContext } from "./Tabs";
 import { tab } from "./Tabs.css";
 import { useTabListContext } from "./TabList";
 import useCollectRefs from "@/hooks/useCollectRefs";
+import useMergeRefs from "@/hooks/useMergeRefs";
 type Props = {
   isDisabled?: boolean;
 };
 const Tab = forwardRef(
   (
     { children, isDisabled }: PropsWithChildren<Props>,
-    ref: ForwardedRef<HTMLButtonElement>,
+    ref: ForwardedRef<HTMLElement>,
   ) => {
     const { changeTab, currentTab, size, onChange, isFitted, variant } =
       useTabsContext();
@@ -39,9 +40,11 @@ const Tab = forwardRef(
       setter: changeIndex,
     });
 
+    const mergedRef = useMergeRefs(tabRef, ref);
+
     return (
       <button
-        ref={tabRef as Ref<HTMLButtonElement>}
+        ref={mergedRef as Ref<HTMLButtonElement>}
         onClick={handleClick}
         role="tab"
         onKeyDown={handleKeyDown}

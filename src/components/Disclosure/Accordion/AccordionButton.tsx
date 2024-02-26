@@ -5,9 +5,10 @@ import { useAccordionContext } from "./Accordion";
 import { button } from "./Accordion.css";
 import { useAccordionItemContext } from "./AccordionItem";
 import useCollectRefs from "@/hooks/useCollectRefs";
+import useMergeRefs from "@/hooks/useMergeRefs";
 
 const AccordionButton = forwardRef(
-  ({ children }: PropsWithChildren, ref: ForwardedRef<HTMLButtonElement>) => {
+  ({ children }: PropsWithChildren, ref: ForwardedRef<HTMLElement>) => {
     const {
       allowMultiple,
       allowToggle,
@@ -22,7 +23,9 @@ const AccordionButton = forwardRef(
 
     const { ref: buttonRef } = useCollectRefs({ refs: accordionRefs });
 
-    const { value, id } = useAccordionItemContext();
+    const mergedRef = useMergeRefs(buttonRef, ref);
+
+    const { value, id, isDisabled } = useAccordionItemContext();
 
     const isInclude = values?.includes(value);
 
@@ -65,7 +68,7 @@ const AccordionButton = forwardRef(
 
     return (
       <button
-        ref={buttonRef as Ref<HTMLButtonElement>}
+        ref={mergedRef as Ref<HTMLButtonElement>}
         role="button"
         aria-expanded={isInclude}
         aria-controls={id}
@@ -73,7 +76,7 @@ const AccordionButton = forwardRef(
         onKeyDown={handleKeyDown}
         onClick={() => handleButtonClick(value)}
         className={button}
-        // disabled={isDisabled}
+        disabled={isDisabled}
       >
         {children}
         {values?.includes(value) ? <IoIosArrowUp /> : <IoIosArrowDown />}

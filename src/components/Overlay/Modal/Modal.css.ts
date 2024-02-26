@@ -1,16 +1,6 @@
+import { scaleUp } from "@/css/animation.css";
 import { sprinkles } from "@/css/sprinkles.css";
-import { keyframes, style } from "@vanilla-extract/css";
-
-const scaleUp = keyframes({
-  "0%": {
-    WebkitTransform: "scale(0.5)",
-    transform: "scale(0.5)",
-  },
-  "100%": {
-    WebkitTransform: "scale(1)",
-    transform: "scale(1)",
-  },
-});
+import { style } from "@vanilla-extract/css";
 
 export const wrap = sprinkles({
   display: "flex",

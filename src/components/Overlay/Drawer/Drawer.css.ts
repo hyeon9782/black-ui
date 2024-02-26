@@ -1,50 +1,11 @@
+import {
+  slideBottom,
+  slideLeft,
+  slideRight,
+  slideTop,
+} from "@/css/animation.css";
 import { sprinkles } from "@/css/sprinkles.css";
-import { keyframes } from "@vanilla-extract/css";
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
-
-const slideLeft = keyframes({
-  "0%": {
-    WebkitTransform: "translateX(-16rem)",
-    transform: "translateX(-16rem)",
-  },
-  "100%": {
-    WebkitTransform: "translateX(0)",
-    transform: "translateX(0)",
-  },
-});
-
-const slideRight = keyframes({
-  "0%": {
-    WebkitTransform: "translateX(16rem)",
-    transform: "translateX(16rem)",
-  },
-  "100%": {
-    WebkitTransform: "translateX(0)",
-    transform: "translateX(0)",
-  },
-});
-
-const slideTop = keyframes({
-  "0%": {
-    WebkitTransform: "translateY(-16rem)",
-    transform: "translateY(-16rem)",
-  },
-  "100%": {
-    WebkitTransform: "translateY(0)",
-    transform: "translateY(0)",
-  },
-});
-
-const slideBottom = keyframes({
-  "0%": {
-    WebkitTransform: "translateY(16rem)",
-    transform: "translateY(16rem)",
-  },
-  "100%": {
-    WebkitTransform: "translateY(0)",
-    transform: "translateY(0)",
-  },
-});
 
 export const drawer = recipe({
   variants: {

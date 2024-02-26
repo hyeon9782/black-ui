@@ -1,15 +1,10 @@
+import { spinnerRotation } from "@/css/animation.css";
 import { sprinkles } from "@/css/sprinkles.css";
-import { keyframes } from "@vanilla-extract/css";
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
-
-const rotate = keyframes({
-  "0%": { transform: "rotate(0deg)" },
-  "100%": { transform: "rotate(360deg)" },
-});
 
 export const spin = recipe({
   base: {
-    animationName: rotate,
+    animationName: spinnerRotation,
     animationDuration: "1s",
     animationIterationCount: "infinite",
   },
