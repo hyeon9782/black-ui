@@ -9,15 +9,13 @@ import {
 import { usePinInputContext } from "./PinInput";
 import { field } from "./PinInput.css";
 import useCollectRefs from "@/hooks/useCollectRefs";
+import useMergeRefs from "@/hooks/useMergeRefs";
 type PinInputProps = {
   isDisabled?: boolean;
 };
 
 const PinInputField = forwardRef(
-  (
-    { isDisabled, ...props }: PinInputProps,
-    ref: ForwardedRef<HTMLInputElement>,
-  ) => {
+  ({ isDisabled, ...props }: PinInputProps, ref: ForwardedRef<HTMLElement>) => {
     const { mask, size, otp, handleFocus, inputRefs, ...rest } =
       usePinInputContext();
 
@@ -28,6 +26,8 @@ const PinInputField = forwardRef(
     };
 
     const { ref: inputRef } = useCollectRefs({ refs: inputRefs, setter });
+
+    const mergedRef = useMergeRefs(inputRef, ref);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
       const value = e.target.value;
@@ -49,7 +49,7 @@ const PinInputField = forwardRef(
     return (
       <input
         aria-label="Please enter your pin code"
-        ref={inputRef as Ref<HTMLInputElement>}
+        ref={mergedRef as Ref<HTMLInputElement>}
         disabled={isDisabled}
         type={mask ? "password" : "text"}
         className={field({ size })}

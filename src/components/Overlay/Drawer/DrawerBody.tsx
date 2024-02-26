@@ -1,4 +1,4 @@
-import { PropsWithChildren, ReactNode } from "react";
+import { PropsWithChildren } from "react";
 
 const DrawerBody = ({ children }: PropsWithChildren) => {
   return <div>{children}</div>;

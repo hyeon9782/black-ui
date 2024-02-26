@@ -8,6 +8,7 @@ import {
 import { useMenuContext } from "./Menu";
 import { item } from "./Menu.css";
 import useCollectRefs from "@/hooks/useCollectRefs";
+import useMergeRefs from "@/hooks/useMergeRefs";
 type MenuItemProps = {
   onClick?: () => void;
 };
@@ -21,7 +22,7 @@ type MenuItemProps = {
 const MenuItem = forwardRef(
   (
     { children, onClick }: PropsWithChildren<MenuItemProps>,
-    ref: ForwardedRef<HTMLDivElement>,
+    ref: ForwardedRef<HTMLElement>,
   ) => {
     const { toggleMenu, currentIndex, changeIndex, handleKeyDown, itemRefs } =
       useMenuContext();
@@ -33,6 +34,8 @@ const MenuItem = forwardRef(
     };
 
     const { ref: itemRef } = useCollectRefs({ refs: itemRefs, setter });
+
+    const mergedRef = useMergeRefs(itemRef, ref);
 
     const handleClick = () => {
       if (onClick) {
@@ -47,7 +50,7 @@ const MenuItem = forwardRef(
 
     return (
       <div
-        ref={itemRef as Ref<HTMLDivElement>}
+        ref={mergedRef as Ref<HTMLDivElement>}
         tabIndex={0}
         onClick={handleClick}
         onKeyDown={(e) => handleKeyDown(e, handleClick)}
