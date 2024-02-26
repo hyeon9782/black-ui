@@ -1,16 +1,6 @@
 import { sprinkles } from "@/css/sprinkles.css";
-import { keyframes } from "@vanilla-extract/css";
+
 import { recipe } from "@vanilla-extract/recipes";
-
-const accordionDown = keyframes({
-  from: { height: 0 },
-  to: { height: "60px" },
-});
-
-const accordionUp = keyframes({
-  from: { height: "60px" },
-  to: { height: 0 },
-});
 
 export const accordion = sprinkles({
   width: "full",

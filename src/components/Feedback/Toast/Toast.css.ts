@@ -1,18 +1,8 @@
+import { progressBar, toastSlide } from "@/css/animation.css";
 import { sprinkles } from "@/css/sprinkles.css";
 import { vars } from "@/css/vars.css";
-import { createVar, keyframes, style } from "@vanilla-extract/css";
+import { createVar, style } from "@vanilla-extract/css";
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
-
-const slideTop = keyframes({
-  "0%": {
-    WebkitTransform: "translateY(20px)",
-    transform: "translateY(20px)",
-  },
-  "100%": {
-    WebkitTransform: "translateY(0)",
-    transform: "translateY(0)",
-  },
-});
 
 export const wrap = recipe({
   base: sprinkles({
@@ -63,7 +53,7 @@ export const toast = recipe({
     opacity: 50,
     borderRadius: vars.radii.md,
     padding: "10px",
-    animation: `${slideTop} 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
+    animation: `${toastSlide} 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`,
   },
   variants: {
     status: {
@@ -98,11 +88,6 @@ export const icon = sprinkles({
   display: "flex",
   alignItems: "center",
   fontSize: "10",
-});
-
-const progressBar = keyframes({
-  "0%": { width: "100%" },
-  "100%": { width: "0" },
 });
 
 export const time = createVar();
