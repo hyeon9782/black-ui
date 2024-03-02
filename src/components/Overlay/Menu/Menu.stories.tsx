@@ -36,30 +36,28 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const Component = (args: any) => {
+  return (
+    <Menu {...args}>
+      <MenuButton>Menu 나와라!</MenuButton>
+      <MenuList>
+        <MenuItem
+          onClick={() => {
+            alert("다운로드!");
+          }}
+        >
+          Download
+        </MenuItem>
+        <MenuItem>Create a Copy</MenuItem>
+        <MenuItem>Mark as Draft</MenuItem>
+        <MenuItem>Delete</MenuItem>
+        <MenuItem>Attend a Workshop</MenuItem>
+      </MenuList>
+    </Menu>
+  );
+};
+
 export const Left: Story = {
-  args: {
-    children: <></>,
-  },
-  render: function Render() {
-    return (
-      <>
-        <Menu>
-          <MenuButton>Menu 나와라!</MenuButton>
-          <MenuList>
-            <MenuItem
-              onClick={() => {
-                alert("다운로드!");
-              }}
-            >
-              Download
-            </MenuItem>
-            <MenuItem>Create a Copy</MenuItem>
-            <MenuItem>Mark as Draft</MenuItem>
-            <MenuItem>Delete</MenuItem>
-            <MenuItem>Attend a Workshop</MenuItem>
-          </MenuList>
-        </Menu>
-      </>
-    );
-  },
+  args: {},
+  render: Component,
 };
