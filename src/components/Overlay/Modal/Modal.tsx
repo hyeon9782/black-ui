@@ -10,8 +10,8 @@ type ModalContext = {
 const ModalContext = createContext<ModalContext | null>(null);
 
 export type ModalProps = {
-  onClose: () => void;
-  isOpen: boolean;
+  onClose?: () => void;
+  isOpen?: boolean;
 };
 const Modal = ({
   children,
@@ -24,16 +24,16 @@ const Modal = ({
     isOpen,
   };
 
-  return (
-    isOpen && (
-      <Portal>
+  return isOpen ? (
+    <Portal>
+      <ModalContext.Provider value={value}>
         <div className={wrap} {...props}>
-          <ModalContext.Provider value={value}>
-            {children}
-          </ModalContext.Provider>
+          {children}
         </div>
-      </Portal>
-    )
+      </ModalContext.Provider>
+    </Portal>
+  ) : (
+    <></>
   );
 };
 

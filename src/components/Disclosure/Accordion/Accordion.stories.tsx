@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 const Component = (args: AccordionProps) => {
   return (
     <Accordion {...args}>
-      <AccordionItem>
+      <AccordionItem value="item 1">
         <AccordionButton>1번 제목</AccordionButton>
         <AccordionPanel>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -25,7 +25,7 @@ const Component = (args: AccordionProps) => {
           aliquip ex ea commodo consequat.
         </AccordionPanel>
       </AccordionItem>
-      <AccordionItem>
+      <AccordionItem value="item 2">
         <AccordionButton>2번 제목</AccordionButton>
         <AccordionPanel>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

@@ -15,7 +15,7 @@ function App() {
       <ToastProvider>
         <>
           <ThemeSwitcher></ThemeSwitcher>
-          <Tabs>
+          <Tabs variant="enclosed" defaultIndex={0}>
             <TabList>
               <Tab>Form</Tab>
               <Tab>Overlay</Tab>

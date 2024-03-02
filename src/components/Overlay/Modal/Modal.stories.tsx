@@ -27,7 +27,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Left: Story = {
+export const Basic: Story = {
   args: {},
   render: function Render() {
     const { isOpen, onClose, onOpen } = useDisclosure();
