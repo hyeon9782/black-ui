@@ -18,7 +18,7 @@ const TabsContext = createContext<TabsContextProps | null>(null);
 
 export type TabsProps = TabListVariants &
   TabVariants & {
-    defaultIdex?: number;
+    defaultIndex?: number;
     onChange?: (index: number) => void;
     isFitted?: boolean;
     orientation?: "vertical" | "horizontal";
@@ -26,7 +26,7 @@ export type TabsProps = TabListVariants &
 
 const Tabs = ({
   children,
-  defaultIdex,
+  defaultIndex,
   align,
   size,
   onChange,
@@ -35,7 +35,7 @@ const Tabs = ({
   orientation,
   ...props
 }: PropsWithChildren<TabsProps>) => {
-  const [currentTab, setCurrentTab] = useState(defaultIdex || 0);
+  const [currentTab, setCurrentTab] = useState(defaultIndex || 0);
 
   const changeTab = useCallback((tab: number) => {
     setCurrentTab(tab);
