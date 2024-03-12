@@ -1,6 +1,5 @@
 import { backgroundPosition } from "@/css/animation.css";
 import { createVar, style } from "@vanilla-extract/css";
-import { recipe } from "@vanilla-extract/recipes";
 
 export const skeletonWidth = createVar();
 

@@ -8,11 +8,11 @@ describe("Accordion 컴포넌트 테스트", () => {
   const Component = (args: AccordionProps) => {
     return (
       <Accordion {...args}>
-        <AccordionItem>
+        <AccordionItem value="item-1">
           <AccordionButton>1번 제목</AccordionButton>
           <AccordionPanel>1번 내용</AccordionPanel>
         </AccordionItem>
-        <AccordionItem>
+        <AccordionItem value="item-2">
           <AccordionButton>2번 제목</AccordionButton>
           <AccordionPanel>2번 내용</AccordionPanel>
         </AccordionItem>
@@ -21,7 +21,7 @@ describe("Accordion 컴포넌트 테스트", () => {
   };
 
   test("defaultIndex가 적용된다.", () => {
-    render(<Component defaultIndex={0} />);
+    render(<Component defaultValue="item-1" />);
 
     const firstPanel = screen.getByText("1번 내용");
 
