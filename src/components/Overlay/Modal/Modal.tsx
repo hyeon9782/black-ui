@@ -3,7 +3,7 @@ import { wrap } from "./Modal.css";
 import Portal from "../../Other/Portal/Portal";
 
 type ModalContext = {
-  onClose: () => void;
+  onClose?: () => void;
   isOpen?: boolean;
 };
 

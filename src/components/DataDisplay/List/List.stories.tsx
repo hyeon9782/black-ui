@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import List, { ListProps } from "./List";
+import List from "./List";
 import ListItem from "./ListItem";
 import ListIcon from "./ListIcon";
 import { IoMdSettings } from "react-icons/io";
+import { ListVariants } from "./List.css";
 
 const meta = {
   title: "Component/DataDisplay/List",
@@ -14,7 +15,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const Component = (args: ListProps) => {
+const Component = (args: ListVariants) => {
   return (
     <List {...args}>
       <ListItem>
