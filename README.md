@@ -70,7 +70,7 @@ Vanilla Extract 기반 디자인 시스템으로 성능 저하 없이 멋진 디
 npm i @black-ui/react
 ```
 
-## Storybook - [Docs](https://65b7157bc6ef4fa60075271e-qyzsipcmpk.chromatic.com)
+## Storybook - [Docs](https://65b7157bc6ef4fa60075271e-jxnzzrpbem.chromatic.com)
 
 Storybook으로 배포한 Black UI 컴포넌트들을 직접 사용해볼 수 있어요!
 
