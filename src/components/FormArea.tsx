@@ -15,6 +15,7 @@ import { Switch } from "./Form/Switch";
 import { FormControl, FormErrorMessage, FormLabel } from "./Form/FormControl";
 import FormHelperText from "./Form/FormControl/FormHelperText";
 import useClipboard from "@/hooks/useClipboard";
+import CustomSlider from "./Form/CustomSlider/CustomSlider";
 const options = ["딸기", "사과", "포도"];
 
 const FormArea = () => {
@@ -31,8 +32,14 @@ const FormArea = () => {
     setRadioValue(value);
   };
 
+  const [sliderValue, setSliderValue] = useState(0);
+
   return (
     <div className={formBox}>
+      <CustomSlider
+        value={sliderValue}
+        onChange={(e) => setSliderValue(Number(e.target.value))}
+      />
       <fieldset className={container}>
         <legend>Select</legend>
         <Select
