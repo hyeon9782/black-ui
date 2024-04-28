@@ -3,7 +3,6 @@ import { Radio, RadioGroup } from "@/components/Form/Radio";
 import { container, formBox } from "@/app.css";
 import { useState } from "react";
 import { PinInput, PinInputField } from "./Form/PinInput";
-import { Slider } from "./Form/Slider";
 
 import { Button } from "./Form/Button";
 
@@ -36,10 +35,6 @@ const FormArea = () => {
 
   return (
     <div className={formBox}>
-      <CustomSlider
-        value={sliderValue}
-        onChange={(e) => setSliderValue(Number(e.target.value))}
-      />
       <fieldset className={container}>
         <legend>Select</legend>
         <Select
@@ -288,13 +283,10 @@ const FormArea = () => {
       </fieldset>
       <fieldset className={container}>
         <legend>Slider</legend>
-
-        <Slider color="red" defaultValue={0} />
-        <Slider color="gray" defaultValue={30} />
-        <Slider color="blue" defaultValue={10} />
-        <Slider color="green" defaultValue={20} />
-        <Slider color="orange" defaultValue={30} />
-        <Slider color="black" min={10} max={300} />
+        <CustomSlider
+          value={sliderValue}
+          onChange={(e) => setSliderValue(Number(e.target.value))}
+        />
       </fieldset>
     </div>
   );
