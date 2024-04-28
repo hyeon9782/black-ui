@@ -16,14 +16,14 @@ type SliderProps = SliderVariants &
   };
 const CustomSlider = forwardRef(
   (
-    { color, size, isDisabled, ...props }: SliderProps,
+    { color = "gray", size = "lg", isDisabled, ...props }: SliderProps,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
     return (
       <div className={sliderContainer}>
-        <div className={sliderRail}></div>
+        <div className={sliderRail({ size, color })}></div>
         <div
-          className={sliderFillTack}
+          className={sliderFillTack({ size, color })}
           style={assignInlineVars({
             [sliderFillWidth]: `${props.value}%`,
           })}
