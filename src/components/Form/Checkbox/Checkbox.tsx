@@ -26,6 +26,7 @@ const Checkbox = forwardRef(
         className={checkbox({
           color,
           size,
+          isDisabled,
         })}
       >
         <input
@@ -34,7 +35,7 @@ const Checkbox = forwardRef(
           disabled={isDisabled}
           checked={isChecked}
           readOnly={isReadOnly}
-          className={input()}
+          className={input({ isDisabled })}
           {...props}
         />
         <span>{children}</span>

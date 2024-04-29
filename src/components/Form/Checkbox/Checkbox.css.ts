@@ -7,10 +7,6 @@ export const checkbox = recipe({
     alignItems: "center",
     fontSize: "0",
     gap: "1",
-    cursor: {
-      base: "auto",
-      disabled: "not-allowed",
-    },
     opacity: {
       base: "1",
       disabled: "0.5",
@@ -18,6 +14,14 @@ export const checkbox = recipe({
     color: "textSecondary",
   }),
   variants: {
+    isDisabled: {
+      true: {
+        cursor: 'not-allowed'
+      },
+      false: {
+        cursor: 'pointer'
+      }
+    },
     size: {
       xs: sprinkles({
         zoom: 1,
@@ -43,6 +47,7 @@ export const checkbox = recipe({
   defaultVariants: {
     size: "md",
     color: "gray",
+    isDisabled: false
   },
 });
 
@@ -50,6 +55,16 @@ export const input = recipe({
   base: {
     margin: 0,
   },
+  variants: {
+    isDisabled: {
+      true: {
+        cursor: 'not-allowed'
+      },
+      false: {
+        cursor: 'pointer'
+      }
+    },
+  }
 });
 
 export type CheckboxVariants = RecipeVariants<typeof checkbox>;

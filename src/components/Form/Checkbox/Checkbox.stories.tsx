@@ -28,5 +28,5 @@ export const LargeOnClick: Story = {
 };
 
 export const Disabled: Story = {
-  args: { size: "lg", children: "Check Me", disabled: true },
+  args: { size: "lg", children: "Check Me", isDisabled: true },
 };
