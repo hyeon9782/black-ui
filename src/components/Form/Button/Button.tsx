@@ -49,6 +49,7 @@ const Button = forwardRef(
           size,
           variant,
           color,
+          disabled: isDisabled || isLoading,
         })}
       >
         <div className={content}>

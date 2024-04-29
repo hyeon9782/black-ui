@@ -20,10 +20,18 @@ export const button = recipe({
     },
     opacity: {
       base: "1",
-      disabled: "0.5",
+      disabled: "1",
     },
   }),
   variants: {
+    disabled: {
+      true: {
+        backgroundColor: 'lightgray',
+        ":hover": {
+          backgroundColor: 'lightgray'
+        }
+      }
+    },
     size: {
       xs: sprinkles({
         paddingX: "2",
@@ -75,7 +83,6 @@ export const button = recipe({
         backgroundColor: {
           base: "gray700",
           hover: "gray800",
-          disabled: "gray",
         },
       }),
     },
