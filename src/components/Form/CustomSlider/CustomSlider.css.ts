@@ -74,7 +74,7 @@ export const sliderContainer = style({
 export const sliderRail = recipe({
     base: {
         width: "100%",
-        borderRadius: "2px",
+        borderRadius: "5px",
         position: "absolute",
         top: "calc(50% - 2px)"
     },
@@ -123,7 +123,7 @@ export const sliderRail = recipe({
 export const sliderFillTack = recipe({
     base: {
         width: sliderFillWidth,
-        borderRadius: "2px",
+        borderRadius: "5px",
         position: "absolute",
         top: "calc(50% - 2px)",
     },
