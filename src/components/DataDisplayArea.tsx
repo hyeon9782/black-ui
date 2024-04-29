@@ -3,7 +3,6 @@ import { container, overlayContainer } from "@/app.css";
 import { Avatar } from "./DataDisplay/Avatar";
 import { Card, CardHeader, CardBody, CardFooter } from "./DataDisplay/Card";
 import { List, ListItem } from "./DataDisplay/List";
-import { Badge } from "./DataDisplay/Badge";
 import { Tag, TagIcon, TagLabel } from "./DataDisplay/Tag";
 import {
   Table,
@@ -75,18 +74,6 @@ const DataDisplayArea = () => {
             Lorem ipsum dolor sit amet, consectetur adipisicing elit
           </ListItem>
         </List>
-      </fieldset>
-      <fieldset className={container}>
-        <legend>Badge</legend>
-        <Badge variant="outline" color="gray">
-          gray Outline
-        </Badge>
-        <Badge variant="solid" color="gray">
-          gray Solid
-        </Badge>
-        <Badge variant="subtle" color="gray">
-          Blue Subtle
-        </Badge>
       </fieldset>
       <fieldset className={container}>
         <legend>Tag</legend>
