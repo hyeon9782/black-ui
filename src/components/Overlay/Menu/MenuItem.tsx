@@ -13,18 +13,12 @@ type MenuItemProps = {
   onClick?: () => void;
 };
 
-/*
-
-1. MenuItem으로 직접 ref를 전달할 경우 기존의 ref와 합성하는 hook 만들기
-
-*/
-
 const MenuItem = forwardRef(
   (
     { children, onClick }: PropsWithChildren<MenuItemProps>,
     ref: ForwardedRef<HTMLElement>,
   ) => {
-    const { toggleMenu, currentIndex, changeIndex, handleKeyDown, itemRefs } =
+    const { currentIndex, changeIndex, handleKeyDown, itemRefs, onClose } =
       useMenuContext();
 
     const [index, setIndex] = useState(-1);
@@ -41,7 +35,7 @@ const MenuItem = forwardRef(
       if (onClick) {
         onClick();
       }
-      toggleMenu();
+      onClose();
     };
 
     const handleMouse = () => {

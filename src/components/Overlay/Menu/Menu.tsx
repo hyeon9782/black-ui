@@ -53,6 +53,7 @@ const Menu = ({
   });
 
   const value = {
+    onClose,
     isVisible,
     toggleMenu,
     currentIndex,

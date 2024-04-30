@@ -13,7 +13,6 @@ Vanilla Extract 기반 디자인 시스템으로 성능 저하 없이 멋진 디
 - 💻 Components
   - DataDisplay
     - [Avatar](#avatar---source)
-    - [Badge](#badge---source)
     - [Card](#card---source)
     - [List](#list---source)
     - [Table](#table---source)
@@ -76,17 +75,16 @@ Storybook으로 배포한 Black UI 컴포넌트들을 직접 사용해볼 수 �
 
 ## Todo
 
+- 스타일 가이드 작성하기
 - 테스트 코드 보완하기
 - SSR 대응하기
 - 반응형 디자인 구현
-- 컴포넌트 단위로 패키지 분할
-- 웹 접근성 높이기
+- 웹 접근성 높이기 [WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)
 - Headless 컴포넌트 추가
 - Context API 최적화
 - 번들 사이즈 최적화
-  - Code Splitting
-  - Tree Shaking
-  - Minify
+- 컴포넌트 단위로 패키지 분할
+- Figma 연동
 - 공통 로직 분리하기
 - 컴포넌트 구현하기
   - Carousel
@@ -110,34 +108,6 @@ import { Avatar } from "@black-ui/react";
 ```js
 export const Example = () => {
   return <Avatar src="/images/profile.jpg" alt="Name" size="sm" />;
-};
-```
-
-#### Badge - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/DataDisplay/Badge)
-
-##### Import
-
-```js
-import { Badge } from "@black-ui/react";
-```
-
-##### Usage
-
-```js
-export const Example = () => {
-  return (
-    <>
-      <Badge variant="outline" color="green">
-        Green Outline
-      </Badge>
-      <Badge variant="solid" color="red">
-        Red Solid
-      </Badge>
-      <Badge variant="subtle" color="blue">
-        Blue Subtle
-      </Badge>
-    </>
-  );
 };
 ```
 
