@@ -15,6 +15,12 @@ import { FormControl, FormErrorMessage, FormLabel } from "./Form/FormControl";
 import FormHelperText from "./Form/FormControl/FormHelperText";
 import useClipboard from "@/hooks/useClipboard";
 import CustomSlider from "./Form/CustomSlider/CustomSlider";
+import CustomSelect from "./Form/CustomSelect/CustomSelect";
+import CustomSelectGroup from "./Form/CustomSelect/CustomSelectGroup";
+import CustomSelectLabel from "./Form/CustomSelect/CustomSelectLabel";
+import CustomSelectItem from "./Form/CustomSelect/CustomSelectItem";
+import CustomSelectTrigger from "./Form/CustomSelect/CustomSelectTrigger";
+import CustomSelectContent from "./Form/CustomSelect/CustomSelectContent";
 const options = ["딸기", "사과", "포도"];
 
 const FormArea = () => {
@@ -37,6 +43,19 @@ const FormArea = () => {
     <div className={formBox}>
       <fieldset className={container}>
         <legend>Select</legend>
+        <CustomSelect>
+          <CustomSelectTrigger>
+            <Button>Select</Button>
+          </CustomSelectTrigger>
+          <CustomSelectContent>
+            <CustomSelectGroup>
+              <CustomSelectLabel>Fruits</CustomSelectLabel>
+              <CustomSelectItem value="apple">Apple</CustomSelectItem>
+              <CustomSelectItem value="banana">Banana</CustomSelectItem>
+              <CustomSelectItem value="blueberry">Blueberry</CustomSelectItem>
+            </CustomSelectGroup>
+          </CustomSelectContent>
+        </CustomSelect>
         <Select
           options={options}
           label="과일을 선택해주세요!"
@@ -44,7 +63,7 @@ const FormArea = () => {
           variant="flushed"
           selectedItem={selectedItem}
           onSelect={onSelect}
-        />
+        ></Select>
         {/* <Select
           options={options}
           label="과일을 선택해주세요!"

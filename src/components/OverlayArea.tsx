@@ -32,6 +32,7 @@ import { Button, Radio, RadioGroup } from "./Form";
 import { useState } from "react";
 import TooltipTrigger from "./Overlay/Tooltip/TooltipTrigger";
 import TooltipContent from "./Overlay/Tooltip/TooltipContent";
+import { TooltipArrow } from "./Overlay/Tooltip/TooltipArrow";
 
 type placement = "right" | "left" | "top" | "bottom";
 const OverlayArea = () => {
@@ -155,6 +156,7 @@ const OverlayArea = () => {
             <Button>Tooltip 나와라!</Button>
           </TooltipTrigger>
           <TooltipContent>
+            <TooltipArrow />
             <p>Tooltip입니다.</p>
           </TooltipContent>
         </Tooltip>
