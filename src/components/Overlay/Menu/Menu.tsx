@@ -13,6 +13,7 @@ import useKeyboardEvent from "@/hooks/useKeyboardEvent";
 
 type MenuContextProps = MenuVariants & {
   toggleMenu: () => void;
+  onClose: () => void;
   isVisible: boolean;
   currentIndex: number;
   changeIndex: (index: number) => void;

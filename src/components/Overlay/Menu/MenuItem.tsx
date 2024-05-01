@@ -39,6 +39,9 @@ const MenuItem = forwardRef(
     };
 
     const handleMouse = () => {
+      console.log("mouse");
+      console.log(index);
+
       changeIndex(index);
     };
 

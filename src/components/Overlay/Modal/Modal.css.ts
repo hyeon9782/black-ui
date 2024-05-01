@@ -35,3 +35,17 @@ export const modal = style([
     animation: `${scaleUp} 0.2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both`,
   },
 ]);
+
+export const header = sprinkles({
+  padding: "2",
+  fontSize: "8",
+  fontWeight: 'bold'
+})
+
+export const body = sprinkles({
+  padding: "2"
+})
+
+export const footer = sprinkles({
+  padding: "2"
+})
