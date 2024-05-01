@@ -47,5 +47,7 @@ export const body = sprinkles({
 })
 
 export const footer = sprinkles({
-  padding: "2"
+  padding: "2",
+  display: 'flex',
+  justifyContent: "space-between"
 })

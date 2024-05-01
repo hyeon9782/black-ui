@@ -3,10 +3,6 @@ import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
 export const wrap = sprinkles({
   position: "relative",
-  display: "inline-block",
-  width: "fit",
-  height: "fit",
-  overflow: "visible",
 });
 
 export const tooltip = recipe({
@@ -15,6 +11,9 @@ export const tooltip = recipe({
     borderRadius: "md",
     paddingX: "2",
     paddingY: "1",
+    minWidth: "80",
+    width: 'fit',
+    textAlign: 'center'
   }),
   variants: {
     bg: {
@@ -54,7 +53,18 @@ export const tooltip = recipe({
   },
   defaultVariants: {
     bg: "black",
+    isOpen: false
   },
 });
+
+export const arrow = sprinkles({
+  width: "2",
+  height: "2",
+  position: "absolute",
+  transform: "rotate(45deg)",
+  left: "half",
+  top: "-1",
+  backgroundColor: "gray800",
+})
 
 export type TooltipVariants = RecipeVariants<typeof tooltip>;

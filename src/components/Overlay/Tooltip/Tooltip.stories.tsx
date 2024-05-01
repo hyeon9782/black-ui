@@ -3,6 +3,7 @@ import Tooltip from "./Tooltip";
 import { Button } from "@/components/Form";
 import TooltipTrigger from "./TooltipTrigger";
 import TooltipContent from "./TooltipContent";
+import { TooltipArrow } from "./TooltipArrow";
 
 const meta = {
   title: "Component/Overlay/Tooltip",
@@ -35,7 +36,8 @@ const Component = (args: any) => {
         <Button>Tooltip</Button>
       </TooltipTrigger>
       <TooltipContent>
-        <p>Tooltip 입니다.</p>
+        <TooltipArrow />
+        <p>Tooltip 입니다.@@@@@@@@@@@@@@</p>
       </TooltipContent>
     </Tooltip>
   );
@@ -43,7 +45,7 @@ const Component = (args: any) => {
 
 export const Bottom: Story = {
   args: {
-    bg: "black",
+    bg: "blue",
   },
   render: Component,
 };
