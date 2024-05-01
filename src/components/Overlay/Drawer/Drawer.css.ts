@@ -30,6 +30,9 @@ export const drawerContent = recipe({
   base: sprinkles({
     position: "fixed",
     backgroundColor: "white",
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between'
   }),
   variants: {
     placement: {
@@ -88,6 +91,27 @@ export const drawerOverlay = sprinkles({
   height: "full",
   backgroundColor: "black",
   opacity: "0.5",
+});
+
+export const drawerHeader = sprinkles({
+  padding: "5",
+  borderBottomWidth: '0.5',
+  borderStyle: "solid",
+  borderWidth: "0",
+  borderColor: "gray",
+  fontSize: "6"
+});
+
+export const drawerBody = sprinkles({
+  padding: "5"
+});
+
+export const drawerFooter = sprinkles({
+  padding: "5",
+  borderTopWidth: '0.5',
+  borderStyle: "solid",
+  borderWidth: "0",
+  borderColor: "gray"
 });
 
 export type DrawerVariants = RecipeVariants<typeof drawer>;
