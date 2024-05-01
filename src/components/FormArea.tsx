@@ -44,9 +44,7 @@ const FormArea = () => {
       <fieldset className={container}>
         <legend>Select</legend>
         <CustomSelect>
-          <CustomSelectTrigger>
-            <Button>Select</Button>
-          </CustomSelectTrigger>
+          <CustomSelectTrigger></CustomSelectTrigger>
           <CustomSelectContent>
             <CustomSelectGroup>
               <CustomSelectLabel>Fruits</CustomSelectLabel>
