@@ -57,7 +57,7 @@ const Component = (args: any) => {
   );
 };
 
-export const Left: Story = {
+export const Basic: Story = {
   args: {},
   render: Component,
 };
