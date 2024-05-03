@@ -4,7 +4,7 @@ import { radio } from "./Radio.css";
 
 type RadioGroupProps = {
   value?: string;
-  onChange?: (value: string) => void;
+  onChange?: (value: any) => void;
   direction?: "row" | "colunm";
   children?: ReactNode;
 };

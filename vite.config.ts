@@ -28,7 +28,13 @@ export default defineConfig({
     },
     rollupOptions: {
       treeshake: "recommended",
-      external: ["react", "react-dom"],
+      external: [
+        "react",
+        "react-dom",
+        "husky",
+        "**/*.stories.tsx",
+        "**/*.test.tsx",
+      ],
       output: {
         globals: {
           react: "React",

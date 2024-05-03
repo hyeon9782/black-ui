@@ -2,3 +2,12 @@ node_modules
 src
 .storybook
 tsconfig.json
+
+*.stories.tsx
+*.test.tsx
+
+*.stories.ts
+*.test.ts
+
+*.stories.d.ts
+*.test.d.ts
