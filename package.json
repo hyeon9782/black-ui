@@ -1,6 +1,6 @@
 {
   "name": "@black-ui/react",
-  "version": "0.0.19",
+  "version": "0.0.21",
   "type": "module",
   "author": {
     "name": "hyeon9782"
@@ -24,7 +24,6 @@
     "dev": "vite",
     "build": "tsc && vite build --base=./",
     "test": "jest",
-    "postinstall": "husky install",
     "format": "prettier --cache --write .",
     "lint": "eslint --cache .",
     "lint-staged": "lint-staged",
