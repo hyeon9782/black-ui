@@ -1,6 +1,6 @@
 {
   "name": "@black-ui/react",
-  "version": "0.0.21",
+  "version": "0.0.25",
   "type": "module",
   "author": {
     "name": "hyeon9782"
@@ -76,7 +76,7 @@
     "@typescript-eslint/parser": "^6.14.0",
     "@vanilla-extract/css-utils": "^0.1.3",
     "@vanilla-extract/jest-transform": "^1.1.1",
-    "@vanilla-extract/vite-plugin": "^3.9.3",
+    "@vanilla-extract/vite-plugin": "^3.9.5",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "chromatic": "^10.6.1",
     "deepmerge": "^4.3.1",

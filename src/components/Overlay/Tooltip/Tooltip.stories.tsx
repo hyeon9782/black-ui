@@ -3,7 +3,7 @@ import Tooltip from "./Tooltip";
 import { Button } from "@/components/Form";
 import TooltipTrigger from "./TooltipTrigger";
 import TooltipContent from "./TooltipContent";
-import { TooltipArrow } from "./TooltipArrow";
+import TooltipArrow from "./TooltipArrow";
 
 const meta = {
   title: "Component/Overlay/Tooltip",

@@ -33,8 +33,12 @@ export const radio = recipe({
     direction: {
       row: sprinkles({
         display: "flex",
+        flexDirection: "row",
       }),
-      colunm: {},
+      colunm: {
+        display: "flex",
+        flexDirection: "column",
+      },
     },
     color: {
       red: sprinkles({
