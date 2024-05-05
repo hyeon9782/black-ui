@@ -9,7 +9,12 @@ import {
 } from "@/components/Overlay/Drawer";
 import useDisclosure from "@/hooks/useDisclosure";
 
-import Tooltip from "./Overlay/Tooltip/Tooltip";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipArrow,
+} from "./Overlay/Tooltip";
 import {
   Popover,
   PopoverArrow,
@@ -30,9 +35,6 @@ import {
 } from "./Overlay/Modal";
 import { Button, Radio, RadioGroup } from "./Form";
 import { useState } from "react";
-import TooltipTrigger from "./Overlay/Tooltip/TooltipTrigger";
-import TooltipContent from "./Overlay/Tooltip/TooltipContent";
-import { TooltipArrow } from "./Overlay/Tooltip/TooltipArrow";
 
 type placement = "right" | "left" | "top" | "bottom";
 const OverlayArea = () => {
