@@ -7,3 +7,5 @@ export * from "./Radio";
 export * from "./Select";
 export * from "./Switch";
 export * from "./Textarea";
+export * from "./CustomSelect";
+export * from "./CustomSlider";

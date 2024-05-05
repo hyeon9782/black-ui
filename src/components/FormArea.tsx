@@ -21,6 +21,7 @@ import CustomSelectLabel from "./Form/CustomSelect/CustomSelectLabel";
 import CustomSelectItem from "./Form/CustomSelect/CustomSelectItem";
 import CustomSelectTrigger from "./Form/CustomSelect/CustomSelectTrigger";
 import CustomSelectContent from "./Form/CustomSelect/CustomSelectContent";
+import { Button as BuildButton } from "../../dist";
 const options = ["딸기", "사과", "포도"];
 
 const FormArea = () => {
@@ -43,6 +44,7 @@ const FormArea = () => {
     <div className={formBox}>
       <fieldset className={container}>
         <legend>Select</legend>
+        <BuildButton>빌드 버튼</BuildButton>
         <CustomSelect>
           <CustomSelectTrigger></CustomSelectTrigger>
           <CustomSelectContent>
