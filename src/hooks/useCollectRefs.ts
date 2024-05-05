@@ -1,12 +1,16 @@
-import { RefObject, useEffect, useRef } from "react";
+import { RefObject, useEffect, useRef, useState } from "react";
 type UseRefs = {
   refs: RefObject<HTMLElement[]>;
   setter?: (index: number) => void;
 };
+
 const useCollectRefs = ({ refs, setter }: UseRefs) => {
   const ref = useRef<HTMLElement>(null);
+  const [beRef, setBeRef] = useState<any>(false);
 
   useEffect(() => {
+    setBeRef(ref?.current && refs?.current);
+
     if (ref?.current && refs?.current) {
       refs.current.push(ref.current);
       setter?.(refs.current.indexOf(ref.current));
@@ -19,7 +23,7 @@ const useCollectRefs = ({ refs, setter }: UseRefs) => {
         }
       };
     }
-  }, [refs, ref]);
+  }, [beRef]);
 
   return { ref };
 };
