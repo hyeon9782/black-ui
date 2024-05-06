@@ -5,7 +5,7 @@ const TableContext = createContext<TableVariants>({});
 
 const Table = ({
   children,
-  variant,
+  variant = "simple",
   size = "lg",
   ...props
 }: PropsWithChildren<TableVariants>) => {

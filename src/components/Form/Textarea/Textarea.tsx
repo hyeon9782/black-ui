@@ -9,7 +9,7 @@ type TextareaProps = TextareaVariants &
 
 const Textarea = forwardRef(
   (
-    { size, isDisabled, isReadOnly, ...props }: TextareaProps,
+    { size = "md", isDisabled, isReadOnly, ...props }: TextareaProps,
     ref: ForwardedRef<HTMLTextAreaElement>,
   ) => {
     return (

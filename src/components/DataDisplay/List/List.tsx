@@ -3,8 +3,8 @@ import { ListVariants, list } from "./List.css";
 
 const List = ({
   children,
-  direction,
-  space,
+  direction = "column",
+  space = "md",
   ...props
 }: PropsWithChildren<ListVariants>) => {
   return (

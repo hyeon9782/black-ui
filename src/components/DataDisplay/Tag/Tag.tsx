@@ -3,8 +3,8 @@ import { TagVariants, tag } from "./Tag.css";
 
 const Tag = ({
   children,
-  color,
-  variant,
+  color = "gray",
+  variant = "outline",
   ...props
 }: PropsWithChildren<TagVariants>) => {
   return (
