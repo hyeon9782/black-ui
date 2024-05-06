@@ -45,7 +45,7 @@ const FormArea = () => {
         <legend>Select</legend>
         {/* <BuildButton>빌드 버튼</BuildButton> */}
         <CustomSelect size="md" variant="outline" label="과일을 선택해주세요.">
-          <CustomSelectTrigger></CustomSelectTrigger>
+          <CustomSelectTrigger />
           <CustomSelectContent>
             <CustomSelectGroup>
               <CustomSelectLabel>Fruits</CustomSelectLabel>

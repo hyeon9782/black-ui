@@ -17,7 +17,9 @@ type CustomSelectContextProps = SelectVariants & {
     label: string;
     value: string;
   };
+  isDisabled?: boolean;
   choiceItem: (item: { label: string; value: string }) => void;
+  changeItem: (item: { label: string; value: string }) => void;
 };
 
 const CustomSelectContext = createContext<CustomSelectContextProps | null>(
@@ -27,14 +29,16 @@ const CustomSelectContext = createContext<CustomSelectContextProps | null>(
 export type CustomSelectProps = SelectVariants & {
   defaultValue?: string;
   label?: string;
+  isDisabled?: boolean;
 };
 
 const CustomSelect = ({
   children,
   defaultValue = "",
-  size,
-  variant,
+  size = "md",
+  variant = "outline",
   label = "Select",
+  isDisabled,
   ...props
 }: PropsWithChildren<CustomSelectProps>) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -63,7 +67,6 @@ const CustomSelect = ({
   const { ref } = useOutsideClick({ callback: closeContent });
 
   const value = {
-    ...props,
     isOpen,
     selectedValue,
     choiceItem,
@@ -72,9 +75,12 @@ const CustomSelect = ({
     changeItem,
     size,
     variant,
+    label,
+    isDisabled,
+    ...props,
   };
   return (
-    <div ref={ref} className={selectRoot}>
+    <div ref={ref} className={selectRoot} {...props}>
       <CustomSelectContext.Provider value={value}>
         {children}
       </CustomSelectContext.Provider>

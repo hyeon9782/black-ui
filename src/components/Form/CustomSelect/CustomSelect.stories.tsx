@@ -35,7 +35,7 @@ type Story = StoryObj<typeof meta>;
 const Component = (args: CustomSelectProps) => {
   return (
     <CustomSelect {...args}>
-      <CustomSelectTrigger></CustomSelectTrigger>
+      <CustomSelectTrigger />
       <CustomSelectContent>
         <CustomSelectGroup>
           <CustomSelectLabel>Fruits</CustomSelectLabel>
@@ -53,6 +53,7 @@ export const Outline: Story = {
     size: "md",
     variant: "outline",
     label: "과일을 선택해주세요!",
+    isDisabled: true,
   },
   render: Component,
 };
