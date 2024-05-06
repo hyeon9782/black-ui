@@ -53,7 +53,6 @@ export const Outline: Story = {
     size: "md",
     variant: "outline",
     label: "과일을 선택해주세요!",
-    isDisabled: true,
   },
   render: Component,
 };

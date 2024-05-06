@@ -3,8 +3,8 @@ import { CardVariants, card } from "./Card.css";
 
 const Card = ({
   children,
-  variant,
-  size,
+  variant = "outline",
+  size = "md",
   align,
   justify,
   direction,

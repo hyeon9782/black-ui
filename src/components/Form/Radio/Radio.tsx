@@ -14,7 +14,7 @@ type RadioProps = RadioVariants &
 
 const Radio = forwardRef(
   (
-    { children, size, color, ...props }: RadioProps,
+    { children, size = "md", color, ...props }: RadioProps,
     ref: ForwardedRef<HTMLInputElement>,
   ) => {
     const id = useId();

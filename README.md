@@ -127,7 +127,7 @@ Storybook으로 배포한 Black UI 컴포넌트들을 직접 사용해볼 수 �
 - 컴포넌트 단위로 패키지 분할
 - Figma 연동
 - 공통 로직 분리하기
-- 컴포넌트 구현하기
+- 컴포넌트 추가 구현하기
   - Carousel
   - Calendar
   - Date Picker
@@ -1029,15 +1029,15 @@ export const Example = () => {
 
 ## Hooks
 
-#### useDisclosure - [Source](https://github.com/hyeon9782/black-ui/blob/main/src/hooks/useDisclosure.ts)
+### useDisclosure - [Source](https://github.com/hyeon9782/black-ui/blob/main/src/hooks/useDisclosure.ts)
 
-##### Import
+#### Import
 
 ```js
 import { useDisclosure } from "@black-ui/react";
 ```
 
-##### Usage
+#### Usage
 
 ```js
 export const Example = () => {
@@ -1068,7 +1068,7 @@ export const Example = () => {
 };
 ```
 
-#### useClipboard - [Source](https://github.com/hyeon9782/black-ui/blob/main/src/hooks/useClipboard.ts)
+### useClipboard - [Source](https://github.com/hyeon9782/black-ui/blob/main/src/hooks/useClipboard.ts)
 
 #### Import
 
@@ -1076,7 +1076,7 @@ export const Example = () => {
 import { useClipboard } from "@black-ui/react";
 ```
 
-##### Usage
+#### Usage
 
 ```js
 export const Example = () => {
@@ -1096,15 +1096,15 @@ export const Example = () => {
 };
 ```
 
-#### useOutsideClick - [Source](https://github.com/hyeon9782/black-ui/blob/main/src/hooks/useOutsideClick.ts)
+### useOutsideClick - [Source](https://github.com/hyeon9782/black-ui/blob/main/src/hooks/useOutsideClick.ts)
 
-##### Import
+#### Import
 
 ```js
 import { useOutsideClick } from "@black-ui/react";
 ```
 
-##### Usage
+#### Usage
 
 ```js
 function Example() {

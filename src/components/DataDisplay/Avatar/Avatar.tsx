@@ -7,7 +7,7 @@ type AvatarProps = AvartarVariants & {
   src?: string;
 };
 
-const Avatar = ({ name, src = "", size }: AvatarProps) => {
+const Avatar = ({ name = "", src = "", size = "md" }: AvatarProps) => {
   const [imgError, setImgError] = useState(false);
 
   const handleError = () => {
