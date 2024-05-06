@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import CustomSelect from "./CustomSelect";
+import CustomSelect, { CustomSelectProps } from "./CustomSelect";
 import CustomSelectContent from "./CustomSelectContent";
 import CustomSelectGroup from "./CustomSelectGroup";
 import CustomSelectItem from "./CustomSelectItem";
@@ -32,10 +32,10 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const Component = (args: any) => {
+const Component = (args: CustomSelectProps) => {
   return (
     <CustomSelect {...args}>
-      <CustomSelectTrigger></CustomSelectTrigger>
+      <CustomSelectTrigger />
       <CustomSelectContent>
         <CustomSelectGroup>
           <CustomSelectLabel>Fruits</CustomSelectLabel>
@@ -48,7 +48,39 @@ const Component = (args: any) => {
   );
 };
 
-export const Basic: Story = {
-  args: {},
+export const Outline: Story = {
+  args: {
+    size: "md",
+    variant: "outline",
+    label: "과일을 선택해주세요!",
+    isDisabled: true,
+  },
+  render: Component,
+};
+
+export const Filled: Story = {
+  args: {
+    size: "md",
+    variant: "filled",
+    label: "과일을 선택해주세요!",
+  },
+  render: Component,
+};
+
+export const Unstyled: Story = {
+  args: {
+    size: "md",
+    variant: "unstyled",
+    label: "과일을 선택해주세요!",
+  },
+  render: Component,
+};
+
+export const Flushed: Story = {
+  args: {
+    size: "md",
+    variant: "flushed",
+    label: "과일을 선택해주세요!",
+  },
   render: Component,
 };

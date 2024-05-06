@@ -9,7 +9,6 @@ import { Button } from "./Form/Button";
 import { Input } from "./Form/Input";
 import { Checkbox } from "./Form/Checkbox";
 import { Textarea } from "./Form/Textarea";
-import { Select } from "./Form/Select";
 import { Switch } from "./Form/Switch";
 import { FormControl, FormErrorMessage, FormLabel } from "./Form/FormControl";
 import FormHelperText from "./Form/FormControl/FormHelperText";
@@ -44,9 +43,9 @@ const FormArea = () => {
     <div className={formBox}>
       <fieldset className={container}>
         <legend>Select</legend>
-        <BuildButton>빌드 버튼</BuildButton>
-        <CustomSelect>
-          <CustomSelectTrigger></CustomSelectTrigger>
+        {/* <BuildButton>빌드 버튼</BuildButton> */}
+        <CustomSelect size="md" variant="outline" label="과일을 선택해주세요.">
+          <CustomSelectTrigger />
           <CustomSelectContent>
             <CustomSelectGroup>
               <CustomSelectLabel>Fruits</CustomSelectLabel>
@@ -56,14 +55,14 @@ const FormArea = () => {
             </CustomSelectGroup>
           </CustomSelectContent>
         </CustomSelect>
-        <Select
+        {/* <Select
           options={options}
           label="과일을 선택해주세요!"
           size="xs"
           variant="flushed"
           selectedItem={selectedItem}
           onSelect={onSelect}
-        ></Select>
+        ></Select> */}
         {/* <Select
           options={options}
           label="과일을 선택해주세요!"

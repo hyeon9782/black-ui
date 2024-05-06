@@ -6,7 +6,7 @@ Vanilla Extract 기반 디자인 시스템으로 성능 저하 없이 멋진 디
 
 ## Table of Contents
 
-- 📦 [Installation](#installation)
+- 📦 [Getting Started](#getting-started)
 - 🛠️ [Stack](#stack-배경이-궁금하다면)
 - 📒 [Storybook](#storybook---docs)
 - 🔮 [Todo](#todo)
@@ -33,7 +33,7 @@ Vanilla Extract 기반 디자인 시스템으로 성능 저하 없이 멋진 디
     - [Input](#input---source)
     - [PinInput](#pininput---source)
     - [Radio](#radio---source)
-    - [Select](#select---source)
+    - [CustomSelect](#customselect---source)
     - [Slider](#slider---source)
     - [Switch](#switch---source)
     - [Textarea](#textarea---source)
@@ -63,13 +63,54 @@ Vanilla Extract 기반 디자인 시스템으로 성능 저하 없이 멋진 디
 | Storybook       | React 컴포넌트를 테스트하고 문서화하는 도구 |
 | Jest            | JavaScript 테스트 프레임워크                |
 
-## Installation
+## Getting Started
+
+### Introduction
+
+black-ui는 react + typescript + vanilla-extract 조합으로 개발한 디자인
+시스템입니다.
+
+기존의 유명 디자인 시스템들은 emotion 같은 css-in-js 라이브러리로 개발된
+라이브러리들이 많았습니다.
+
+하지만 일반적인 css-in-js 라이브러리들은 js가 css로 변환되는 과정이 런타임
+단계에서 일어나기 때문에 성능적인 이슈가 발생할 수 있습니다.
+
+black-ui는 이러한 점을 보완하기 위해 vanilla-extract 라는 스타일링 라이브러리를
+선택했습니다.
+
+vanilla-extract도 css-in-js 라이브러리 이지만 css 변환 과정이 런타임이 아니라
+컴파일 타임 때 일어나기 때문에 성능적인 이점을 가질 수 있습니다.
+
+기존 디자인 시스템보다 빠르고 완벽한 타입 추론을 지원하는 black-ui를
+사용해보세요!
+
+### Installation
 
 ```
 npm i @black-ui/react
 ```
 
-## Storybook - [Docs](https://65b7157bc6ef4fa60075271e-jxnzzrpbem.chromatic.com)
+### Theming
+
+black-ui를 사용하기 위해서는 반드시 최상위 컴포넌트를 ThemePovider 컴포넌트로
+감싸야합니다.
+
+기본 테마는 light이지만 defaultMode props로 기본 테마를 변경할 수 있습니다.
+
+```jsx
+<ThemeProvider defaultMode="light">
+  <App />
+</ThemeProvider>
+```
+
+또한 ThemeSwitcher 컴포넌트를 통해 테마를 자유롭게 변경할 수 있습니다.
+
+```jsx
+<ThemeSwitcher></ThemeSwitcher>
+```
+
+## Storybook - [Docs](https://65b7157bc6ef4fa60075271e-cfssdgkvwe.chromatic.com/?path=/docs/component-datadisplay-avatar--docs)
 
 Storybook으로 배포한 Black UI 컴포넌트들을 직접 사용해볼 수 있어요!
 
@@ -644,34 +685,37 @@ export const Example = () => {
 };
 ```
 
-#### Select - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/Select)
+#### CustomSelect - [Source](https://github.com/hyeon9782/black-ui/tree/main/src/components/Form/CustomSelect)
 
 ##### Import
 
 ```js
-import { Select } from "@black-ui/react";
+import {
+  CustomSelect,
+  CustomSelectTrigger,
+  CustomSelectContent,
+  CustomSelectGroup,
+  CustomSelectLabel,
+  CustomSelectItem,
+} from "@black-ui/react";
 ```
 
 ##### Usage
 
 ```js
 export const Example = () => {
-
-  const [selectedItem, setSelectedItem] = useState("");
-
-  const onSelect = (value: string) => {
-    setSelectedItem(value);
-  };
-
   return (
-    <Select
-      options={options}
-      label="과일을 선택해주세요!"
-      size="xs"
-      variant="outline"
-      selectedItem={selectedItem}
-      onSelect={onSelect}
-    />
+    <CustomSelect size="md" variant="outline" label="과일을 선택해주세요.">
+      <CustomSelectTrigger></CustomSelectTrigger>
+      <CustomSelectContent>
+        <CustomSelectGroup>
+          <CustomSelectLabel>Fruits</CustomSelectLabel>
+          <CustomSelectItem value="apple">Apple</CustomSelectItem>
+          <CustomSelectItem value="banana">Banana</CustomSelectItem>
+          <CustomSelectItem value="blueberry">Blueberry</CustomSelectItem>
+        </CustomSelectGroup>
+      </CustomSelectContent>
+    </CustomSelect>
   );
 };
 ```
