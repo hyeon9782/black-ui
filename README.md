@@ -110,7 +110,7 @@ black-ui를 사용하기 위해서는 반드시 최상위 컴포넌트를 ThemeP
 <ThemeSwitcher></ThemeSwitcher>
 ```
 
-## Storybook - [Docs](https://65b7157bc6ef4fa60075271e-cfssdgkvwe.chromatic.com/?path=/docs/component-datadisplay-avatar--docs)
+## Storybook - [Docs](https://65b7157bc6ef4fa60075271e-pvxmmgjkal.chromatic.com/)
 
 Storybook으로 배포한 Black UI 컴포넌트들을 직접 사용해볼 수 있어요!
 
