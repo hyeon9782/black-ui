@@ -1,5 +1,6 @@
 import { forwardRef, ForwardedRef } from "react";
 import { useCustomSelectContext } from "./CustomSelect";
+import { selectItem } from "./CustomSelect.css";
 
 type CustomSelectItemProps = {
   value: string;
@@ -11,12 +12,14 @@ const CustomSelectItem = forwardRef(
     { children, value, ...props }: CustomSelectItemProps,
     ref: ForwardedRef<HTMLDivElement>,
   ) => {
-    const { selectItem } = useCustomSelectContext();
+    const { choiceItem, selectedValue, changeItem } = useCustomSelectContext();
     return (
       <div
         ref={ref}
         {...props}
-        onClick={() => selectItem({ value, label: children })}
+        onMouseOver={() => changeItem({ value, label: children })}
+        className={selectItem({ selected: selectedValue.label === children })}
+        onClick={() => choiceItem({ value, label: children })}
       >
         {children}
       </div>
