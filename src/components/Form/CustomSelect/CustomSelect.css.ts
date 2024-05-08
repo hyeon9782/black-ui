@@ -5,6 +5,7 @@ export const selectRoot = sprinkles({
   width: "full",
   boxSizing: "border-box",
   minWidth: "40",
+  position: "relative",
 });
 
 export const selectItem = recipe({
@@ -127,8 +128,11 @@ export const selectContent = recipe({
     borderStyle: "solid",
     width: "full",
     padding: "0.5",
-    marginTop: "1",
+    position: "absolute",
+    top: "11",
     boxSizing: "border-box",
+    backgroundColor: "white",
+    zIndex: 1,
   }),
   variants: {
     isOpen: {

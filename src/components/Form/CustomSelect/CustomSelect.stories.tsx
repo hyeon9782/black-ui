@@ -42,6 +42,10 @@ const Component = (args: CustomSelectProps) => {
           <CustomSelectItem value="apple">Apple</CustomSelectItem>
           <CustomSelectItem value="banana">Banana</CustomSelectItem>
           <CustomSelectItem value="blueberry">Blueberry</CustomSelectItem>
+          <CustomSelectLabel>Animal</CustomSelectLabel>
+          <CustomSelectItem value="lion">Lion</CustomSelectItem>
+          <CustomSelectItem value="tiger">Tiger</CustomSelectItem>
+          <CustomSelectItem value="cat">Cat</CustomSelectItem>
         </CustomSelectGroup>
       </CustomSelectContent>
     </CustomSelect>

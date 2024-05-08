@@ -20,18 +20,11 @@ import CustomSelectLabel from "./Form/CustomSelect/CustomSelectLabel";
 import CustomSelectItem from "./Form/CustomSelect/CustomSelectItem";
 import CustomSelectTrigger from "./Form/CustomSelect/CustomSelectTrigger";
 import CustomSelectContent from "./Form/CustomSelect/CustomSelectContent";
-import { Button as BuildButton } from "../../dist";
-const options = ["딸기", "사과", "포도"];
 
 const FormArea = () => {
   const [radioValue, setRadioValue] = useState("");
-  const [selectedItem, setSelectedItem] = useState("");
 
   const { onCopy, value, setValue, hasCopied } = useClipboard("");
-
-  const onSelect = (value: string) => {
-    setSelectedItem(value);
-  };
 
   const changeRadio = (value: string) => {
     setRadioValue(value);
