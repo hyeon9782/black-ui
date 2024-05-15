@@ -20,9 +20,11 @@ import CustomSelectLabel from "./Form/CustomSelect/CustomSelectLabel";
 import CustomSelectItem from "./Form/CustomSelect/CustomSelectItem";
 import CustomSelectTrigger from "./Form/CustomSelect/CustomSelectTrigger";
 import CustomSelectContent from "./Form/CustomSelect/CustomSelectContent";
+import { Pagination } from "./Pagination";
 
 const FormArea = () => {
   const [radioValue, setRadioValue] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
 
   const { onCopy, value, setValue, hasCopied } = useClipboard("");
 
@@ -32,8 +34,17 @@ const FormArea = () => {
 
   const [sliderValue, setSliderValue] = useState(0);
 
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
+
   return (
     <div className={formBox}>
+      <Pagination
+        totalPage={42}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+      />
       <fieldset className={container}>
         <legend>Select</legend>
         {/* <BuildButton>빌드 버튼</BuildButton> */}
