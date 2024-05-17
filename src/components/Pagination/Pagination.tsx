@@ -6,7 +6,7 @@ type Props = {
   onPageChange: (page: number) => void;
 };
 
-const Pagination = ({ totalPage, currentPage, onPageChange }: Props) => {
+const Pagination = ({ totalPage, currentPage = 1, onPageChange }: Props) => {
   let startPage: number, endPage: number;
 
   if (totalPage <= 5) {
