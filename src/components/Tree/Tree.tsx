@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 import { item } from "./Tree.css";
 
 export interface TreeNode {
@@ -14,16 +14,18 @@ interface TreeProps {
 const Tree = ({ node }: TreeProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleItem = () => {
+  const toggleItem = (e: MouseEvent<HTMLElement>) => {
+    e.stopPropagation();
     setIsOpen(!isOpen);
   };
+
   return (
     <ul>
       <li className={item({})} onClick={toggleItem}>
         {node.name}
-        {node.children && (
+        {isOpen && (
           <ul>
-            {node.children.map((child) => (
+            {node.children?.map((child) => (
               <Tree key={child.id} node={child} />
             ))}
           </ul>
