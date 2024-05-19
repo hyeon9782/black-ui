@@ -21,7 +21,7 @@ import CustomSelectItem from "./Form/CustomSelect/CustomSelectItem";
 import CustomSelectTrigger from "./Form/CustomSelect/CustomSelectTrigger";
 import CustomSelectContent from "./Form/CustomSelect/CustomSelectContent";
 import { Pagination } from "./Pagination";
-import { Tree } from "./Tree";
+import { Tree, TreeItem } from "./Tree";
 
 const treeData = {
   id: "1",
@@ -54,7 +54,11 @@ const FormArea = () => {
 
   return (
     <div className={formBox}>
-      <Tree node={treeData} />
+      <Tree>
+        <TreeItem node={treeData} />
+        <TreeItem node={treeData} />
+        <TreeItem node={treeData} />
+      </Tree>
       <Pagination
         totalPage={42}
         currentPage={currentPage}
