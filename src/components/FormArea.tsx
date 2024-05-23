@@ -22,6 +22,14 @@ import CustomSelectTrigger from "./Form/CustomSelect/CustomSelectTrigger";
 import CustomSelectContent from "./Form/CustomSelect/CustomSelectContent";
 import { Pagination } from "./Pagination";
 import { Tree, TreeItem } from "./Tree";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "./Carousel";
+import { Card } from "./DataDisplay";
 
 const treeData = {
   id: "1",
@@ -54,6 +62,21 @@ const FormArea = () => {
 
   return (
     <div className={formBox}>
+      <Carousel>
+        <CarouselContent>
+          <CarouselItem>
+            <Card>안녕 1</Card>
+          </CarouselItem>
+          <CarouselItem>
+            <Card>안녕 2</Card>
+          </CarouselItem>
+          <CarouselItem>
+            <Card>안녕 3</Card>
+          </CarouselItem>
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
       <Tree>
         <TreeItem node={treeData} />
         <TreeItem node={treeData} />
