@@ -47,6 +47,8 @@ Vanilla Extract 기반 디자인 시스템으로 성능 저하 없이 멋진 디
     - [CloseButton](#closebutton---source)
     - [Portal](#portal---source)
     - [Theme](#theme---source)
+    - [Pagination]
+
 - Hooks
   - [useClipboard](#useclipboard---source)
   - [useDisclosure](#usedisclosure---source)
