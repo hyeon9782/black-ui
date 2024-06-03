@@ -1,5 +1,7 @@
-import { PropsWithChildren } from "react";
+import { HtmlHTMLAttributes, PropsWithChildren } from "react";
 import { CardVariants, card } from "./Card.css";
+
+type CardProps = HtmlHTMLAttributes<HTMLDivElement> & CardVariants;
 
 const Card = ({
   children,
@@ -9,7 +11,7 @@ const Card = ({
   justify,
   direction,
   ...props
-}: PropsWithChildren<CardVariants>) => {
+}: PropsWithChildren<CardProps>) => {
   return (
     <article
       className={card({ variant, size, align, justify, direction })}
