@@ -2,7 +2,11 @@ import { sprinkles } from "@/css/sprinkles.css";
 import { RecipeVariants, recipe } from "@vanilla-extract/recipes";
 
 export const card = recipe({
-  base: sprinkles({ borderRadius: "md", display: "flex" }),
+  base: sprinkles({
+    borderRadius: "md",
+    display: "flex",
+    boxSizing: "border-box",
+  }),
   variants: {
     align: {
       center: sprinkles({

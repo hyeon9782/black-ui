@@ -7,6 +7,7 @@ export const input = recipe({
     outline: "none",
     width: "full",
     borderStyle: "none",
+    boxSizing: "border-box",
     cursor: {
       base: "pointer",
       disabled: "not-allowed",
