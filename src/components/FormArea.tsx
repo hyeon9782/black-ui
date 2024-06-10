@@ -30,6 +30,7 @@ import {
   CarouselPrevious,
 } from "./Carousel";
 import { Card } from "./DataDisplay";
+import Calendar from "./Calender/calender";
 
 const treeData = {
   id: "1",
@@ -62,6 +63,7 @@ const FormArea = () => {
 
   return (
     <div className={formBox}>
+      <Calendar />
       <Carousel>
         <CarouselContent>
           <CarouselItem>

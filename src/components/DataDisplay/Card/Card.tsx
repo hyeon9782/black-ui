@@ -1,7 +1,7 @@
-import { HtmlHTMLAttributes, PropsWithChildren } from "react";
+import { HTMLAttributes, PropsWithChildren } from "react";
 import { CardVariants, card } from "./Card.css";
 
-type CardProps = HtmlHTMLAttributes<HTMLDivElement> & CardVariants;
+type CardProps = HTMLAttributes<HTMLDivElement> & CardVariants;
 
 const Card = ({
   children,
