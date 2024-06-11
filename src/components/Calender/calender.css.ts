@@ -12,3 +12,7 @@ export const day = style({
   padding: "10px",
   textAlign: "center",
 });
+
+export const emptyDay = style({
+  padding: "10px",
+});
